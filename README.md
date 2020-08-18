@@ -2,7 +2,7 @@
 
 Manticore Search Client
 - API version: 1.0.0
-  - Build date: 2020-08-18T14:38:23.682Z[GMT]
+  - Build date: 2020-08-18T14:53:14.013Z[GMT]
 
 Please note that this client is experimental.
 For full documentation of the API methods consult https://manual.manticoresearch.com/.
