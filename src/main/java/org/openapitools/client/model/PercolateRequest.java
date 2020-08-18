@@ -31,7 +31,7 @@ import java.util.Map;
  * Object with documents to percolate
  */
 @ApiModel(description = "Object with documents to percolate")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-18T14:53:14.013Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-18T15:07:16.881Z[GMT]")
 public class PercolateRequest {
   public static final String SERIALIZED_NAME_QUERY = "query";
   @SerializedName(SERIALIZED_NAME_QUERY)
