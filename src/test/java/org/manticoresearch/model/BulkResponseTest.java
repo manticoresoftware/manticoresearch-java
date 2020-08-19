@@ -6,7 +6,7 @@
  */
 
 
-package org.manticoresearch.api;
+package org.manticoresearch.model;
 
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -17,7 +17,6 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import org.junit.Assert;
 import org.junit.Ignore;
@@ -25,41 +24,33 @@ import org.junit.Test;
 
 
 /**
- * Model tests for InsertDocumentRequest
+ * Model tests for BulkResponse
  */
-public class InsertDocumentRequestTest {
-    private final InsertDocumentRequest model = new InsertDocumentRequest();
+public class BulkResponseTest {
+    private final BulkResponse model = new BulkResponse();
 
     /**
-     * Model tests for InsertDocumentRequest
+     * Model tests for BulkResponse
      */
     @Test
-    public void testInsertDocumentRequest() {
-        // TODO: test InsertDocumentRequest
+    public void testBulkResponse() {
+        // TODO: test BulkResponse
     }
 
     /**
-     * Test the property 'index'
+     * Test the property 'items'
      */
     @Test
-    public void indexTest() {
-        // TODO: test index
+    public void itemsTest() {
+        // TODO: test items
     }
 
     /**
-     * Test the property 'id'
+     * Test the property 'error'
      */
     @Test
-    public void idTest() {
-        // TODO: test id
-    }
-
-    /**
-     * Test the property 'doc'
-     */
-    @Test
-    public void docTest() {
-        // TODO: test doc
+    public void errorTest() {
+        // TODO: test error
     }
 
 }

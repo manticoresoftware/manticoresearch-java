@@ -6,10 +6,10 @@
  */
 
 
-package org.manticoresearch.model;
+package org.manticoresearch.api;
 
 import org.manticoresearch.ApiException;
-import org.manticoresearch.api.ErrorResponse;
+import org.manticoresearch.model.ErrorResponse;
 import org.junit.Test;
 import org.junit.Ignore;
 

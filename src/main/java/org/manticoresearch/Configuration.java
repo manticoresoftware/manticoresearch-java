@@ -8,7 +8,7 @@
 
 package org.manticoresearch;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-19T15:03:34.206Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-19T15:27:33.619Z[GMT]")
 public class Configuration {
     private static ApiClient defaultApiClient = new ApiClient();
 

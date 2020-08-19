@@ -6,7 +6,7 @@
  */
 
 
-package org.manticoresearch.api;
+package org.manticoresearch.model;
 
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -16,26 +16,23 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
 
 /**
- * Model tests for UpdateDocumentRequest
+ * Model tests for UpdateResponse
  */
-public class UpdateDocumentRequestTest {
-    private final UpdateDocumentRequest model = new UpdateDocumentRequest();
+public class UpdateResponseTest {
+    private final UpdateResponse model = new UpdateResponse();
 
     /**
-     * Model tests for UpdateDocumentRequest
+     * Model tests for UpdateResponse
      */
     @Test
-    public void testUpdateDocumentRequest() {
-        // TODO: test UpdateDocumentRequest
+    public void testUpdateResponse() {
+        // TODO: test UpdateResponse
     }
 
     /**
@@ -47,11 +44,11 @@ public class UpdateDocumentRequestTest {
     }
 
     /**
-     * Test the property 'doc'
+     * Test the property 'updated'
      */
     @Test
-    public void docTest() {
-        // TODO: test doc
+    public void updatedTest() {
+        // TODO: test updated
     }
 
     /**
@@ -63,11 +60,11 @@ public class UpdateDocumentRequestTest {
     }
 
     /**
-     * Test the property 'query'
+     * Test the property 'result'
      */
     @Test
-    public void queryTest() {
-        // TODO: test query
+    public void resultTest() {
+        // TODO: test result
     }
 
 }

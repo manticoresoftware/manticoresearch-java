@@ -6,7 +6,7 @@
  */
 
 
-package org.manticoresearch.api;
+package org.manticoresearch.model;
 
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -22,17 +22,17 @@ import org.junit.Test;
 
 
 /**
- * Model tests for SuccessResponse
+ * Model tests for DeleteDocumentRequest
  */
-public class SuccessResponseTest {
-    private final SuccessResponse model = new SuccessResponse();
+public class DeleteDocumentRequestTest {
+    private final DeleteDocumentRequest model = new DeleteDocumentRequest();
 
     /**
-     * Model tests for SuccessResponse
+     * Model tests for DeleteDocumentRequest
      */
     @Test
-    public void testSuccessResponse() {
-        // TODO: test SuccessResponse
+    public void testDeleteDocumentRequest() {
+        // TODO: test DeleteDocumentRequest
     }
 
     /**
@@ -52,27 +52,11 @@ public class SuccessResponseTest {
     }
 
     /**
-     * Test the property 'created'
+     * Test the property 'query'
      */
     @Test
-    public void createdTest() {
-        // TODO: test created
-    }
-
-    /**
-     * Test the property 'result'
-     */
-    @Test
-    public void resultTest() {
-        // TODO: test result
-    }
-
-    /**
-     * Test the property 'found'
-     */
-    @Test
-    public void foundTest() {
-        // TODO: test found
+    public void queryTest() {
+        // TODO: test query
     }
 
 }

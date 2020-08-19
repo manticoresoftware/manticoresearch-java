@@ -6,7 +6,7 @@
  */
 
 
-package org.manticoresearch.api;
+package org.manticoresearch.model;
 
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -16,41 +16,34 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
 
 /**
- * Model tests for SearchResponseHits
+ * Model tests for PercolateRequest
  */
-public class SearchResponseHitsTest {
-    private final SearchResponseHits model = new SearchResponseHits();
+public class PercolateRequestTest {
+    private final PercolateRequest model = new PercolateRequest();
 
     /**
-     * Model tests for SearchResponseHits
+     * Model tests for PercolateRequest
      */
     @Test
-    public void testSearchResponseHits() {
-        // TODO: test SearchResponseHits
+    public void testPercolateRequest() {
+        // TODO: test PercolateRequest
     }
 
     /**
-     * Test the property 'total'
+     * Test the property 'query'
      */
     @Test
-    public void totalTest() {
-        // TODO: test total
-    }
-
-    /**
-     * Test the property 'hits'
-     */
-    @Test
-    public void hitsTest() {
-        // TODO: test hits
+    public void queryTest() {
+        // TODO: test query
     }
 
 }

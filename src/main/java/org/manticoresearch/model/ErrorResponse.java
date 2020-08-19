@@ -6,7 +6,7 @@
  */
 
 
-package org.manticoresearch.api;
+package org.manticoresearch.model;
 
 import java.util.Objects;
 import java.util.Arrays;
@@ -26,7 +26,7 @@ import java.util.Map;
  * Error response
  */
 @ApiModel(description = "Error response")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-19T15:03:34.206Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-19T15:27:33.619Z[GMT]")
 public class ErrorResponse {
   public static final String SERIALIZED_NAME_ERROR = "error";
   @SerializedName(SERIALIZED_NAME_ERROR)

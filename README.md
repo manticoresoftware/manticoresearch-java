@@ -2,7 +2,7 @@
 
 Manticore Search Client
 - API version: 1.0.0
-  - Build date: 2020-08-19T15:03:34.206Z[GMT]
+  - Build date: 2020-08-19T15:27:33.619Z[GMT]
 
 Please note that this client is experimental.
 For full documentation of the API methods consult https://manual.manticoresearch.com/.
@@ -80,7 +80,7 @@ import org.manticoresearch.ApiClient;
 import org.manticoresearch.ApiException;
 import org.manticoresearch.Configuration;
 import org.manticoresearch.models.*;
-import org.manticoresearch.model.IndexApi;
+import org.manticoresearch.api.IndexApi;
 
 public class Example {
   public static void main(String[] args) {

@@ -6,7 +6,7 @@
  */
 
 
-package org.manticoresearch.model;
+package org.manticoresearch.api;
 
 import org.manticoresearch.ApiCallback;
 import org.manticoresearch.ApiClient;
@@ -22,14 +22,14 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import org.manticoresearch.api.BulkResponse;
-import org.manticoresearch.api.DeleteDocumentRequest;
-import org.manticoresearch.api.DeleteResponse;
-import org.manticoresearch.api.ErrorResponse;
-import org.manticoresearch.api.InsertDocumentRequest;
-import org.manticoresearch.api.SuccessResponse;
-import org.manticoresearch.api.UpdateDocumentRequest;
-import org.manticoresearch.api.UpdateResponse;
+import org.manticoresearch.model.BulkResponse;
+import org.manticoresearch.model.DeleteDocumentRequest;
+import org.manticoresearch.model.DeleteResponse;
+import org.manticoresearch.model.ErrorResponse;
+import org.manticoresearch.model.InsertDocumentRequest;
+import org.manticoresearch.model.SuccessResponse;
+import org.manticoresearch.model.UpdateDocumentRequest;
+import org.manticoresearch.model.UpdateResponse;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;

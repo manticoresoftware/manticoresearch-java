@@ -6,7 +6,7 @@
  */
 
 
-package org.manticoresearch.api;
+package org.manticoresearch.model;
 
 import java.util.Objects;
 import java.util.Arrays;
@@ -18,16 +18,23 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
- * Payload for delete request. Documents can be deleted either one by one by specifying the document id or by providing a query object. For more information see  [Delete API](https://docs.manticoresearch.com/latest/html/http_reference/json_delete.html) 
+ * Payload for update document
  */
-@ApiModel(description = "Payload for delete request. Documents can be deleted either one by one by specifying the document id or by providing a query object. For more information see  [Delete API](https://docs.manticoresearch.com/latest/html/http_reference/json_delete.html) ")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-19T15:03:34.206Z[GMT]")
-public class DeleteDocumentRequest {
+@ApiModel(description = "Payload for update document")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-19T15:27:33.619Z[GMT]")
+public class UpdateDocumentRequest {
   public static final String SERIALIZED_NAME_INDEX = "index";
   @SerializedName(SERIALIZED_NAME_INDEX)
   private String index;
+
+  public static final String SERIALIZED_NAME_DOC = "doc";
+  @SerializedName(SERIALIZED_NAME_DOC)
+  private Map<String, Object> doc = new HashMap<String, Object>();
 
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -35,20 +42,20 @@ public class DeleteDocumentRequest {
 
   public static final String SERIALIZED_NAME_QUERY = "query";
   @SerializedName(SERIALIZED_NAME_QUERY)
-  private Object query;
+  private Map<String, Object> query = null;
 
 
-  public DeleteDocumentRequest index(String index) {
+  public UpdateDocumentRequest index(String index) {
     
     this.index = index;
     return this;
   }
 
    /**
-   * Index name
+   * Get index
    * @return index
   **/
-  @ApiModelProperty(required = true, value = "Index name")
+  @ApiModelProperty(required = true, value = "")
 
   public String getIndex() {
     return index;
@@ -60,7 +67,34 @@ public class DeleteDocumentRequest {
   }
 
 
-  public DeleteDocumentRequest id(Long id) {
+  public UpdateDocumentRequest doc(Map<String, Object> doc) {
+    
+    this.doc = doc;
+    return this;
+  }
+
+  public UpdateDocumentRequest putDocItem(String key, Object docItem) {
+    this.doc.put(key, docItem);
+    return this;
+  }
+
+   /**
+   * Index name
+   * @return doc
+  **/
+  @ApiModelProperty(example = "{\"gid\":10}", required = true, value = "Index name")
+
+  public Map<String, Object> getDoc() {
+    return doc;
+  }
+
+
+  public void setDoc(Map<String, Object> doc) {
+    this.doc = doc;
+  }
+
+
+  public UpdateDocumentRequest id(Long id) {
     
     this.id = id;
     return this;
@@ -83,9 +117,17 @@ public class DeleteDocumentRequest {
   }
 
 
-  public DeleteDocumentRequest query(Object query) {
+  public UpdateDocumentRequest query(Map<String, Object> query) {
     
     this.query = query;
+    return this;
+  }
+
+  public UpdateDocumentRequest putQueryItem(String key, Object queryItem) {
+    if (this.query == null) {
+      this.query = new HashMap<String, Object>();
+    }
+    this.query.put(key, queryItem);
     return this;
   }
 
@@ -94,14 +136,14 @@ public class DeleteDocumentRequest {
    * @return query
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Query tree object")
+  @ApiModelProperty(example = "{\"query\":{\"match\":{\"title\":\"match me\"}}}", value = "Query tree object")
 
-  public Object getQuery() {
+  public Map<String, Object> getQuery() {
     return query;
   }
 
 
-  public void setQuery(Object query) {
+  public void setQuery(Map<String, Object> query) {
     this.query = query;
   }
 
@@ -114,23 +156,25 @@ public class DeleteDocumentRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DeleteDocumentRequest deleteDocumentRequest = (DeleteDocumentRequest) o;
-    return Objects.equals(this.index, deleteDocumentRequest.index) &&
-        Objects.equals(this.id, deleteDocumentRequest.id) &&
-        Objects.equals(this.query, deleteDocumentRequest.query);
+    UpdateDocumentRequest updateDocumentRequest = (UpdateDocumentRequest) o;
+    return Objects.equals(this.index, updateDocumentRequest.index) &&
+        Objects.equals(this.doc, updateDocumentRequest.doc) &&
+        Objects.equals(this.id, updateDocumentRequest.id) &&
+        Objects.equals(this.query, updateDocumentRequest.query);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(index, id, query);
+    return Objects.hash(index, doc, id, query);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DeleteDocumentRequest {\n");
+    sb.append("class UpdateDocumentRequest {\n");
     sb.append("    index: ").append(toIndentedString(index)).append("\n");
+    sb.append("    doc: ").append(toIndentedString(doc)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
     sb.append("}");
