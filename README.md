@@ -2,7 +2,7 @@
 
 Manticore Search Client
 - API version: 1.0.0
-  - Build date: 2020-08-18T15:07:16.881Z[GMT]
+  - Build date: 2020-08-19T15:03:34.206Z[GMT]
 
 Please note that this client is experimental.
 For full documentation of the API methods consult https://manual.manticoresearch.com/.
@@ -76,11 +76,11 @@ Please follow the [installation](#installation) instruction and execute the foll
 ```java
 
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.IndexApi;
+import org.manticoresearch.ApiClient;
+import org.manticoresearch.ApiException;
+import org.manticoresearch.Configuration;
+import org.manticoresearch.models.*;
+import org.manticoresearch.model.IndexApi;
 
 public class Example {
   public static void main(String[] args) {
