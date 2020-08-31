@@ -5,8 +5,7 @@ info:
     name: Manticore Software Ltd.
     url: https://manticoresearch.com/contact-us/
   description: |
-    Please note that this client is experimental.
-    For full documentation of the API methods consult https://manual.manticoresearch.com/.
+    Experimental low-level client for Manticore Search.
   license:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html

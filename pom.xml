@@ -2,9 +2,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.openapitools</groupId>
-    <artifactId>openapi-java-client</artifactId>
+    <artifactId>manticoresearch</artifactId>
     <packaging>jar</packaging>
-    <name>openapi-java-client</name>
+    <name>manticoresearch</name>
     <version>1.0.0</version>
     <url>https://github.com/openapitools/openapi-generator</url>
     <description>OpenAPI Java</description>
@@ -24,10 +24,10 @@
 
     <developers>
         <developer>
-            <name>OpenAPI-Generator Contributors</name>
-            <email>team@openapitools.org</email>
-            <organization>OpenAPITools.org</organization>
-            <organizationUrl>http://openapitools.org</organizationUrl>
+            <name>Manticore Software</name>
+            <email>info@manticosearch.com</email>
+            <organization>manticoresearch.com</organization>
+            <organizationUrl>https://github.com/manticoresoftware/manticoresearch-java</organizationUrl>
         </developer>
     </developers>
 

@@ -1,11 +1,10 @@
-# openapi-java-client
+# manticoresearch
 
 Manticore Search Client
 - API version: 1.0.0
-  - Build date: 2020-08-19T15:27:33.619Z[GMT]
+  - Build date: 2020-08-31T09:15:48.272Z[GMT]
 
-Please note that this client is experimental.
-For full documentation of the API methods consult https://manual.manticoresearch.com/.
+Experimental low-level client for Manticore Search.
 
 
   For more information, please visit [https://manticoresearch.com/contact-us/](https://manticoresearch.com/contact-us/)
@@ -42,7 +41,7 @@ Add this dependency to your project's POM:
 ```xml
 <dependency>
   <groupId>org.openapitools</groupId>
-  <artifactId>openapi-java-client</artifactId>
+  <artifactId>manticoresearch</artifactId>
   <version>1.0.0</version>
   <scope>compile</scope>
 </dependency>
@@ -53,7 +52,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "org.openapitools:openapi-java-client:1.0.0"
+compile "org.openapitools:manticoresearch:1.0.0"
 ```
 
 ### Others
@@ -66,7 +65,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/openapi-java-client-1.0.0.jar`
+* `target/manticoresearch-1.0.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started

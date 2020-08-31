@@ -1,6 +1,6 @@
 /*
  * Manticore Search Client
- * Please note that this client is experimental. For full documentation of the API methods consult https://manual.manticoresearch.com/. 
+ * Experimental low-level client for Manticore Search. 
  *
  * Contact: https://manticoresearch.com/contact-us/
  */
@@ -25,7 +25,7 @@ import java.util.Map;
  * Success bulk response
  */
 @ApiModel(description = "Success bulk response")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-19T15:27:33.619Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-31T09:15:48.272Z[GMT]")
 public class BulkResponse extends HashMap<String, Object> {
   public static final String SERIALIZED_NAME_ITEMS = "items";
   @SerializedName(SERIALIZED_NAME_ITEMS)
