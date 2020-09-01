@@ -22,11 +22,11 @@ Sends multiple operatons like inserts, updates, replaces or deletes.  For each o
 ### Example
 ```java
 // Import classes:
-import org.manticoresearch.ApiClient;
-import org.manticoresearch.ApiException;
-import org.manticoresearch.Configuration;
-import org.manticoresearch.models.*;
-import org.manticoresearch.api.IndexApi;
+import org.manticoresearch.client.ApiClient;
+import org.manticoresearch.client.ApiException;
+import org.manticoresearch.client.Configuration;
+import org.manticoresearch.client.models.*;
+import org.manticoresearch.client.api.IndexApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -85,11 +85,11 @@ Delete one or several documents. The method has 2 ways of deleting: either by id
 ### Example
 ```java
 // Import classes:
-import org.manticoresearch.ApiClient;
-import org.manticoresearch.ApiException;
-import org.manticoresearch.Configuration;
-import org.manticoresearch.models.*;
-import org.manticoresearch.api.IndexApi;
+import org.manticoresearch.client.ApiClient;
+import org.manticoresearch.client.ApiException;
+import org.manticoresearch.client.Configuration;
+import org.manticoresearch.client.models.*;
+import org.manticoresearch.client.api.IndexApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -148,11 +148,11 @@ Insert a document.  Expects an object like:     &#x60;&#x60;&#x60;   {&#39;index
 ### Example
 ```java
 // Import classes:
-import org.manticoresearch.ApiClient;
-import org.manticoresearch.ApiException;
-import org.manticoresearch.Configuration;
-import org.manticoresearch.models.*;
-import org.manticoresearch.api.IndexApi;
+import org.manticoresearch.client.ApiClient;
+import org.manticoresearch.client.ApiException;
+import org.manticoresearch.client.Configuration;
+import org.manticoresearch.client.models.*;
+import org.manticoresearch.client.api.IndexApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -211,11 +211,11 @@ Replace an existing document. Input has same format as &#x60;insert&#x60; operat
 ### Example
 ```java
 // Import classes:
-import org.manticoresearch.ApiClient;
-import org.manticoresearch.ApiException;
-import org.manticoresearch.Configuration;
-import org.manticoresearch.models.*;
-import org.manticoresearch.api.IndexApi;
+import org.manticoresearch.client.ApiClient;
+import org.manticoresearch.client.ApiException;
+import org.manticoresearch.client.Configuration;
+import org.manticoresearch.client.models.*;
+import org.manticoresearch.client.api.IndexApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -274,11 +274,11 @@ Update one or several documents. The update can be made by passing the id or by 
 ### Example
 ```java
 // Import classes:
-import org.manticoresearch.ApiClient;
-import org.manticoresearch.ApiException;
-import org.manticoresearch.Configuration;
-import org.manticoresearch.models.*;
-import org.manticoresearch.api.IndexApi;
+import org.manticoresearch.client.ApiClient;
+import org.manticoresearch.client.ApiException;
+import org.manticoresearch.client.Configuration;
+import org.manticoresearch.client.models.*;
+import org.manticoresearch.client.api.IndexApi;
 
 public class Example {
   public static void main(String[] args) {

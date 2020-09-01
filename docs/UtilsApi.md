@@ -18,11 +18,11 @@ Run a query in SQL format. Expects is a query parameters string that can be in t
 ### Example
 ```java
 // Import classes:
-import org.manticoresearch.ApiClient;
-import org.manticoresearch.ApiException;
-import org.manticoresearch.Configuration;
-import org.manticoresearch.models.*;
-import org.manticoresearch.api.UtilsApi;
+import org.manticoresearch.client.ApiClient;
+import org.manticoresearch.client.ApiException;
+import org.manticoresearch.client.Configuration;
+import org.manticoresearch.client.models.*;
+import org.manticoresearch.client.api.UtilsApi;
 
 public class Example {
   public static void main(String[] args) {
