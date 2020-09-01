@@ -22,7 +22,7 @@ Add this dependency to your project's POM:
 
 ```xml
 <dependency>
-  <groupId>org.manticoresearch</groupId>
+  <groupId>com.manticoresearch</groupId>
   <artifactId>manticoresearch</artifactId>
   <version>1.0.0</version>
 </dependency>
@@ -33,7 +33,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "org.manticoresearch:manticoresearch:1.0.0"
+compile "com.manticoresearch:manticoresearch:1.0.0"
 ```
 
 ### Others
@@ -56,11 +56,11 @@ Please follow the [installation](#installation) instruction and execute the foll
 ```java
 
 // Import classes:
-import org.manticoresearch.client.ApiClient;
-import org.manticoresearch.client.ApiException;
-import org.manticoresearch.client.Configuration;
-import org.manticoresearch.client.models.*;
-import org.manticoresearch.client.api.IndexApi;
+import com.manticoresearch.client.ApiClient;
+import com.manticoresearch.client.ApiException;
+import com.manticoresearch.client.Configuration;
+import com.manticoresearch.client.models.*;
+import com.manticoresearch.client.api.IndexApi;
 
 public class Example {
   public static void main(String[] args) {

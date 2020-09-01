@@ -1,13 +1,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>org.manticoresearch</groupId>
+    <groupId>com.manticoresearch</groupId>
     <artifactId>manticoresearch</artifactId>
     <packaging>jar</packaging>
     <name>manticoresearch</name>
     <version>1.0.0</version>
     <url>https://github.com/manticoresoftware/manticoresearch-java</url>
-    <description>OpenAPI Java</description>
+    <description>Client for Manticore Search</description>
     <scm>
         <connection>scm:git:git@github.com:openapitools/openapi-generator.git</connection>
         <developerConnection>scm:git:git@github.com:openapitools/openapi-generator.git</developerConnection>
@@ -16,7 +16,7 @@
 
     <licenses>
         <license>
-            <name>Unlicense</name>
+            <name>Apache 2.0</name>
             <url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
             <distribution>repo</distribution>
         </license>

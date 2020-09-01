@@ -19,11 +19,11 @@ Performs a percolate search.  This method must be used only on percolate indexes
 ### Example
 ```java
 // Import classes:
-import org.manticoresearch.client.ApiClient;
-import org.manticoresearch.client.ApiException;
-import org.manticoresearch.client.Configuration;
-import org.manticoresearch.client.models.*;
-import org.manticoresearch.client.api.SearchApi;
+import com.manticoresearch.client.ApiClient;
+import com.manticoresearch.client.ApiException;
+import com.manticoresearch.client.Configuration;
+import com.manticoresearch.client.models.*;
+import com.manticoresearch.client.api.SearchApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -84,11 +84,11 @@ Performs a search
 ### Example
 ```java
 // Import classes:
-import org.manticoresearch.client.ApiClient;
-import org.manticoresearch.client.ApiException;
-import org.manticoresearch.client.Configuration;
-import org.manticoresearch.client.models.*;
-import org.manticoresearch.client.api.SearchApi;
+import com.manticoresearch.client.ApiClient;
+import com.manticoresearch.client.ApiException;
+import com.manticoresearch.client.Configuration;
+import com.manticoresearch.client.models.*;
+import com.manticoresearch.client.api.SearchApi;
 
 public class Example {
   public static void main(String[] args) {

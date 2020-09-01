@@ -1,6 +1,6 @@
 lazy val root = (project in file(".")).
   settings(
-    organization := "org.manticoresearch",
+    organization := "com.manticoresearch",
     name := "manticoresearch",
     version := "1.0.0",
     scalaVersion := "2.11.4",

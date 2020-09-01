@@ -1,3 +1,3 @@
-<manifest package="org.manticoresearch.client" xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest package="com.manticoresearch.client" xmlns:android="http://schemas.android.com/apk/res/android">
     <application />
 </manifest>
