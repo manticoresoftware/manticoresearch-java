@@ -411,6 +411,10 @@ components:
           items:
             type: object
           type: array
+        aggs:
+          items:
+            type: object
+          type: array
         script_fields:
           type: object
         highlight:
@@ -660,6 +664,10 @@ components:
         total:
           type: integer
         hits:
+          items:
+            type: object
+          type: array
+        aggregations:
           items:
             type: object
           type: array

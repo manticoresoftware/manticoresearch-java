@@ -24,7 +24,7 @@ import java.io.IOException;
  * Response object of a search request
  */
 @ApiModel(description = "Response object of a search request")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-01T13:35:44.518Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-10-06T15:41:40.118Z[GMT]")
 public class SearchResponse {
   public static final String SERIALIZED_NAME_TOOK = "took";
   @SerializedName(SERIALIZED_NAME_TOOK)

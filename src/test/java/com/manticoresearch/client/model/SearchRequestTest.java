@@ -88,6 +88,14 @@ public class SearchRequestTest {
     }
 
     /**
+     * Test the property 'aggs'
+     */
+    @Test
+    public void aggsTest() {
+        // TODO: test aggs
+    }
+
+    /**
      * Test the property 'scriptFields'
      */
     @Test

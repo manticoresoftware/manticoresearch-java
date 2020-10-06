@@ -24,7 +24,7 @@ import java.util.List;
 /**
  * SearchResponseHits
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-01T13:35:44.518Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-10-06T15:41:40.118Z[GMT]")
 public class SearchResponseHits {
   public static final String SERIALIZED_NAME_TOTAL = "total";
   @SerializedName(SERIALIZED_NAME_TOTAL)
@@ -33,6 +33,10 @@ public class SearchResponseHits {
   public static final String SERIALIZED_NAME_HITS = "hits";
   @SerializedName(SERIALIZED_NAME_HITS)
   private List<Object> hits = null;
+
+  public static final String SERIALIZED_NAME_AGGREGATIONS = "aggregations";
+  @SerializedName(SERIALIZED_NAME_AGGREGATIONS)
+  private List<Object> aggregations = null;
 
 
   public SearchResponseHits total(Integer total) {
@@ -89,6 +93,37 @@ public class SearchResponseHits {
   }
 
 
+  public SearchResponseHits aggregations(List<Object> aggregations) {
+    
+    this.aggregations = aggregations;
+    return this;
+  }
+
+  public SearchResponseHits addAggregationsItem(Object aggregationsItem) {
+    if (this.aggregations == null) {
+      this.aggregations = new ArrayList<Object>();
+    }
+    this.aggregations.add(aggregationsItem);
+    return this;
+  }
+
+   /**
+   * Get aggregations
+   * @return aggregations
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<Object> getAggregations() {
+    return aggregations;
+  }
+
+
+  public void setAggregations(List<Object> aggregations) {
+    this.aggregations = aggregations;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -99,12 +134,13 @@ public class SearchResponseHits {
     }
     SearchResponseHits searchResponseHits = (SearchResponseHits) o;
     return Objects.equals(this.total, searchResponseHits.total) &&
-        Objects.equals(this.hits, searchResponseHits.hits);
+        Objects.equals(this.hits, searchResponseHits.hits) &&
+        Objects.equals(this.aggregations, searchResponseHits.aggregations);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(total, hits);
+    return Objects.hash(total, hits, aggregations);
   }
 
 
@@ -114,6 +150,7 @@ public class SearchResponseHits {
     sb.append("class SearchResponseHits {\n");
     sb.append("    total: ").append(toIndentedString(total)).append("\n");
     sb.append("    hits: ").append(toIndentedString(hits)).append("\n");
+    sb.append("    aggregations: ").append(toIndentedString(aggregations)).append("\n");
     sb.append("}");
     return sb.toString();
   }

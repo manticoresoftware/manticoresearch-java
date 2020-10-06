@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **offset** | **Integer** |  |  [optional]
 **maxMatches** | **Integer** |  |  [optional]
 **sort** | **List&lt;Object&gt;** |  |  [optional]
+**aggs** | **List&lt;Object&gt;** |  |  [optional]
 **scriptFields** | **Object** |  |  [optional]
 **highlight** | **Object** |  |  [optional]
 **source** | **List&lt;String&gt;** |  |  [optional]

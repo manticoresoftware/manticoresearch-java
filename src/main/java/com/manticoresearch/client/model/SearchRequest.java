@@ -27,7 +27,7 @@ import java.util.Map;
  * Payload for search operation
  */
 @ApiModel(description = "Payload for search operation")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-09-01T13:35:44.518Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-10-06T15:41:40.118Z[GMT]")
 public class SearchRequest {
   public static final String SERIALIZED_NAME_INDEX = "index";
   @SerializedName(SERIALIZED_NAME_INDEX)
@@ -52,6 +52,10 @@ public class SearchRequest {
   public static final String SERIALIZED_NAME_SORT = "sort";
   @SerializedName(SERIALIZED_NAME_SORT)
   private List<Object> sort = null;
+
+  public static final String SERIALIZED_NAME_AGGS = "aggs";
+  @SerializedName(SERIALIZED_NAME_AGGS)
+  private List<Object> aggs = null;
 
   public static final String SERIALIZED_NAME_SCRIPT_FIELDS = "script_fields";
   @SerializedName(SERIALIZED_NAME_SCRIPT_FIELDS)
@@ -219,6 +223,37 @@ public class SearchRequest {
   }
 
 
+  public SearchRequest aggs(List<Object> aggs) {
+    
+    this.aggs = aggs;
+    return this;
+  }
+
+  public SearchRequest addAggsItem(Object aggsItem) {
+    if (this.aggs == null) {
+      this.aggs = new ArrayList<Object>();
+    }
+    this.aggs.add(aggsItem);
+    return this;
+  }
+
+   /**
+   * Get aggs
+   * @return aggs
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<Object> getAggs() {
+    return aggs;
+  }
+
+
+  public void setAggs(List<Object> aggs) {
+    this.aggs = aggs;
+  }
+
+
   public SearchRequest scriptFields(Object scriptFields) {
     
     this.scriptFields = scriptFields;
@@ -334,6 +369,7 @@ public class SearchRequest {
         Objects.equals(this.offset, searchRequest.offset) &&
         Objects.equals(this.maxMatches, searchRequest.maxMatches) &&
         Objects.equals(this.sort, searchRequest.sort) &&
+        Objects.equals(this.aggs, searchRequest.aggs) &&
         Objects.equals(this.scriptFields, searchRequest.scriptFields) &&
         Objects.equals(this.highlight, searchRequest.highlight) &&
         Objects.equals(this.source, searchRequest.source) &&
@@ -342,7 +378,7 @@ public class SearchRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(index, query, limit, offset, maxMatches, sort, scriptFields, highlight, source, profile);
+    return Objects.hash(index, query, limit, offset, maxMatches, sort, aggs, scriptFields, highlight, source, profile);
   }
 
 
@@ -356,6 +392,7 @@ public class SearchRequest {
     sb.append("    offset: ").append(toIndentedString(offset)).append("\n");
     sb.append("    maxMatches: ").append(toIndentedString(maxMatches)).append("\n");
     sb.append("    sort: ").append(toIndentedString(sort)).append("\n");
+    sb.append("    aggs: ").append(toIndentedString(aggs)).append("\n");
     sb.append("    scriptFields: ").append(toIndentedString(scriptFields)).append("\n");
     sb.append("    highlight: ").append(toIndentedString(highlight)).append("\n");
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
