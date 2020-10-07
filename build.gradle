@@ -3,7 +3,7 @@ apply plugin: 'eclipse'
 apply plugin: 'java'
 
 group = 'com.manticoresearch'
-version = '1.0.0'
+version = '1.0.2'
 
 buildscript {
     repositories {

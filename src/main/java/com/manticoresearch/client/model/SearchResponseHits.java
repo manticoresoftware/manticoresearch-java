@@ -24,7 +24,7 @@ import java.util.List;
 /**
  * SearchResponseHits
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-10-06T15:41:40.118Z[GMT]")
+
 public class SearchResponseHits {
   public static final String SERIALIZED_NAME_TOTAL = "total";
   @SerializedName(SERIALIZED_NAME_TOTAL)

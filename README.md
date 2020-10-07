@@ -24,7 +24,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.manticoresearch</groupId>
   <artifactId>manticoresearch</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.2</version>
 </dependency>
 ```
 
@@ -33,7 +33,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.manticoresearch:manticoresearch:1.0.0"
+compile "com.manticoresearch:manticoresearch:1.0.2"
 ```
 
 ### Others
@@ -46,7 +46,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-- `target/manticoresearch-1.0.0.jar`
+- `target/manticoresearch-1.0.2.jar`
 - `target/lib/*.jar`
 
 ## Getting Started

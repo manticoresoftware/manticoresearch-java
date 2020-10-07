@@ -27,7 +27,7 @@ import java.util.Map;
  * Payload for search operation
  */
 @ApiModel(description = "Payload for search operation")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-10-06T15:41:40.118Z[GMT]")
+
 public class SearchRequest {
   public static final String SERIALIZED_NAME_INDEX = "index";
   @SerializedName(SERIALIZED_NAME_INDEX)
