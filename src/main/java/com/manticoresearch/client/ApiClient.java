@@ -678,11 +678,7 @@ public class ApiClient {
           entity = Entity.entity(obj == null ? "null" : obj, contentType);
         }
       } else {
-        if (obj instanceof String) {
-          entity = Entity.entity(obj == null ? "" : "\"" + ((String)obj).replaceAll("\"", Matcher.quoteReplacement("\\\"")) + "\"", contentType);
-        } else {
-          entity = Entity.entity(obj == null ? "" : obj, contentType);
-        }
+        entity = Entity.entity(obj == null ? "" :  obj, contentType);
       }
     }
     return entity;
