@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **maxMatches** | **Integer** |  |  [optional]
 **sort** | **List&lt;Object&gt;** |  |  [optional]
 **aggs** | **List&lt;Object&gt;** |  |  [optional]
-**scriptFields** | **Object** |  |  [optional]
+**expressions** | **Object** |  |  [optional]
 **highlight** | **Object** |  |  [optional]
 **source** | **List&lt;String&gt;** |  |  [optional]
 **profile** | **Boolean** |  |  [optional]

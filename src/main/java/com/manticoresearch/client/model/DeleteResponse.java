@@ -10,40 +10,45 @@ package com.manticoresearch.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.manticoresearch.client.JSON;
+
 
 /**
  * Success response
  */
 @ApiModel(description = "Success response")
+@JsonPropertyOrder({
+  DeleteResponse.JSON_PROPERTY_INDEX,
+  DeleteResponse.JSON_PROPERTY_DELETED,
+  DeleteResponse.JSON_PROPERTY_ID,
+  DeleteResponse.JSON_PROPERTY_RESULT
+})
 
 public class DeleteResponse {
-  public static final String SERIALIZED_NAME_INDEX = "_index";
-  @SerializedName(SERIALIZED_NAME_INDEX)
+  public static final String JSON_PROPERTY_INDEX = "_index";
   private String index;
 
-  public static final String SERIALIZED_NAME_DELETED = "deleted";
-  @SerializedName(SERIALIZED_NAME_DELETED)
+  public static final String JSON_PROPERTY_DELETED = "deleted";
   private Integer deleted;
 
-  public static final String SERIALIZED_NAME_ID = "_id";
-  @SerializedName(SERIALIZED_NAME_ID)
+  public static final String JSON_PROPERTY_ID = "_id";
   private Long id;
 
-  public static final String SERIALIZED_NAME_RESULT = "result";
-  @SerializedName(SERIALIZED_NAME_RESULT)
+  public static final String JSON_PROPERTY_RESULT = "result";
   private String result;
 
 
   public DeleteResponse index(String index) {
-    
     this.index = index;
     return this;
   }
@@ -54,6 +59,8 @@ public class DeleteResponse {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_INDEX)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getIndex() {
     return index;
@@ -66,7 +73,6 @@ public class DeleteResponse {
 
 
   public DeleteResponse deleted(Integer deleted) {
-    
     this.deleted = deleted;
     return this;
   }
@@ -77,6 +83,8 @@ public class DeleteResponse {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_DELETED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getDeleted() {
     return deleted;
@@ -89,7 +97,6 @@ public class DeleteResponse {
 
 
   public DeleteResponse id(Long id) {
-    
     this.id = id;
     return this;
   }
@@ -100,6 +107,8 @@ public class DeleteResponse {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Long getId() {
     return id;
@@ -112,7 +121,6 @@ public class DeleteResponse {
 
 
   public DeleteResponse result(String result) {
-    
     this.result = result;
     return this;
   }
@@ -123,6 +131,8 @@ public class DeleteResponse {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_RESULT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getResult() {
     return result;
@@ -134,6 +144,9 @@ public class DeleteResponse {
   }
 
 
+  /**
+   * Return true if this deleteResponse object is equal to o.
+   */
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {

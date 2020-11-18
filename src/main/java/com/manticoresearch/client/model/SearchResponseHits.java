@@ -10,37 +10,70 @@ package com.manticoresearch.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.manticoresearch.client.JSON;
+
 
 /**
  * SearchResponseHits
  */
+@JsonPropertyOrder({
+  SearchResponseHits.JSON_PROPERTY_MAX_SCORE,
+  SearchResponseHits.JSON_PROPERTY_TOTAL,
+  SearchResponseHits.JSON_PROPERTY_HITS,
+  SearchResponseHits.JSON_PROPERTY_AGGREGATIONS
+})
 
 public class SearchResponseHits {
-  public static final String SERIALIZED_NAME_TOTAL = "total";
-  @SerializedName(SERIALIZED_NAME_TOTAL)
+  public static final String JSON_PROPERTY_MAX_SCORE = "max_score";
+  private Integer maxScore;
+
+  public static final String JSON_PROPERTY_TOTAL = "total";
   private Integer total;
 
-  public static final String SERIALIZED_NAME_HITS = "hits";
-  @SerializedName(SERIALIZED_NAME_HITS)
+  public static final String JSON_PROPERTY_HITS = "hits";
   private List<Object> hits = null;
 
-  public static final String SERIALIZED_NAME_AGGREGATIONS = "aggregations";
-  @SerializedName(SERIALIZED_NAME_AGGREGATIONS)
+  public static final String JSON_PROPERTY_AGGREGATIONS = "aggregations";
   private List<Object> aggregations = null;
 
 
+  public SearchResponseHits maxScore(Integer maxScore) {
+    this.maxScore = maxScore;
+    return this;
+  }
+
+   /**
+   * Get maxScore
+   * @return maxScore
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_MAX_SCORE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Integer getMaxScore() {
+    return maxScore;
+  }
+
+
+  public void setMaxScore(Integer maxScore) {
+    this.maxScore = maxScore;
+  }
+
+
   public SearchResponseHits total(Integer total) {
-    
     this.total = total;
     return this;
   }
@@ -51,6 +84,8 @@ public class SearchResponseHits {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_TOTAL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getTotal() {
     return total;
@@ -63,16 +98,7 @@ public class SearchResponseHits {
 
 
   public SearchResponseHits hits(List<Object> hits) {
-    
     this.hits = hits;
-    return this;
-  }
-
-  public SearchResponseHits addHitsItem(Object hitsItem) {
-    if (this.hits == null) {
-      this.hits = new ArrayList<Object>();
-    }
-    this.hits.add(hitsItem);
     return this;
   }
 
@@ -82,6 +108,8 @@ public class SearchResponseHits {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_HITS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<Object> getHits() {
     return hits;
@@ -94,16 +122,7 @@ public class SearchResponseHits {
 
 
   public SearchResponseHits aggregations(List<Object> aggregations) {
-    
     this.aggregations = aggregations;
-    return this;
-  }
-
-  public SearchResponseHits addAggregationsItem(Object aggregationsItem) {
-    if (this.aggregations == null) {
-      this.aggregations = new ArrayList<Object>();
-    }
-    this.aggregations.add(aggregationsItem);
     return this;
   }
 
@@ -113,6 +132,8 @@ public class SearchResponseHits {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_AGGREGATIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<Object> getAggregations() {
     return aggregations;
@@ -124,6 +145,9 @@ public class SearchResponseHits {
   }
 
 
+  /**
+   * Return true if this searchResponse_hits object is equal to o.
+   */
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -133,14 +157,15 @@ public class SearchResponseHits {
       return false;
     }
     SearchResponseHits searchResponseHits = (SearchResponseHits) o;
-    return Objects.equals(this.total, searchResponseHits.total) &&
+    return Objects.equals(this.maxScore, searchResponseHits.maxScore) &&
+        Objects.equals(this.total, searchResponseHits.total) &&
         Objects.equals(this.hits, searchResponseHits.hits) &&
         Objects.equals(this.aggregations, searchResponseHits.aggregations);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(total, hits, aggregations);
+    return Objects.hash(maxScore, total, hits, aggregations);
   }
 
 
@@ -148,6 +173,7 @@ public class SearchResponseHits {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SearchResponseHits {\n");
+    sb.append("    maxScore: ").append(toIndentedString(maxScore)).append("\n");
     sb.append("    total: ").append(toIndentedString(total)).append("\n");
     sb.append("    hits: ").append(toIndentedString(hits)).append("\n");
     sb.append("    aggregations: ").append(toIndentedString(aggregations)).append("\n");

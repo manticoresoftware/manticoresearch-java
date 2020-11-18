@@ -29,16 +29,14 @@ gradlew.bat
 pom.xml
 settings.gradle
 src/main/AndroidManifest.xml
-src/main/java/com/manticoresearch/client/ApiCallback.java
 src/main/java/com/manticoresearch/client/ApiClient.java
 src/main/java/com/manticoresearch/client/ApiException.java
 src/main/java/com/manticoresearch/client/ApiResponse.java
 src/main/java/com/manticoresearch/client/Configuration.java
-src/main/java/com/manticoresearch/client/GzipRequestInterceptor.java
+src/main/java/com/manticoresearch/client/CustomInstantDeserializer.java
 src/main/java/com/manticoresearch/client/JSON.java
 src/main/java/com/manticoresearch/client/Pair.java
-src/main/java/com/manticoresearch/client/ProgressRequestBody.java
-src/main/java/com/manticoresearch/client/ProgressResponseBody.java
+src/main/java/com/manticoresearch/client/RFC3339DateFormat.java
 src/main/java/com/manticoresearch/client/ServerConfiguration.java
 src/main/java/com/manticoresearch/client/ServerVariable.java
 src/main/java/com/manticoresearch/client/StringUtil.java
@@ -49,6 +47,7 @@ src/main/java/com/manticoresearch/client/auth/ApiKeyAuth.java
 src/main/java/com/manticoresearch/client/auth/Authentication.java
 src/main/java/com/manticoresearch/client/auth/HttpBasicAuth.java
 src/main/java/com/manticoresearch/client/auth/HttpBearerAuth.java
+src/main/java/com/manticoresearch/client/model/AbstractOpenApiSchema.java
 src/main/java/com/manticoresearch/client/model/BulkResponse.java
 src/main/java/com/manticoresearch/client/model/DeleteDocumentRequest.java
 src/main/java/com/manticoresearch/client/model/DeleteResponse.java

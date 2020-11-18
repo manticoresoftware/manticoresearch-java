@@ -10,39 +10,48 @@ package com.manticoresearch.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.manticoresearch.client.JSON;
+
 
 /**
  * Object with document data. 
  */
 @ApiModel(description = "Object with document data. ")
+@JsonPropertyOrder({
+  InsertDocumentRequest.JSON_PROPERTY_INDEX,
+  InsertDocumentRequest.JSON_PROPERTY_CLUSTER,
+  InsertDocumentRequest.JSON_PROPERTY_ID,
+  InsertDocumentRequest.JSON_PROPERTY_DOC
+})
 
 public class InsertDocumentRequest {
-  public static final String SERIALIZED_NAME_INDEX = "index";
-  @SerializedName(SERIALIZED_NAME_INDEX)
+  public static final String JSON_PROPERTY_INDEX = "index";
   private String index;
 
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
+  public static final String JSON_PROPERTY_CLUSTER = "cluster";
+  private String cluster;
+
+  public static final String JSON_PROPERTY_ID = "id";
   private Long id;
 
-  public static final String SERIALIZED_NAME_DOC = "doc";
-  @SerializedName(SERIALIZED_NAME_DOC)
+  public static final String JSON_PROPERTY_DOC = "doc";
   private Map<String, Object> doc = new HashMap<String, Object>();
 
 
   public InsertDocumentRequest index(String index) {
-    
     this.index = index;
     return this;
   }
@@ -52,6 +61,8 @@ public class InsertDocumentRequest {
    * @return index
   **/
   @ApiModelProperty(required = true, value = "Name of the index")
+  @JsonProperty(JSON_PROPERTY_INDEX)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getIndex() {
     return index;
@@ -63,8 +74,31 @@ public class InsertDocumentRequest {
   }
 
 
+  public InsertDocumentRequest cluster(String cluster) {
+    this.cluster = cluster;
+    return this;
+  }
+
+   /**
+   * cluster name
+   * @return cluster
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "cluster name")
+  @JsonProperty(JSON_PROPERTY_CLUSTER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getCluster() {
+    return cluster;
+  }
+
+
+  public void setCluster(String cluster) {
+    this.cluster = cluster;
+  }
+
+
   public InsertDocumentRequest id(Long id) {
-    
     this.id = id;
     return this;
   }
@@ -75,6 +109,8 @@ public class InsertDocumentRequest {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Document ID. ")
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Long getId() {
     return id;
@@ -87,13 +123,7 @@ public class InsertDocumentRequest {
 
 
   public InsertDocumentRequest doc(Map<String, Object> doc) {
-    
     this.doc = doc;
-    return this;
-  }
-
-  public InsertDocumentRequest putDocItem(String key, Object docItem) {
-    this.doc.put(key, docItem);
     return this;
   }
 
@@ -102,6 +132,8 @@ public class InsertDocumentRequest {
    * @return doc
   **/
   @ApiModelProperty(required = true, value = "Object with document data ")
+  @JsonProperty(JSON_PROPERTY_DOC)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Map<String, Object> getDoc() {
     return doc;
@@ -113,6 +145,9 @@ public class InsertDocumentRequest {
   }
 
 
+  /**
+   * Return true if this insertDocumentRequest object is equal to o.
+   */
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -123,13 +158,14 @@ public class InsertDocumentRequest {
     }
     InsertDocumentRequest insertDocumentRequest = (InsertDocumentRequest) o;
     return Objects.equals(this.index, insertDocumentRequest.index) &&
+        Objects.equals(this.cluster, insertDocumentRequest.cluster) &&
         Objects.equals(this.id, insertDocumentRequest.id) &&
         Objects.equals(this.doc, insertDocumentRequest.doc);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(index, id, doc);
+    return Objects.hash(index, cluster, id, doc);
   }
 
 
@@ -138,6 +174,7 @@ public class InsertDocumentRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class InsertDocumentRequest {\n");
     sb.append("    index: ").append(toIndentedString(index)).append("\n");
+    sb.append("    cluster: ").append(toIndentedString(cluster)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    doc: ").append(toIndentedString(doc)).append("\n");
     sb.append("}");

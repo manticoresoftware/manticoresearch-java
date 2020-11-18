@@ -8,7 +8,8 @@
 
 package com.manticoresearch.client.api;
 
-import com.manticoresearch.client.ApiException;
+import com.manticoresearch.client.*;
+import com.manticoresearch.client.auth.*;
 import com.manticoresearch.client.model.BulkResponse;
 import com.manticoresearch.client.model.DeleteDocumentRequest;
 import com.manticoresearch.client.model.DeleteResponse;
@@ -17,8 +18,10 @@ import com.manticoresearch.client.model.InsertDocumentRequest;
 import com.manticoresearch.client.model.SuccessResponse;
 import com.manticoresearch.client.model.UpdateDocumentRequest;
 import com.manticoresearch.client.model.UpdateResponse;
-import org.junit.Test;
+import org.junit.Assert;
 import org.junit.Ignore;
+import org.junit.Test;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -28,12 +31,10 @@ import java.util.Map;
 /**
  * API tests for IndexApi
  */
-@Ignore
 public class IndexApiTest {
 
     private final IndexApi api = new IndexApi();
 
-    
     /**
      * Bulk index operations
      *
@@ -44,12 +45,11 @@ public class IndexApiTest {
      */
     @Test
     public void bulkTest() throws ApiException {
-        String body = null;
-        BulkResponse response = api.bulk(body);
-
+        //String body = null;
+        //BulkResponse response = api.bulk(body);
         // TODO: test validations
     }
-    
+
     /**
      * Delete a document in an index
      *
@@ -60,12 +60,11 @@ public class IndexApiTest {
      */
     @Test
     public void deleteTest() throws ApiException {
-        DeleteDocumentRequest deleteDocumentRequest = null;
-        DeleteResponse response = api.delete(deleteDocumentRequest);
-
+        //DeleteDocumentRequest deleteDocumentRequest = null;
+        //DeleteResponse response = api.delete(deleteDocumentRequest);
         // TODO: test validations
     }
-    
+
     /**
      * Create a new document in an index
      *
@@ -76,12 +75,11 @@ public class IndexApiTest {
      */
     @Test
     public void insertTest() throws ApiException {
-        InsertDocumentRequest insertDocumentRequest = null;
-        SuccessResponse response = api.insert(insertDocumentRequest);
-
+        //InsertDocumentRequest insertDocumentRequest = null;
+        //SuccessResponse response = api.insert(insertDocumentRequest);
         // TODO: test validations
     }
-    
+
     /**
      * Replace new document in an index
      *
@@ -92,12 +90,11 @@ public class IndexApiTest {
      */
     @Test
     public void replaceTest() throws ApiException {
-        InsertDocumentRequest insertDocumentRequest = null;
-        SuccessResponse response = api.replace(insertDocumentRequest);
-
+        //InsertDocumentRequest insertDocumentRequest = null;
+        //SuccessResponse response = api.replace(insertDocumentRequest);
         // TODO: test validations
     }
-    
+
     /**
      * Update a document in an index
      *
@@ -108,10 +105,9 @@ public class IndexApiTest {
      */
     @Test
     public void updateTest() throws ApiException {
-        UpdateDocumentRequest updateDocumentRequest = null;
-        UpdateResponse response = api.update(updateDocumentRequest);
-
+        //UpdateDocumentRequest updateDocumentRequest = null;
+        //UpdateResponse response = api.update(updateDocumentRequest);
         // TODO: test validations
     }
-    
+
 }

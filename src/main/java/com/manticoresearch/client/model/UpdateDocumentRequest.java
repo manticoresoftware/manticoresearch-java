@@ -10,43 +10,48 @@ package com.manticoresearch.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.manticoresearch.client.JSON;
+
 
 /**
  * Payload for update document
  */
 @ApiModel(description = "Payload for update document")
+@JsonPropertyOrder({
+  UpdateDocumentRequest.JSON_PROPERTY_INDEX,
+  UpdateDocumentRequest.JSON_PROPERTY_DOC,
+  UpdateDocumentRequest.JSON_PROPERTY_ID,
+  UpdateDocumentRequest.JSON_PROPERTY_QUERY
+})
 
 public class UpdateDocumentRequest {
-  public static final String SERIALIZED_NAME_INDEX = "index";
-  @SerializedName(SERIALIZED_NAME_INDEX)
+  public static final String JSON_PROPERTY_INDEX = "index";
   private String index;
 
-  public static final String SERIALIZED_NAME_DOC = "doc";
-  @SerializedName(SERIALIZED_NAME_DOC)
+  public static final String JSON_PROPERTY_DOC = "doc";
   private Map<String, Object> doc = new HashMap<String, Object>();
 
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
+  public static final String JSON_PROPERTY_ID = "id";
   private Long id;
 
-  public static final String SERIALIZED_NAME_QUERY = "query";
-  @SerializedName(SERIALIZED_NAME_QUERY)
+  public static final String JSON_PROPERTY_QUERY = "query";
   private Map<String, Object> query = null;
 
 
   public UpdateDocumentRequest index(String index) {
-    
     this.index = index;
     return this;
   }
@@ -56,6 +61,8 @@ public class UpdateDocumentRequest {
    * @return index
   **/
   @ApiModelProperty(required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_INDEX)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getIndex() {
     return index;
@@ -68,13 +75,7 @@ public class UpdateDocumentRequest {
 
 
   public UpdateDocumentRequest doc(Map<String, Object> doc) {
-    
     this.doc = doc;
-    return this;
-  }
-
-  public UpdateDocumentRequest putDocItem(String key, Object docItem) {
-    this.doc.put(key, docItem);
     return this;
   }
 
@@ -83,6 +84,8 @@ public class UpdateDocumentRequest {
    * @return doc
   **/
   @ApiModelProperty(example = "{\"gid\":10}", required = true, value = "Index name")
+  @JsonProperty(JSON_PROPERTY_DOC)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Map<String, Object> getDoc() {
     return doc;
@@ -95,7 +98,6 @@ public class UpdateDocumentRequest {
 
 
   public UpdateDocumentRequest id(Long id) {
-    
     this.id = id;
     return this;
   }
@@ -106,6 +108,8 @@ public class UpdateDocumentRequest {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Document ID")
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Long getId() {
     return id;
@@ -118,16 +122,7 @@ public class UpdateDocumentRequest {
 
 
   public UpdateDocumentRequest query(Map<String, Object> query) {
-    
     this.query = query;
-    return this;
-  }
-
-  public UpdateDocumentRequest putQueryItem(String key, Object queryItem) {
-    if (this.query == null) {
-      this.query = new HashMap<String, Object>();
-    }
-    this.query.put(key, queryItem);
     return this;
   }
 
@@ -137,6 +132,8 @@ public class UpdateDocumentRequest {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "{\"query\":{\"match\":{\"title\":\"match me\"}}}", value = "Query tree object")
+  @JsonProperty(JSON_PROPERTY_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Map<String, Object> getQuery() {
     return query;
@@ -148,6 +145,9 @@ public class UpdateDocumentRequest {
   }
 
 
+  /**
+   * Return true if this updateDocumentRequest object is equal to o.
+   */
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {

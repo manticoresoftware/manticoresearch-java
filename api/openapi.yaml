@@ -293,7 +293,7 @@ paths:
   /json/pq/{index}/search:
     post:
       description: "Performs a percolate search. \nThis method must be used only on\
-        \ percolate indexes.\n\nExpects two paramenters: the index name and an object\
+        \ percolate indexes.\n\nExpects two parameters: the index name and an object\
         \ with array of documents to be tested.\nAn example of the documents object:\n\
         \n  ```\n  {\"query\":{\"percolate\":{\"document\":{\"content\":\"sample content\"\
         }}}}\n  ```\n\nResponds with an object with matched stored queries: \n\n \
@@ -344,7 +344,7 @@ paths:
     post:
       description: |
         Run a query in SQL format.
-        Expects is a query parameters string that can be in two modes:
+        Expects a query parameters string that can be in two modes:
         * Select only query as `query=SELECT * FROM myindex`. The query string MUST be URL encoded
         * any type of query in format `mode=raw&query=SHOW TABLES`. The string must be as is (no URL encoding) and `mode` must be first.
         The response object depends on the query executed. In select mode the response has same format as `/search` operation.
@@ -415,7 +415,7 @@ components:
           items:
             type: object
           type: array
-        script_fields:
+        expressions:
           type: object
         highlight:
           type: object
@@ -475,6 +475,9 @@ components:
         index:
           description: Index name
           type: string
+        cluster:
+          description: cluster name
+          type: string
         id:
           description: Document ID
           format: int64
@@ -496,6 +499,9 @@ components:
       properties:
         index:
           description: Name of the index
+          type: string
+        cluster:
+          description: cluster name
           type: string
         id:
           description: |
@@ -661,6 +667,8 @@ components:
           _source:
             gid: 20
       properties:
+        max_score:
+          type: integer
         total:
           type: integer
         hits:

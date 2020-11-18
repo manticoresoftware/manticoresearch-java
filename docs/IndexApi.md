@@ -11,45 +11,70 @@ Method | HTTP request | Description
 [**update**](IndexApi.md#update) | **POST** /json/update | Update a document in an index
 
 
-<a name="bulk"></a>
-# **bulk**
+
+## bulk
+
 > BulkResponse bulk(body)
 
 Bulk index operations
 
-Sends multiple operatons like inserts, updates, replaces or deletes.  For each operation it&#39;s object must have same format as in their dedicated method.  The method expects a raw string as the batch in NDJSON.  Each operation object needs to be serialized to   JSON and separated by endline (\\n).      An example of raw input:      &#x60;&#x60;&#x60;   {\&quot;insert\&quot;: {\&quot;index\&quot;: \&quot;movies\&quot;, \&quot;doc\&quot;: {\&quot;plot\&quot;: \&quot;A secret team goes to North Pole\&quot;, \&quot;rating\&quot;: 9.5, \&quot;language\&quot;: [2, 3], \&quot;title\&quot;: \&quot;This is an older movie\&quot;, \&quot;lon\&quot;: 51.99, \&quot;meta\&quot;: {\&quot;keywords\&quot;:[\&quot;travel\&quot;,\&quot;ice\&quot;],\&quot;genre\&quot;:[\&quot;adventure\&quot;]}, \&quot;year\&quot;: 1950, \&quot;lat\&quot;: 60.4, \&quot;advise\&quot;: \&quot;PG-13\&quot;}}}   \\n   {\&quot;delete\&quot;: {\&quot;index\&quot;: \&quot;movies\&quot;,\&quot;id\&quot;:700}}   &#x60;&#x60;&#x60;      Responds with an object telling whenever any errors occured and an array with status for each operation:      &#x60;&#x60;&#x60;   {&#39;items&#39;:[{&#39;update&#39;:{&#39;_index&#39;:&#39;products&#39;,&#39;_id&#39;:1,&#39;result&#39;:&#39;updated&#39;}},{&#39;update&#39;:{&#39;_index&#39;:&#39;products&#39;,&#39;_id&#39;:2,&#39;result&#39;:&#39;updated&#39;}}],&#39;errors&#39;:false}   &#x60;&#x60;&#x60;   
+Sends multiple operatons like inserts, updates, replaces or deletes. 
+For each operation it's object must have same format as in their dedicated method. 
+The method expects a raw string as the batch in NDJSON.
+ Each operation object needs to be serialized to 
+ JSON and separated by endline (\n). 
+ 
+  An example of raw input:
+  
+  ```
+  {"insert": {"index": "movies", "doc": {"plot": "A secret team goes to North Pole", "rating": 9.5, "language": [2, 3], "title": "This is an older movie", "lon": 51.99, "meta": {"keywords":["travel","ice"],"genre":["adventure"]}, "year": 1950, "lat": 60.4, "advise": "PG-13"}}}
+  \n
+  {"delete": {"index": "movies","id":700}}
+  ```
+  
+  Responds with an object telling whenever any errors occured and an array with status for each operation:
+  
+  ```
+  {'items':[{'update':{'_index':'products','_id':1,'result':'updated'}},{'update':{'_index':'products','_id':2,'result':'updated'}}],'errors':false}
+  ```
+ 
+
 
 ### Example
+
 ```java
 // Import classes:
 import com.manticoresearch.client.ApiClient;
 import com.manticoresearch.client.ApiException;
 import com.manticoresearch.client.Configuration;
-import com.manticoresearch.client.models.*;
+import com.manticoresearch.client.model.*;
 import com.manticoresearch.client.api.IndexApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://127.0.0.1:9308");
-
-    IndexApi apiInstance = new IndexApi(defaultClient);
-    String body = "body_example"; // String | 
-    try {
-      BulkResponse result = apiInstance.bulk(body);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling IndexApi#bulk");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://127.0.0.1:9308");
+        IndexApi indexApi = new IndexApi(defaultClient);
+        try {
+             String body = "{\"insert\": {\"index\" : \"products\", \"id\" : 3, \"doc\" : {\"title\" : \"Crossbody Bag with Tassel\", \"price\" : 19.85}}}" +"\n"+"{\"delete\":{\"index\" : \"movies\", \"id\" : 701}}"+"\n"+
+                      "{\"insert\": {\"index\" : \"products\", \"id\" : 4, \"doc\" : {\"title\" : \"microfiber sheet set\", \"price\" : 19.99}}}"+"\n"+
+                      "{\"insert\": {\"index\" : \"products\", \"id\" : 5, \"doc\" : {\"title\" : \"CPet Hair Remover Glove\", \"price\" : 7.99}}}"+"\n";         
+            BulkResponse bulkresult = indexApi.bulk(body);
+        
+            System.out.println(bulkresult);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling IndexApi#bulk");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -65,54 +90,83 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-ndjson
- - **Accept**: application/json
+- **Content-Type**: application/x-ndjson
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | item updated |  -  |
-**0** | error |  -  |
+| **200** | item updated |  -  |
+| **0** | error |  -  |
 
-<a name="delete"></a>
-# **delete**
+
+## delete
+
 > DeleteResponse delete(deleteDocumentRequest)
 
 Delete a document in an index
 
-Delete one or several documents. The method has 2 ways of deleting: either by id, in case only one document is deleted or by using a  match query, in which case multiple documents can be delete . Example of input to delete by id:    &#x60;&#x60;&#x60;   {&#39;index&#39;:&#39;movies&#39;,&#39;id&#39;:100}   &#x60;&#x60;&#x60;  Example of input to delete using a query:    &#x60;&#x60;&#x60;   {&#39;index&#39;:&#39;movies&#39;,&#39;query&#39;:{&#39;bool&#39;:{&#39;must&#39;:[{&#39;query_string&#39;:&#39;new movie&#39;}]}}}   &#x60;&#x60;&#x60;  The match query has same syntax as in for searching. Responds with an object telling how many documents got deleted:     &#x60;&#x60;&#x60;   {&#39;_index&#39;:&#39;products&#39;,&#39;updated&#39;:1}   &#x60;&#x60;&#x60; 
+Delete one or several documents.
+The method has 2 ways of deleting: either by id, in case only one document is deleted or by using a  match query, in which case multiple documents can be delete .
+Example of input to delete by id:
+
+  ```
+  {'index':'movies','id':100}
+  ```
+
+Example of input to delete using a query:
+
+  ```
+  {'index':'movies','query':{'bool':{'must':[{'query_string':'new movie'}]}}}
+  ```
+
+The match query has same syntax as in for searching.
+Responds with an object telling how many documents got deleted: 
+
+  ```
+  {'_index':'products','updated':1}
+  ```
+
 
 ### Example
+
 ```java
 // Import classes:
 import com.manticoresearch.client.ApiClient;
 import com.manticoresearch.client.ApiException;
 import com.manticoresearch.client.Configuration;
-import com.manticoresearch.client.models.*;
+import com.manticoresearch.client.model.*;
 import com.manticoresearch.client.api.IndexApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://127.0.0.1:9308");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://127.0.0.1:9308");
 
-    IndexApi apiInstance = new IndexApi(defaultClient);
-    DeleteDocumentRequest deleteDocumentRequest = {"index":"test","query":{"match":{"title":"apple"}}}; // DeleteDocumentRequest | 
-    try {
-      DeleteResponse result = apiInstance.delete(deleteDocumentRequest);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling IndexApi#delete");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        IndexApi indexApi = new IndexApi(defaultClient);
+
+        try {
+            DeleteDocumentRequest deleteRequest = new DeleteDocumentRequest();
+            query = new HashMap<String,Object>();
+            query.put("match",new HashMap<String,Object>(){{
+                put("*","dummy");
+            }});
+            deleteRequest.index("products").setQuery(query); 
+            Oject result = indexApi.delete(deleteRequest);
+            System.out.println(result);      
+        } catch (ApiException e) {
+            System.err.println("Exception when calling IndexApi#delete");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -128,54 +182,80 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | item updated |  -  |
-**0** | error |  -  |
+| **200** | item updated |  -  |
+| **0** | error |  -  |
 
-<a name="insert"></a>
-# **insert**
+
+## insert
+
 > SuccessResponse insert(insertDocumentRequest)
 
 Create a new document in an index
 
-Insert a document.  Expects an object like:     &#x60;&#x60;&#x60;   {&#39;index&#39;:&#39;movies&#39;,&#39;id&#39;:701,&#39;doc&#39;:{&#39;title&#39;:&#39;This is an old movie&#39;,&#39;plot&#39;:&#39;A secret team goes to North Pole&#39;,&#39;year&#39;:1950,&#39;rating&#39;:9.5,&#39;lat&#39;:60.4,&#39;lon&#39;:51.99,&#39;advise&#39;:&#39;PG-13&#39;,&#39;meta&#39;:&#39;{\&quot;keywords\&quot;:{\&quot;travel\&quot;,\&quot;ice\&quot;},\&quot;genre\&quot;:{\&quot;adventure\&quot;}}&#39;,&#39;language&#39;:[2,3]}}   &#x60;&#x60;&#x60;   The document id can also be missing, in which case an autogenerated one will be used:             &#x60;&#x60;&#x60;   {&#39;index&#39;:&#39;movies&#39;,&#39;doc&#39;:{&#39;title&#39;:&#39;This is a new movie&#39;,&#39;plot&#39;:&#39;A secret team goes to North Pole&#39;,&#39;year&#39;:2020,&#39;rating&#39;:9.5,&#39;lat&#39;:60.4,&#39;lon&#39;:51.99,&#39;advise&#39;:&#39;PG-13&#39;,&#39;meta&#39;:&#39;{\&quot;keywords\&quot;:{\&quot;travel\&quot;,\&quot;ice\&quot;},\&quot;genre\&quot;:{\&quot;adventure\&quot;}}&#39;,&#39;language&#39;:[2,3]}}   &#x60;&#x60;&#x60;   It responds with an object in format:      &#x60;&#x60;&#x60;   {&#39;_index&#39;:&#39;products&#39;,&#39;_id&#39;:701,&#39;created&#39;:true,&#39;result&#39;:&#39;created&#39;,&#39;status&#39;:201}   &#x60;&#x60;&#x60; 
+Insert a document. 
+Expects an object like:
+ 
+  ```
+  {'index':'movies','id':701,'doc':{'title':'This is an old movie','plot':'A secret team goes to North Pole','year':1950,'rating':9.5,'lat':60.4,'lon':51.99,'advise':'PG-13','meta':'{"keywords":{"travel","ice"},"genre":{"adventure"}}','language':[2,3]}}
+  ```
+ 
+The document id can also be missing, in which case an autogenerated one will be used:
+         
+  ```
+  {'index':'movies','doc':{'title':'This is a new movie','plot':'A secret team goes to North Pole','year':2020,'rating':9.5,'lat':60.4,'lon':51.99,'advise':'PG-13','meta':'{"keywords":{"travel","ice"},"genre":{"adventure"}}','language':[2,3]}}
+  ```
+ 
+It responds with an object in format:
+  
+  ```
+  {'_index':'products','_id':701,'created':true,'result':'created','status':201}
+  ```
+
 
 ### Example
+
 ```java
 // Import classes:
 import com.manticoresearch.client.ApiClient;
 import com.manticoresearch.client.ApiException;
 import com.manticoresearch.client.Configuration;
-import com.manticoresearch.client.models.*;
+import com.manticoresearch.client.model.*;
 import com.manticoresearch.client.api.IndexApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://127.0.0.1:9308");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://127.0.0.1:9308");
 
-    IndexApi apiInstance = new IndexApi(defaultClient);
-    InsertDocumentRequest insertDocumentRequest = {"index":"test","id":1,"doc":{"title":"sample title","gid":10}}; // InsertDocumentRequest | 
-    try {
-      SuccessResponse result = apiInstance.insert(insertDocumentRequest);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling IndexApi#insert");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        IndexApi indexApi = new IndexApi(defaultClient);
+        try {
+            InsertDocumentRequest newdoc = new InsertDocumentRequest();
+            HashMap<String,Object> doc = new HashMap<String,Object>(){{
+                put("title","first");
+                put("tags1",new int[] {4,2,1,3});
+            }};
+            newdoc.index("products").id(1L).setDoc(doc); 
+            Object result = indexApi.insert(newdoc);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling IndexApi#insert");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -191,54 +271,68 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
-**0** | error |  -  |
+| **200** | OK |  -  |
+| **0** | error |  -  |
 
-<a name="replace"></a>
-# **replace**
+
+## replace
+
 > SuccessResponse replace(insertDocumentRequest)
 
 Replace new document in an index
 
-Replace an existing document. Input has same format as &#x60;insert&#x60; operation. &lt;br/&gt; Responds with an object in format: &lt;br/&gt;    &#x60;&#x60;&#x60;   {&#39;_index&#39;:&#39;products&#39;,&#39;_id&#39;:1,&#39;created&#39;:false,&#39;result&#39;:&#39;updated&#39;,&#39;status&#39;:200}   &#x60;&#x60;&#x60; 
+Replace an existing document. Input has same format as `insert` operation. <br/>
+Responds with an object in format: <br/>
+
+  ```
+  {'_index':'products','_id':1,'created':false,'result':'updated','status':200}
+  ```
+
 
 ### Example
+
 ```java
 // Import classes:
 import com.manticoresearch.client.ApiClient;
 import com.manticoresearch.client.ApiException;
 import com.manticoresearch.client.Configuration;
-import com.manticoresearch.client.models.*;
+import com.manticoresearch.client.model.*;
 import com.manticoresearch.client.api.IndexApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://127.0.0.1:9308");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://127.0.0.1:9308");
 
-    IndexApi apiInstance = new IndexApi(defaultClient);
-    InsertDocumentRequest insertDocumentRequest = {"index":"test","id":1,"doc":{"title":"updated title","gid":15}}; // InsertDocumentRequest | 
-    try {
-      SuccessResponse result = apiInstance.replace(insertDocumentRequest);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling IndexApi#replace");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        IndexApi indexApi = new IndexApi(defaultClient);
+
+        try {
+            InsertDocumentRequest docRequest = new InsertDocumentRequest();
+            doc = new HashMap<String,Object>(){{
+                put("title","document one");
+                put("price",10);
+            }};
+            docRequest.index("products").id(1L).setDoc(doc); 
+            Object result = indexApi.replace(docRequest);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling IndexApi#replace");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -254,54 +348,80 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
-**0** | error |  -  |
+| **200** | OK |  -  |
+| **0** | error |  -  |
 
-<a name="update"></a>
-# **update**
+
+## update
+
 > UpdateResponse update(updateDocumentRequest)
 
 Update a document in an index
 
-Update one or several documents. The update can be made by passing the id or by using a match query in case multiple documents can be updated.  For example update a document using document id:    &#x60;&#x60;&#x60;   {&#39;index&#39;:&#39;movies&#39;,&#39;doc&#39;:{&#39;rating&#39;:9.49},&#39;id&#39;:100}   &#x60;&#x60;&#x60;  And update by using a match query:    &#x60;&#x60;&#x60;   {&#39;index&#39;:&#39;movies&#39;,&#39;doc&#39;:{&#39;rating&#39;:9.49},&#39;query&#39;:{&#39;bool&#39;:{&#39;must&#39;:[{&#39;query_string&#39;:&#39;new movie&#39;}]}}}   &#x60;&#x60;&#x60;   The match query has same syntax as for searching. Responds with an object that tells how many documents where updated in format:     &#x60;&#x60;&#x60;   {&#39;_index&#39;:&#39;products&#39;,&#39;updated&#39;:1}   &#x60;&#x60;&#x60; 
+Update one or several documents.
+The update can be made by passing the id or by using a match query in case multiple documents can be updated.  For example update a document using document id:
+
+  ```
+  {'index':'movies','doc':{'rating':9.49},'id':100}
+  ```
+
+And update by using a match query:
+
+  ```
+  {'index':'movies','doc':{'rating':9.49},'query':{'bool':{'must':[{'query_string':'new movie'}]}}}
+  ``` 
+
+The match query has same syntax as for searching.
+Responds with an object that tells how many documents where updated in format: 
+
+  ```
+  {'_index':'products','updated':1}
+  ```
+
 
 ### Example
+
 ```java
 // Import classes:
 import com.manticoresearch.client.ApiClient;
 import com.manticoresearch.client.ApiException;
 import com.manticoresearch.client.Configuration;
-import com.manticoresearch.client.models.*;
+import com.manticoresearch.client.model.*;
 import com.manticoresearch.client.api.IndexApi;
 
 public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://127.0.0.1:9308");
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("http://127.0.0.1:9308");
 
-    IndexApi apiInstance = new IndexApi(defaultClient);
-    UpdateDocumentRequest updateDocumentRequest = {"index":"test","doc":{"gid":20},"query":{"equals":{"cat_id":2}}}; // UpdateDocumentRequest | 
-    try {
-      UpdateResponse result = apiInstance.update(updateDocumentRequest);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling IndexApi#update");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        IndexApi indexApi = new IndexApi(defaultClient);
+        
+        try {
+            UpdateDocumentRequest updatedoc = new UpdateDocumentRequest();
+            doc = new HashMap<String,Object >(){{
+                put("price",10);
+            }};
+            updatedoc.index("products").id(1L).setDoc(doc); 
+            Object result =  indexApi.update(updatedoc);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling IndexApi#update");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -317,12 +437,12 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | item updated |  -  |
-**0** | error |  -  |
+| **200** | item updated |  -  |
+| **0** | error |  -  |
 

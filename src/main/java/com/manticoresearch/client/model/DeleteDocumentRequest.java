@@ -10,36 +10,45 @@ package com.manticoresearch.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.manticoresearch.client.JSON;
+
 
 /**
  * Payload for delete request. Documents can be deleted either one by one by specifying the document id or by providing a query object. For more information see  [Delete API](https://docs.manticoresearch.com/latest/html/http_reference/json_delete.html) 
  */
 @ApiModel(description = "Payload for delete request. Documents can be deleted either one by one by specifying the document id or by providing a query object. For more information see  [Delete API](https://docs.manticoresearch.com/latest/html/http_reference/json_delete.html) ")
+@JsonPropertyOrder({
+  DeleteDocumentRequest.JSON_PROPERTY_INDEX,
+  DeleteDocumentRequest.JSON_PROPERTY_CLUSTER,
+  DeleteDocumentRequest.JSON_PROPERTY_ID,
+  DeleteDocumentRequest.JSON_PROPERTY_QUERY
+})
 
 public class DeleteDocumentRequest {
-  public static final String SERIALIZED_NAME_INDEX = "index";
-  @SerializedName(SERIALIZED_NAME_INDEX)
+  public static final String JSON_PROPERTY_INDEX = "index";
   private String index;
 
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
+  public static final String JSON_PROPERTY_CLUSTER = "cluster";
+  private String cluster;
+
+  public static final String JSON_PROPERTY_ID = "id";
   private Long id;
 
-  public static final String SERIALIZED_NAME_QUERY = "query";
-  @SerializedName(SERIALIZED_NAME_QUERY)
+  public static final String JSON_PROPERTY_QUERY = "query";
   private Object query;
 
 
   public DeleteDocumentRequest index(String index) {
-    
     this.index = index;
     return this;
   }
@@ -49,6 +58,8 @@ public class DeleteDocumentRequest {
    * @return index
   **/
   @ApiModelProperty(required = true, value = "Index name")
+  @JsonProperty(JSON_PROPERTY_INDEX)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getIndex() {
     return index;
@@ -60,8 +71,31 @@ public class DeleteDocumentRequest {
   }
 
 
+  public DeleteDocumentRequest cluster(String cluster) {
+    this.cluster = cluster;
+    return this;
+  }
+
+   /**
+   * cluster name
+   * @return cluster
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "cluster name")
+  @JsonProperty(JSON_PROPERTY_CLUSTER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getCluster() {
+    return cluster;
+  }
+
+
+  public void setCluster(String cluster) {
+    this.cluster = cluster;
+  }
+
+
   public DeleteDocumentRequest id(Long id) {
-    
     this.id = id;
     return this;
   }
@@ -72,6 +106,8 @@ public class DeleteDocumentRequest {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Document ID")
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Long getId() {
     return id;
@@ -84,7 +120,6 @@ public class DeleteDocumentRequest {
 
 
   public DeleteDocumentRequest query(Object query) {
-    
     this.query = query;
     return this;
   }
@@ -95,6 +130,8 @@ public class DeleteDocumentRequest {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Query tree object")
+  @JsonProperty(JSON_PROPERTY_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Object getQuery() {
     return query;
@@ -106,6 +143,9 @@ public class DeleteDocumentRequest {
   }
 
 
+  /**
+   * Return true if this deleteDocumentRequest object is equal to o.
+   */
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -116,13 +156,14 @@ public class DeleteDocumentRequest {
     }
     DeleteDocumentRequest deleteDocumentRequest = (DeleteDocumentRequest) o;
     return Objects.equals(this.index, deleteDocumentRequest.index) &&
+        Objects.equals(this.cluster, deleteDocumentRequest.cluster) &&
         Objects.equals(this.id, deleteDocumentRequest.id) &&
         Objects.equals(this.query, deleteDocumentRequest.query);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(index, id, query);
+    return Objects.hash(index, cluster, id, query);
   }
 
 
@@ -131,6 +172,7 @@ public class DeleteDocumentRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteDocumentRequest {\n");
     sb.append("    index: ").append(toIndentedString(index)).append("\n");
+    sb.append("    cluster: ").append(toIndentedString(cluster)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
     sb.append("}");

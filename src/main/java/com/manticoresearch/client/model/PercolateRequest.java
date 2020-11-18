@@ -10,37 +10,37 @@ package com.manticoresearch.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.manticoresearch.client.JSON;
+
 
 /**
  * Object with documents to percolate
  */
 @ApiModel(description = "Object with documents to percolate")
+@JsonPropertyOrder({
+  PercolateRequest.JSON_PROPERTY_QUERY
+})
 
 public class PercolateRequest {
-  public static final String SERIALIZED_NAME_QUERY = "query";
-  @SerializedName(SERIALIZED_NAME_QUERY)
+  public static final String JSON_PROPERTY_QUERY = "query";
   private Map<String, Object> query;
 
 
   public PercolateRequest query(Map<String, Object> query) {
-    
     this.query = query;
-    return this;
-  }
-
-  public PercolateRequest putQueryItem(String key, Object queryItem) {
-    this.query.put(key, queryItem);
     return this;
   }
 
@@ -49,6 +49,8 @@ public class PercolateRequest {
    * @return query
   **/
   @ApiModelProperty(example = "{\"percolate\":{\"document\":{\"title\":\"some text to match\"}}}", required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_QUERY)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Map<String, Object> getQuery() {
     return query;
@@ -60,6 +62,9 @@ public class PercolateRequest {
   }
 
 
+  /**
+   * Return true if this percolateRequest object is equal to o.
+   */
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {

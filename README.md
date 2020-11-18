@@ -1,5 +1,7 @@
 # manticoresearch
 
+
+
 Experimental low-level client for Manticore Search.
 
 
@@ -17,14 +19,13 @@ Minimum Manticore Search version is 2.5.1 with HTTP protocol enabled.
 
 ## Installation
 
-### Maven users
 Add this dependency to your project's POM:
 
 ```xml
 <dependency>
   <groupId>com.manticoresearch</groupId>
   <artifactId>manticoresearch</artifactId>
-  <version>1.0.2</version>
+  <version>2.0.0</version>
 </dependency>
 ```
 
@@ -33,7 +34,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.manticoresearch:manticoresearch:1.0.2"
+compile "com.manticoresearch:manticoresearch:2.0.0"
 ```
 
 ### Others
@@ -46,7 +47,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-- `target/manticoresearch-1.0.2.jar`
+- `target/manticoresearch-2.0.0.jar`
 - `target/lib/*.jar`
 
 ## Getting Started
@@ -55,41 +56,45 @@ Please follow the [installation](#installation) instruction and execute the foll
 
 ```java
 
-// Import classes:
 import com.manticoresearch.client.ApiClient;
 import com.manticoresearch.client.ApiException;
 import com.manticoresearch.client.Configuration;
-import com.manticoresearch.client.models.*;
+import com.manticoresearch.client.model.*;
 import com.manticoresearch.client.api.IndexApi;
+import com.manticoresearch.client.api.UtilsApi;
+import com.manticoresearch.client.api.SearchApi;
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://127.0.0.1:9308");
+public class SearchApiExample {
 
-    IndexApi apiInstance = new IndexApi(defaultClient);
-    String body = "body_example"; // String | 
-    try {
-      BulkResponse result = apiInstance.bulk(body);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling IndexApi#bulk");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+    public static void main(String[] args) {
+        ApiClient client = Configuration.getDefaultApiClient();
+        client.setBasePath("http://127.0.0.1:9308");
+        SearchApi searchApi = new SearchApi(client);
+        try {
+            HashMap<String,Object> query = new HashMap<String,Object>();
+            query.put("query_string","@title way* @content hey");
+            searchRequest = new SearchRequest();
+            searchRequest.setIndex("forum");
+            searchRequest.setQuery(query);
+            SearchResponse searchResponse =  searchApi.search(searchRequest);
+            System.out.println(searchResponse);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling SearchApi#search");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
 
 ```
 
-## Documentation
+## Documentation 
 
 Full documentation is available in  [docs](https://github.com/manticoresoftware/manticoresearch-java/tree/master/docs) folder.
 
 Manticore Search server documentation: https://manual.manticoresearch.com.
-
 
 ## Documentation for API Endpoints
 
@@ -122,15 +127,6 @@ Class | Method | HTTP request | Description
  - [UpdateDocumentRequest](docs/UpdateDocumentRequest.md)
  - [UpdateResponse](docs/UpdateResponse.md)
 
-
-## Documentation for Authorization
-
-All endpoints do not require authorization.
-Authentication schemes defined for the API:
-
-## Recommendation
-
-It's recommended to create an instance of `ApiClient` per thread in a multithreaded environment to avoid any potential issues.
 
 ## Author
 

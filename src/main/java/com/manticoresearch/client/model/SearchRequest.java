@@ -10,72 +10,77 @@ package com.manticoresearch.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.manticoresearch.client.JSON;
+
 
 /**
  * Payload for search operation
  */
 @ApiModel(description = "Payload for search operation")
+@JsonPropertyOrder({
+  SearchRequest.JSON_PROPERTY_INDEX,
+  SearchRequest.JSON_PROPERTY_QUERY,
+  SearchRequest.JSON_PROPERTY_LIMIT,
+  SearchRequest.JSON_PROPERTY_OFFSET,
+  SearchRequest.JSON_PROPERTY_MAX_MATCHES,
+  SearchRequest.JSON_PROPERTY_SORT,
+  SearchRequest.JSON_PROPERTY_AGGS,
+  SearchRequest.JSON_PROPERTY_EXPRESSIONS,
+  SearchRequest.JSON_PROPERTY_HIGHLIGHT,
+  SearchRequest.JSON_PROPERTY_SOURCE,
+  SearchRequest.JSON_PROPERTY_PROFILE
+})
 
 public class SearchRequest {
-  public static final String SERIALIZED_NAME_INDEX = "index";
-  @SerializedName(SERIALIZED_NAME_INDEX)
+  public static final String JSON_PROPERTY_INDEX = "index";
   private String index;
 
-  public static final String SERIALIZED_NAME_QUERY = "query";
-  @SerializedName(SERIALIZED_NAME_QUERY)
+  public static final String JSON_PROPERTY_QUERY = "query";
   private Map<String, Object> query = new HashMap<String, Object>();
 
-  public static final String SERIALIZED_NAME_LIMIT = "limit";
-  @SerializedName(SERIALIZED_NAME_LIMIT)
+  public static final String JSON_PROPERTY_LIMIT = "limit";
   private Integer limit;
 
-  public static final String SERIALIZED_NAME_OFFSET = "offset";
-  @SerializedName(SERIALIZED_NAME_OFFSET)
+  public static final String JSON_PROPERTY_OFFSET = "offset";
   private Integer offset;
 
-  public static final String SERIALIZED_NAME_MAX_MATCHES = "max_matches";
-  @SerializedName(SERIALIZED_NAME_MAX_MATCHES)
+  public static final String JSON_PROPERTY_MAX_MATCHES = "max_matches";
   private Integer maxMatches;
 
-  public static final String SERIALIZED_NAME_SORT = "sort";
-  @SerializedName(SERIALIZED_NAME_SORT)
+  public static final String JSON_PROPERTY_SORT = "sort";
   private List<Object> sort = null;
 
-  public static final String SERIALIZED_NAME_AGGS = "aggs";
-  @SerializedName(SERIALIZED_NAME_AGGS)
+  public static final String JSON_PROPERTY_AGGS = "aggs";
   private List<Object> aggs = null;
 
-  public static final String SERIALIZED_NAME_SCRIPT_FIELDS = "script_fields";
-  @SerializedName(SERIALIZED_NAME_SCRIPT_FIELDS)
-  private Object scriptFields;
+  public static final String JSON_PROPERTY_EXPRESSIONS = "expressions";
+  private Object expressions;
 
-  public static final String SERIALIZED_NAME_HIGHLIGHT = "highlight";
-  @SerializedName(SERIALIZED_NAME_HIGHLIGHT)
+  public static final String JSON_PROPERTY_HIGHLIGHT = "highlight";
   private Object highlight;
 
-  public static final String SERIALIZED_NAME_SOURCE = "_source";
-  @SerializedName(SERIALIZED_NAME_SOURCE)
+  public static final String JSON_PROPERTY_SOURCE = "_source";
   private List<String> source = null;
 
-  public static final String SERIALIZED_NAME_PROFILE = "profile";
-  @SerializedName(SERIALIZED_NAME_PROFILE)
+  public static final String JSON_PROPERTY_PROFILE = "profile";
   private Boolean profile;
 
 
   public SearchRequest index(String index) {
-    
     this.index = index;
     return this;
   }
@@ -85,6 +90,8 @@ public class SearchRequest {
    * @return index
   **/
   @ApiModelProperty(example = "test", required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_INDEX)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getIndex() {
     return index;
@@ -97,13 +104,7 @@ public class SearchRequest {
 
 
   public SearchRequest query(Map<String, Object> query) {
-    
     this.query = query;
-    return this;
-  }
-
-  public SearchRequest putQueryItem(String key, Object queryItem) {
-    this.query.put(key, queryItem);
     return this;
   }
 
@@ -112,6 +113,8 @@ public class SearchRequest {
    * @return query
   **/
   @ApiModelProperty(required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_QUERY)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Map<String, Object> getQuery() {
     return query;
@@ -124,7 +127,6 @@ public class SearchRequest {
 
 
   public SearchRequest limit(Integer limit) {
-    
     this.limit = limit;
     return this;
   }
@@ -135,6 +137,8 @@ public class SearchRequest {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_LIMIT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getLimit() {
     return limit;
@@ -147,7 +151,6 @@ public class SearchRequest {
 
 
   public SearchRequest offset(Integer offset) {
-    
     this.offset = offset;
     return this;
   }
@@ -158,6 +161,8 @@ public class SearchRequest {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_OFFSET)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getOffset() {
     return offset;
@@ -170,7 +175,6 @@ public class SearchRequest {
 
 
   public SearchRequest maxMatches(Integer maxMatches) {
-    
     this.maxMatches = maxMatches;
     return this;
   }
@@ -181,6 +185,8 @@ public class SearchRequest {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_MAX_MATCHES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getMaxMatches() {
     return maxMatches;
@@ -193,16 +199,7 @@ public class SearchRequest {
 
 
   public SearchRequest sort(List<Object> sort) {
-    
     this.sort = sort;
-    return this;
-  }
-
-  public SearchRequest addSortItem(Object sortItem) {
-    if (this.sort == null) {
-      this.sort = new ArrayList<Object>();
-    }
-    this.sort.add(sortItem);
     return this;
   }
 
@@ -212,6 +209,8 @@ public class SearchRequest {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_SORT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<Object> getSort() {
     return sort;
@@ -224,16 +223,7 @@ public class SearchRequest {
 
 
   public SearchRequest aggs(List<Object> aggs) {
-    
     this.aggs = aggs;
-    return this;
-  }
-
-  public SearchRequest addAggsItem(Object aggsItem) {
-    if (this.aggs == null) {
-      this.aggs = new ArrayList<Object>();
-    }
-    this.aggs.add(aggsItem);
     return this;
   }
 
@@ -243,6 +233,8 @@ public class SearchRequest {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_AGGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<Object> getAggs() {
     return aggs;
@@ -254,31 +246,31 @@ public class SearchRequest {
   }
 
 
-  public SearchRequest scriptFields(Object scriptFields) {
-    
-    this.scriptFields = scriptFields;
+  public SearchRequest expressions(Object expressions) {
+    this.expressions = expressions;
     return this;
   }
 
    /**
-   * Get scriptFields
-   * @return scriptFields
+   * Get expressions
+   * @return expressions
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_EXPRESSIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Object getScriptFields() {
-    return scriptFields;
+  public Object getExpressions() {
+    return expressions;
   }
 
 
-  public void setScriptFields(Object scriptFields) {
-    this.scriptFields = scriptFields;
+  public void setExpressions(Object expressions) {
+    this.expressions = expressions;
   }
 
 
   public SearchRequest highlight(Object highlight) {
-    
     this.highlight = highlight;
     return this;
   }
@@ -289,6 +281,8 @@ public class SearchRequest {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_HIGHLIGHT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Object getHighlight() {
     return highlight;
@@ -301,16 +295,7 @@ public class SearchRequest {
 
 
   public SearchRequest source(List<String> source) {
-    
     this.source = source;
-    return this;
-  }
-
-  public SearchRequest addSourceItem(String sourceItem) {
-    if (this.source == null) {
-      this.source = new ArrayList<String>();
-    }
-    this.source.add(sourceItem);
     return this;
   }
 
@@ -320,6 +305,8 @@ public class SearchRequest {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_SOURCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<String> getSource() {
     return source;
@@ -332,7 +319,6 @@ public class SearchRequest {
 
 
   public SearchRequest profile(Boolean profile) {
-    
     this.profile = profile;
     return this;
   }
@@ -343,6 +329,8 @@ public class SearchRequest {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_PROFILE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getProfile() {
     return profile;
@@ -354,6 +342,9 @@ public class SearchRequest {
   }
 
 
+  /**
+   * Return true if this searchRequest object is equal to o.
+   */
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -370,7 +361,7 @@ public class SearchRequest {
         Objects.equals(this.maxMatches, searchRequest.maxMatches) &&
         Objects.equals(this.sort, searchRequest.sort) &&
         Objects.equals(this.aggs, searchRequest.aggs) &&
-        Objects.equals(this.scriptFields, searchRequest.scriptFields) &&
+        Objects.equals(this.expressions, searchRequest.expressions) &&
         Objects.equals(this.highlight, searchRequest.highlight) &&
         Objects.equals(this.source, searchRequest.source) &&
         Objects.equals(this.profile, searchRequest.profile);
@@ -378,7 +369,7 @@ public class SearchRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(index, query, limit, offset, maxMatches, sort, aggs, scriptFields, highlight, source, profile);
+    return Objects.hash(index, query, limit, offset, maxMatches, sort, aggs, expressions, highlight, source, profile);
   }
 
 
@@ -393,7 +384,7 @@ public class SearchRequest {
     sb.append("    maxMatches: ").append(toIndentedString(maxMatches)).append("\n");
     sb.append("    sort: ").append(toIndentedString(sort)).append("\n");
     sb.append("    aggs: ").append(toIndentedString(aggs)).append("\n");
-    sb.append("    scriptFields: ").append(toIndentedString(scriptFields)).append("\n");
+    sb.append("    expressions: ").append(toIndentedString(expressions)).append("\n");
     sb.append("    highlight: ").append(toIndentedString(highlight)).append("\n");
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    profile: ").append(toIndentedString(profile)).append("\n");

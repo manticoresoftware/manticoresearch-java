@@ -10,41 +10,46 @@ package com.manticoresearch.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.manticoresearch.client.model.SearchResponseHits;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.manticoresearch.client.JSON;
+
 
 /**
  * Response object of a search request
  */
 @ApiModel(description = "Response object of a search request")
+@JsonPropertyOrder({
+  SearchResponse.JSON_PROPERTY_TOOK,
+  SearchResponse.JSON_PROPERTY_TIMED_OUT,
+  SearchResponse.JSON_PROPERTY_HITS,
+  SearchResponse.JSON_PROPERTY_PROFILE
+})
 
 public class SearchResponse {
-  public static final String SERIALIZED_NAME_TOOK = "took";
-  @SerializedName(SERIALIZED_NAME_TOOK)
+  public static final String JSON_PROPERTY_TOOK = "took";
   private Integer took;
 
-  public static final String SERIALIZED_NAME_TIMED_OUT = "timed_out";
-  @SerializedName(SERIALIZED_NAME_TIMED_OUT)
+  public static final String JSON_PROPERTY_TIMED_OUT = "timed_out";
   private Boolean timedOut;
 
-  public static final String SERIALIZED_NAME_HITS = "hits";
-  @SerializedName(SERIALIZED_NAME_HITS)
+  public static final String JSON_PROPERTY_HITS = "hits";
   private SearchResponseHits hits;
 
-  public static final String SERIALIZED_NAME_PROFILE = "profile";
-  @SerializedName(SERIALIZED_NAME_PROFILE)
+  public static final String JSON_PROPERTY_PROFILE = "profile";
   private Object profile;
 
 
   public SearchResponse took(Integer took) {
-    
     this.took = took;
     return this;
   }
@@ -55,6 +60,8 @@ public class SearchResponse {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_TOOK)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getTook() {
     return took;
@@ -67,7 +74,6 @@ public class SearchResponse {
 
 
   public SearchResponse timedOut(Boolean timedOut) {
-    
     this.timedOut = timedOut;
     return this;
   }
@@ -78,6 +84,8 @@ public class SearchResponse {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_TIMED_OUT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getTimedOut() {
     return timedOut;
@@ -90,7 +98,6 @@ public class SearchResponse {
 
 
   public SearchResponse hits(SearchResponseHits hits) {
-    
     this.hits = hits;
     return this;
   }
@@ -101,6 +108,8 @@ public class SearchResponse {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_HITS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public SearchResponseHits getHits() {
     return hits;
@@ -113,7 +122,6 @@ public class SearchResponse {
 
 
   public SearchResponse profile(Object profile) {
-    
     this.profile = profile;
     return this;
   }
@@ -124,6 +132,8 @@ public class SearchResponse {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_PROFILE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Object getProfile() {
     return profile;
@@ -135,6 +145,9 @@ public class SearchResponse {
   }
 
 
+  /**
+   * Return true if this searchResponse object is equal to o.
+   */
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {

@@ -10,41 +10,41 @@ package com.manticoresearch.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.manticoresearch.client.JSON;
+
 
 /**
  * Error response
  */
 @ApiModel(description = "Error response")
+@JsonPropertyOrder({
+  ErrorResponse.JSON_PROPERTY_ERROR,
+  ErrorResponse.JSON_PROPERTY_STATUS
+})
 
 public class ErrorResponse {
-  public static final String SERIALIZED_NAME_ERROR = "error";
-  @SerializedName(SERIALIZED_NAME_ERROR)
+  public static final String JSON_PROPERTY_ERROR = "error";
   private Map<String, Object> error = new HashMap<String, Object>();
 
-  public static final String SERIALIZED_NAME_STATUS = "status";
-  @SerializedName(SERIALIZED_NAME_STATUS)
+  public static final String JSON_PROPERTY_STATUS = "status";
   private Integer status;
 
 
   public ErrorResponse error(Map<String, Object> error) {
-    
     this.error = error;
-    return this;
-  }
-
-  public ErrorResponse putErrorItem(String key, Object errorItem) {
-    this.error.put(key, errorItem);
     return this;
   }
 
@@ -53,6 +53,8 @@ public class ErrorResponse {
    * @return error
   **/
   @ApiModelProperty(required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_ERROR)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Map<String, Object> getError() {
     return error;
@@ -65,7 +67,6 @@ public class ErrorResponse {
 
 
   public ErrorResponse status(Integer status) {
-    
     this.status = status;
     return this;
   }
@@ -75,6 +76,8 @@ public class ErrorResponse {
    * @return status
   **/
   @ApiModelProperty(example = "500", required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getStatus() {
     return status;
@@ -86,6 +89,9 @@ public class ErrorResponse {
   }
 
 
+  /**
+   * Return true if this errorResponse object is equal to o.
+   */
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {

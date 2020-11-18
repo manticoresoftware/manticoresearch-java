@@ -10,44 +10,49 @@ package com.manticoresearch.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.manticoresearch.client.JSON;
+
 
 /**
  * Success response
  */
 @ApiModel(description = "Success response")
+@JsonPropertyOrder({
+  SuccessResponse.JSON_PROPERTY_INDEX,
+  SuccessResponse.JSON_PROPERTY_ID,
+  SuccessResponse.JSON_PROPERTY_CREATED,
+  SuccessResponse.JSON_PROPERTY_RESULT,
+  SuccessResponse.JSON_PROPERTY_FOUND
+})
 
 public class SuccessResponse {
-  public static final String SERIALIZED_NAME_INDEX = "_index";
-  @SerializedName(SERIALIZED_NAME_INDEX)
+  public static final String JSON_PROPERTY_INDEX = "_index";
   private String index;
 
-  public static final String SERIALIZED_NAME_ID = "_id";
-  @SerializedName(SERIALIZED_NAME_ID)
+  public static final String JSON_PROPERTY_ID = "_id";
   private Long id;
 
-  public static final String SERIALIZED_NAME_CREATED = "created";
-  @SerializedName(SERIALIZED_NAME_CREATED)
+  public static final String JSON_PROPERTY_CREATED = "created";
   private Boolean created;
 
-  public static final String SERIALIZED_NAME_RESULT = "result";
-  @SerializedName(SERIALIZED_NAME_RESULT)
+  public static final String JSON_PROPERTY_RESULT = "result";
   private String result;
 
-  public static final String SERIALIZED_NAME_FOUND = "found";
-  @SerializedName(SERIALIZED_NAME_FOUND)
+  public static final String JSON_PROPERTY_FOUND = "found";
   private Boolean found;
 
 
   public SuccessResponse index(String index) {
-    
     this.index = index;
     return this;
   }
@@ -58,6 +63,8 @@ public class SuccessResponse {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_INDEX)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getIndex() {
     return index;
@@ -70,7 +77,6 @@ public class SuccessResponse {
 
 
   public SuccessResponse id(Long id) {
-    
     this.id = id;
     return this;
   }
@@ -81,6 +87,8 @@ public class SuccessResponse {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Long getId() {
     return id;
@@ -93,7 +101,6 @@ public class SuccessResponse {
 
 
   public SuccessResponse created(Boolean created) {
-    
     this.created = created;
     return this;
   }
@@ -104,6 +111,8 @@ public class SuccessResponse {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_CREATED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getCreated() {
     return created;
@@ -116,7 +125,6 @@ public class SuccessResponse {
 
 
   public SuccessResponse result(String result) {
-    
     this.result = result;
     return this;
   }
@@ -127,6 +135,8 @@ public class SuccessResponse {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_RESULT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getResult() {
     return result;
@@ -139,7 +149,6 @@ public class SuccessResponse {
 
 
   public SuccessResponse found(Boolean found) {
-    
     this.found = found;
     return this;
   }
@@ -150,6 +159,8 @@ public class SuccessResponse {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_FOUND)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getFound() {
     return found;
@@ -161,6 +172,9 @@ public class SuccessResponse {
   }
 
 
+  /**
+   * Return true if this successResponse object is equal to o.
+   */
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
