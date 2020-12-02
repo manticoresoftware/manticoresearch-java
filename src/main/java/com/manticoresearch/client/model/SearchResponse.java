@@ -20,6 +20,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.manticoresearch.client.model.SearchResponseHits;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.manticoresearch.client.JSON;
 
@@ -31,6 +34,7 @@ import com.manticoresearch.client.JSON;
 @JsonPropertyOrder({
   SearchResponse.JSON_PROPERTY_TOOK,
   SearchResponse.JSON_PROPERTY_TIMED_OUT,
+  SearchResponse.JSON_PROPERTY_AGGREGATIONS,
   SearchResponse.JSON_PROPERTY_HITS,
   SearchResponse.JSON_PROPERTY_PROFILE
 })
@@ -41,6 +45,9 @@ public class SearchResponse {
 
   public static final String JSON_PROPERTY_TIMED_OUT = "timed_out";
   private Boolean timedOut;
+
+  public static final String JSON_PROPERTY_AGGREGATIONS = "aggregations";
+  private Map<String, Object> aggregations = null;
 
   public static final String JSON_PROPERTY_HITS = "hits";
   private SearchResponseHits hits;
@@ -94,6 +101,30 @@ public class SearchResponse {
 
   public void setTimedOut(Boolean timedOut) {
     this.timedOut = timedOut;
+  }
+
+
+  public SearchResponse aggregations(Map<String, Object> aggregations) {
+    this.aggregations = aggregations;
+    return this;
+  }
+
+   /**
+   * Get aggregations
+   * @return aggregations
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_AGGREGATIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Map<String, Object> getAggregations() {
+    return aggregations;
+  }
+
+
+  public void setAggregations(Map<String, Object> aggregations) {
+    this.aggregations = aggregations;
   }
 
 
@@ -159,13 +190,14 @@ public class SearchResponse {
     SearchResponse searchResponse = (SearchResponse) o;
     return Objects.equals(this.took, searchResponse.took) &&
         Objects.equals(this.timedOut, searchResponse.timedOut) &&
+        Objects.equals(this.aggregations, searchResponse.aggregations) &&
         Objects.equals(this.hits, searchResponse.hits) &&
         Objects.equals(this.profile, searchResponse.profile);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(took, timedOut, hits, profile);
+    return Objects.hash(took, timedOut, aggregations, hits, profile);
   }
 
 
@@ -175,6 +207,7 @@ public class SearchResponse {
     sb.append("class SearchResponse {\n");
     sb.append("    took: ").append(toIndentedString(took)).append("\n");
     sb.append("    timedOut: ").append(toIndentedString(timedOut)).append("\n");
+    sb.append("    aggregations: ").append(toIndentedString(aggregations)).append("\n");
     sb.append("    hits: ").append(toIndentedString(hits)).append("\n");
     sb.append("    profile: ").append(toIndentedString(profile)).append("\n");
     sb.append("}");

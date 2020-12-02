@@ -31,8 +31,7 @@ import com.manticoresearch.client.JSON;
 @JsonPropertyOrder({
   SearchResponseHits.JSON_PROPERTY_MAX_SCORE,
   SearchResponseHits.JSON_PROPERTY_TOTAL,
-  SearchResponseHits.JSON_PROPERTY_HITS,
-  SearchResponseHits.JSON_PROPERTY_AGGREGATIONS
+  SearchResponseHits.JSON_PROPERTY_HITS
 })
 
 public class SearchResponseHits {
@@ -44,9 +43,6 @@ public class SearchResponseHits {
 
   public static final String JSON_PROPERTY_HITS = "hits";
   private List<Object> hits = null;
-
-  public static final String JSON_PROPERTY_AGGREGATIONS = "aggregations";
-  private List<Object> aggregations = null;
 
 
   public SearchResponseHits maxScore(Integer maxScore) {
@@ -121,30 +117,6 @@ public class SearchResponseHits {
   }
 
 
-  public SearchResponseHits aggregations(List<Object> aggregations) {
-    this.aggregations = aggregations;
-    return this;
-  }
-
-   /**
-   * Get aggregations
-   * @return aggregations
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_AGGREGATIONS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public List<Object> getAggregations() {
-    return aggregations;
-  }
-
-
-  public void setAggregations(List<Object> aggregations) {
-    this.aggregations = aggregations;
-  }
-
-
   /**
    * Return true if this searchResponse_hits object is equal to o.
    */
@@ -159,13 +131,12 @@ public class SearchResponseHits {
     SearchResponseHits searchResponseHits = (SearchResponseHits) o;
     return Objects.equals(this.maxScore, searchResponseHits.maxScore) &&
         Objects.equals(this.total, searchResponseHits.total) &&
-        Objects.equals(this.hits, searchResponseHits.hits) &&
-        Objects.equals(this.aggregations, searchResponseHits.aggregations);
+        Objects.equals(this.hits, searchResponseHits.hits);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(maxScore, total, hits, aggregations);
+    return Objects.hash(maxScore, total, hits);
   }
 
 
@@ -176,7 +147,6 @@ public class SearchResponseHits {
     sb.append("    maxScore: ").append(toIndentedString(maxScore)).append("\n");
     sb.append("    total: ").append(toIndentedString(total)).append("\n");
     sb.append("    hits: ").append(toIndentedString(hits)).append("\n");
-    sb.append("    aggregations: ").append(toIndentedString(aggregations)).append("\n");
     sb.append("}");
     return sb.toString();
   }

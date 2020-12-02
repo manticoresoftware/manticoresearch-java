@@ -65,7 +65,7 @@ public class SearchRequest {
   private List<Object> sort = null;
 
   public static final String JSON_PROPERTY_AGGS = "aggs";
-  private List<Object> aggs = null;
+  private Map<String, Object> aggs = null;
 
   public static final String JSON_PROPERTY_EXPRESSIONS = "expressions";
   private Object expressions;
@@ -222,7 +222,7 @@ public class SearchRequest {
   }
 
 
-  public SearchRequest aggs(List<Object> aggs) {
+  public SearchRequest aggs(Map<String, Object> aggs) {
     this.aggs = aggs;
     return this;
   }
@@ -236,12 +236,12 @@ public class SearchRequest {
   @JsonProperty(JSON_PROPERTY_AGGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<Object> getAggs() {
+  public Map<String, Object> getAggs() {
     return aggs;
   }
 
 
-  public void setAggs(List<Object> aggs) {
+  public void setAggs(Map<String, Object> aggs) {
     this.aggs = aggs;
   }
 

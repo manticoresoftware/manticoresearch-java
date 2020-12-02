@@ -16,6 +16,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.manticoresearch.client.model.SearchResponseHits;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -49,6 +52,14 @@ public class SearchResponseTest {
     @Test
     public void timedOutTest() {
         // TODO: test timedOut
+    }
+
+    /**
+     * Test the property 'aggregations'
+     */
+    @Test
+    public void aggregationsTest() {
+        // TODO: test aggregations
     }
 
     /**

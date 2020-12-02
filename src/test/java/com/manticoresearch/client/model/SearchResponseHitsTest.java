@@ -60,12 +60,4 @@ public class SearchResponseHitsTest {
         // TODO: test hits
     }
 
-    /**
-     * Test the property 'aggregations'
-     */
-    @Test
-    public void aggregationsTest() {
-        // TODO: test aggregations
-    }
-
 }
