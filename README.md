@@ -1,8 +1,6 @@
 # manticoresearch
 
-
-
-Experimental low-level client for Manticore Search.
+Low-level client for Manticore Search.
 
 
   For more information, please visit [https://manticoresearch.com/contact-us/](https://manticoresearch.com/contact-us/)
