@@ -36,7 +36,8 @@ import com.manticoresearch.client.JSON;
   SearchResponse.JSON_PROPERTY_TIMED_OUT,
   SearchResponse.JSON_PROPERTY_AGGREGATIONS,
   SearchResponse.JSON_PROPERTY_HITS,
-  SearchResponse.JSON_PROPERTY_PROFILE
+  SearchResponse.JSON_PROPERTY_PROFILE,
+  SearchResponse.JSON_PROPERTY_WARNING
 })
 
 public class SearchResponse {
@@ -54,7 +55,9 @@ public class SearchResponse {
 
   public static final String JSON_PROPERTY_PROFILE = "profile";
   private Object profile;
-
+  
+  public static final String JSON_PROPERTY_WARNING = "warning";
+  private Map<String, Object> warning;
 
   public SearchResponse took(Integer took) {
     this.took = took;
@@ -174,8 +177,24 @@ public class SearchResponse {
   public void setProfile(Object profile) {
     this.profile = profile;
   }
+  
+   /**
+   * Get warning
+   * @return warning
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_WARNING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
+  public Map<String, Object> getWarning() {
+    return warning;
+  }
 
+  public void setWarning(Map<String, Object> warning) {
+     this.warning = warning;
+  }
+  
   /**
    * Return true if this searchResponse object is equal to o.
    */
