@@ -78,4 +78,12 @@ public class SearchResponseTest {
         // TODO: test profile
     }
 
+    /**
+     * Test the property 'warning'
+     */
+    @Test
+    public void warningTest() {
+        // TODO: test warning
+    }
+
 }
