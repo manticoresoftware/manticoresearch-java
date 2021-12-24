@@ -1,8 +1,8 @@
 /*
  * Manticore Search Client
- * Experimental low-level client for Manticore Search. 
+ * Copyright (c) 2020-2021, Manticore Software LTD (https://manticoresearch.com)
  *
- * Contact: https://manticoresearch.com/contact-us/
+ * All rights reserved
  */
 
 
@@ -24,6 +24,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.manticoresearch.client.JSON;
 
 
@@ -36,8 +37,10 @@ import com.manticoresearch.client.JSON;
   SearchResponse.JSON_PROPERTY_TIMED_OUT,
   SearchResponse.JSON_PROPERTY_AGGREGATIONS,
   SearchResponse.JSON_PROPERTY_HITS,
-  SearchResponse.JSON_PROPERTY_PROFILE
+  SearchResponse.JSON_PROPERTY_PROFILE,
+  SearchResponse.JSON_PROPERTY_WARNING
 })
+@JsonIgnoreProperties(ignoreUnknown = true)
 
 public class SearchResponse {
   public static final String JSON_PROPERTY_TOOK = "took";
@@ -54,6 +57,9 @@ public class SearchResponse {
 
   public static final String JSON_PROPERTY_PROFILE = "profile";
   private Object profile;
+
+  public static final String JSON_PROPERTY_WARNING = "warning";
+  private Map<String, Object> warning = null;
 
 
   public SearchResponse took(Integer took) {
@@ -176,6 +182,30 @@ public class SearchResponse {
   }
 
 
+  public SearchResponse warning(Map<String, Object> warning) {
+    this.warning = warning;
+    return this;
+  }
+
+   /**
+   * Get warning
+   * @return warning
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_WARNING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Map<String, Object> getWarning() {
+    return warning;
+  }
+
+
+  public void setWarning(Map<String, Object> warning) {
+    this.warning = warning;
+  }
+
+
   /**
    * Return true if this searchResponse object is equal to o.
    */
@@ -192,12 +222,13 @@ public class SearchResponse {
         Objects.equals(this.timedOut, searchResponse.timedOut) &&
         Objects.equals(this.aggregations, searchResponse.aggregations) &&
         Objects.equals(this.hits, searchResponse.hits) &&
-        Objects.equals(this.profile, searchResponse.profile);
+        Objects.equals(this.profile, searchResponse.profile) &&
+        Objects.equals(this.warning, searchResponse.warning);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(took, timedOut, aggregations, hits, profile);
+    return Objects.hash(took, timedOut, aggregations, hits, profile, warning);
   }
 
 
@@ -210,6 +241,7 @@ public class SearchResponse {
     sb.append("    aggregations: ").append(toIndentedString(aggregations)).append("\n");
     sb.append("    hits: ").append(toIndentedString(hits)).append("\n");
     sb.append("    profile: ").append(toIndentedString(profile)).append("\n");
+    sb.append("    warning: ").append(toIndentedString(warning)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -226,4 +258,3 @@ public class SearchResponse {
   }
 
 }
-

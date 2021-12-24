@@ -1,8 +1,8 @@
 /*
  * Manticore Search Client
- * Experimental low-level client for Manticore Search. 
+ * Copyright (c) 2020-2021, Manticore Software LTD (https://manticoresearch.com)
  *
- * Contact: https://manticoresearch.com/contact-us/
+ * All rights reserved
  */
 
 
@@ -22,6 +22,7 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.manticoresearch.client.JSON;
 
 
@@ -33,6 +34,7 @@ import com.manticoresearch.client.JSON;
   SearchResponseHits.JSON_PROPERTY_TOTAL,
   SearchResponseHits.JSON_PROPERTY_HITS
 })
+@JsonIgnoreProperties(ignoreUnknown = true)
 
 public class SearchResponseHits {
   public static final String JSON_PROPERTY_MAX_SCORE = "max_score";
@@ -163,4 +165,3 @@ public class SearchResponseHits {
   }
 
 }
-

@@ -1,3 +1,11 @@
+/*
+ * Manticore Search Client
+ * Copyright (c) 2020-2021, Manticore Software LTD (https://manticoresearch.com)
+ *
+ * All rights reserved
+ */
+
+
 package com.manticoresearch.client;
 
 import javax.ws.rs.client.Client;
@@ -71,7 +79,7 @@ public class ApiClient {
 
   protected List<ServerConfiguration> servers = new ArrayList<ServerConfiguration>(Arrays.asList(
     new ServerConfiguration(
-      "http://127.0.0.1:9308/",
+      "http://127.0.0.1:9308",
       "Default Manticore Search HTTP",
       new HashMap<String, ServerVariable>()
     )

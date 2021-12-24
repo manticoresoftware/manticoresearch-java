@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **aggregations** | **Map&lt;String, Object&gt;** |  |  [optional]
 **hits** | [**SearchResponseHits**](SearchResponseHits.md) |  |  [optional]
 **profile** | **Object** |  |  [optional]
+**warning** | **Map&lt;String, Object&gt;** |  |  [optional]
 
 
 

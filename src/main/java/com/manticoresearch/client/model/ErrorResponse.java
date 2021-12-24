@@ -1,8 +1,8 @@
 /*
  * Manticore Search Client
- * Experimental low-level client for Manticore Search. 
+ * Copyright (c) 2020-2021, Manticore Software LTD (https://manticoresearch.com)
  *
- * Contact: https://manticoresearch.com/contact-us/
+ * All rights reserved
  */
 
 
@@ -23,6 +23,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.manticoresearch.client.JSON;
 
 
@@ -34,6 +35,7 @@ import com.manticoresearch.client.JSON;
   ErrorResponse.JSON_PROPERTY_ERROR,
   ErrorResponse.JSON_PROPERTY_STATUS
 })
+@JsonIgnoreProperties(ignoreUnknown = true)
 
 public class ErrorResponse {
   public static final String JSON_PROPERTY_ERROR = "error";
@@ -133,4 +135,3 @@ public class ErrorResponse {
   }
 
 }
-

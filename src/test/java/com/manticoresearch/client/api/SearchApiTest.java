@@ -1,8 +1,8 @@
 /*
  * Manticore Search Client
- * Experimental low-level client for Manticore Search. 
+ * Copyright (c) 2020-2021, Manticore Software LTD (https://manticoresearch.com)
  *
- * Contact: https://manticoresearch.com/contact-us/
+ * All rights reserved
  */
 
 
@@ -43,7 +43,7 @@ public class SearchApiTest {
     public void percolateTest() throws ApiException {
         //String index = null;
         //PercolateRequest percolateRequest = null;
-        //SearchResponse response = api.percolate(index, percolateRequest);
+        //SearchResponse response = api.percolate(indexpercolateRequest);
         // TODO: test validations
     }
 
