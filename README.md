@@ -3,7 +3,7 @@
 Low-level client for Manticore Search.
 
 
-  For more information, please visit [https://manticoresearch.com/contact-us/](https://manticoresearch.com/contact-us/)
+For more information, please visit [https://manticoresearch.com/contact-us/](https://manticoresearch.com/contact-us/)
 
 
 ## Requirements
