@@ -5,7 +5,7 @@
     <artifactId>manticoresearch</artifactId>
     <packaging>jar</packaging>
     <name>manticoresearch</name>
-    <version>2.0.1</version>
+    <version>2.0.2</version>
     <url>https://github.com/manticoresoftware/manticoresearch-java</url>
     <description>Client for Manticore Search</description>
     <scm>
