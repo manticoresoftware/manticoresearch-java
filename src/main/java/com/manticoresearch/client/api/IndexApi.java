@@ -87,7 +87,16 @@ public class IndexApi {
    * @see <a href="https://docs.manticoresearch.com/latest/html/http_reference/json_update.html">Bulk index operations Documentation</a>
    */
   public ApiResponse<BulkResponse> bulkWithHttpInfo(String body) throws ApiException {
+      Boolean isSqlFunc = false;
+      Boolean rawResponse = false;
       Object localVarPostBody = body;
+      if (isSqlFunc) {
+        if  (rawResponse != null && !rawResponse) {
+          localVarPostBody = "query=" + apiClient.escapeString( localVarPostBody.toString() ); 
+        } else if (rawResponse == null || rawResponse) {
+          localVarPostBody = "mode=raw&query=" + localVarPostBody.toString();
+        }
+      }
     
     // verify the required parameter 'body' is set
     if (body == null) {
@@ -160,7 +169,16 @@ public class IndexApi {
    * @see <a href="https://docs.manticoresearch.com/latest/html/http_reference/json_update.html">Delete a document in an index Documentation</a>
    */
   public ApiResponse<DeleteResponse> deleteWithHttpInfo(DeleteDocumentRequest deleteDocumentRequest) throws ApiException {
+      Boolean isSqlFunc = false;
+      Boolean rawResponse = false;
       Object localVarPostBody = deleteDocumentRequest;
+      if (isSqlFunc) {
+        if  (rawResponse != null && !rawResponse) {
+          localVarPostBody = "query=" + apiClient.escapeString( localVarPostBody.toString() ); 
+        } else if (rawResponse == null || rawResponse) {
+          localVarPostBody = "mode=raw&query=" + localVarPostBody.toString();
+        }
+      }
     
     // verify the required parameter 'deleteDocumentRequest' is set
     if (deleteDocumentRequest == null) {
@@ -233,7 +251,16 @@ public class IndexApi {
    * @see <a href="https://docs.manticoresearch.com/latest/html/http_reference/json_insert.html">Create a new document in an index Documentation</a>
    */
   public ApiResponse<SuccessResponse> insertWithHttpInfo(InsertDocumentRequest insertDocumentRequest) throws ApiException {
+      Boolean isSqlFunc = false;
+      Boolean rawResponse = false;
       Object localVarPostBody = insertDocumentRequest;
+      if (isSqlFunc) {
+        if  (rawResponse != null && !rawResponse) {
+          localVarPostBody = "query=" + apiClient.escapeString( localVarPostBody.toString() ); 
+        } else if (rawResponse == null || rawResponse) {
+          localVarPostBody = "mode=raw&query=" + localVarPostBody.toString();
+        }
+      }
     
     // verify the required parameter 'insertDocumentRequest' is set
     if (insertDocumentRequest == null) {
@@ -306,7 +333,16 @@ public class IndexApi {
    * @see <a href="https://docs.manticoresearch.com/latest/html/http_reference/json_insert.html">Replace new document in an index Documentation</a>
    */
   public ApiResponse<SuccessResponse> replaceWithHttpInfo(InsertDocumentRequest insertDocumentRequest) throws ApiException {
+      Boolean isSqlFunc = false;
+      Boolean rawResponse = false;
       Object localVarPostBody = insertDocumentRequest;
+      if (isSqlFunc) {
+        if  (rawResponse != null && !rawResponse) {
+          localVarPostBody = "query=" + apiClient.escapeString( localVarPostBody.toString() ); 
+        } else if (rawResponse == null || rawResponse) {
+          localVarPostBody = "mode=raw&query=" + localVarPostBody.toString();
+        }
+      }
     
     // verify the required parameter 'insertDocumentRequest' is set
     if (insertDocumentRequest == null) {
@@ -379,7 +415,16 @@ public class IndexApi {
    * @see <a href="https://docs.manticoresearch.com/latest/html/http_reference/json_update.html">Update a document in an index Documentation</a>
    */
   public ApiResponse<UpdateResponse> updateWithHttpInfo(UpdateDocumentRequest updateDocumentRequest) throws ApiException {
+      Boolean isSqlFunc = false;
+      Boolean rawResponse = false;
       Object localVarPostBody = updateDocumentRequest;
+      if (isSqlFunc) {
+        if  (rawResponse != null && !rawResponse) {
+          localVarPostBody = "query=" + apiClient.escapeString( localVarPostBody.toString() ); 
+        } else if (rawResponse == null || rawResponse) {
+          localVarPostBody = "mode=raw&query=" + localVarPostBody.toString();
+        }
+      }
     
     // verify the required parameter 'updateDocumentRequest' is set
     if (updateDocumentRequest == null) {

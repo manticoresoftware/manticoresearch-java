@@ -49,6 +49,7 @@ public class UtilsApi {
    * Perform SQL requests
    * Run a query in SQL format. Expects a query parameters string that can be in two modes: * Select only query as &#x60;query&#x3D;SELECT * FROM myindex&#x60;. The query string MUST be URL encoded * any type of query in format &#x60;mode&#x3D;raw&amp;query&#x3D;SHOW TABLES&#x60;. The string must be as is (no URL encoding) and &#x60;mode&#x60; must be first. The response object depends on the query executed. In select mode the response has same format as &#x60;/search&#x60; operation. 
    * @param body Expects is a query parameters string that can be in two modes:    * Select only query as &#x60;query&#x3D;SELECT * FROM myindex&#x60;. The query string MUST be URL encoded    * any type of query in format &#x60;mode&#x3D;raw&amp;query&#x3D;SHOW TABLES&#x60;. The string must be as is (no URL encoding) and &#x60;mode&#x60; must be first.  (required)
+   * @param rawResponse  (optional, default to false)
    * @return Map&lt;String, Object&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -60,14 +61,15 @@ public class UtilsApi {
    * 
    * @see <a href="https://docs.manticoresearch.com/latest/html/httpapi_reference.html#sql-api">Perform SQL requests Documentation</a>
    */
-  public Map<String, Object> sql(String body) throws ApiException {
-    return sqlWithHttpInfo(body).getData();
+  public Map<String, Object> sql(String body, Boolean rawResponse) throws ApiException {
+    return sqlWithHttpInfo(body, rawResponse).getData();
   }
 
   /**
    * Perform SQL requests
    * Run a query in SQL format. Expects a query parameters string that can be in two modes: * Select only query as &#x60;query&#x3D;SELECT * FROM myindex&#x60;. The query string MUST be URL encoded * any type of query in format &#x60;mode&#x3D;raw&amp;query&#x3D;SHOW TABLES&#x60;. The string must be as is (no URL encoding) and &#x60;mode&#x60; must be first. The response object depends on the query executed. In select mode the response has same format as &#x60;/search&#x60; operation. 
    * @param body Expects is a query parameters string that can be in two modes:    * Select only query as &#x60;query&#x3D;SELECT * FROM myindex&#x60;. The query string MUST be URL encoded    * any type of query in format &#x60;mode&#x3D;raw&amp;query&#x3D;SHOW TABLES&#x60;. The string must be as is (no URL encoding) and &#x60;mode&#x60; must be first.  (required)
+   * @param rawResponse  (optional, default to false)
    * @return ApiResponse&lt;Map&lt;String, Object&gt;&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -79,8 +81,16 @@ public class UtilsApi {
    * 
    * @see <a href="https://docs.manticoresearch.com/latest/html/httpapi_reference.html#sql-api">Perform SQL requests Documentation</a>
    */
-  public ApiResponse<Map<String, Object>> sqlWithHttpInfo(String body) throws ApiException {
+  public ApiResponse<Map<String, Object>> sqlWithHttpInfo(String body, Boolean rawResponse) throws ApiException {
+      Boolean isSqlFunc = true;
       Object localVarPostBody = body;
+      if (isSqlFunc) {
+        if  (rawResponse != null && !rawResponse) {
+          localVarPostBody = "query=" + apiClient.escapeString( localVarPostBody.toString() ); 
+        } else if (rawResponse == null || rawResponse) {
+          localVarPostBody = "mode=raw&query=" + localVarPostBody.toString();
+        }
+      }
     
     // verify the required parameter 'body' is set
     if (body == null) {
@@ -96,6 +106,7 @@ public class UtilsApi {
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "raw_response", rawResponse));
 
     
     

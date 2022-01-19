@@ -85,7 +85,16 @@ public class SearchApi {
    * @see <a href="https://docs.manticoresearch.com/latest/html/http_reference/json_update.html">Perform reverse search on a percolate index Documentation</a>
    */
   public ApiResponse<SearchResponse> percolateWithHttpInfo(String index, PercolateRequest percolateRequest) throws ApiException {
+      Boolean isSqlFunc = false;
+      Boolean rawResponse = false;
       Object localVarPostBody = percolateRequest;
+      if (isSqlFunc) {
+        if  (rawResponse != null && !rawResponse) {
+          localVarPostBody = "query=" + apiClient.escapeString( localVarPostBody.toString() ); 
+        } else if (rawResponse == null || rawResponse) {
+          localVarPostBody = "mode=raw&query=" + localVarPostBody.toString();
+        }
+      }
     
     // verify the required parameter 'index' is set
     if (index == null) {
@@ -164,7 +173,16 @@ public class SearchApi {
    * @see <a href="https://docs.manticoresearch.com/latest/html/http_reference/json_search.html">Performs a search Documentation</a>
    */
   public ApiResponse<SearchResponse> searchWithHttpInfo(SearchRequest searchRequest) throws ApiException {
+      Boolean isSqlFunc = false;
+      Boolean rawResponse = false;
       Object localVarPostBody = searchRequest;
+      if (isSqlFunc) {
+        if  (rawResponse != null && !rawResponse) {
+          localVarPostBody = "query=" + apiClient.escapeString( localVarPostBody.toString() ); 
+        } else if (rawResponse == null || rawResponse) {
+          localVarPostBody = "mode=raw&query=" + localVarPostBody.toString();
+        }
+      }
     
     // verify the required parameter 'searchRequest' is set
     if (searchRequest == null) {

@@ -39,7 +39,8 @@ public class UtilsApiTest {
     @Test
     public void sqlTest() throws ApiException {
         //String body = null;
-        //Map<String, Object> response = api.sql(body);
+        //Boolean rawResponse = null;
+        //Map<String, Object> response = api.sql(body, rawResponse);
         // TODO: test validations
     }
 
