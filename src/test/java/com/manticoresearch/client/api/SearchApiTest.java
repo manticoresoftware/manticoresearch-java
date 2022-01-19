@@ -43,7 +43,7 @@ public class SearchApiTest {
     public void percolateTest() throws ApiException {
         //String index = null;
         //PercolateRequest percolateRequest = null;
-        //SearchResponse response = api.percolate(indexpercolateRequest);
+        //SearchResponse response = api.percolate(index, percolateRequest);
         // TODO: test validations
     }
 

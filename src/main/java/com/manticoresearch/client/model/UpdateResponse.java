@@ -49,6 +49,8 @@ public class UpdateResponse {
   public static final String JSON_PROPERTY_RESULT = "result";
   private String result;
 
+  public UpdateResponse() { 
+  }
 
   public UpdateResponse index(String index) {
     this.index = index;
@@ -69,6 +71,8 @@ public class UpdateResponse {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_INDEX)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIndex(String index) {
     this.index = index;
   }
@@ -93,6 +97,8 @@ public class UpdateResponse {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_UPDATED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setUpdated(Integer updated) {
     this.updated = updated;
   }
@@ -117,6 +123,8 @@ public class UpdateResponse {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(Long id) {
     this.id = id;
   }
@@ -141,6 +149,8 @@ public class UpdateResponse {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_RESULT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResult(String result) {
     this.result = result;
   }
@@ -150,7 +160,7 @@ public class UpdateResponse {
    * Return true if this updateResponse object is equal to o.
    */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -169,7 +179,6 @@ public class UpdateResponse {
     return Objects.hash(index, updated, id, result);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -186,7 +195,7 @@ public class UpdateResponse {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
@@ -194,3 +203,4 @@ public class UpdateResponse {
   }
 
 }
+

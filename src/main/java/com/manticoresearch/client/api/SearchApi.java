@@ -1,11 +1,3 @@
-/*
- * Manticore Search Client
- * Copyright (c) 2020-2021, Manticore Software LTD (https://manticoresearch.com)
- *
- * All rights reserved
- */
-
-
 package com.manticoresearch.client.api;
 
 import com.manticoresearch.client.ApiException;
@@ -39,7 +31,7 @@ public class SearchApi {
   }
 
   /**
-   * Get the API cilent
+   * Get the API client
    *
    * @return API client
    */
@@ -48,7 +40,7 @@ public class SearchApi {
   }
 
   /**
-   * Set the API cilent
+   * Set the API client
    *
    * @param apiClient an instance of API client
    */
@@ -93,7 +85,7 @@ public class SearchApi {
    * @see <a href="https://docs.manticoresearch.com/latest/html/http_reference/json_update.html">Perform reverse search on a percolate index Documentation</a>
    */
   public ApiResponse<SearchResponse> percolateWithHttpInfo(String index, PercolateRequest percolateRequest) throws ApiException {
-    Object localVarPostBody = percolateRequest;
+      Object localVarPostBody = percolateRequest;
     
     // verify the required parameter 'index' is set
     if (index == null) {
@@ -172,7 +164,7 @@ public class SearchApi {
    * @see <a href="https://docs.manticoresearch.com/latest/html/http_reference/json_search.html">Performs a search Documentation</a>
    */
   public ApiResponse<SearchResponse> searchWithHttpInfo(SearchRequest searchRequest) throws ApiException {
-    Object localVarPostBody = searchRequest;
+      Object localVarPostBody = searchRequest;
     
     // verify the required parameter 'searchRequest' is set
     if (searchRequest == null) {

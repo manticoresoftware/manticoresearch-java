@@ -49,6 +49,8 @@ public class DeleteDocumentRequest {
   public static final String JSON_PROPERTY_QUERY = "query";
   private Object query;
 
+  public DeleteDocumentRequest() { 
+  }
 
   public DeleteDocumentRequest index(String index) {
     this.index = index;
@@ -59,6 +61,7 @@ public class DeleteDocumentRequest {
    * Index name
    * @return index
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Index name")
   @JsonProperty(JSON_PROPERTY_INDEX)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -68,6 +71,8 @@ public class DeleteDocumentRequest {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_INDEX)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setIndex(String index) {
     this.index = index;
   }
@@ -92,6 +97,8 @@ public class DeleteDocumentRequest {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_CLUSTER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCluster(String cluster) {
     this.cluster = cluster;
   }
@@ -116,6 +123,8 @@ public class DeleteDocumentRequest {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(Long id) {
     this.id = id;
   }
@@ -140,6 +149,8 @@ public class DeleteDocumentRequest {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setQuery(Object query) {
     this.query = query;
   }
@@ -149,7 +160,7 @@ public class DeleteDocumentRequest {
    * Return true if this deleteDocumentRequest object is equal to o.
    */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -168,7 +179,6 @@ public class DeleteDocumentRequest {
     return Objects.hash(index, cluster, id, query);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -185,7 +195,7 @@ public class DeleteDocumentRequest {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
@@ -193,3 +203,4 @@ public class DeleteDocumentRequest {
   }
 
 }
+

@@ -44,9 +44,16 @@ public class ErrorResponse {
   public static final String JSON_PROPERTY_STATUS = "status";
   private Integer status;
 
+  public ErrorResponse() { 
+  }
 
   public ErrorResponse error(Map<String, Object> error) {
     this.error = error;
+    return this;
+  }
+
+  public ErrorResponse putErrorItem(String key, Object errorItem) {
+    this.error.put(key, errorItem);
     return this;
   }
 
@@ -54,6 +61,7 @@ public class ErrorResponse {
    * Get error
    * @return error
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_ERROR)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -63,6 +71,8 @@ public class ErrorResponse {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ERROR)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setError(Map<String, Object> error) {
     this.error = error;
   }
@@ -77,6 +87,7 @@ public class ErrorResponse {
    * Get status
    * @return status
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(example = "500", required = true, value = "")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -86,6 +97,8 @@ public class ErrorResponse {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setStatus(Integer status) {
     this.status = status;
   }
@@ -95,7 +108,7 @@ public class ErrorResponse {
    * Return true if this errorResponse object is equal to o.
    */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -112,7 +125,6 @@ public class ErrorResponse {
     return Objects.hash(error, status);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -127,7 +139,7 @@ public class ErrorResponse {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
@@ -135,3 +147,4 @@ public class ErrorResponse {
   }
 
 }
+

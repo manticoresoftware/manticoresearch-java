@@ -52,6 +52,8 @@ public class UpdateDocumentRequest {
   public static final String JSON_PROPERTY_QUERY = "query";
   private Map<String, Object> query = null;
 
+  public UpdateDocumentRequest() { 
+  }
 
   public UpdateDocumentRequest index(String index) {
     this.index = index;
@@ -62,6 +64,7 @@ public class UpdateDocumentRequest {
    * Get index
    * @return index
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_INDEX)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -71,6 +74,8 @@ public class UpdateDocumentRequest {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_INDEX)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setIndex(String index) {
     this.index = index;
   }
@@ -81,10 +86,16 @@ public class UpdateDocumentRequest {
     return this;
   }
 
+  public UpdateDocumentRequest putDocItem(String key, Object docItem) {
+    this.doc.put(key, docItem);
+    return this;
+  }
+
    /**
    * Index name
    * @return doc
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(example = "{\"gid\":10}", required = true, value = "Index name")
   @JsonProperty(JSON_PROPERTY_DOC)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -94,6 +105,8 @@ public class UpdateDocumentRequest {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_DOC)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setDoc(Map<String, Object> doc) {
     this.doc = doc;
   }
@@ -118,6 +131,8 @@ public class UpdateDocumentRequest {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(Long id) {
     this.id = id;
   }
@@ -125,6 +140,14 @@ public class UpdateDocumentRequest {
 
   public UpdateDocumentRequest query(Map<String, Object> query) {
     this.query = query;
+    return this;
+  }
+
+  public UpdateDocumentRequest putQueryItem(String key, Object queryItem) {
+    if (this.query == null) {
+      this.query = new HashMap<String, Object>();
+    }
+    this.query.put(key, queryItem);
     return this;
   }
 
@@ -142,6 +165,8 @@ public class UpdateDocumentRequest {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setQuery(Map<String, Object> query) {
     this.query = query;
   }
@@ -151,7 +176,7 @@ public class UpdateDocumentRequest {
    * Return true if this updateDocumentRequest object is equal to o.
    */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -170,7 +195,6 @@ public class UpdateDocumentRequest {
     return Objects.hash(index, doc, id, query);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -187,7 +211,7 @@ public class UpdateDocumentRequest {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
@@ -195,3 +219,4 @@ public class UpdateDocumentRequest {
   }
 
 }
+

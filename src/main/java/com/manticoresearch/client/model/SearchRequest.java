@@ -81,6 +81,8 @@ public class SearchRequest {
   public static final String JSON_PROPERTY_PROFILE = "profile";
   private Boolean profile;
 
+  public SearchRequest() { 
+  }
 
   public SearchRequest index(String index) {
     this.index = index;
@@ -91,6 +93,7 @@ public class SearchRequest {
    * Get index
    * @return index
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(example = "test", required = true, value = "")
   @JsonProperty(JSON_PROPERTY_INDEX)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -100,6 +103,8 @@ public class SearchRequest {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_INDEX)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setIndex(String index) {
     this.index = index;
   }
@@ -110,10 +115,16 @@ public class SearchRequest {
     return this;
   }
 
+  public SearchRequest putQueryItem(String key, Object queryItem) {
+    this.query.put(key, queryItem);
+    return this;
+  }
+
    /**
    * Get query
    * @return query
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -123,6 +134,8 @@ public class SearchRequest {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_QUERY)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setQuery(Map<String, Object> query) {
     this.query = query;
   }
@@ -147,6 +160,8 @@ public class SearchRequest {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_LIMIT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLimit(Integer limit) {
     this.limit = limit;
   }
@@ -171,6 +186,8 @@ public class SearchRequest {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_OFFSET)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setOffset(Integer offset) {
     this.offset = offset;
   }
@@ -195,6 +212,8 @@ public class SearchRequest {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_MAX_MATCHES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMaxMatches(Integer maxMatches) {
     this.maxMatches = maxMatches;
   }
@@ -202,6 +221,14 @@ public class SearchRequest {
 
   public SearchRequest sort(List<Object> sort) {
     this.sort = sort;
+    return this;
+  }
+
+  public SearchRequest addSortItem(Object sortItem) {
+    if (this.sort == null) {
+      this.sort = new ArrayList<Object>();
+    }
+    this.sort.add(sortItem);
     return this;
   }
 
@@ -219,6 +246,8 @@ public class SearchRequest {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SORT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSort(List<Object> sort) {
     this.sort = sort;
   }
@@ -226,6 +255,14 @@ public class SearchRequest {
 
   public SearchRequest aggs(Map<String, Object> aggs) {
     this.aggs = aggs;
+    return this;
+  }
+
+  public SearchRequest putAggsItem(String key, Object aggsItem) {
+    if (this.aggs == null) {
+      this.aggs = new HashMap<String, Object>();
+    }
+    this.aggs.put(key, aggsItem);
     return this;
   }
 
@@ -243,6 +280,8 @@ public class SearchRequest {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_AGGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAggs(Map<String, Object> aggs) {
     this.aggs = aggs;
   }
@@ -267,6 +306,8 @@ public class SearchRequest {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_EXPRESSIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpressions(Object expressions) {
     this.expressions = expressions;
   }
@@ -291,6 +332,8 @@ public class SearchRequest {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_HIGHLIGHT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHighlight(Object highlight) {
     this.highlight = highlight;
   }
@@ -298,6 +341,14 @@ public class SearchRequest {
 
   public SearchRequest source(List<String> source) {
     this.source = source;
+    return this;
+  }
+
+  public SearchRequest addSourceItem(String sourceItem) {
+    if (this.source == null) {
+      this.source = new ArrayList<String>();
+    }
+    this.source.add(sourceItem);
     return this;
   }
 
@@ -315,6 +366,8 @@ public class SearchRequest {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_SOURCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSource(List<String> source) {
     this.source = source;
   }
@@ -339,6 +392,8 @@ public class SearchRequest {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_PROFILE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setProfile(Boolean profile) {
     this.profile = profile;
   }
@@ -348,7 +403,7 @@ public class SearchRequest {
    * Return true if this searchRequest object is equal to o.
    */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -374,7 +429,6 @@ public class SearchRequest {
     return Objects.hash(index, query, limit, offset, maxMatches, sort, aggs, expressions, highlight, source, profile);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -398,7 +452,7 @@ public class SearchRequest {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
@@ -406,3 +460,4 @@ public class SearchRequest {
   }
 
 }
+

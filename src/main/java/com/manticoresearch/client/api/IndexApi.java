@@ -1,11 +1,3 @@
-/*
- * Manticore Search Client
- * Copyright (c) 2020-2021, Manticore Software LTD (https://manticoresearch.com)
- *
- * All rights reserved
- */
-
-
 package com.manticoresearch.client.api;
 
 import com.manticoresearch.client.ApiException;
@@ -43,7 +35,7 @@ public class IndexApi {
   }
 
   /**
-   * Get the API cilent
+   * Get the API client
    *
    * @return API client
    */
@@ -52,7 +44,7 @@ public class IndexApi {
   }
 
   /**
-   * Set the API cilent
+   * Set the API client
    *
    * @param apiClient an instance of API client
    */
@@ -95,7 +87,7 @@ public class IndexApi {
    * @see <a href="https://docs.manticoresearch.com/latest/html/http_reference/json_update.html">Bulk index operations Documentation</a>
    */
   public ApiResponse<BulkResponse> bulkWithHttpInfo(String body) throws ApiException {
-    Object localVarPostBody = body;
+      Object localVarPostBody = body;
     
     // verify the required parameter 'body' is set
     if (body == null) {
@@ -168,7 +160,7 @@ public class IndexApi {
    * @see <a href="https://docs.manticoresearch.com/latest/html/http_reference/json_update.html">Delete a document in an index Documentation</a>
    */
   public ApiResponse<DeleteResponse> deleteWithHttpInfo(DeleteDocumentRequest deleteDocumentRequest) throws ApiException {
-    Object localVarPostBody = deleteDocumentRequest;
+      Object localVarPostBody = deleteDocumentRequest;
     
     // verify the required parameter 'deleteDocumentRequest' is set
     if (deleteDocumentRequest == null) {
@@ -241,7 +233,7 @@ public class IndexApi {
    * @see <a href="https://docs.manticoresearch.com/latest/html/http_reference/json_insert.html">Create a new document in an index Documentation</a>
    */
   public ApiResponse<SuccessResponse> insertWithHttpInfo(InsertDocumentRequest insertDocumentRequest) throws ApiException {
-    Object localVarPostBody = insertDocumentRequest;
+      Object localVarPostBody = insertDocumentRequest;
     
     // verify the required parameter 'insertDocumentRequest' is set
     if (insertDocumentRequest == null) {
@@ -314,7 +306,7 @@ public class IndexApi {
    * @see <a href="https://docs.manticoresearch.com/latest/html/http_reference/json_insert.html">Replace new document in an index Documentation</a>
    */
   public ApiResponse<SuccessResponse> replaceWithHttpInfo(InsertDocumentRequest insertDocumentRequest) throws ApiException {
-    Object localVarPostBody = insertDocumentRequest;
+      Object localVarPostBody = insertDocumentRequest;
     
     // verify the required parameter 'insertDocumentRequest' is set
     if (insertDocumentRequest == null) {
@@ -387,7 +379,7 @@ public class IndexApi {
    * @see <a href="https://docs.manticoresearch.com/latest/html/http_reference/json_update.html">Update a document in an index Documentation</a>
    */
   public ApiResponse<UpdateResponse> updateWithHttpInfo(UpdateDocumentRequest updateDocumentRequest) throws ApiException {
-    Object localVarPostBody = updateDocumentRequest;
+      Object localVarPostBody = updateDocumentRequest;
     
     // verify the required parameter 'updateDocumentRequest' is set
     if (updateDocumentRequest == null) {

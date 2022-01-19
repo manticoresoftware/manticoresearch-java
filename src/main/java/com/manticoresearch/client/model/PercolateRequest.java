@@ -40,9 +40,16 @@ public class PercolateRequest {
   public static final String JSON_PROPERTY_QUERY = "query";
   private Map<String, Object> query;
 
+  public PercolateRequest() { 
+  }
 
   public PercolateRequest query(Map<String, Object> query) {
     this.query = query;
+    return this;
+  }
+
+  public PercolateRequest putQueryItem(String key, Object queryItem) {
+    this.query.put(key, queryItem);
     return this;
   }
 
@@ -50,6 +57,7 @@ public class PercolateRequest {
    * Get query
    * @return query
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(example = "{\"percolate\":{\"document\":{\"title\":\"some text to match\"}}}", required = true, value = "")
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -59,6 +67,8 @@ public class PercolateRequest {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_QUERY)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setQuery(Map<String, Object> query) {
     this.query = query;
   }
@@ -68,7 +78,7 @@ public class PercolateRequest {
    * Return true if this percolateRequest object is equal to o.
    */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -84,7 +94,6 @@ public class PercolateRequest {
     return Objects.hash(query);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -98,7 +107,7 @@ public class PercolateRequest {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
@@ -106,3 +115,4 @@ public class PercolateRequest {
   }
 
 }
+

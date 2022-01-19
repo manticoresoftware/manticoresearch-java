@@ -52,6 +52,8 @@ public class InsertDocumentRequest {
   public static final String JSON_PROPERTY_DOC = "doc";
   private Map<String, Object> doc = new HashMap<String, Object>();
 
+  public InsertDocumentRequest() { 
+  }
 
   public InsertDocumentRequest index(String index) {
     this.index = index;
@@ -62,6 +64,7 @@ public class InsertDocumentRequest {
    * Name of the index
    * @return index
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Name of the index")
   @JsonProperty(JSON_PROPERTY_INDEX)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -71,6 +74,8 @@ public class InsertDocumentRequest {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_INDEX)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setIndex(String index) {
     this.index = index;
   }
@@ -95,6 +100,8 @@ public class InsertDocumentRequest {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_CLUSTER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCluster(String cluster) {
     this.cluster = cluster;
   }
@@ -119,6 +126,8 @@ public class InsertDocumentRequest {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(Long id) {
     this.id = id;
   }
@@ -129,10 +138,16 @@ public class InsertDocumentRequest {
     return this;
   }
 
+  public InsertDocumentRequest putDocItem(String key, Object docItem) {
+    this.doc.put(key, docItem);
+    return this;
+  }
+
    /**
    * Object with document data 
    * @return doc
   **/
+  @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "Object with document data ")
   @JsonProperty(JSON_PROPERTY_DOC)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -142,6 +157,8 @@ public class InsertDocumentRequest {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_DOC)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setDoc(Map<String, Object> doc) {
     this.doc = doc;
   }
@@ -151,7 +168,7 @@ public class InsertDocumentRequest {
    * Return true if this insertDocumentRequest object is equal to o.
    */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -170,7 +187,6 @@ public class InsertDocumentRequest {
     return Objects.hash(index, cluster, id, doc);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -187,7 +203,7 @@ public class InsertDocumentRequest {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
@@ -195,3 +211,4 @@ public class InsertDocumentRequest {
   }
 
 }
+

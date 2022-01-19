@@ -46,6 +46,8 @@ public class SearchResponseHits {
   public static final String JSON_PROPERTY_HITS = "hits";
   private List<Object> hits = null;
 
+  public SearchResponseHits() { 
+  }
 
   public SearchResponseHits maxScore(Integer maxScore) {
     this.maxScore = maxScore;
@@ -66,6 +68,8 @@ public class SearchResponseHits {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_MAX_SCORE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMaxScore(Integer maxScore) {
     this.maxScore = maxScore;
   }
@@ -90,6 +94,8 @@ public class SearchResponseHits {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TOTAL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTotal(Integer total) {
     this.total = total;
   }
@@ -97,6 +103,14 @@ public class SearchResponseHits {
 
   public SearchResponseHits hits(List<Object> hits) {
     this.hits = hits;
+    return this;
+  }
+
+  public SearchResponseHits addHitsItem(Object hitsItem) {
+    if (this.hits == null) {
+      this.hits = new ArrayList<Object>();
+    }
+    this.hits.add(hitsItem);
     return this;
   }
 
@@ -114,6 +128,8 @@ public class SearchResponseHits {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_HITS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHits(List<Object> hits) {
     this.hits = hits;
   }
@@ -123,7 +139,7 @@ public class SearchResponseHits {
    * Return true if this searchResponse_hits object is equal to o.
    */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -141,7 +157,6 @@ public class SearchResponseHits {
     return Objects.hash(maxScore, total, hits);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -157,7 +172,7 @@ public class SearchResponseHits {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
@@ -165,3 +180,4 @@ public class SearchResponseHits {
   }
 
 }
+

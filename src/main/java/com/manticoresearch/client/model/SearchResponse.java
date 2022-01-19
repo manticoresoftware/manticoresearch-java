@@ -61,6 +61,8 @@ public class SearchResponse {
   public static final String JSON_PROPERTY_WARNING = "warning";
   private Map<String, Object> warning = null;
 
+  public SearchResponse() { 
+  }
 
   public SearchResponse took(Integer took) {
     this.took = took;
@@ -81,6 +83,8 @@ public class SearchResponse {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TOOK)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTook(Integer took) {
     this.took = took;
   }
@@ -105,6 +109,8 @@ public class SearchResponse {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TIMED_OUT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTimedOut(Boolean timedOut) {
     this.timedOut = timedOut;
   }
@@ -112,6 +118,14 @@ public class SearchResponse {
 
   public SearchResponse aggregations(Map<String, Object> aggregations) {
     this.aggregations = aggregations;
+    return this;
+  }
+
+  public SearchResponse putAggregationsItem(String key, Object aggregationsItem) {
+    if (this.aggregations == null) {
+      this.aggregations = new HashMap<String, Object>();
+    }
+    this.aggregations.put(key, aggregationsItem);
     return this;
   }
 
@@ -129,6 +143,8 @@ public class SearchResponse {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_AGGREGATIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAggregations(Map<String, Object> aggregations) {
     this.aggregations = aggregations;
   }
@@ -153,6 +169,8 @@ public class SearchResponse {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_HITS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHits(SearchResponseHits hits) {
     this.hits = hits;
   }
@@ -177,6 +195,8 @@ public class SearchResponse {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_PROFILE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setProfile(Object profile) {
     this.profile = profile;
   }
@@ -184,6 +204,14 @@ public class SearchResponse {
 
   public SearchResponse warning(Map<String, Object> warning) {
     this.warning = warning;
+    return this;
+  }
+
+  public SearchResponse putWarningItem(String key, Object warningItem) {
+    if (this.warning == null) {
+      this.warning = new HashMap<String, Object>();
+    }
+    this.warning.put(key, warningItem);
     return this;
   }
 
@@ -201,6 +229,8 @@ public class SearchResponse {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_WARNING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWarning(Map<String, Object> warning) {
     this.warning = warning;
   }
@@ -210,7 +240,7 @@ public class SearchResponse {
    * Return true if this searchResponse object is equal to o.
    */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -231,7 +261,6 @@ public class SearchResponse {
     return Objects.hash(took, timedOut, aggregations, hits, profile, warning);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -250,7 +279,7 @@ public class SearchResponse {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
@@ -258,3 +287,4 @@ public class SearchResponse {
   }
 
 }
+

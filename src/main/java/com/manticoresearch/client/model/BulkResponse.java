@@ -45,6 +45,8 @@ public class BulkResponse {
   public static final String JSON_PROPERTY_ERROR = "error";
   private Boolean error;
 
+  public BulkResponse() { 
+  }
 
   public BulkResponse items(Object items) {
     this.items = items;
@@ -65,6 +67,8 @@ public class BulkResponse {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ITEMS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setItems(Object items) {
     this.items = items;
   }
@@ -89,6 +93,8 @@ public class BulkResponse {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ERROR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setError(Boolean error) {
     this.error = error;
   }
@@ -135,7 +141,7 @@ public class BulkResponse {
    * Return true if this bulkResponse object is equal to o.
    */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -153,7 +159,6 @@ public class BulkResponse {
     return Objects.hash(items, error, additionalProperties);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -169,7 +174,7 @@ public class BulkResponse {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
@@ -177,3 +182,4 @@ public class BulkResponse {
   }
 
 }
+

@@ -53,6 +53,8 @@ public class SuccessResponse {
   public static final String JSON_PROPERTY_FOUND = "found";
   private Boolean found;
 
+  public SuccessResponse() { 
+  }
 
   public SuccessResponse index(String index) {
     this.index = index;
@@ -73,6 +75,8 @@ public class SuccessResponse {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_INDEX)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIndex(String index) {
     this.index = index;
   }
@@ -97,6 +101,8 @@ public class SuccessResponse {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(Long id) {
     this.id = id;
   }
@@ -121,6 +127,8 @@ public class SuccessResponse {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_CREATED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreated(Boolean created) {
     this.created = created;
   }
@@ -145,6 +153,8 @@ public class SuccessResponse {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_RESULT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResult(String result) {
     this.result = result;
   }
@@ -169,6 +179,8 @@ public class SuccessResponse {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_FOUND)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFound(Boolean found) {
     this.found = found;
   }
@@ -178,7 +190,7 @@ public class SuccessResponse {
    * Return true if this successResponse object is equal to o.
    */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -198,7 +210,6 @@ public class SuccessResponse {
     return Objects.hash(index, id, created, result, found);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -216,7 +227,7 @@ public class SuccessResponse {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
@@ -224,3 +235,4 @@ public class SuccessResponse {
   }
 
 }
+

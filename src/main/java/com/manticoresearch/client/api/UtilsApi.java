@@ -1,11 +1,3 @@
-/*
- * Manticore Search Client
- * Copyright (c) 2020-2021, Manticore Software LTD (https://manticoresearch.com)
- *
- * All rights reserved
- */
-
-
 package com.manticoresearch.client.api;
 
 import com.manticoresearch.client.ApiException;
@@ -36,7 +28,7 @@ public class UtilsApi {
   }
 
   /**
-   * Get the API cilent
+   * Get the API client
    *
    * @return API client
    */
@@ -45,7 +37,7 @@ public class UtilsApi {
   }
 
   /**
-   * Set the API cilent
+   * Set the API client
    *
    * @param apiClient an instance of API client
    */
@@ -88,7 +80,7 @@ public class UtilsApi {
    * @see <a href="https://docs.manticoresearch.com/latest/html/httpapi_reference.html#sql-api">Perform SQL requests Documentation</a>
    */
   public ApiResponse<Map<String, Object>> sqlWithHttpInfo(String body) throws ApiException {
-    Object localVarPostBody = body;
+      Object localVarPostBody = body;
     
     // verify the required parameter 'body' is set
     if (body == null) {
