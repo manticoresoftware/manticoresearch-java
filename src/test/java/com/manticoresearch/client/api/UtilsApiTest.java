@@ -31,7 +31,7 @@ public class UtilsApiTest {
     /**
      * Perform SQL requests
      *
-     * Run a query in SQL format. Expects a query parameters string that can be in two modes: * Select only query as &#x60;query&#x3D;SELECT * FROM myindex&#x60;. The query string MUST be URL encoded * any type of query in format &#x60;mode&#x3D;raw&amp;query&#x3D;SHOW TABLES&#x60;. The string must be as is (no URL encoding) and &#x60;mode&#x60; must be first. The response object depends on the query executed. In select mode the response has same format as &#x60;/search&#x60; operation. 
+     * Run a query in SQL format. Expects a query string passed through &#x60;body&#x60; parameter and optional &#x60;raw_response&#x60; parameter that defines a format of response. &#x60;raw_response&#x60; can be set to &#x60;False&#x60; for Select queries only, e.g., &#x60;SELECT * FROM myindex&#x60; The query string must be URL encoded if &#x60;raw_response&#x60; parameter is set to False The query string must be as is (no URL encoding) if &#x60;raw_response&#x60; parameter is set to True or omitted. The response object depends on the query executed. In select mode the response has same format as &#x60;/search&#x60; operation. 
      *
      * @throws ApiException
      *          if the Api call fails

@@ -10,14 +10,14 @@ Method | HTTP request | Description
 
 ## sql
 
-> Map&lt;String, Object&gt; sql(body)
+> Map&lt;String, Object&gt; sql(body, rawResponse)
 
 Perform SQL requests
 
 Run a query in SQL format.
-Expects a query parameters string that can be in two modes:
-* Select only query as `query=SELECT * FROM myindex`. The query string MUST be URL encoded
-* any type of query in format `mode=raw&query=SHOW TABLES`. The string must be as is (no URL encoding) and `mode` must be first.
+Expects a query string passed through `body` parameter and `rawResponse` parameter that defines a format of response:
+* `rawResponse` parameter can be set to false for Select only queries, e.g., `SELECT * FROM myindex`. The query string MUST be URL encoded in such cases. 
+* `rawResponse` parameter can be set to true for any type of query (including Select qieries as well) , e.g., `SHOW TABLES`. The query string must be as it is (no URL encoding).
 The response object depends on the query executed. In select mode the response has same format as `/search` operation.
 
 
@@ -39,7 +39,7 @@ public class Example {
         UtilsApi utilsApi = new UtilsApi(defaultClient);
  
         try {
-            Object sqlresult =  utilsApi.sql("mode=raw&query=SHOW TABLES");
+            Object sqlresult =  utilsApi.sql("SHOW TABLES");
             System.out.println(sqlresult);  
         } catch (ApiException e) {
             System.err.println("Exception when calling UtilsApi#sql");
@@ -57,7 +57,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | **String**| Expects is a query parameters string that can be in two modes:    * Select only query as &#x60;query&#x3D;SELECT * FROM myindex&#x60;. The query string MUST be URL encoded    * any type of query in format &#x60;mode&#x3D;raw&amp;query&#x3D;SHOW TABLES&#x60;. The string must be as is (no URL encoding) and &#x60;mode&#x60; must be first.  |
+ **body** | **String**| A query string, must be URL encoded if rawResponse parameter is set to false and must be as it is (no URL encoding) otherwise.  |
+ **rawResponse** | **Boolean**| Defines a format of response. Can be set to false for Select only queries or set to true for any queries (including Select queries).  |
 
 ### Return type
 

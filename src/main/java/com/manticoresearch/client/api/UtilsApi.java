@@ -47,9 +47,9 @@ public class UtilsApi {
 
   /**
    * Perform SQL requests
-   * Run a query in SQL format. Expects a query parameters string that can be in two modes: * Select only query as &#x60;query&#x3D;SELECT * FROM myindex&#x60;. The query string MUST be URL encoded * any type of query in format &#x60;mode&#x3D;raw&amp;query&#x3D;SHOW TABLES&#x60;. The string must be as is (no URL encoding) and &#x60;mode&#x60; must be first. The response object depends on the query executed. In select mode the response has same format as &#x60;/search&#x60; operation. 
-   * @param body Expects is a query parameters string that can be in two modes:    * Select only query as &#x60;query&#x3D;SELECT * FROM myindex&#x60;. The query string MUST be URL encoded    * any type of query in format &#x60;mode&#x3D;raw&amp;query&#x3D;SHOW TABLES&#x60;. The string must be as is (no URL encoding) and &#x60;mode&#x60; must be first.  (required)
-   * @param rawResponse  (optional, default to false)
+   * Run a query in SQL format. Expects a query string passed through &#x60;body&#x60; parameter and optional &#x60;raw_response&#x60; parameter that defines a format of response. &#x60;raw_response&#x60; can be set to &#x60;False&#x60; for Select queries only, e.g., &#x60;SELECT * FROM myindex&#x60; The query string must be URL encoded if &#x60;raw_response&#x60; parameter is set to False The query string must be as is (no URL encoding) if &#x60;raw_response&#x60; parameter is set to True or omitted. The response object depends on the query executed. In select mode the response has same format as &#x60;/search&#x60; operation. 
+   * @param body A query parameter string. The query string must be URL encoded if &#x60;raw_response&#x60; parameter is set to False The query string must be as is (no URL encoding) if &#x60;raw_response&#x60; parameter is set to True or omitted.  (required)
+   * @param rawResponse Optional parameter, defines a format of response. Can be set to &#x60;False&#x60; for Select only queries and set to &#x60;True&#x60; or omitted for any type of queries:  (optional, default to true)
    * @return Map&lt;String, Object&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -59,7 +59,7 @@ public class UtilsApi {
        <tr><td> 0 </td><td> error </td><td>  -  </td></tr>
      </table>
    * 
-   * @see <a href="https://docs.manticoresearch.com/latest/html/httpapi_reference.html#sql-api">Perform SQL requests Documentation</a>
+   * @see <a href="https://manual.manticoresearch.com/Connecting_to_the_server/HTTP#sql-api">Perform SQL requests Documentation</a>
    */
   public Map<String, Object> sql(String body, Boolean rawResponse) throws ApiException {
     return sqlWithHttpInfo(body, rawResponse).getData();
@@ -67,9 +67,9 @@ public class UtilsApi {
 
   /**
    * Perform SQL requests
-   * Run a query in SQL format. Expects a query parameters string that can be in two modes: * Select only query as &#x60;query&#x3D;SELECT * FROM myindex&#x60;. The query string MUST be URL encoded * any type of query in format &#x60;mode&#x3D;raw&amp;query&#x3D;SHOW TABLES&#x60;. The string must be as is (no URL encoding) and &#x60;mode&#x60; must be first. The response object depends on the query executed. In select mode the response has same format as &#x60;/search&#x60; operation. 
-   * @param body Expects is a query parameters string that can be in two modes:    * Select only query as &#x60;query&#x3D;SELECT * FROM myindex&#x60;. The query string MUST be URL encoded    * any type of query in format &#x60;mode&#x3D;raw&amp;query&#x3D;SHOW TABLES&#x60;. The string must be as is (no URL encoding) and &#x60;mode&#x60; must be first.  (required)
-   * @param rawResponse  (optional, default to false)
+   * Run a query in SQL format. Expects a query string passed through &#x60;body&#x60; parameter and optional &#x60;raw_response&#x60; parameter that defines a format of response. &#x60;raw_response&#x60; can be set to &#x60;False&#x60; for Select queries only, e.g., &#x60;SELECT * FROM myindex&#x60; The query string must be URL encoded if &#x60;raw_response&#x60; parameter is set to False The query string must be as is (no URL encoding) if &#x60;raw_response&#x60; parameter is set to True or omitted. The response object depends on the query executed. In select mode the response has same format as &#x60;/search&#x60; operation. 
+   * @param body A query parameter string. The query string must be URL encoded if &#x60;raw_response&#x60; parameter is set to False The query string must be as is (no URL encoding) if &#x60;raw_response&#x60; parameter is set to True or omitted.  (required)
+   * @param rawResponse Optional parameter, defines a format of response. Can be set to &#x60;False&#x60; for Select only queries and set to &#x60;True&#x60; or omitted for any type of queries:  (optional, default to true)
    * @return ApiResponse&lt;Map&lt;String, Object&gt;&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -79,15 +79,14 @@ public class UtilsApi {
        <tr><td> 0 </td><td> error </td><td>  -  </td></tr>
      </table>
    * 
-   * @see <a href="https://docs.manticoresearch.com/latest/html/httpapi_reference.html#sql-api">Perform SQL requests Documentation</a>
+   * @see <a href="https://manual.manticoresearch.com/Connecting_to_the_server/HTTP#sql-api">Perform SQL requests Documentation</a>
    */
   public ApiResponse<Map<String, Object>> sqlWithHttpInfo(String body, Boolean rawResponse) throws ApiException {
-      Boolean isSqlFunc = true;
       Object localVarPostBody = body;
-      if (isSqlFunc) {
-        if  (rawResponse != null && !rawResponse) {
+      if  (localVarPostBody != null) {
+        if  (!rawResponse) {
           localVarPostBody = "query=" + apiClient.escapeString( localVarPostBody.toString() ); 
-        } else if (rawResponse == null || rawResponse) {
+        } else {
           localVarPostBody = "mode=raw&query=" + localVarPostBody.toString();
         }
       }
