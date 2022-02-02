@@ -13,7 +13,7 @@ Building the API client library requires:
 1. Java 1.7+
 2. Maven/Gradle
 
-Minimum Manticore Search version is 2.5.1 with HTTP protocol enabled.
+Minimum Manticore Search version is > 4.0.2 with HTTP protocol enabled.
 
 ## Installation
 
@@ -23,7 +23,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.manticoresearch</groupId>
   <artifactId>manticoresearch</artifactId>
-  <version>2.0.0</version>
+  <version>3.0.0</version>
 </dependency>
 ```
 
@@ -32,7 +32,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.manticoresearch:manticoresearch:2.0.0"
+compile "com.manticoresearch:manticoresearch:3.0.0"
 ```
 
 ### Others
@@ -45,7 +45,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-- `target/manticoresearch-2.0.0.jar`
+- `target/manticoresearch-3.0.0.jar`
 - `target/lib/*.jar`
 
 ## Getting Started

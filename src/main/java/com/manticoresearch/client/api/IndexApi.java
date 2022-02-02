@@ -122,8 +122,8 @@ public class IndexApi {
     GenericType<BulkResponse> localVarReturnType = new GenericType<BulkResponse>() {};
 
     return apiClient.invokeAPI("IndexApi.bulk", localVarPath, "POST", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    	localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+        localVarAuthNames, localVarReturnType, false);
   }
   /**
    * Delete a document in an index
@@ -195,8 +195,8 @@ public class IndexApi {
     GenericType<DeleteResponse> localVarReturnType = new GenericType<DeleteResponse>() {};
 
     return apiClient.invokeAPI("IndexApi.delete", localVarPath, "POST", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    	localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+        localVarAuthNames, localVarReturnType, false);
   }
   /**
    * Create a new document in an index
@@ -268,8 +268,8 @@ public class IndexApi {
     GenericType<SuccessResponse> localVarReturnType = new GenericType<SuccessResponse>() {};
 
     return apiClient.invokeAPI("IndexApi.insert", localVarPath, "POST", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    	localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+        localVarAuthNames, localVarReturnType, false);
   }
   /**
    * Replace new document in an index
@@ -341,8 +341,8 @@ public class IndexApi {
     GenericType<SuccessResponse> localVarReturnType = new GenericType<SuccessResponse>() {};
 
     return apiClient.invokeAPI("IndexApi.replace", localVarPath, "POST", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    	localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+        localVarAuthNames, localVarReturnType, false);
   }
   /**
    * Update a document in an index
@@ -414,7 +414,7 @@ public class IndexApi {
     GenericType<UpdateResponse> localVarReturnType = new GenericType<UpdateResponse>() {};
 
     return apiClient.invokeAPI("IndexApi.update", localVarPath, "POST", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    	localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+        localVarAuthNames, localVarReturnType, false);
   }
 }

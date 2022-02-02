@@ -10,14 +10,15 @@ Method | HTTP request | Description
 
 ## sql
 
-> Map&lt;String, Object&gt; sql(body, rawResponse)
+> Map&lt;String, Array&gt; sql(body, rawResponse)
 
 Perform SQL requests
 
 Run a query in SQL format.
 Expects a query string passed through `body` parameter and `rawResponse` parameter that defines a format of response:
-* `rawResponse` parameter can be set to false for Select only queries, e.g., `SELECT * FROM myindex`. The query string MUST be URL encoded in such cases. 
-* `rawResponse` parameter can be set to true for any type of query (including Select qieries as well) , e.g., `SHOW TABLES`. The query string must be as it is (no URL encoding).
+* `rawResponse` parameter can be set to false for Select only queries, e.g., `SELECT * FROM myindex`.  
+* `rawResponse` parameter can be set to true for any type of query (including Select qieries as well) , e.g., `SHOW TABLES`.
+The query string must stay as it is, no URL encoding is needed.  
 The response object depends on the query executed. In select mode the response has same format as `/search` operation.
 
 
@@ -57,12 +58,12 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | **String**| A query string, must be URL encoded if rawResponse parameter is set to false and must be as it is (no URL encoding) otherwise.  |
+ **body** | **String**| A query string.  |
  **rawResponse** | **Boolean**| Defines a format of response. Can be set to false for Select only queries or set to true for any queries (including Select queries).  |
 
 ### Return type
 
-**Map&lt;String, Object&gt;**
+**Map&lt;String, Array&gt;**
 
 ### Authorization
 

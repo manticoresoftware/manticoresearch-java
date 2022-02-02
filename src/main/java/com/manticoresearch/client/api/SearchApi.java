@@ -126,8 +126,8 @@ public class SearchApi {
     GenericType<SearchResponse> localVarReturnType = new GenericType<SearchResponse>() {};
 
     return apiClient.invokeAPI("SearchApi.percolate", localVarPath, "POST", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    	localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+        localVarAuthNames, localVarReturnType, false);
   }
   /**
    * Performs a search
@@ -199,7 +199,7 @@ public class SearchApi {
     GenericType<SearchResponse> localVarReturnType = new GenericType<SearchResponse>() {};
 
     return apiClient.invokeAPI("SearchApi.search", localVarPath, "POST", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    	localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+        localVarAuthNames, localVarReturnType, false);
   }
 }

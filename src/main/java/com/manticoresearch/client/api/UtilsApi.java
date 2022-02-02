@@ -47,10 +47,10 @@ public class UtilsApi {
 
   /**
    * Perform SQL requests
-   * Run a query in SQL format. Expects a query string passed through &#x60;body&#x60; parameter and optional &#x60;raw_response&#x60; parameter that defines a format of response. &#x60;raw_response&#x60; can be set to &#x60;False&#x60; for Select queries only, e.g., &#x60;SELECT * FROM myindex&#x60; The query string must be URL encoded if &#x60;raw_response&#x60; parameter is set to False The query string must be as is (no URL encoding) if &#x60;raw_response&#x60; parameter is set to True or omitted. The response object depends on the query executed. In select mode the response has same format as &#x60;/search&#x60; operation. 
-   * @param body A query parameter string. The query string must be URL encoded if &#x60;raw_response&#x60; parameter is set to False The query string must be as is (no URL encoding) if &#x60;raw_response&#x60; parameter is set to True or omitted.  (required)
+   * Run a query in SQL format. Expects a query string passed through &#x60;body&#x60; parameter and optional &#x60;raw_response&#x60; parameter that defines a format of response. &#x60;raw_response&#x60; can be set to &#x60;False&#x60; for Select queries only, e.g., &#x60;SELECT * FROM myindex&#x60; The query string must stay as it is, no URL encoding is needed. The response object depends on the query executed. In select mode the response has same format as &#x60;/search&#x60; operation. 
+   * @param body A query parameter string.  (required)
    * @param rawResponse Optional parameter, defines a format of response. Can be set to &#x60;False&#x60; for Select only queries and set to &#x60;True&#x60; or omitted for any type of queries:  (optional, default to true)
-   * @return Map&lt;String, Object&gt;
+   * @return List&lt;Object&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -61,16 +61,16 @@ public class UtilsApi {
    * 
    * @see <a href="https://manual.manticoresearch.com/Connecting_to_the_server/HTTP#sql-api">Perform SQL requests Documentation</a>
    */
-  public Map<String, Object> sql(String body, Boolean rawResponse) throws ApiException {
+  public List<Object> sql(String body, Boolean rawResponse) throws ApiException {
     return sqlWithHttpInfo(body, rawResponse).getData();
   }
 
   /**
    * Perform SQL requests
-   * Run a query in SQL format. Expects a query string passed through &#x60;body&#x60; parameter and optional &#x60;raw_response&#x60; parameter that defines a format of response. &#x60;raw_response&#x60; can be set to &#x60;False&#x60; for Select queries only, e.g., &#x60;SELECT * FROM myindex&#x60; The query string must be URL encoded if &#x60;raw_response&#x60; parameter is set to False The query string must be as is (no URL encoding) if &#x60;raw_response&#x60; parameter is set to True or omitted. The response object depends on the query executed. In select mode the response has same format as &#x60;/search&#x60; operation. 
-   * @param body A query parameter string. The query string must be URL encoded if &#x60;raw_response&#x60; parameter is set to False The query string must be as is (no URL encoding) if &#x60;raw_response&#x60; parameter is set to True or omitted.  (required)
+   * Run a query in SQL format. Expects a query string passed through &#x60;body&#x60; parameter and optional &#x60;raw_response&#x60; parameter that defines a format of response. &#x60;raw_response&#x60; can be set to &#x60;False&#x60; for Select queries only, e.g., &#x60;SELECT * FROM myindex&#x60; The query string must stay as it is, no URL encoding is needed. The response object depends on the query executed. In select mode the response has same format as &#x60;/search&#x60; operation. 
+   * @param body A query parameter string.  (required)
    * @param rawResponse Optional parameter, defines a format of response. Can be set to &#x60;False&#x60; for Select only queries and set to &#x60;True&#x60; or omitted for any type of queries:  (optional, default to true)
-   * @return ApiResponse&lt;Map&lt;String, Object&gt;&gt;
+   * @return ApiResponse&lt;List&lt;Object&gt;&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -81,13 +81,13 @@ public class UtilsApi {
    * 
    * @see <a href="https://manual.manticoresearch.com/Connecting_to_the_server/HTTP#sql-api">Perform SQL requests Documentation</a>
    */
-  public ApiResponse<Map<String, Object>> sqlWithHttpInfo(String body, Boolean rawResponse) throws ApiException {
+  public ApiResponse<List<Object>> sqlWithHttpInfo(String body, Boolean rawResponse) throws ApiException {
       Object localVarPostBody = body;
       if  (localVarPostBody != null) {
         if  (!rawResponse) {
           localVarPostBody = "query=" + apiClient.escapeString( localVarPostBody.toString() ); 
         } else {
-          localVarPostBody = "mode=raw&query=" + localVarPostBody.toString();
+          localVarPostBody = "mode=raw&query=" + apiClient.escapeString( localVarPostBody.toString() );
         }
       }
     
@@ -122,10 +122,18 @@ public class UtilsApi {
 
     String[] localVarAuthNames = new String[] {  };
 
-    GenericType<Map<String, Object>> localVarReturnType = new GenericType<Map<String, Object>>() {};
+    GenericType<List<Object>> localVarReturnType = new GenericType<List<Object>>() {};
 
+    if (!rawResponse) {
+    	ApiResponse<Map<String, Object>> res = apiClient.invokeAPI("UtilsApi.sql", localVarPath, "POST", localVarQueryParams, localVarPostBody,
+            localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+        	localVarAuthNames, new GenericType<Map<String, Object>>() {}, false);
+        List<Object> resList = new ArrayList<Object>();
+        resList.add(res.getData());
+    	return new ApiResponse<List<Object>>(res.getStatusCode(), res.getHeaders(), resList);
+    } 
     return apiClient.invokeAPI("UtilsApi.sql", localVarPath, "POST", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    	localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
+        localVarAuthNames, localVarReturnType, false);
   }
 }
