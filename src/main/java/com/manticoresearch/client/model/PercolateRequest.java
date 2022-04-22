@@ -17,11 +17,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.manticoresearch.client.model.PercolateRequestQuery;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.manticoresearch.client.JSON;
@@ -38,18 +36,13 @@ import com.manticoresearch.client.JSON;
 
 public class PercolateRequest {
   public static final String JSON_PROPERTY_QUERY = "query";
-  private Map<String, Object> query;
+  private PercolateRequestQuery query;
 
   public PercolateRequest() { 
   }
 
-  public PercolateRequest query(Map<String, Object> query) {
+  public PercolateRequest query(PercolateRequestQuery query) {
     this.query = query;
-    return this;
-  }
-
-  public PercolateRequest putQueryItem(String key, Object queryItem) {
-    this.query.put(key, queryItem);
     return this;
   }
 
@@ -58,18 +51,18 @@ public class PercolateRequest {
    * @return query
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "{\"percolate\":{\"document\":{\"title\":\"some text to match\"}}}", required = true, value = "")
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public Map<String, Object> getQuery() {
+  public PercolateRequestQuery getQuery() {
     return query;
   }
 
 
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setQuery(Map<String, Object> query) {
+  public void setQuery(PercolateRequestQuery query) {
     this.query = query;
   }
 

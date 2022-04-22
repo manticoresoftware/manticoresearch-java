@@ -108,7 +108,7 @@ public class SearchResponseHits {
 
   public SearchResponseHits addHitsItem(Object hitsItem) {
     if (this.hits == null) {
-      this.hits = new ArrayList<Object>();
+      this.hits = new ArrayList<>();
     }
     this.hits.add(hitsItem);
     return this;

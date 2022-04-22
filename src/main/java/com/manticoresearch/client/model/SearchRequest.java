@@ -43,6 +43,7 @@ import com.manticoresearch.client.JSON;
   SearchRequest.JSON_PROPERTY_EXPRESSIONS,
   SearchRequest.JSON_PROPERTY_HIGHLIGHT,
   SearchRequest.JSON_PROPERTY_SOURCE,
+  SearchRequest.JSON_PROPERTY_OPTIONS,
   SearchRequest.JSON_PROPERTY_PROFILE
 })
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -52,7 +53,7 @@ public class SearchRequest {
   private String index;
 
   public static final String JSON_PROPERTY_QUERY = "query";
-  private Map<String, Object> query = new HashMap<String, Object>();
+  private Object query;
 
   public static final String JSON_PROPERTY_LIMIT = "limit";
   private Integer limit;
@@ -77,6 +78,9 @@ public class SearchRequest {
 
   public static final String JSON_PROPERTY_SOURCE = "_source";
   private List<String> source = null;
+
+  public static final String JSON_PROPERTY_OPTIONS = "options";
+  private Map<String, Object> options = null;
 
   public static final String JSON_PROPERTY_PROFILE = "profile";
   private Boolean profile;
@@ -110,13 +114,8 @@ public class SearchRequest {
   }
 
 
-  public SearchRequest query(Map<String, Object> query) {
+  public SearchRequest query(Object query) {
     this.query = query;
-    return this;
-  }
-
-  public SearchRequest putQueryItem(String key, Object queryItem) {
-    this.query.put(key, queryItem);
     return this;
   }
 
@@ -125,18 +124,18 @@ public class SearchRequest {
    * @return query
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(example = "{\"match_all\":{}}", required = true, value = "")
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public Map<String, Object> getQuery() {
+  public Object getQuery() {
     return query;
   }
 
 
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setQuery(Map<String, Object> query) {
+  public void setQuery(Object query) {
     this.query = query;
   }
 
@@ -226,7 +225,7 @@ public class SearchRequest {
 
   public SearchRequest addSortItem(Object sortItem) {
     if (this.sort == null) {
-      this.sort = new ArrayList<Object>();
+      this.sort = new ArrayList<>();
     }
     this.sort.add(sortItem);
     return this;
@@ -237,7 +236,7 @@ public class SearchRequest {
    * @return sort
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "[{\"test\":\"asc\"},\"id\"]", value = "")
   @JsonProperty(JSON_PROPERTY_SORT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -260,7 +259,7 @@ public class SearchRequest {
 
   public SearchRequest putAggsItem(String key, Object aggsItem) {
     if (this.aggs == null) {
-      this.aggs = new HashMap<String, Object>();
+      this.aggs = new HashMap<>();
     }
     this.aggs.put(key, aggsItem);
     return this;
@@ -346,7 +345,7 @@ public class SearchRequest {
 
   public SearchRequest addSourceItem(String sourceItem) {
     if (this.source == null) {
-      this.source = new ArrayList<String>();
+      this.source = new ArrayList<>();
     }
     this.source.add(sourceItem);
     return this;
@@ -370,6 +369,40 @@ public class SearchRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSource(List<String> source) {
     this.source = source;
+  }
+
+
+  public SearchRequest options(Map<String, Object> options) {
+    this.options = options;
+    return this;
+  }
+
+  public SearchRequest putOptionsItem(String key, Object optionsItem) {
+    if (this.options == null) {
+      this.options = new HashMap<>();
+    }
+    this.options.put(key, optionsItem);
+    return this;
+  }
+
+   /**
+   * Get options
+   * @return options
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_OPTIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Map<String, Object> getOptions() {
+    return options;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_OPTIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setOptions(Map<String, Object> options) {
+    this.options = options;
   }
 
 
@@ -421,12 +454,13 @@ public class SearchRequest {
         Objects.equals(this.expressions, searchRequest.expressions) &&
         Objects.equals(this.highlight, searchRequest.highlight) &&
         Objects.equals(this.source, searchRequest.source) &&
+        Objects.equals(this.options, searchRequest.options) &&
         Objects.equals(this.profile, searchRequest.profile);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(index, query, limit, offset, maxMatches, sort, aggs, expressions, highlight, source, profile);
+    return Objects.hash(index, query, limit, offset, maxMatches, sort, aggs, expressions, highlight, source, options, profile);
   }
 
   @Override
@@ -443,6 +477,7 @@ public class SearchRequest {
     sb.append("    expressions: ").append(toIndentedString(expressions)).append("\n");
     sb.append("    highlight: ").append(toIndentedString(highlight)).append("\n");
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
+    sb.append("    options: ").append(toIndentedString(options)).append("\n");
     sb.append("    profile: ").append(toIndentedString(profile)).append("\n");
     sb.append("}");
     return sb.toString();

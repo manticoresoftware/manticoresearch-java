@@ -119,6 +119,14 @@ public class SearchRequestTest {
     }
 
     /**
+     * Test the property 'options'
+     */
+    @Test
+    public void optionsTest() {
+        // TODO: test options
+    }
+
+    /**
      * Test the property 'profile'
      */
     @Test

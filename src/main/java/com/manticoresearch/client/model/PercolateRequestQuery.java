@@ -29,74 +29,43 @@ import com.manticoresearch.client.JSON;
 
 
 /**
- * Success bulk response
+ * PercolateRequestQuery
  */
-@ApiModel(description = "Success bulk response")
 @JsonPropertyOrder({
-  BulkResponse.JSON_PROPERTY_ITEMS,
-  BulkResponse.JSON_PROPERTY_ERROR
+  PercolateRequestQuery.JSON_PROPERTY_PERCOLATE
 })
 @JsonIgnoreProperties(ignoreUnknown = true)
 
-public class BulkResponse {
-  public static final String JSON_PROPERTY_ITEMS = "items";
-  private Object items;
+public class PercolateRequestQuery {
+  public static final String JSON_PROPERTY_PERCOLATE = "percolate";
+  private Object percolate;
 
-  public static final String JSON_PROPERTY_ERROR = "error";
-  private Boolean error;
-
-  public BulkResponse() { 
+  public PercolateRequestQuery() { 
   }
 
-  public BulkResponse items(Object items) {
-    this.items = items;
+  public PercolateRequestQuery percolate(Object percolate) {
+    this.percolate = percolate;
     return this;
   }
 
    /**
-   * Get items
-   * @return items
+   * Get percolate
+   * @return percolate
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_ITEMS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_PERCOLATE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public Object getItems() {
-    return items;
+  public Object getPercolate() {
+    return percolate;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ITEMS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setItems(Object items) {
-    this.items = items;
-  }
-
-
-  public BulkResponse error(Boolean error) {
-    this.error = error;
-    return this;
-  }
-
-   /**
-   * Get error
-   * @return error
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_ERROR)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Boolean getError() {
-    return error;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_ERROR)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setError(Boolean error) {
-    this.error = error;
+  @JsonProperty(JSON_PROPERTY_PERCOLATE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setPercolate(Object percolate) {
+    this.percolate = percolate;
   }
 
   /**
@@ -111,7 +80,7 @@ public class BulkResponse {
    * If the property does not already exist, create it otherwise replace it.
    */
   @JsonAnySetter
-  public BulkResponse putAdditionalProperty(String key, Object value) {
+  public PercolateRequestQuery putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -138,7 +107,7 @@ public class BulkResponse {
   }
 
   /**
-   * Return true if this bulkResponse object is equal to o.
+   * Return true if this percolateRequest_query object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -148,23 +117,21 @@ public class BulkResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    BulkResponse bulkResponse = (BulkResponse) o;
-    return Objects.equals(this.items, bulkResponse.items) &&
-        Objects.equals(this.error, bulkResponse.error)&&
-        Objects.equals(this.additionalProperties, bulkResponse.additionalProperties);
+    PercolateRequestQuery percolateRequestQuery = (PercolateRequestQuery) o;
+    return Objects.equals(this.percolate, percolateRequestQuery.percolate)&&
+        Objects.equals(this.additionalProperties, percolateRequestQuery.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(items, error, additionalProperties);
+    return Objects.hash(percolate, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class BulkResponse {\n");
-    sb.append("    items: ").append(toIndentedString(items)).append("\n");
-    sb.append("    error: ").append(toIndentedString(error)).append("\n");
+    sb.append("class PercolateRequestQuery {\n");
+    sb.append("    percolate: ").append(toIndentedString(percolate)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -15,49 +15,31 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.ArrayList;
-import java.util.List;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
 
 /**
- * Model tests for SearchResponseHits
+ * Model tests for PercolateRequestQuery
  */
-public class SearchResponseHitsTest {
-    private final SearchResponseHits model = new SearchResponseHits();
+public class PercolateRequestQueryTest {
+    private final PercolateRequestQuery model = new PercolateRequestQuery();
 
     /**
-     * Model tests for SearchResponseHits
+     * Model tests for PercolateRequestQuery
      */
     @Test
-    public void testSearchResponseHits() {
-        // TODO: test SearchResponseHits
+    public void testPercolateRequestQuery() {
+        // TODO: test PercolateRequestQuery
     }
 
     /**
-     * Test the property 'maxScore'
+     * Test the property 'percolate'
      */
     @Test
-    public void maxScoreTest() {
-        // TODO: test maxScore
-    }
-
-    /**
-     * Test the property 'total'
-     */
-    @Test
-    public void totalTest() {
-        // TODO: test total
-    }
-
-    /**
-     * Test the property 'hits'
-     */
-    @Test
-    public void hitsTest() {
-        // TODO: test hits
+    public void percolateTest() {
+        // TODO: test percolate
     }
 
 }

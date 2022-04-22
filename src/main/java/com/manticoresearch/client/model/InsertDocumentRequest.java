@@ -50,7 +50,7 @@ public class InsertDocumentRequest {
   private Long id;
 
   public static final String JSON_PROPERTY_DOC = "doc";
-  private Map<String, Object> doc = new HashMap<String, Object>();
+  private Map<String, Object> doc = new HashMap<>();
 
   public InsertDocumentRequest() { 
   }

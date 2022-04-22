@@ -8,7 +8,7 @@ Payload for search operation
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **index** | **String** |  | 
-**query** | **Map&lt;String, Object&gt;** |  | 
+**query** | **Object** |  | 
 **limit** | **Integer** |  |  [optional]
 **offset** | **Integer** |  |  [optional]
 **maxMatches** | **Integer** |  |  [optional]
@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **expressions** | **Object** |  |  [optional]
 **highlight** | **Object** |  |  [optional]
 **source** | **List&lt;String&gt;** |  |  [optional]
+**options** | **Map&lt;String, Object&gt;** |  |  [optional]
 **profile** | **Boolean** |  |  [optional]
 
 

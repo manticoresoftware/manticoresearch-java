@@ -7,7 +7,7 @@ Object with documents to percolate
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**query** | **Map&lt;String, Object&gt;** |  | 
+**query** | [**PercolateRequestQuery**](PercolateRequestQuery.md) |  | 
 
 
 

@@ -39,7 +39,7 @@ import com.manticoresearch.client.JSON;
 
 public class ErrorResponse {
   public static final String JSON_PROPERTY_ERROR = "error";
-  private Map<String, Object> error = new HashMap<String, Object>();
+  private Map<String, Object> error = new HashMap<>();
 
   public static final String JSON_PROPERTY_STATUS = "status";
   private Integer status;

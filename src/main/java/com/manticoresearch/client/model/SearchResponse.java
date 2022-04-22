@@ -123,7 +123,7 @@ public class SearchResponse {
 
   public SearchResponse putAggregationsItem(String key, Object aggregationsItem) {
     if (this.aggregations == null) {
-      this.aggregations = new HashMap<String, Object>();
+      this.aggregations = new HashMap<>();
     }
     this.aggregations.put(key, aggregationsItem);
     return this;
@@ -209,7 +209,7 @@ public class SearchResponse {
 
   public SearchResponse putWarningItem(String key, Object warningItem) {
     if (this.warning == null) {
-      this.warning = new HashMap<String, Object>();
+      this.warning = new HashMap<>();
     }
     this.warning.put(key, warningItem);
     return this;

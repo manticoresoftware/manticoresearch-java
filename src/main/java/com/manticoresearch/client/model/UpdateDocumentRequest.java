@@ -44,7 +44,7 @@ public class UpdateDocumentRequest {
   private String index;
 
   public static final String JSON_PROPERTY_DOC = "doc";
-  private Map<String, Object> doc = new HashMap<String, Object>();
+  private Map<String, Object> doc = new HashMap<>();
 
   public static final String JSON_PROPERTY_ID = "id";
   private Long id;
@@ -145,7 +145,7 @@ public class UpdateDocumentRequest {
 
   public UpdateDocumentRequest putQueryItem(String key, Object queryItem) {
     if (this.query == null) {
-      this.query = new HashMap<String, Object>();
+      this.query = new HashMap<>();
     }
     this.query.put(key, queryItem);
     return this;
