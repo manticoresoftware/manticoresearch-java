@@ -53,6 +53,14 @@ public class SearchResponseHitsTest {
     }
 
     /**
+     * Test the property 'totalRelation'
+     */
+    @Test
+    public void totalRelationTest() {
+        // TODO: test totalRelation
+    }
+
+    /**
      * Test the property 'hits'
      */
     @Test

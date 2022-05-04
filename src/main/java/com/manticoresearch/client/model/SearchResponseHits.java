@@ -32,6 +32,7 @@ import com.manticoresearch.client.JSON;
 @JsonPropertyOrder({
   SearchResponseHits.JSON_PROPERTY_MAX_SCORE,
   SearchResponseHits.JSON_PROPERTY_TOTAL,
+  SearchResponseHits.JSON_PROPERTY_TOTAL_RELATION,
   SearchResponseHits.JSON_PROPERTY_HITS
 })
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -42,6 +43,9 @@ public class SearchResponseHits {
 
   public static final String JSON_PROPERTY_TOTAL = "total";
   private Integer total;
+
+  public static final String JSON_PROPERTY_TOTAL_RELATION = "total_relation";
+  private String totalRelation;
 
   public static final String JSON_PROPERTY_HITS = "hits";
   private List<Object> hits = null;
@@ -101,6 +105,32 @@ public class SearchResponseHits {
   }
 
 
+  public SearchResponseHits totalRelation(String totalRelation) {
+    this.totalRelation = totalRelation;
+    return this;
+  }
+
+   /**
+   * Get totalRelation
+   * @return totalRelation
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_TOTAL_RELATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getTotalRelation() {
+    return totalRelation;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_TOTAL_RELATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTotalRelation(String totalRelation) {
+    this.totalRelation = totalRelation;
+  }
+
+
   public SearchResponseHits hits(List<Object> hits) {
     this.hits = hits;
     return this;
@@ -149,12 +179,13 @@ public class SearchResponseHits {
     SearchResponseHits searchResponseHits = (SearchResponseHits) o;
     return Objects.equals(this.maxScore, searchResponseHits.maxScore) &&
         Objects.equals(this.total, searchResponseHits.total) &&
+        Objects.equals(this.totalRelation, searchResponseHits.totalRelation) &&
         Objects.equals(this.hits, searchResponseHits.hits);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(maxScore, total, hits);
+    return Objects.hash(maxScore, total, totalRelation, hits);
   }
 
   @Override
@@ -163,6 +194,7 @@ public class SearchResponseHits {
     sb.append("class SearchResponseHits {\n");
     sb.append("    maxScore: ").append(toIndentedString(maxScore)).append("\n");
     sb.append("    total: ").append(toIndentedString(total)).append("\n");
+    sb.append("    totalRelation: ").append(toIndentedString(totalRelation)).append("\n");
     sb.append("    hits: ").append(toIndentedString(hits)).append("\n");
     sb.append("}");
     return sb.toString();
