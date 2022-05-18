@@ -4,7 +4,7 @@
 Low-level client for Manticore Search.
 
 
-❗ WARNING: this is a development version of the client. The latest release's readme is https://github.com/manticoresoftware/manticoresearch-java/tree/2.0.3
+❗ WARNING: this is a development version of the client. The latest release's readme is https://github.com/manticoresoftware/manticoresearch-java/tree/3.2.0
 
 
 ## Requirements
@@ -15,6 +15,13 @@ Building the API client library requires:
 2. Maven/Gradle
 
 Minimum Manticore Search version is 2.5.1 with HTTP protocol enabled.
+
+| Manticore Search  | manticoresearch-java   |     Java      |
+| ----------------- | ---------------------- | ------------- |
+| >= 4.2.1          | 3.0.x                  | >= 1.8        |
+| >= 4.0.2          | 2.0.3                  | >= 1.8        |
+| >= 2.5.1          | 2.0.2                  | >= 1.8        |
+
 
 ## Installation
 
