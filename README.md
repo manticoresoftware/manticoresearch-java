@@ -4,9 +4,6 @@
 Low-level client for Manticore Search.
 
 
-❗ WARNING: this is a development version of the client. The latest release's readme is https://github.com/manticoresoftware/manticoresearch-java/tree/3.2.0
-
-
 ## Requirements
 
 Building the API client library requires:
