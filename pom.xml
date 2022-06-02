@@ -392,9 +392,4 @@
             <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
         </repository>
     </distributionManagement>
-    <scm>
-        <connection>scm:git:git://github.com/manticoresoftware/manticoresearch-java.git</connection>
-        <developerConnection>scm:git:ssh://manticoresoftware/manticoresearch-java.git</developerConnection>
-        <url>https://github.com/manticoresoftware/manticoresearch-java/tree/master</url>
-    </scm>
 </project>
