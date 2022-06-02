@@ -3,7 +3,6 @@
 
 Low-level client for Manticore Search.
 
-
 ## Requirements
 
 Building the API client library requires:
