@@ -12,10 +12,11 @@ import com.manticoresearch.client.model.ErrorResponse;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-04-19T16:54:33.962336Z[Etc/UTC]")
 public class UtilsApi {
   private ApiClient apiClient;
 
@@ -82,58 +83,38 @@ public class UtilsApi {
    * @see <a href="https://manual.manticoresearch.com/Connecting_to_the_server/HTTP#sql-api">Perform SQL requests Documentation</a>
    */
   public ApiResponse<List<Object>> sqlWithHttpInfo(String body, Boolean rawResponse) throws ApiException {
-      Object localVarPostBody = body;
-      if  (localVarPostBody != null) {
-        if  (!rawResponse) {
-          localVarPostBody = "query=" + apiClient.escapeString( localVarPostBody.toString() ); 
-        } else {
-          localVarPostBody = "mode=raw&query=" + apiClient.escapeString( localVarPostBody.toString() );
-        }
-      }
-    
-    // verify the required parameter 'body' is set
+    // Check required parameters
     if (body == null) {
       throw new ApiException(400, "Missing the required parameter 'body' when calling sql");
     }
     
-    // create path and map variables
-    String localVarPath = "/sql";
+    if  (!rawResponse) {
+		body = "query=" + apiClient.escapeString(body); 
+	} else {
+		body = "mode=raw&query=" + apiClient.escapeString(body);
+	}
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+    // Query parameters
+    List<Pair> localVarQueryParams = new ArrayList<>(
+            apiClient.parameterToPairs("", "raw_response", rawResponse)
+    );
 
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "raw_response", rawResponse));
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "text/plain"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
+    String localVarAccept = apiClient.selectHeaderAccept("application/json");
+    String localVarContentType = apiClient.selectHeaderContentType("text/plain");
     GenericType<List<Object>> localVarReturnType = new GenericType<List<Object>>() {};
-
     if (!rawResponse) {
-    	ApiResponse<Map<String, Object>> res = apiClient.invokeAPI("UtilsApi.sql", localVarPath, "POST", localVarQueryParams, localVarPostBody,
-            localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-        	localVarAuthNames, new GenericType<Map<String, Object>>() {}, false);
+    	ApiResponse<Map<String, Object>> res = apiClient.invokeAPI("UtilsApi.sql", "/sql", "POST", localVarQueryParams, body,
+                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
+                               null, new GenericType<Map<String, Object>>() {}, false);
+    	/*ApiResponse<Map<String, Object>> res = apiClient.invokeAPI("UtilsApi.sql", "/sql", "POST", localVarQueryParams, body,
+            new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
+        	null, new GenericType<Map<String, Object>>() {}, false);*/
         List<Object> resList = new ArrayList<Object>();
         resList.add(res.getData());
     	return new ApiResponse<List<Object>>(res.getStatusCode(), res.getHeaders(), resList);
-    } 
-    return apiClient.invokeAPI("UtilsApi.sql", localVarPath, "POST", localVarQueryParams, localVarPostBody,
-    	localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-        localVarAuthNames, localVarReturnType, false);
+    }
+    return apiClient.invokeAPI("UtilsApi.sql", "/sql", "POST", localVarQueryParams, body,
+                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
+                               null, localVarReturnType, false);
   }
 }

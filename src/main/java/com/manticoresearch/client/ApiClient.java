@@ -1,5 +1,7 @@
 package com.manticoresearch.client;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
@@ -35,6 +37,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import org.glassfish.jersey.logging.LoggingFeature;
+import java.util.AbstractMap.SimpleEntry;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.Collection;
@@ -42,11 +45,14 @@ import java.util.Collections;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.HashMap;
-import java.util.HashSet;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 import java.time.OffsetDateTime;
 
 import java.net.URLEncoder;
@@ -62,31 +68,34 @@ import com.manticoresearch.client.auth.Authentication;
 import com.manticoresearch.client.auth.HttpBasicAuth;
 import com.manticoresearch.client.auth.HttpBearerAuth;
 import com.manticoresearch.client.auth.ApiKeyAuth;
+import com.manticoresearch.client.model.SearchRequest;
+
 
 /**
  * <p>ApiClient class.</p>
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-04-19T16:54:33.962336Z[Etc/UTC]")
 public class ApiClient extends JavaTimeFormatter {
-  protected Map<String, String> defaultHeaderMap = new HashMap<String, String>();
-  protected Map<String, String> defaultCookieMap = new HashMap<String, String>();
+  private static final Pattern JSON_MIME_PATTERN = Pattern.compile("(?i)^(application/json|[^;/ \t]+/[^;/ \t]+[+]json)[ \t]*(;.*)?$");
+
+  protected Map<String, String> defaultHeaderMap = new HashMap<>();
+  protected Map<String, String> defaultCookieMap = new HashMap<>();
   protected String basePath = "http://127.0.0.1:9308";
   protected String userAgent;
   private static final Logger log = Logger.getLogger(ApiClient.class.getName());
 
-  protected List<ServerConfiguration> servers = new ArrayList<ServerConfiguration>(Arrays.asList(
-    new ServerConfiguration(
-      "http://127.0.0.1:9308",
-      "Default Manticore Search HTTP",
-      new HashMap<String, ServerVariable>()
-    )
+  protected List<ServerConfiguration> servers = new ArrayList<>(Arrays.asList(
+          new ServerConfiguration(
+                  "http://127.0.0.1:9308",
+                  "Default Manticore Search HTTP",
+                  new LinkedHashMap<>()
+          )
   ));
   protected Integer serverIndex = 0;
   protected Map<String, String> serverVariables = null;
-  protected Map<String, List<ServerConfiguration>> operationServers = new HashMap<String, List<ServerConfiguration>>() {{
-  }};
-  protected Map<String, Integer> operationServerIndex = new HashMap<String, Integer>();
-  protected Map<String, Map<String, String>> operationServerVariables = new HashMap<String, Map<String, String>>();
+  protected Map<String, List<ServerConfiguration>> operationServers = new HashMap<>();
+  protected Map<String, Integer> operationServerIndex = new HashMap<>();
+  protected Map<String, Map<String, String>> operationServerVariables = new HashMap<>();
   protected boolean debugging = false;
   protected ClientConfig clientConfig;
   protected int connectionTimeout = 0;
@@ -120,16 +129,16 @@ public class ApiClient extends JavaTimeFormatter {
     this.dateFormat = new RFC3339DateFormat();
 
     // Set default User-Agent.
-    setUserAgent("OpenAPI-Generator/3.2.0/java");
+    setUserAgent("OpenAPI-Generator/3.3.0/java");
 
     // Setup authentications (key: authentication name, value: authentication).
-    authentications = new HashMap<String, Authentication>();
+    authentications = new HashMap<>();
     Authentication auth = null;
     // Prevent the authentications from being modified.
     authentications = Collections.unmodifiableMap(authentications);
 
     // Setup authentication lookup (key: authentication alias, value: authentication name)
-    authenticationLookup = new HashMap<String, String>();
+    authenticationLookup = new HashMap<>();
   }
 
   /**
@@ -329,9 +338,10 @@ public class ApiClient extends JavaTimeFormatter {
       if (auth instanceof ApiKeyAuth) {
         String name = authEntry.getKey();
         // respect x-auth-id-alias property
-        name = authenticationLookup.containsKey(name) ? authenticationLookup.get(name) : name;
-        if (secrets.containsKey(name)) {
-          ((ApiKeyAuth) auth).setApiKey(secrets.get(name));
+        name = authenticationLookup.getOrDefault(name, name);
+        String secret = secrets.get(name);
+        if (secret != null) {
+          ((ApiKeyAuth) auth).setApiKey(secret);
         }
       }
     }
@@ -609,7 +619,7 @@ public class ApiClient extends JavaTimeFormatter {
    * @return List of pairs
    */
   public List<Pair> parameterToPairs(String collectionFormat, String name, Object value){
-    List<Pair> params = new ArrayList<Pair>();
+    List<Pair> params = new ArrayList<>();
 
     // preconditions
     if (name == null || name.isEmpty() || value == null) return params;
@@ -668,14 +678,13 @@ public class ApiClient extends JavaTimeFormatter {
    *   application/json; charset=UTF8
    *   APPLICATION/JSON
    *   application/vnd.company+json
-   * "* / *" is also default to JSON
+   * "*{@literal /}*" is also considered JSON by this method.
    *
    * @param mime MIME
    * @return True if the MIME type is JSON
    */
   public boolean isJsonMime(String mime) {
-    String jsonMime = "(?i)^(application/json|[^;/ \t]+/[^;/ \t]+[+]json)[ \t]*(;.*)?$";
-    return mime != null && (mime.matches(jsonMime) || mime.equals("*/*"));
+    return mime != null && (mime.equals("*/*") || JSON_MIME_PATTERN.matcher(mime).matches());
   }
 
   /**
@@ -687,8 +696,8 @@ public class ApiClient extends JavaTimeFormatter {
    * @return The Accept header to use. If the given array is empty,
    *   null will be returned (not to set the Accept header explicitly).
    */
-  public String selectHeaderAccept(String[] accepts) {
-    if (accepts.length == 0) {
+  public String selectHeaderAccept(String... accepts) {
+    if (accepts == null || accepts.length == 0) {
       return null;
     }
     for (String accept : accepts) {
@@ -708,8 +717,8 @@ public class ApiClient extends JavaTimeFormatter {
    * @return The Content-Type header to use. If the given array is empty,
    *   JSON will be used.
    */
-  public String selectHeaderContentType(String[] contentTypes) {
-    if (contentTypes.length == 0) {
+  public String selectHeaderContentType(String... contentTypes) {
+    if (contentTypes == null || contentTypes.length == 0) {
       return "application/json";
     }
     for (String contentType : contentTypes) {
@@ -775,7 +784,183 @@ public class ApiClient extends JavaTimeFormatter {
           entity = Entity.entity(obj == null ? "null" : obj, contentType);
         }
       } else {
-          entity = Entity.entity(obj == null ? "" :  obj, contentType);
+           if (obj instanceof SearchRequest) {
+        	ObjectMapper oMapper = new ObjectMapper();
+        	Map<String, Object> map = oMapper.convertValue(obj, Map.class);
+			entity = Entity.entity(map, contentType);
+			
+			class SearchRequestRestruct {
+				public Map<String, Object> restructObj(Map<String, Object> obj, String objType)
+	 			{
+	 			    if (!obj.containsKey("attr") && !obj.containsKey("name") && !obj.containsKey("query_fields") && !obj.containsKey("value") && !obj.containsKey("values")
+	 			        && !obj.containsKey("field") && !obj.containsKey("location_anchor") && !obj.containsKey("must") && !obj.containsKey("must_not") && !obj.containsKey("should"))
+	 			    {
+	 			        return obj;
+	 			    }
+	 			    
+	 			    Map<String, Object> newObj = new HashMap<String, Object>();
+	 			    String keyPropVal;
+	 			    
+	 			    if (objType == "fulltext_filter") {
+					    if (obj.containsKey("query_fields")) {
+					        keyPropVal = (String)obj.get("query_fields");
+					        if (obj.containsKey("query_phrase")) {
+					            HashMap<String, Object> matchPhraseObj = new HashMap<String, Object>();
+					            matchPhraseObj.put(keyPropVal, obj.get("query_phrase"));
+					            newObj.put("match_phrase", matchPhraseObj);
+					        } else  {
+					            Map<String, Object> matchObj = new HashMap<String, Object>();
+					            Object matchProp; 
+					            if (obj.containsKey("operator")) {
+					            	Map<String, Object> matchPropMap = new HashMap<String, Object>();
+					            	matchPropMap.put("query", obj.get("query_string"));
+					               	matchPropMap.put("operator", obj.get("operator"));
+					               	matchProp = matchPropMap;
+					            } else {
+					            	matchProp = obj.get("query_string");
+					            }
+					            matchObj.put(keyPropVal, matchProp);
+					            newObj.put("match", matchObj);
+					        }
+					    } else {
+					        newObj = obj;
+					    }
+	 			    } else if (objType == "attr_filter") {
+				        if (obj.containsKey("field")) {
+				            keyPropVal = (String)obj.get("field");
+				            if (obj.containsKey("value")) {
+				                Map<String, Object> equalsObj = new HashMap<String, Object>();
+				                equalsObj.put(keyPropVal, obj.get("value"));
+				                newObj.put("equals", equalsObj);
+				            } else if (obj.containsKey("values")) {
+				                Map<String, Object> inObj = new HashMap<String, Object>();
+				                inObj.put(keyPropVal, obj.get("values"));
+				                newObj.put("in", inObj);
+				            } else {
+				            	Map<String, Object> rangeObj = new HashMap<String, Object>();
+				            	rangeObj.put(keyPropVal, obj);
+								rangeObj.remove("field");
+				                newObj.put("range", rangeObj);
+				            }
+				        } else {
+				        	if (!obj.containsKey("must") && !obj.containsKey("must_not") && !obj.containsKey("should")) {
+								newObj.put("geo_distance", obj);
+							} else {
+								Map<String, Object> filterObj = new HashMap<String, Object>();
+								
+								for (String propName : new String[]{"must", "must_not", "should"} ) {
+									if (obj.containsKey(propName) && obj.get(propName) != null) {
+										List<Map<String, Object>> subFilterObj = (List<Map<String, Object>>)obj.get(propName);
+										List<Map<String, Object>> restrSubFilterObj = new ArrayList();
+										for (Map<String, Object> subProp : subFilterObj) {
+											if (subProp.containsKey("query_fields") || subProp.containsKey("query_string")) {
+												restrSubFilterObj.add(this.restructObj(subProp, "fulltext_filter"));
+											}  else { 
+												restrSubFilterObj.add(this.restructObj(subProp, "attr_filter"));
+											}
+										}
+										filterObj.put(propName, restrSubFilterObj);
+									}
+								}
+								
+								newObj.put("bool", filterObj);
+							}
+				        }
+			        } else {
+	 			    	String keyPropName = obj.containsKey("attr") ? "attr" : "name";
+		 		        keyPropVal = (String) obj.get(keyPropName);
+		 		        obj.remove(keyPropName);
+		 		        if (objType == "aggs") {
+		 		        	Map<String,Object> aggsObj = new HashMap<String, Object>();
+		 		        	aggsObj.put("terms", obj);
+		 		            newObj.put(keyPropVal, aggsObj);
+		 		        } else {
+				        	newObj.put(keyPropVal, obj);
+		 		        }
+	 		        }
+	 		        
+ 			    	return newObj;
+	 			}
+ 			
+				public Map<String, Object> restructNestedObj(List<Object> nestedObj, List<String> propNames) {
+				
+					Map<String, Object> newProp = new HashMap<String, Object>();
+					List<Map<String, Object>> nestedArray = (List<Map<String, Object>>) nestedObj.get(nestedObj.size() - 1);
+					for (int i = 0; i < nestedArray.size(); i++) {
+					    Map<String, Object> propVal = nestedArray.get(i);
+					    Map<String, Object> oldProp = this.restructObj(propVal, propNames.get(propNames.size() - 1));
+					    newProp.putAll(oldProp);
+					}
+					
+					nestedObj.set(nestedObj.size() - 1, newProp);
+					
+					for (int i = propNames.size() - 1; i >= 0; i--) {
+						Map<String, Object> subObj = (Map<String, Object>) nestedObj.get(i);
+						subObj.put(propNames.get(i), nestedObj.get(i + 1));
+						nestedObj.set(i, subObj);
+					}
+
+	                return (Map<String, Object>) nestedObj.get(0);
+	            }
+        	};
+
+			SearchRequestRestruct restruct = new SearchRequestRestruct();
+			        	
+        	if (map.containsKey("source")) {
+ 				map.put("_source", map.get("source"));
+ 				map.remove("source");
+ 			}
+ 			
+ 			if (map.containsKey("sort") && map.get("sort") instanceof List) {
+	 		    List<Object> restrSortList = new ArrayList<>();
+	 		    List<Object> sortList = (List<Object>)map.get("sort");
+	 		    for (Object sort : sortList) {
+	 		    	if (sort instanceof Map) {
+	 		        	restrSortList.add( restruct.restructObj((Map<String, Object>)sort, "sort") );
+	 		        } else {
+	 		        	restrSortList.add(sort);
+	 		        } 
+	 		    }
+	 		    map.put("sort", restrSortList);
+	 		}
+	 		
+	 		Boolean hasFilterSet = (map.containsKey("fulltext_filter") && map.get("fulltext_filter") != null) ||
+	 			(map.containsKey("attr_filter") && map.get("attr_filter") != null);
+	 		if (hasFilterSet) {
+				Map<String, Object> query = new HashMap<String, Object>();
+				
+				for (String propName : new String[]{"fulltext_filter", "attr_filter"} ) {
+					if (map.containsKey(propName) && map.get(propName) != null ) {
+						Map<String, Object> filterObj = restruct.restructObj((Map<String, Object>)map.get(propName), propName);
+						query.putAll(filterObj);
+						map.remove(propName);
+					}
+				}
+				
+				map.put("query", query);
+			}
+        	
+			List<String> propSignList = Arrays.asList("expressions", "aggs", "highlight.fields");
+			propSignList.forEach(propSign -> {
+			    List<String> propNames = Arrays.asList(propSign.split("\\."));
+			    List<Object> nestedObj = new ArrayList<>();
+			    Map<String, Object> map0 = map;
+			    nestedObj.add(map0);
+			    for (int i = 0; i < propNames.size(); i++) {
+			        Map<String, Object> subObj = oMapper.convertValue(nestedObj.get(i), Map.class);
+			        if (!subObj.containsKey(propNames.get(i)))
+			            return;
+			        Object subProp = subObj.get(propNames.get(i));
+			        if (subProp == null)
+			        	return;
+			        nestedObj.add((subProp instanceof List) ? subProp : oMapper.convertValue(subProp, Map.class));
+			    }
+			    map.putAll(restruct.restructNestedObj(nestedObj, propNames));
+			});
+						
+        } else {
+        	entity = Entity.entity(obj == null ? "" : obj, contentType);
+        }
       }
     }
     return entity;
@@ -842,11 +1027,6 @@ public class ApiClient extends JavaTimeFormatter {
       T file = (T) downloadFileFromResponse(response);
       return file;
     }
-
-    String contentType = null;
-    List<Object> contentTypes = response.getHeaders().get("Content-Type");
-    if (contentTypes != null && !contentTypes.isEmpty())
-      contentType = String.valueOf(contentTypes.get(0));
 
     // read the entity stream multiple times
     response.bufferEntity();
@@ -949,14 +1129,11 @@ public class ApiClient extends JavaTimeFormatter {
       boolean isBodyNullable)
       throws ApiException {
 
-    // Not using `.target(targetURL).path(path)` below,
-    // to support (constant) query string in `path`, e.g. "/posts?draft=1"
     String targetURL;
-    if (serverIndex != null && operationServers.containsKey(operation)) {
-      Integer index = operationServerIndex.containsKey(operation) ? operationServerIndex.get(operation) : serverIndex;
-      Map<String, String> variables = operationServerVariables.containsKey(operation) ?
-        operationServerVariables.get(operation) : serverVariables;
-      List<ServerConfiguration> serverConfigurations = operationServers.get(operation);
+    List<ServerConfiguration> serverConfigurations;
+    if (serverIndex != null && (serverConfigurations = operationServers.get(operation)) != null) {
+      int index = operationServerIndex.getOrDefault(operation, serverIndex).intValue();
+      Map<String, String> variables = operationServerVariables.getOrDefault(operation, serverVariables);
       if (index < 0 || index >= serverConfigurations.size()) {
         throw new ArrayIndexOutOfBoundsException(
             String.format(
@@ -967,6 +1144,8 @@ public class ApiClient extends JavaTimeFormatter {
     } else {
       targetURL = this.basePath + path;
     }
+    // Not using `.target(targetURL).path(path)` below,
+    // to support (constant) query string in `path`, e.g. "/posts?draft=1"
     WebTarget target = httpClient.target(targetURL);
 
     if (queryParams != null) {
@@ -977,11 +1156,10 @@ public class ApiClient extends JavaTimeFormatter {
       }
     }
 
-    Invocation.Builder invocationBuilder;
+    Invocation.Builder invocationBuilder = target.request();
+
     if (accept != null) {
-      invocationBuilder = target.request().accept(accept);
-    } else {
-      invocationBuilder = target.request();
+      invocationBuilder = invocationBuilder.accept(accept);
     }
 
     for (Entry<String, String> entry : cookieParams.entrySet()) {
@@ -1004,15 +1182,17 @@ public class ApiClient extends JavaTimeFormatter {
     Map<String, String> allHeaderParams = new HashMap<>(defaultHeaderMap);
     allHeaderParams.putAll(headerParams);
 
-    // update different parameters (e.g. headers) for authentication
-    updateParamsForAuth(
-        authNames,
-        queryParams,
-        allHeaderParams,
-        cookieParams,
-        serializeToString(body, formParams, contentType, isBodyNullable),
-        method,
-        target.getUri());
+    if (authNames != null) {
+      // update different parameters (e.g. headers) for authentication
+      updateParamsForAuth(
+          authNames,
+          queryParams,
+          allHeaderParams,
+          cookieParams,
+          null,
+          method,
+          target.getUri());
+    }
 
     for (Entry<String, String> entry : allHeaderParams.entrySet()) {
       String value = entry.getValue();
@@ -1026,10 +1206,11 @@ public class ApiClient extends JavaTimeFormatter {
     try {
       response = sendRequest(method, invocationBuilder, entity);
 
-      int statusCode = response.getStatusInfo().getStatusCode();
+      final int statusCode = response.getStatusInfo().getStatusCode();
+
       Map<String, List<String>> responseHeaders = buildResponseHeaders(response);
 
-      if (response.getStatusInfo() == Status.NO_CONTENT) {
+      if (statusCode == Status.NO_CONTENT.getStatusCode()) {
         return new ApiResponse<T>(statusCode, responseHeaders);
       } else if (response.getStatusInfo().getFamily() == Status.Family.SUCCESSFUL) {
         if (returnType == null) {
@@ -1183,10 +1364,10 @@ public class ApiClient extends JavaTimeFormatter {
    * @return a {@link java.util.Map} of response headers.
    */
   protected Map<String, List<String>> buildResponseHeaders(Response response) {
-    Map<String, List<String>> responseHeaders = new HashMap<String, List<String>>();
+    Map<String, List<String>> responseHeaders = new HashMap<>();
     for (Entry<String, List<Object>> entry: response.getHeaders().entrySet()) {
       List<Object> values = entry.getValue();
-      List<String> headers = new ArrayList<String>();
+      List<String> headers = new ArrayList<>();
       for (Object o : values) {
         headers.add(String.valueOf(o));
       }

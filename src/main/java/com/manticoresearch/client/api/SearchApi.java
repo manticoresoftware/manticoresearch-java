@@ -15,10 +15,11 @@ import com.manticoresearch.client.model.SearchResponse;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-04-19T16:54:33.962336Z[Etc/UTC]")
 public class SearchApi {
   private ApiClient apiClient;
 
@@ -50,7 +51,7 @@ public class SearchApi {
 
   /**
    * Perform reverse search on a percolate index
-   * Performs a percolate search.  This method must be used only on percolate indexes.  Expects two parameters: the index name and an object with array of documents to be tested. An example of the documents object:    &#x60;&#x60;&#x60;   {\&quot;query\&quot;:{\&quot;percolate\&quot;:{\&quot;document\&quot;:{\&quot;content\&quot;:\&quot;sample content\&quot;}}}}   &#x60;&#x60;&#x60;  Responds with an object with matched stored queries:     &#x60;&#x60;&#x60;   {&#39;timed_out&#39;:false,&#39;hits&#39;:{&#39;total&#39;:2,&#39;max_score&#39;:1,&#39;hits&#39;:[{&#39;_index&#39;:&#39;idx_pq_1&#39;,&#39;_type&#39;:&#39;doc&#39;,&#39;_id&#39;:&#39;2&#39;,&#39;_score&#39;:&#39;1&#39;,&#39;_source&#39;:{&#39;query&#39;:{&#39;match&#39;:{&#39;title&#39;:&#39;some&#39;},}}},{&#39;_index&#39;:&#39;idx_pq_1&#39;,&#39;_type&#39;:&#39;doc&#39;,&#39;_id&#39;:&#39;5&#39;,&#39;_score&#39;:&#39;1&#39;,&#39;_source&#39;:{&#39;query&#39;:{&#39;ql&#39;:&#39;some | none&#39;}}}]}}   &#x60;&#x60;&#x60; 
+   * Performs a percolate search.  This method must be used only on percolate indexes.  Expects two parameters: the index name and an object with array of documents to be tested. An example of the documents object:    &#x60;&#x60;&#x60;   {     \&quot;query\&quot;:     {       \&quot;percolate\&quot;:       {         \&quot;document\&quot;:         {           \&quot;content\&quot;:\&quot;sample content\&quot;         }       }     }   }   &#x60;&#x60;&#x60;  Responds with an object with matched stored queries:     &#x60;&#x60;&#x60;   {     &#39;timed_out&#39;:false,     &#39;hits&#39;:     {       &#39;total&#39;:2,       &#39;max_score&#39;:1,       &#39;hits&#39;:       [         {           &#39;_index&#39;:&#39;idx_pq_1&#39;,           &#39;_type&#39;:&#39;doc&#39;,           &#39;_id&#39;:&#39;2&#39;,           &#39;_score&#39;:&#39;1&#39;,           &#39;_source&#39;:           {             &#39;query&#39;:             {               &#39;match&#39;:{&#39;title&#39;:&#39;some&#39;}             }           }         },         {           &#39;_index&#39;:&#39;idx_pq_1&#39;,           &#39;_type&#39;:&#39;doc&#39;,           &#39;_id&#39;:&#39;5&#39;,           &#39;_score&#39;:&#39;1&#39;,           &#39;_source&#39;:           {             &#39;query&#39;:             {               &#39;ql&#39;:&#39;some | none&#39;             }           }         }       ]     }   }   &#x60;&#x60;&#x60; 
    * @param index Name of the percolate index (required)
    * @param percolateRequest  (required)
    * @return SearchResponse
@@ -70,7 +71,7 @@ public class SearchApi {
 
   /**
    * Perform reverse search on a percolate index
-   * Performs a percolate search.  This method must be used only on percolate indexes.  Expects two parameters: the index name and an object with array of documents to be tested. An example of the documents object:    &#x60;&#x60;&#x60;   {\&quot;query\&quot;:{\&quot;percolate\&quot;:{\&quot;document\&quot;:{\&quot;content\&quot;:\&quot;sample content\&quot;}}}}   &#x60;&#x60;&#x60;  Responds with an object with matched stored queries:     &#x60;&#x60;&#x60;   {&#39;timed_out&#39;:false,&#39;hits&#39;:{&#39;total&#39;:2,&#39;max_score&#39;:1,&#39;hits&#39;:[{&#39;_index&#39;:&#39;idx_pq_1&#39;,&#39;_type&#39;:&#39;doc&#39;,&#39;_id&#39;:&#39;2&#39;,&#39;_score&#39;:&#39;1&#39;,&#39;_source&#39;:{&#39;query&#39;:{&#39;match&#39;:{&#39;title&#39;:&#39;some&#39;},}}},{&#39;_index&#39;:&#39;idx_pq_1&#39;,&#39;_type&#39;:&#39;doc&#39;,&#39;_id&#39;:&#39;5&#39;,&#39;_score&#39;:&#39;1&#39;,&#39;_source&#39;:{&#39;query&#39;:{&#39;ql&#39;:&#39;some | none&#39;}}}]}}   &#x60;&#x60;&#x60; 
+   * Performs a percolate search.  This method must be used only on percolate indexes.  Expects two parameters: the index name and an object with array of documents to be tested. An example of the documents object:    &#x60;&#x60;&#x60;   {     \&quot;query\&quot;:     {       \&quot;percolate\&quot;:       {         \&quot;document\&quot;:         {           \&quot;content\&quot;:\&quot;sample content\&quot;         }       }     }   }   &#x60;&#x60;&#x60;  Responds with an object with matched stored queries:     &#x60;&#x60;&#x60;   {     &#39;timed_out&#39;:false,     &#39;hits&#39;:     {       &#39;total&#39;:2,       &#39;max_score&#39;:1,       &#39;hits&#39;:       [         {           &#39;_index&#39;:&#39;idx_pq_1&#39;,           &#39;_type&#39;:&#39;doc&#39;,           &#39;_id&#39;:&#39;2&#39;,           &#39;_score&#39;:&#39;1&#39;,           &#39;_source&#39;:           {             &#39;query&#39;:             {               &#39;match&#39;:{&#39;title&#39;:&#39;some&#39;}             }           }         },         {           &#39;_index&#39;:&#39;idx_pq_1&#39;,           &#39;_type&#39;:&#39;doc&#39;,           &#39;_id&#39;:&#39;5&#39;,           &#39;_score&#39;:&#39;1&#39;,           &#39;_source&#39;:           {             &#39;query&#39;:             {               &#39;ql&#39;:&#39;some | none&#39;             }           }         }       ]     }   }   &#x60;&#x60;&#x60; 
    * @param index Name of the percolate index (required)
    * @param percolateRequest  (required)
    * @return ApiResponse&lt;SearchResponse&gt;
@@ -85,53 +86,29 @@ public class SearchApi {
    * @see <a href="https://manual.manticoresearch.com/Updating_documents/UPDATE">Perform reverse search on a percolate index Documentation</a>
    */
   public ApiResponse<SearchResponse> percolateWithHttpInfo(String index, PercolateRequest percolateRequest) throws ApiException {
-      Object localVarPostBody = percolateRequest;
-    
-    // verify the required parameter 'index' is set
+    // Check required parameters
     if (index == null) {
       throw new ApiException(400, "Missing the required parameter 'index' when calling percolate");
     }
-    
-    // verify the required parameter 'percolateRequest' is set
     if (percolateRequest == null) {
       throw new ApiException(400, "Missing the required parameter 'percolateRequest' when calling percolate");
     }
     
-    // create path and map variables
+
+    // Path parameters
     String localVarPath = "/json/pq/{index}/search"
-      .replaceAll("\\{" + "index" + "\\}", apiClient.escapeString(index.toString()));
+            .replaceAll("\\{index}", apiClient.escapeString(index));
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
+    String localVarAccept = apiClient.selectHeaderAccept("application/json");
+    String localVarContentType = apiClient.selectHeaderContentType("application/json");
     GenericType<SearchResponse> localVarReturnType = new GenericType<SearchResponse>() {};
-
-    return apiClient.invokeAPI("SearchApi.percolate", localVarPath, "POST", localVarQueryParams, localVarPostBody,
-    	localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-        localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI("SearchApi.percolate", localVarPath, "POST", new ArrayList<>(), percolateRequest,
+                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
+                               null, localVarReturnType, false);
   }
   /**
    * Performs a search
-   *  Expects an object with mandatory properties: * the index name * the match query object Example :    &#x60;&#x60;&#x60;   {&#39;index&#39;:&#39;movies&#39;,&#39;query&#39;:{&#39;bool&#39;:{&#39;must&#39;:[{&#39;query_string&#39;:&#39; movie&#39;}]}},&#39;script_fields&#39;:{&#39;myexpr&#39;:{&#39;script&#39;:{&#39;inline&#39;:&#39;IF(rating&gt;8,1,0)&#39;}}},&#39;sort&#39;:[{&#39;myexpr&#39;:&#39;desc&#39;},{&#39;_score&#39;:&#39;desc&#39;}],&#39;profile&#39;:true}   &#x60;&#x60;&#x60;  It responds with an object with: - time of execution - if the query timed out - an array with hits (matched documents) - additional, if profiling is enabled, an array with profiling information is attached     &#x60;&#x60;&#x60;   {&#39;took&#39;:10,&#39;timed_out&#39;:false,&#39;hits&#39;:{&#39;total&#39;:2,&#39;hits&#39;:[{&#39;_id&#39;:&#39;1&#39;,&#39;_score&#39;:1,&#39;_source&#39;:{&#39;gid&#39;:11}},{&#39;_id&#39;:&#39;2&#39;,&#39;_score&#39;:1,&#39;_source&#39;:{&#39;gid&#39;:12}}]}}   &#x60;&#x60;&#x60;  For more information about the match query syntax, additional paramaters that can be set to the input and response, please check: https://manual.manticoresearch.com/Searching/Full_text_matching/Basic_usage#HTTP. 
+   *  Expects an object with mandatory properties: * the index name * the match query object Example :    &#x60;&#x60;&#x60;   {     &#39;index&#39;:&#39;movies&#39;,     &#39;query&#39;:     {       &#39;bool&#39;:       {         &#39;must&#39;:[{&#39;query_string&#39;:&#39; movie&#39;}]       }     },     &#39;script_fields&#39;:     {       &#39;myexpr&#39;:       {         &#39;script&#39;:{&#39;inline&#39;:&#39;IF(rating&gt;8,1,0)&#39;       }     },     &#39;sort&#39;:     [       {&#39;myexpr&#39;:&#39;desc&#39;},       {&#39;_score&#39;:&#39;desc&#39;}     ],     &#39;profile&#39;:true   }   &#x60;&#x60;&#x60;  It responds with an object with: - an array with hits (matched documents) found - if the query is timed out - time of execution - if profiling is enabled, an additional array with profiling information attached     &#x60;&#x60;&#x60;   {     &#39;took&#39;:10,     &#39;timed_out&#39;:false,     &#39;hits&#39;:     {       &#39;total&#39;:2,       &#39;hits&#39;:       [         {&#39;_id&#39;:&#39;1&#39;,&#39;_score&#39;:1,&#39;_source&#39;:{&#39;gid&#39;:11}},         {&#39;_id&#39;:&#39;2&#39;,&#39;_score&#39;:1,&#39;_source&#39;:{&#39;gid&#39;:12}}       ]     }   }   &#x60;&#x60;&#x60;  Alternatively, you can use auxiliary query objects to build your search queries as it&#39;s shown in the example below. For more information about the match query syntax and additional parameters that can be added to  request and response, please check: https://manual.manticoresearch.com/Searching/Full_text_matching/Basic_usage#HTTP. 
    * @param searchRequest  (required)
    * @return SearchResponse
    * @throws ApiException if fails to make API call
@@ -150,7 +127,7 @@ public class SearchApi {
 
   /**
    * Performs a search
-   *  Expects an object with mandatory properties: * the index name * the match query object Example :    &#x60;&#x60;&#x60;   {&#39;index&#39;:&#39;movies&#39;,&#39;query&#39;:{&#39;bool&#39;:{&#39;must&#39;:[{&#39;query_string&#39;:&#39; movie&#39;}]}},&#39;script_fields&#39;:{&#39;myexpr&#39;:{&#39;script&#39;:{&#39;inline&#39;:&#39;IF(rating&gt;8,1,0)&#39;}}},&#39;sort&#39;:[{&#39;myexpr&#39;:&#39;desc&#39;},{&#39;_score&#39;:&#39;desc&#39;}],&#39;profile&#39;:true}   &#x60;&#x60;&#x60;  It responds with an object with: - time of execution - if the query timed out - an array with hits (matched documents) - additional, if profiling is enabled, an array with profiling information is attached     &#x60;&#x60;&#x60;   {&#39;took&#39;:10,&#39;timed_out&#39;:false,&#39;hits&#39;:{&#39;total&#39;:2,&#39;hits&#39;:[{&#39;_id&#39;:&#39;1&#39;,&#39;_score&#39;:1,&#39;_source&#39;:{&#39;gid&#39;:11}},{&#39;_id&#39;:&#39;2&#39;,&#39;_score&#39;:1,&#39;_source&#39;:{&#39;gid&#39;:12}}]}}   &#x60;&#x60;&#x60;  For more information about the match query syntax, additional paramaters that can be set to the input and response, please check: https://manual.manticoresearch.com/Searching/Full_text_matching/Basic_usage#HTTP. 
+   *  Expects an object with mandatory properties: * the index name * the match query object Example :    &#x60;&#x60;&#x60;   {     &#39;index&#39;:&#39;movies&#39;,     &#39;query&#39;:     {       &#39;bool&#39;:       {         &#39;must&#39;:[{&#39;query_string&#39;:&#39; movie&#39;}]       }     },     &#39;script_fields&#39;:     {       &#39;myexpr&#39;:       {         &#39;script&#39;:{&#39;inline&#39;:&#39;IF(rating&gt;8,1,0)&#39;       }     },     &#39;sort&#39;:     [       {&#39;myexpr&#39;:&#39;desc&#39;},       {&#39;_score&#39;:&#39;desc&#39;}     ],     &#39;profile&#39;:true   }   &#x60;&#x60;&#x60;  It responds with an object with: - an array with hits (matched documents) found - if the query is timed out - time of execution - if profiling is enabled, an additional array with profiling information attached     &#x60;&#x60;&#x60;   {     &#39;took&#39;:10,     &#39;timed_out&#39;:false,     &#39;hits&#39;:     {       &#39;total&#39;:2,       &#39;hits&#39;:       [         {&#39;_id&#39;:&#39;1&#39;,&#39;_score&#39;:1,&#39;_source&#39;:{&#39;gid&#39;:11}},         {&#39;_id&#39;:&#39;2&#39;,&#39;_score&#39;:1,&#39;_source&#39;:{&#39;gid&#39;:12}}       ]     }   }   &#x60;&#x60;&#x60;  Alternatively, you can use auxiliary query objects to build your search queries as it&#39;s shown in the example below. For more information about the match query syntax and additional parameters that can be added to  request and response, please check: https://manual.manticoresearch.com/Searching/Full_text_matching/Basic_usage#HTTP. 
    * @param searchRequest  (required)
    * @return ApiResponse&lt;SearchResponse&gt;
    * @throws ApiException if fails to make API call
@@ -164,42 +141,17 @@ public class SearchApi {
    * @see <a href="https://manual.manticoresearch.com/Searching/Full_text_matching/Basic_usage#HTTP">Performs a search Documentation</a>
    */
   public ApiResponse<SearchResponse> searchWithHttpInfo(SearchRequest searchRequest) throws ApiException {
-      Object localVarPostBody = searchRequest;
-    
-    // verify the required parameter 'searchRequest' is set
+    // Check required parameters
     if (searchRequest == null) {
       throw new ApiException(400, "Missing the required parameter 'searchRequest' when calling search");
     }
     
-    // create path and map variables
-    String localVarPath = "/json/search";
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-
-    String[] localVarAuthNames = new String[] {  };
-
+    String localVarAccept = apiClient.selectHeaderAccept("application/json");
+    String localVarContentType = apiClient.selectHeaderContentType("application/json");
     GenericType<SearchResponse> localVarReturnType = new GenericType<SearchResponse>() {};
-
-    return apiClient.invokeAPI("SearchApi.search", localVarPath, "POST", localVarQueryParams, localVarPostBody,
-    	localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-        localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI("SearchApi.search", "/json/search", "POST", new ArrayList<>(), searchRequest,
+                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
+                               null, localVarReturnType, false);
   }
 }
