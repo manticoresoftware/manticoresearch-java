@@ -12,6 +12,8 @@ Query sort expression for MVA attributes
 |**order** | [**OrderEnum**](#OrderEnum) |  |  |
 |**mode** | [**ModeEnum**](#ModeEnum) |  |  |
 
+[[Using in search requests]](SearchRequest.md#SortMVA)
+
 
 
 ## Enum: OrderEnum
@@ -20,7 +22,6 @@ Query sort expression for MVA attributes
 |---- | -----|
 | ASC | &quot;asc&quot; |
 | DESC | &quot;desc&quot; |
-
 
 
 ## Enum: ModeEnum

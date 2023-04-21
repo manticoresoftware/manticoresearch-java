@@ -12,5 +12,8 @@ Query aggregation object
 |**field** | **String** |  |  |
 |**size** | **Integer** |  |  [optional] |
 
+[[Using in search requests]](SearchRequest.md#Aggregation)
+
+
 
 

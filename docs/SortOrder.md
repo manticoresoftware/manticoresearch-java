@@ -11,6 +11,8 @@ Query sort expression
 |**attr** | **String** |  |  |
 |**order** | [**OrderEnum**](#OrderEnum) |  |  |
 
+[[Using in search requests]](SearchRequest.md#SortOrder)
+
 
 
 ## Enum: OrderEnum

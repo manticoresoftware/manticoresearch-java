@@ -19,7 +19,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-04-19T16:54:33.962336Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-04-21T13:25:16.289613Z[Etc/UTC]")
 public class SearchApi {
   private ApiClient apiClient;
 
@@ -96,7 +96,7 @@ public class SearchApi {
     
 
     // Path parameters
-    String localVarPath = "/json/pq/{index}/search"
+    String localVarPath = "/pq/{index}/search"
             .replaceAll("\\{index}", apiClient.escapeString(index));
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
@@ -107,8 +107,8 @@ public class SearchApi {
                                null, localVarReturnType, false);
   }
   /**
-   * Performs a search
-   *  Expects an object with mandatory properties: * the index name * the match query object Example :    &#x60;&#x60;&#x60;   {     &#39;index&#39;:&#39;movies&#39;,     &#39;query&#39;:     {       &#39;bool&#39;:       {         &#39;must&#39;:[{&#39;query_string&#39;:&#39; movie&#39;}]       }     },     &#39;script_fields&#39;:     {       &#39;myexpr&#39;:       {         &#39;script&#39;:{&#39;inline&#39;:&#39;IF(rating&gt;8,1,0)&#39;       }     },     &#39;sort&#39;:     [       {&#39;myexpr&#39;:&#39;desc&#39;},       {&#39;_score&#39;:&#39;desc&#39;}     ],     &#39;profile&#39;:true   }   &#x60;&#x60;&#x60;  It responds with an object with: - an array with hits (matched documents) found - if the query is timed out - time of execution - if profiling is enabled, an additional array with profiling information attached     &#x60;&#x60;&#x60;   {     &#39;took&#39;:10,     &#39;timed_out&#39;:false,     &#39;hits&#39;:     {       &#39;total&#39;:2,       &#39;hits&#39;:       [         {&#39;_id&#39;:&#39;1&#39;,&#39;_score&#39;:1,&#39;_source&#39;:{&#39;gid&#39;:11}},         {&#39;_id&#39;:&#39;2&#39;,&#39;_score&#39;:1,&#39;_source&#39;:{&#39;gid&#39;:12}}       ]     }   }   &#x60;&#x60;&#x60;  Alternatively, you can use auxiliary query objects to build your search queries as it&#39;s shown in the example below. For more information about the match query syntax and additional parameters that can be added to  request and response, please check: https://manual.manticoresearch.com/Searching/Full_text_matching/Basic_usage#HTTP. 
+   * Performs a search on an index
+   *  The method expects an object with the following mandatory properties: * the name of the index to search * the match query object Here is an example search request:    &#x60;&#x60;&#x60;   {     &#39;index&#39;:&#39;movies&#39;,     &#39;query&#39;:     {       &#39;bool&#39;:       {         &#39;must&#39;:[{&#39;query_string&#39;:&#39; movie&#39;}]       }     },     &#39;script_fields&#39;:     {       &#39;myexpr&#39;:       {         &#39;script&#39;:{&#39;inline&#39;:&#39;IF(rating&gt;8,1,0)&#39;       }     },     &#39;sort&#39;:     [       {&#39;myexpr&#39;:&#39;desc&#39;},       {&#39;_score&#39;:&#39;desc&#39;}     ],     &#39;profile&#39;:true   }   &#x60;&#x60;&#x60;  Alternatively, you can use auxiliary objects to build your search query. For details, see the documentation on [**SearchRequest**](SearchRequest.md)  The method returns an object with the following properties: - took: the time taken to execute the search query. - timed_out: a boolean indicating whether the query timed out. - hits: an object with the following properties:    - total: the total number of hits found.    - hits: an array of hit objects, where each hit object represents a matched document. Each hit object has the following properties:      - _id: the ID of the matched document.      - _score: the score of the matched document.      - _source: the source data of the matched document.  In addition, if profiling is enabled, the response will include an additional array with profiling information attached. Here is an example search response:    &#x60;&#x60;&#x60;   {     &#39;took&#39;:10,     &#39;timed_out&#39;:false,     &#39;hits&#39;:     {       &#39;total&#39;:2,       &#39;hits&#39;:       [         {&#39;_id&#39;:&#39;1&#39;,&#39;_score&#39;:1,&#39;_source&#39;:{&#39;gid&#39;:11}},         {&#39;_id&#39;:&#39;2&#39;,&#39;_score&#39;:1,&#39;_source&#39;:{&#39;gid&#39;:12}}       ]     }   }   &#x60;&#x60;&#x60;  For more information about the match query syntax and additional parameters that can be added to request and response, please see the documentation [here](https://manual.manticoresearch.com/Searching/Full_text_matching/Basic_usage#HTTP-JSON). 
    * @param searchRequest  (required)
    * @return SearchResponse
    * @throws ApiException if fails to make API call
@@ -119,15 +119,15 @@ public class SearchApi {
        <tr><td> 0 </td><td> error </td><td>  -  </td></tr>
      </table>
    * 
-   * @see <a href="https://manual.manticoresearch.com/Searching/Full_text_matching/Basic_usage#HTTP">Performs a search Documentation</a>
+   * @see <a href="https://manual.manticoresearch.com/Searching/Full_text_matching/Basic_usage#HTTP-JSON">Performs a search on an index Documentation</a>
    */
   public SearchResponse search(SearchRequest searchRequest) throws ApiException {
     return searchWithHttpInfo(searchRequest).getData();
   }
 
   /**
-   * Performs a search
-   *  Expects an object with mandatory properties: * the index name * the match query object Example :    &#x60;&#x60;&#x60;   {     &#39;index&#39;:&#39;movies&#39;,     &#39;query&#39;:     {       &#39;bool&#39;:       {         &#39;must&#39;:[{&#39;query_string&#39;:&#39; movie&#39;}]       }     },     &#39;script_fields&#39;:     {       &#39;myexpr&#39;:       {         &#39;script&#39;:{&#39;inline&#39;:&#39;IF(rating&gt;8,1,0)&#39;       }     },     &#39;sort&#39;:     [       {&#39;myexpr&#39;:&#39;desc&#39;},       {&#39;_score&#39;:&#39;desc&#39;}     ],     &#39;profile&#39;:true   }   &#x60;&#x60;&#x60;  It responds with an object with: - an array with hits (matched documents) found - if the query is timed out - time of execution - if profiling is enabled, an additional array with profiling information attached     &#x60;&#x60;&#x60;   {     &#39;took&#39;:10,     &#39;timed_out&#39;:false,     &#39;hits&#39;:     {       &#39;total&#39;:2,       &#39;hits&#39;:       [         {&#39;_id&#39;:&#39;1&#39;,&#39;_score&#39;:1,&#39;_source&#39;:{&#39;gid&#39;:11}},         {&#39;_id&#39;:&#39;2&#39;,&#39;_score&#39;:1,&#39;_source&#39;:{&#39;gid&#39;:12}}       ]     }   }   &#x60;&#x60;&#x60;  Alternatively, you can use auxiliary query objects to build your search queries as it&#39;s shown in the example below. For more information about the match query syntax and additional parameters that can be added to  request and response, please check: https://manual.manticoresearch.com/Searching/Full_text_matching/Basic_usage#HTTP. 
+   * Performs a search on an index
+   *  The method expects an object with the following mandatory properties: * the name of the index to search * the match query object Here is an example search request:    &#x60;&#x60;&#x60;   {     &#39;index&#39;:&#39;movies&#39;,     &#39;query&#39;:     {       &#39;bool&#39;:       {         &#39;must&#39;:[{&#39;query_string&#39;:&#39; movie&#39;}]       }     },     &#39;script_fields&#39;:     {       &#39;myexpr&#39;:       {         &#39;script&#39;:{&#39;inline&#39;:&#39;IF(rating&gt;8,1,0)&#39;       }     },     &#39;sort&#39;:     [       {&#39;myexpr&#39;:&#39;desc&#39;},       {&#39;_score&#39;:&#39;desc&#39;}     ],     &#39;profile&#39;:true   }   &#x60;&#x60;&#x60;  Alternatively, you can use auxiliary objects to build your search query. For details, see the documentation on [**SearchRequest**](SearchRequest.md)  The method returns an object with the following properties: - took: the time taken to execute the search query. - timed_out: a boolean indicating whether the query timed out. - hits: an object with the following properties:    - total: the total number of hits found.    - hits: an array of hit objects, where each hit object represents a matched document. Each hit object has the following properties:      - _id: the ID of the matched document.      - _score: the score of the matched document.      - _source: the source data of the matched document.  In addition, if profiling is enabled, the response will include an additional array with profiling information attached. Here is an example search response:    &#x60;&#x60;&#x60;   {     &#39;took&#39;:10,     &#39;timed_out&#39;:false,     &#39;hits&#39;:     {       &#39;total&#39;:2,       &#39;hits&#39;:       [         {&#39;_id&#39;:&#39;1&#39;,&#39;_score&#39;:1,&#39;_source&#39;:{&#39;gid&#39;:11}},         {&#39;_id&#39;:&#39;2&#39;,&#39;_score&#39;:1,&#39;_source&#39;:{&#39;gid&#39;:12}}       ]     }   }   &#x60;&#x60;&#x60;  For more information about the match query syntax and additional parameters that can be added to request and response, please see the documentation [here](https://manual.manticoresearch.com/Searching/Full_text_matching/Basic_usage#HTTP-JSON). 
    * @param searchRequest  (required)
    * @return ApiResponse&lt;SearchResponse&gt;
    * @throws ApiException if fails to make API call
@@ -138,7 +138,7 @@ public class SearchApi {
        <tr><td> 0 </td><td> error </td><td>  -  </td></tr>
      </table>
    * 
-   * @see <a href="https://manual.manticoresearch.com/Searching/Full_text_matching/Basic_usage#HTTP">Performs a search Documentation</a>
+   * @see <a href="https://manual.manticoresearch.com/Searching/Full_text_matching/Basic_usage#HTTP-JSON">Performs a search on an index Documentation</a>
    */
   public ApiResponse<SearchResponse> searchWithHttpInfo(SearchRequest searchRequest) throws ApiException {
     // Check required parameters
@@ -150,7 +150,7 @@ public class SearchApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
     GenericType<SearchResponse> localVarReturnType = new GenericType<SearchResponse>() {};
-    return apiClient.invokeAPI("SearchApi.search", "/json/search", "POST", new ArrayList<>(), searchRequest,
+    return apiClient.invokeAPI("SearchApi.search", "/search", "POST", new ArrayList<>(), searchRequest,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                null, localVarReturnType, false);
   }

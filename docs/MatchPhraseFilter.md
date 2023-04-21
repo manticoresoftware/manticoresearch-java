@@ -11,5 +11,8 @@ Query match expression
 |**queryPhrase** | **String** |  |  |
 |**queryFields** | **String** |  |  |
 
+[[Using in search requests]](SearchRequest.md#MatchPhraseFilter)
+
+
 
 

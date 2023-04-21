@@ -13,5 +13,8 @@ Query Highlight field with options set
 |**limitWords** | **Integer** |  |  [optional] |
 |**limitSnippets** | **Integer** |  |  [optional] |
 
+[[Using in search requests]](SearchRequest.md#HighlightField)
+
+
 
 

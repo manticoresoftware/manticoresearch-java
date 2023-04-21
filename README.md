@@ -1,14 +1,13 @@
 # manticoresearch
 
-❗ WARNING: this is a development version of the client. The latest release's readme is https://github.com/manticoresoftware/manticoresearch-java/tree/3.3.0
 
 Manticore Search Client
 
 - API version: 3.3.0
 
-- Build date: 2023-04-19T16:54:33.962336Z[Etc/UTC]
+- Build date: 2023-04-21T13:25:16.289613Z[Etc/UTC]
 
-Low-level client for Manticore Search.
+Сlient for Manticore Search.
 
 
   For more information, please visit [https://manticoresearch.com/contact-us/](https://manticoresearch.com/contact-us/)
@@ -81,7 +80,7 @@ Then manually install the following JARs:
 
 ## Usage
 
-To add a HTTP proxy for the API client, use `ClientConfig`:
+To add an HTTP proxy for the API client, use `ClientConfig`:
 ```java
 
 import org.glassfish.jersey.apache.connector.ApacheConnectorProvider;
@@ -114,8 +113,9 @@ import com.manticoresearch.client.*;
 import com.manticoresearch.client.auth.*;
 import com.manticoresearch.client.model.*;
 import com.manticoresearch.client.api.IndexApi;
+import com.manticoresearch.client.api.;
 
-public class IndexApiExample {
+public class ApiExample {
 
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
@@ -133,6 +133,26 @@ public class IndexApiExample {
             System.err.println("Response headers: " + e.getResponseHeaders());
             e.printStackTrace();
         }
+        
+        SearchApi searchApi = new SearchApi(client);
+        try {
+            // Create SearchRequest
+            SearchRequest searchRequest = new SearchRequest();
+            searchRequest.setIndex("test");
+            QueryFilter queryFilter = new QueryFilter();
+			queryFilter.setQueryString("Title 1");								
+			searchRequest.setFulltextFilter(queryFilter);
+			
+			// Perform a search
+			SearchResponse searchResponse = searchApi.search(searchRequest);
+			System.out.println( searchResponse.toString() );
+        } catch (ApiException e) {
+            System.err.println("Exception when calling SearchApi#search");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
 }
 
@@ -144,13 +164,13 @@ All URIs are relative to *http://127.0.0.1:9308*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*IndexApi* | [**bulk**](docs/IndexApi.md#bulk) | **POST** /json/bulk | Bulk index operations
-*IndexApi* | [**delete**](docs/IndexApi.md#delete) | **POST** /json/delete | Delete a document in an index
-*IndexApi* | [**insert**](docs/IndexApi.md#insert) | **POST** /json/insert | Create a new document in an index
-*IndexApi* | [**replace**](docs/IndexApi.md#replace) | **POST** /json/replace | Replace new document in an index
-*IndexApi* | [**update**](docs/IndexApi.md#update) | **POST** /json/update | Update a document in an index
-*SearchApi* | [**percolate**](docs/SearchApi.md#percolate) | **POST** /json/pq/{index}/search | Perform reverse search on a percolate index
-*SearchApi* | [**search**](docs/SearchApi.md#search) | **POST** /json/search | Performs a search
+*IndexApi* | [**bulk**](docs/IndexApi.md#bulk) | **POST** /bulk | Bulk index operations
+*IndexApi* | [**delete**](docs/IndexApi.md#delete) | **POST** /delete | Delete a document in an index
+*IndexApi* | [**insert**](docs/IndexApi.md#insert) | **POST** /insert | Create a new document in an index
+*IndexApi* | [**replace**](docs/IndexApi.md#replace) | **POST** /replace | Replace new document in an index
+*IndexApi* | [**update**](docs/IndexApi.md#update) | **POST** /update | Update a document in an index
+*SearchApi* | [**percolate**](docs/SearchApi.md#percolate) | **POST** /pq/{index}/search | Perform reverse search on a percolate index
+*SearchApi* | [**search**](docs/SearchApi.md#search) | **POST** /search | Performs a search on an index
 *UtilsApi* | [**sql**](docs/UtilsApi.md#sql) | **POST** /sql | Perform SQL requests
 
 

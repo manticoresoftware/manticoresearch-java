@@ -11,5 +11,8 @@ Query fields to be included/excluded to/from response
 |**includes** | **List&lt;String&gt;** |  |  |
 |**excludes** | **List&lt;String&gt;** |  |  |
 
+[[Using in search requests]](SearchRequest.md#SourceByRules)
+
+
 
 

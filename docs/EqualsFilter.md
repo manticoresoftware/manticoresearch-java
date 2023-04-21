@@ -11,5 +11,8 @@ Equals attribute filter
 |**field** | **String** |  |  |
 |**value** | **Object** |  |  |
 
+[[Using in search requests]](SearchRequest.md#EqualsFilter)
+
+
 
 

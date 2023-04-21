@@ -12,6 +12,8 @@ Query match expression
 |**queryFields** | **String** |  |  |
 |**operator** | [**OperatorEnum**](#OperatorEnum) |  |  |
 
+[[Using in search requests]](SearchRequest.md#MatchOpFilter)
+
 
 
 ## Enum: OperatorEnum

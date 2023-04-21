@@ -12,5 +12,8 @@ Boolean attribute filter
 |**must** | **List&lt;Object&gt;** |  |  [optional] |
 |**mustNot** | **List&lt;Object&gt;** |  |  [optional] |
 
+[[Using in search requests]](SearchRequest.md#BoolFilter)
+
+
 
 

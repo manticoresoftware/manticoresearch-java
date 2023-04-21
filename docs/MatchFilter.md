@@ -11,5 +11,8 @@ Query match filter
 |**queryString** | **String** |  |  |
 |**queryFields** | **String** |  |  |
 
+[[Using in search requests]](SearchRequest.md#MatchFilter)
+
+
 
 

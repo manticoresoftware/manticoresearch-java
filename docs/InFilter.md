@@ -11,5 +11,8 @@ In attribute filter
 |**field** | **String** |  |  |
 |**values** | **List&lt;Object&gt;** |  |  |
 
+[[Using in search requests]](SearchRequest.md#InFilter)
+
+
 
 

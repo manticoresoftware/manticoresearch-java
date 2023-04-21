@@ -13,6 +13,8 @@ Geo distance attribute filter
 |**distanceType** | [**DistanceTypeEnum**](#DistanceTypeEnum) |  |  [optional] |
 |**distance** | **String** |  |  [optional] |
 
+[[Using in search requests]](SearchRequest.md#GeoDistanceFilter)
+
 
 
 ## Enum: DistanceTypeEnum

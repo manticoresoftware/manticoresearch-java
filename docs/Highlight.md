@@ -31,6 +31,8 @@ Query HIGHLIGHT expression
 |**htmlStripMode** | [**HtmlStripModeEnum**](#HtmlStripModeEnum) |  |  [optional] |
 |**snippetBoundary** | [**SnippetBoundaryEnum**](#SnippetBoundaryEnum) |  |  [optional] |
 
+[[Using in search requests]](SearchRequest.md#Highlight)
+
 
 
 ## Enum: EncoderEnum
@@ -41,14 +43,12 @@ Query HIGHLIGHT expression
 | HTML | &quot;html&quot; |
 
 
-
 ## Enum: NoMatchSizeEnum
 
 | Name | Value |
 |---- | -----|
 | NUMBER_0 | 0 |
 | NUMBER_1 | 1 |
-
 
 
 ## Enum: HtmlStripModeEnum
@@ -59,7 +59,6 @@ Query HIGHLIGHT expression
 | STRIP | &quot;strip&quot; |
 | INDEX | &quot;index&quot; |
 | RETAIN | &quot;retain&quot; |
-
 
 
 ## Enum: SnippetBoundaryEnum

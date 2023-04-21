@@ -23,7 +23,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-04-19T16:54:33.962336Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-04-21T13:25:16.289613Z[Etc/UTC]")
 public class IndexApi {
   private ApiClient apiClient;
 
@@ -97,7 +97,7 @@ public class IndexApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/x-ndjson");
     GenericType<BulkResponse> localVarReturnType = new GenericType<BulkResponse>() {};
-    return apiClient.invokeAPI("IndexApi.bulk", "/json/bulk", "POST", new ArrayList<>(), body,
+    return apiClient.invokeAPI("IndexApi.bulk", "/bulk", "POST", new ArrayList<>(), body,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                null, localVarReturnType, false);
   }
@@ -145,7 +145,7 @@ public class IndexApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
     GenericType<DeleteResponse> localVarReturnType = new GenericType<DeleteResponse>() {};
-    return apiClient.invokeAPI("IndexApi.delete", "/json/delete", "POST", new ArrayList<>(), deleteDocumentRequest,
+    return apiClient.invokeAPI("IndexApi.delete", "/delete", "POST", new ArrayList<>(), deleteDocumentRequest,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                null, localVarReturnType, false);
   }
@@ -193,7 +193,7 @@ public class IndexApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
     GenericType<SuccessResponse> localVarReturnType = new GenericType<SuccessResponse>() {};
-    return apiClient.invokeAPI("IndexApi.insert", "/json/insert", "POST", new ArrayList<>(), insertDocumentRequest,
+    return apiClient.invokeAPI("IndexApi.insert", "/insert", "POST", new ArrayList<>(), insertDocumentRequest,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                null, localVarReturnType, false);
   }
@@ -241,7 +241,7 @@ public class IndexApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
     GenericType<SuccessResponse> localVarReturnType = new GenericType<SuccessResponse>() {};
-    return apiClient.invokeAPI("IndexApi.replace", "/json/replace", "POST", new ArrayList<>(), insertDocumentRequest,
+    return apiClient.invokeAPI("IndexApi.replace", "/replace", "POST", new ArrayList<>(), insertDocumentRequest,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                null, localVarReturnType, false);
   }
@@ -289,7 +289,7 @@ public class IndexApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
     GenericType<UpdateResponse> localVarReturnType = new GenericType<UpdateResponse>() {};
-    return apiClient.invokeAPI("IndexApi.update", "/json/update", "POST", new ArrayList<>(), updateDocumentRequest,
+    return apiClient.invokeAPI("IndexApi.update", "/update", "POST", new ArrayList<>(), updateDocumentRequest,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                null, localVarReturnType, false);
   }

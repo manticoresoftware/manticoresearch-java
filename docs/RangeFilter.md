@@ -14,5 +14,8 @@ Range attribute filter
 |**lt** | **BigDecimal** |  |  [optional] |
 |**gt** | **BigDecimal** |  |  [optional] |
 
+[[Using in search requests]](SearchRequest.md#RangeFilter)
+
+
 
 
