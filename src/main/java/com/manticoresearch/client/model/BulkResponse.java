@@ -40,7 +40,7 @@ import com.manticoresearch.client.JSON;
 })
 @JsonTypeName("bulkResponse")
 @JsonIgnoreProperties(ignoreUnknown = true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-04-21T13:25:16.289613Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-04-21T16:12:17.895346Z[Etc/UTC]")
 public class BulkResponse {
   public static final String JSON_PROPERTY_ITEMS = "items";
   private Object items;

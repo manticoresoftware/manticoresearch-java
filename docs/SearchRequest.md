@@ -2,7 +2,7 @@
 
 # SearchRequest
 
-Payload for search operation
+Request object for search operation
 
 ## Properties
 
@@ -377,6 +377,7 @@ searchRequest.setAttrFilter(boolFilter);
 SearchResponse searchResponse = searchApi.search(searchRequest);
 System.out.println( searchResponse.toString() );
 ```
+
 
 
 
