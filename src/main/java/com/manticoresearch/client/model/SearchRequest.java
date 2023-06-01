@@ -45,7 +45,6 @@ import com.manticoresearch.client.JSON;
   SearchRequest.JSON_PROPERTY_OFFSET,
   SearchRequest.JSON_PROPERTY_MAX_MATCHES,
   SearchRequest.JSON_PROPERTY_SORT,
-  SearchRequest.JSON_PROPERTY_SORT_OLD,
   SearchRequest.JSON_PROPERTY_AGGS,
   SearchRequest.JSON_PROPERTY_EXPRESSIONS,
   SearchRequest.JSON_PROPERTY_HIGHLIGHT,
@@ -56,7 +55,7 @@ import com.manticoresearch.client.JSON;
 })
 @JsonTypeName("searchRequest")
 @JsonIgnoreProperties(ignoreUnknown = true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-04-21T16:12:17.895346Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-05-28T11:55:17.809597Z[Etc/UTC]")
 public class SearchRequest {
   public static final String JSON_PROPERTY_INDEX = "index";
   private String index = "";
@@ -81,9 +80,6 @@ public class SearchRequest {
 
   public static final String JSON_PROPERTY_SORT = "sort";
   private List<Object> sort;
-
-  public static final String JSON_PROPERTY_SORT_OLD = "sort_old";
-  private List<Object> sortOld;
 
   public static final String JSON_PROPERTY_AGGS = "aggs";
   private List<Aggregation> aggs;
@@ -319,39 +315,6 @@ public class SearchRequest {
   }
 
 
-  public SearchRequest sortOld(List<Object> sortOld) {
-    this.sortOld = sortOld;
-    return this;
-  }
-
-  public SearchRequest addSortOldItem(Object sortOldItem) {
-    if (this.sortOld == null) {
-      this.sortOld = new ArrayList<>();
-    }
-    this.sortOld.add(sortOldItem);
-    return this;
-  }
-
-   /**
-   * Get sortOld
-   * @return sortOld
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SORT_OLD)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public List<Object> getSortOld() {
-    return sortOld;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_SORT_OLD)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSortOld(List<Object> sortOld) {
-    this.sortOld = sortOld;
-  }
-
-
   public SearchRequest aggs(List<Aggregation> aggs) {
     this.aggs = aggs;
     return this;
@@ -571,7 +534,6 @@ public class SearchRequest {
         Objects.equals(this.offset, searchRequest.offset) &&
         Objects.equals(this.maxMatches, searchRequest.maxMatches) &&
         Objects.equals(this.sort, searchRequest.sort) &&
-        Objects.equals(this.sortOld, searchRequest.sortOld) &&
         Objects.equals(this.aggs, searchRequest.aggs) &&
         Objects.equals(this.expressions, searchRequest.expressions) &&
         Objects.equals(this.highlight, searchRequest.highlight) &&
@@ -583,7 +545,7 @@ public class SearchRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(index, query, fulltextFilter, attrFilter, limit, offset, maxMatches, sort, sortOld, aggs, expressions, highlight, source, options, profile, trackScores);
+    return Objects.hash(index, query, fulltextFilter, attrFilter, limit, offset, maxMatches, sort, aggs, expressions, highlight, source, options, profile, trackScores);
   }
 
   @Override
@@ -598,7 +560,6 @@ public class SearchRequest {
     sb.append("    offset: ").append(toIndentedString(offset)).append("\n");
     sb.append("    maxMatches: ").append(toIndentedString(maxMatches)).append("\n");
     sb.append("    sort: ").append(toIndentedString(sort)).append("\n");
-    sb.append("    sortOld: ").append(toIndentedString(sortOld)).append("\n");
     sb.append("    aggs: ").append(toIndentedString(aggs)).append("\n");
     sb.append("    expressions: ").append(toIndentedString(expressions)).append("\n");
     sb.append("    highlight: ").append(toIndentedString(highlight)).append("\n");

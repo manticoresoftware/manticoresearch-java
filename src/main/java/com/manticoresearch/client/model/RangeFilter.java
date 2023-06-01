@@ -23,6 +23,10 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.math.BigDecimal;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.manticoresearch.client.JSON;
@@ -40,22 +44,22 @@ import com.manticoresearch.client.JSON;
 })
 @JsonTypeName("rangeFilter")
 @JsonIgnoreProperties(ignoreUnknown = true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-04-21T16:12:17.895346Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-05-28T11:55:17.809597Z[Etc/UTC]")
 public class RangeFilter {
   public static final String JSON_PROPERTY_FIELD = "field";
   private String field;
 
   public static final String JSON_PROPERTY_LTE = "lte";
-  private BigDecimal lte;
+  private JsonNullable<BigDecimal> lte = JsonNullable.<BigDecimal>undefined();
 
   public static final String JSON_PROPERTY_GTE = "gte";
-  private BigDecimal gte;
+  private JsonNullable<BigDecimal> gte = JsonNullable.<BigDecimal>undefined();
 
   public static final String JSON_PROPERTY_LT = "lt";
-  private BigDecimal lt;
+  private JsonNullable<BigDecimal> lt = JsonNullable.<BigDecimal>undefined();
 
   public static final String JSON_PROPERTY_GT = "gt";
-  private BigDecimal gt;
+  private JsonNullable<BigDecimal> gt = JsonNullable.<BigDecimal>undefined();
 
   public RangeFilter() { 
   }
@@ -86,7 +90,7 @@ public class RangeFilter {
 
 
   public RangeFilter lte(BigDecimal lte) {
-    this.lte = lte;
+    this.lte = JsonNullable.<BigDecimal>of(lte);
     return this;
   }
 
@@ -95,23 +99,31 @@ public class RangeFilter {
    * @return lte
   **/
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LTE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public BigDecimal getLte() {
-    return lte;
+        return lte.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_LTE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLte(BigDecimal lte) {
+
+  public JsonNullable<BigDecimal> getLte_JsonNullable() {
+    return lte;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_LTE)
+  public void setLte_JsonNullable(JsonNullable<BigDecimal> lte) {
     this.lte = lte;
+  }
+
+  public void setLte(BigDecimal lte) {
+    this.lte = JsonNullable.<BigDecimal>of(lte);
   }
 
 
   public RangeFilter gte(BigDecimal gte) {
-    this.gte = gte;
+    this.gte = JsonNullable.<BigDecimal>of(gte);
     return this;
   }
 
@@ -120,23 +132,31 @@ public class RangeFilter {
    * @return gte
   **/
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_GTE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public BigDecimal getGte() {
-    return gte;
+        return gte.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_GTE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setGte(BigDecimal gte) {
+
+  public JsonNullable<BigDecimal> getGte_JsonNullable() {
+    return gte;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_GTE)
+  public void setGte_JsonNullable(JsonNullable<BigDecimal> gte) {
     this.gte = gte;
+  }
+
+  public void setGte(BigDecimal gte) {
+    this.gte = JsonNullable.<BigDecimal>of(gte);
   }
 
 
   public RangeFilter lt(BigDecimal lt) {
-    this.lt = lt;
+    this.lt = JsonNullable.<BigDecimal>of(lt);
     return this;
   }
 
@@ -145,23 +165,31 @@ public class RangeFilter {
    * @return lt
   **/
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public BigDecimal getLt() {
-    return lt;
+        return lt.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_LT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLt(BigDecimal lt) {
+
+  public JsonNullable<BigDecimal> getLt_JsonNullable() {
+    return lt;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_LT)
+  public void setLt_JsonNullable(JsonNullable<BigDecimal> lt) {
     this.lt = lt;
+  }
+
+  public void setLt(BigDecimal lt) {
+    this.lt = JsonNullable.<BigDecimal>of(lt);
   }
 
 
   public RangeFilter gt(BigDecimal gt) {
-    this.gt = gt;
+    this.gt = JsonNullable.<BigDecimal>of(gt);
     return this;
   }
 
@@ -170,18 +198,26 @@ public class RangeFilter {
    * @return gt
   **/
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_GT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
   public BigDecimal getGt() {
-    return gt;
+        return gt.orElse(null);
   }
-
 
   @JsonProperty(JSON_PROPERTY_GT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setGt(BigDecimal gt) {
+
+  public JsonNullable<BigDecimal> getGt_JsonNullable() {
+    return gt;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_GT)
+  public void setGt_JsonNullable(JsonNullable<BigDecimal> gt) {
     this.gt = gt;
+  }
+
+  public void setGt(BigDecimal gt) {
+    this.gt = JsonNullable.<BigDecimal>of(gt);
   }
 
 
@@ -198,15 +234,26 @@ public class RangeFilter {
     }
     RangeFilter rangeFilter = (RangeFilter) o;
     return Objects.equals(this.field, rangeFilter.field) &&
-        Objects.equals(this.lte, rangeFilter.lte) &&
-        Objects.equals(this.gte, rangeFilter.gte) &&
-        Objects.equals(this.lt, rangeFilter.lt) &&
-        Objects.equals(this.gt, rangeFilter.gt);
+        equalsNullable(this.lte, rangeFilter.lte) &&
+        equalsNullable(this.gte, rangeFilter.gte) &&
+        equalsNullable(this.lt, rangeFilter.lt) &&
+        equalsNullable(this.gt, rangeFilter.gt);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(field, lte, gte, lt, gt);
+    return Objects.hash(field, hashCodeNullable(lte), hashCodeNullable(gte), hashCodeNullable(lt), hashCodeNullable(gt));
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

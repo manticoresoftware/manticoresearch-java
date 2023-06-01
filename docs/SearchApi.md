@@ -13,12 +13,10 @@ Method | HTTP request | Description
 
 Performs a search on an index. 
 
-The method expects an object with the following mandatory properties:
+The method expects a SearchRequest object with the following mandatory properties:
         
-* the name of the index to search
+* the name of the index to search | string
         
-* the match query object
-
 For details, see the documentation on [**SearchRequest**](SearchRequest.md)
 
 The method returns an object with the following properties:
@@ -59,18 +57,17 @@ Here is an example search response:
 }
 ```
 
-For more information about the match query syntax, additional paramaters that can be set to request and response, please check: https://manual.manticoresearch.com/Searching/Full_text_matching/Basic_usage#HTTP-JSON.
+For more information about the match query syntax, additional parameters that can be set to request and response, please check: https://manual.manticoresearch.com/Searching/Full_text_matching/Basic_usage#HTTP-JSON.
 
 
 ### Example
 ```java
 
+import java.util.*;
 import com.manticoresearch.client.ApiClient;
 import com.manticoresearch.client.ApiException;
 import com.manticoresearch.client.Configuration;
 import com.manticoresearch.client.model.*;
-import com.manticoresearch.client.api.IndexApi;
-import com.manticoresearch.client.api.UtilsApi;
 import com.manticoresearch.client.api.SearchApi;
 
 public class SearchApiExample {
@@ -122,10 +119,10 @@ No authorization required
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Ok |  -  |
-| **0** | error |  -  |
+| Status code | Description |
+|-------------|-------------|
+| **200** | Success, query processed |
+| **500** | Server error |
 
 
 ## percolate
@@ -134,14 +131,14 @@ No authorization required
 
 Perform a reverse search on a percolate index
 
-Performs a percolate search. 
 This method must be used only on percolate indexes.
 
-Expects two parameters: the index name and an object with an array of documents to be tested.
-An example of the documents object:
+Expects two parameters: the index name and an object with a document or an array of documents to search by.
+Here is an example of the object with a single document:
 
 ```
-{"query":
+{
+  "query":
   {
     "percolate":
     {
@@ -193,17 +190,38 @@ Responds with an object with matched stored queries:
 }
 ```
 
+And here is an example of the object with multiple documents:
+
+```
+{
+  "query":
+  {
+    "percolate":
+    {
+      "documents": [
+        {
+          "content":"sample content"
+        },
+        {
+          "content":"another sample content"
+        }
+      ]
+    }
+  }
+}
+```
+
 
 ### Example
 
 ```java
 // Import classes:
+import java.util.*;
 import com.manticoresearch.client.ApiClient;
 import com.manticoresearch.client.ApiException;
 import com.manticoresearch.client.Configuration;
 import com.manticoresearch.client.model.*;
 import com.manticoresearch.client.api.SearchApi;
-import java.math.BigDecimal;
 
 public class Example {
     public static void main(String[] args) {
@@ -214,7 +232,7 @@ public class Example {
 
         try {
             PercolateRequest percolateRequest = new PercolateRequest();
-            query = new HashMap<String,Object>(){{
+            Map<String,Object> query = new HashMap<String,Object>(){{
                 put("percolate",new HashMap<String,Object >(){{
                     put("document", new HashMap<String,Object >(){{ 
                         put("title","what a nice bag");
@@ -222,7 +240,7 @@ public class Example {
                 }});
             }};
             percolateRequest.query(query);
-            Object result =    searchApi.percolate("products",percolateRequest);
+            Object result =  searchApi.percolate("products",percolateRequest);
         } catch (ApiException e) {
             System.err.println("Exception when calling SearchApi#percolate");
             System.err.println("Status code: " + e.getCode());
@@ -256,8 +274,8 @@ No authorization required
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | items found |  -  |
-| **0** | error |  -  |
+| Status code | Description |
+|-------------|-------------|
+| **200** | Success, query processed |
+| **500** | Server error |
 

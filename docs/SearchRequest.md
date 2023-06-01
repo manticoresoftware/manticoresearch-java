@@ -16,7 +16,6 @@ Request object for search operation
 |**offset** | **Integer** |  |  [optional] |
 |**maxMatches** | **Integer** |  |  [optional] |
 |**sort** | **List&lt;Object&gt;** |  |  [optional] |
-|**sortOld** | **List&lt;Object&gt;** |  |  [optional] |
 |**aggs** | [**List&lt;Aggregation&gt;**](Aggregation.md) |  |  [optional] |
 |**expressions** | **List&lt;Object&gt;** |  |  [optional] |
 |**highlight** | [**Highlight**](Highlight.md) |  |  [optional] |

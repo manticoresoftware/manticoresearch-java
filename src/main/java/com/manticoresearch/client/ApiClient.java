@@ -1,6 +1,8 @@
 package com.manticoresearch.client;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import org.openapitools.jackson.nullable.JsonNullableModule;
 
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
@@ -74,7 +76,7 @@ import com.manticoresearch.client.model.SearchRequest;
 /**
  * <p>ApiClient class.</p>
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-04-21T16:12:17.895346Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-05-28T11:55:17.809597Z[Etc/UTC]")
 public class ApiClient extends JavaTimeFormatter {
   private static final Pattern JSON_MIME_PATTERN = Pattern.compile("(?i)^(application/json|[^;/ \t]+/[^;/ \t]+[+]json)[ \t]*(;.*)?$");
 
@@ -784,12 +786,15 @@ public class ApiClient extends JavaTimeFormatter {
           entity = Entity.entity(obj == null ? "null" : obj, contentType);
         }
       } else {
-           if (obj instanceof SearchRequest) {
-        	ObjectMapper oMapper = new ObjectMapper();
-        	Map<String, Object> map = oMapper.convertValue(obj, Map.class);
-			entity = Entity.entity(map, contentType);
+        if (obj instanceof SearchRequest) {
+           ObjectMapper oMapper = new ObjectMapper();
+           oMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
+           oMapper.registerModule(new JsonNullableModule());
+
+           Map<String, Object> map = oMapper.convertValue(obj, Map.class);
+           entity = Entity.entity(map, contentType);
 			
-			class SearchRequestRestruct {
+           class SearchRequestRestruct {
 				public Map<String, Object> restructObj(Map<String, Object> obj, String objType)
 	 			{
 	 			    if (!obj.containsKey("attr") && !obj.containsKey("name") && !obj.containsKey("query_fields") && !obj.containsKey("value") && !obj.containsKey("values")
@@ -902,7 +907,7 @@ public class ApiClient extends JavaTimeFormatter {
 
 	                return (Map<String, Object>) nestedObj.get(0);
 	            }
-        	};
+            };
 
 			SearchRequestRestruct restruct = new SearchRequestRestruct();
 			        	
@@ -922,7 +927,7 @@ public class ApiClient extends JavaTimeFormatter {
 	 		        } 
 	 		    }
 	 		    map.put("sort", restrSortList);
-	 		}
+            }
 	 		
 	 		Boolean hasFilterSet = (map.containsKey("fulltext_filter") && map.get("fulltext_filter") != null) ||
 	 			(map.containsKey("attr_filter") && map.get("attr_filter") != null);

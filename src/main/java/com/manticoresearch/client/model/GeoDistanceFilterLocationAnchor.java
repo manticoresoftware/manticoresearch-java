@@ -22,6 +22,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.math.BigDecimal;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.manticoresearch.client.JSON;
@@ -36,18 +37,18 @@ import com.manticoresearch.client.JSON;
 })
 @JsonTypeName("geoDistanceFilter_location_anchor")
 @JsonIgnoreProperties(ignoreUnknown = true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-04-21T16:12:17.895346Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-05-28T11:55:17.809597Z[Etc/UTC]")
 public class GeoDistanceFilterLocationAnchor {
   public static final String JSON_PROPERTY_LAT = "lat";
-  private Integer lat;
+  private BigDecimal lat;
 
   public static final String JSON_PROPERTY_LON = "lon";
-  private Integer lon;
+  private BigDecimal lon;
 
   public GeoDistanceFilterLocationAnchor() { 
   }
 
-  public GeoDistanceFilterLocationAnchor lat(Integer lat) {
+  public GeoDistanceFilterLocationAnchor lat(BigDecimal lat) {
     this.lat = lat;
     return this;
   }
@@ -60,19 +61,19 @@ public class GeoDistanceFilterLocationAnchor {
   @JsonProperty(JSON_PROPERTY_LAT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Integer getLat() {
+  public BigDecimal getLat() {
     return lat;
   }
 
 
   @JsonProperty(JSON_PROPERTY_LAT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLat(Integer lat) {
+  public void setLat(BigDecimal lat) {
     this.lat = lat;
   }
 
 
-  public GeoDistanceFilterLocationAnchor lon(Integer lon) {
+  public GeoDistanceFilterLocationAnchor lon(BigDecimal lon) {
     this.lon = lon;
     return this;
   }
@@ -85,14 +86,14 @@ public class GeoDistanceFilterLocationAnchor {
   @JsonProperty(JSON_PROPERTY_LON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Integer getLon() {
+  public BigDecimal getLon() {
     return lon;
   }
 
 
   @JsonProperty(JSON_PROPERTY_LON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLon(Integer lon) {
+  public void setLon(BigDecimal lon) {
     this.lon = lon;
   }
 

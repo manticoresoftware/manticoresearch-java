@@ -108,14 +108,6 @@ public class SearchRequestTest {
     }
 
     /**
-     * Test the property 'sortOld'
-     */
-    @Test
-    public void sortOldTest() {
-        // TODO: test sortOld
-    }
-
-    /**
      * Test the property 'aggs'
      */
     @Test

@@ -5,7 +5,7 @@ Manticore Search Client
 
 - API version: 3.3.0
 
-- Build date: 2023-04-21T16:12:17.895346Z[Etc/UTC]
+- Build date: 2023-05-28T11:55:17.809597Z[Etc/UTC]
 
 Сlient for Manticore Search.
 
