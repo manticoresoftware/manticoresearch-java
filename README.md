@@ -109,8 +109,7 @@ Please follow the [installation](#installation) instruction and execute the foll
 import com.manticoresearch.client.*;
 import com.manticoresearch.client.auth.*;
 import com.manticoresearch.client.model.*;
-import com.manticoresearch.client.api.IndexApi;
-import com.manticoresearch.client.api.;
+import com.manticoresearch.client.api.*;
 
 public class ApiExample {
 
@@ -119,7 +118,7 @@ public class ApiExample {
         defaultClient.setBasePath("http://127.0.0.1:9308");
         
         IndexApi apiInstance = new IndexApi(defaultClient);
-        String body = ["'{\"insert\": {\"index\": \"test\", \"id\": 1, \"doc\": {\"title\": \"Title 1\"}}},\\n{\"insert\": {\"index\": \"test\", \"id\": 2, \"doc\": {\"title\": \"Title 2\"}}}'"]; // String | 
+        String body = "'{\"insert\": {\"index\": \"test\", \"id\": 1, \"doc\": {\"title\": \"Title 1\"}}},\\n{\"insert\": {\"index\": \"test\", \"id\": 2, \"doc\": {\"title\": \"Title 2\"}}}'"; // String 
         try {
             BulkResponse result = apiInstance.bulk(body);
             System.out.println(result);
