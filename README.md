@@ -1,4 +1,6 @@
-# manticoresearch
+# Manticore Java client
+
+Official client for Manticore Search.
 
 ❗ WARNING: this is a development version of the client. The latest release's readme is https://github.com/manticoresoftware/manticoresearch-java/tree/3.3.0
 
