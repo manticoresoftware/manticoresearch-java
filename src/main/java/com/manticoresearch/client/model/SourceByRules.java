@@ -23,6 +23,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -38,10 +39,10 @@ import com.manticoresearch.client.JSON;
 })
 @JsonTypeName("sourceByRules")
 @JsonIgnoreProperties(ignoreUnknown = true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-05-28T11:55:17.809597Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-10-04T05:37:39.929867Z[Etc/UTC]")
 public class SourceByRules {
   public static final String JSON_PROPERTY_INCLUDES = "includes";
-  private List<String> includes = null;
+  private List<String> includes = new ArrayList<>();
 
   public static final String JSON_PROPERTY_EXCLUDES = "excludes";
   private List<String> excludes = new ArrayList<>(Arrays.asList(""));
@@ -56,7 +57,7 @@ public class SourceByRules {
 
   public SourceByRules addIncludesItem(String includesItem) {
     if (this.includes == null) {
-      this.includes = null;
+      this.includes = new ArrayList<>();
     }
     this.includes.add(includesItem);
     return this;

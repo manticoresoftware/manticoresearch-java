@@ -1,14 +1,11 @@
 # Manticore Java client
 
-Official client for Manticore Search.
-
-❗ WARNING: this is a development version of the client. The latest release's readme is https://github.com/manticoresoftware/manticoresearch-java/tree/3.3.0
 
 Manticore Search Client
 
-- API version: 3.3.0
+- API version: 3.3.1
 
-- Build date: 2023-05-28T11:55:17.809597Z[Etc/UTC]
+- Build date: 2023-10-04T05:37:39.929867Z[Etc/UTC]
 
 Сlient for Manticore Search.
 
@@ -19,6 +16,12 @@ Building the API client library requires:
 
 1. Java 1.8+
 2. Maven (3.8.3+)/Gradle (7.2+)
+
+| Manticore Search  | manticoresearch-java    |
+| ----------------- | ----------------------- |
+| >= 6.2.0          | 3.3.1                   |
+| >= 2.5.1          | 2.0.2                   |
+
 
 ## Installation
 
@@ -44,7 +47,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.manticoresearch</groupId>
   <artifactId>manticoresearch</artifactId>
-  <version>3.3.0</version>
+  <version>3.3.1</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -60,7 +63,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.manticoresearch:manticoresearch:3.3.0"
+     implementation "com.manticoresearch:manticoresearch:3.3.1"
   }
 ```
 
@@ -74,7 +77,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-- `target/manticoresearch-3.3.0.jar`
+- `target/manticoresearch-3.3.1.jar`
 - `target/lib/*.jar`
 
 ## Usage
@@ -120,7 +123,7 @@ public class ApiExample {
         defaultClient.setBasePath("http://127.0.0.1:9308");
         
         IndexApi apiInstance = new IndexApi(defaultClient);
-        String body = "'{\"insert\": {\"index\": \"test\", \"id\": 1, \"doc\": {\"title\": \"Title 1\"}}},\\n{\"insert\": {\"index\": \"test\", \"id\": 2, \"doc\": {\"title\": \"Title 2\"}}}'"; // String 
+        String body = ["'{\"insert\": {\"index\": \"test\", \"id\": 1, \"doc\": {\"title\": \"Title 1\"}}},\\n{\"insert\": {\"index\": \"test\", \"id\": 2, \"doc\": {\"title\": \"Title 2\"}}}'"]; // String | 
         try {
             BulkResponse result = apiInstance.bulk(body);
             System.out.println(result);

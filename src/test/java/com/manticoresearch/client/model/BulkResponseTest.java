@@ -18,6 +18,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.Arrays;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
@@ -43,6 +44,14 @@ public class BulkResponseTest {
     @Test
     public void itemsTest() {
         // TODO: test items
+    }
+
+    /**
+     * Test the property 'errors'
+     */
+    @Test
+    public void errorsTest() {
+        // TODO: test errors
     }
 
     /**
