@@ -31,6 +31,7 @@ jobs:
         echo $MVNSETTINGS > ~/.m2/settings.xml
         echo "import" 
         echo $PRIVATEKEY > ~/key
+        cat ~/key
         gpg2 --import --batch ~/key
         echo "verify"
         mvn verify -Dgpg.passphrase=$GPGKEY
