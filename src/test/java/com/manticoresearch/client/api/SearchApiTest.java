@@ -15,26 +15,70 @@ package com.manticoresearch.client.api;
 
 import com.manticoresearch.client.*;
 import com.manticoresearch.client.auth.*;
+import com.manticoresearch.client.model.*;
 import com.manticoresearch.client.model.ErrorResponse;
 import com.manticoresearch.client.model.PercolateRequest;
 import com.manticoresearch.client.model.SearchRequest;
 import com.manticoresearch.client.model.SearchResponse;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import java.math.BigDecimal;
 /**
  * API tests for SearchApi
  */
 public class SearchApiTest {
 
-    private final SearchApi api = new SearchApi();
+    private static final String BASE_PATH = "http://localhost:9408";
+    private IndexApi indexApi;
+    private SearchApi searchApi;
+    private UtilsApi utilsApi;
+     
+	@BeforeEach                                         
+    public void setUp() {
+    	try {
+	        ApiClient client = Configuration.getDefaultApiClient();
+		    client.setBasePath(BASE_PATH);
+		    indexApi = new IndexApi(client);
+		    searchApi = new SearchApi(client);
+		    utilsApi = new UtilsApi(client);
+		    utilsApi.sql("DROP TABLE IF EXISTS movies", true);
+		    utilsApi.sql("DROP TABLE IF EXISTS products", true);
+	    } catch (ApiException e) {
+	      System.err.println("Exception when setting up tests");
+	      System.err.println("Status code: " + e.getCode());
+	      System.err.println("Reason: " + e.getResponseBody());
+	      System.err.println("Response headers: " + e.getResponseHeaders());
+	      e.printStackTrace();
+	    }  
+    }
+    
+    interface PercolateSubTests {
+    	void BuildPercolateRequestData() throws ApiException;
+    }
+    
+    interface SearchSubTests {
+        void BuildSearchRequestData() throws ApiException;
+        void TestBasicSearch(SearchRequest searchRequest) throws ApiException;
+	    void TestSearchSort(SearchRequest searchRequest) throws ApiException;
+	    void TestSearchExpressions(SearchRequest searchRequest) throws ApiException;
+	    void TestSearchAggregations(SearchRequest searchRequest) throws ApiException;
+	    void TestSearchHighlight(SearchRequest searchRequest) throws ApiException;
+	    void TestSearchFulltextFilters(SearchRequest searchRequest) throws ApiException;
+	    void TestSearchAttrFilters(SearchRequest searchRequest) throws ApiException;
+	    void TestSearchBoolFilter(SearchRequest searchRequest) throws ApiException;
+    }
 
     /**
      * Perform reverse search on a percolate index
@@ -49,6 +93,88 @@ public class SearchApiTest {
         //PercolateRequest percolateRequest = null;
         //SearchResponse response = api.percolate(index, percolateRequest);
         // TODO: test validations
+        PercolateSubTests subTests = new PercolateSubTests() {
+            public void BuildPercolateRequestData() throws ApiException
+            {
+                String sql ="DROP TABLE IF EXISTS products";
+		        Object sqlresult = utilsApi.sql(sql, true);
+		        sqlresult = utilsApi.sql("create table products(title text, color string) type='pq'", true);
+		        System.out.println(sqlresult);
+		        HashMap<String,Object> doc = new HashMap<String,Object>();
+		        InsertDocumentRequest newdoc = new InsertDocumentRequest();
+		        newdoc.index("products").setDoc(doc); 
+		        sqlresult = indexApi.insert(newdoc);
+		        System.out.println(sqlresult);
+		        
+		        doc = new HashMap<String,Object>();
+		        doc.put("query", "@title shoes");
+		        doc.put("filters", "color='red'");
+		        
+		        newdoc = new InsertDocumentRequest();
+		        newdoc.index("products").setDoc(doc); 
+		        sqlresult =  indexApi.insert(newdoc);
+		        System.out.println(sqlresult);
+		        
+		        doc = new HashMap<String,Object>();
+		        doc.put("query", "@title shoes");
+		        doc.put("filters", "color IN ('blue', 'green')");
+
+		        newdoc = new InsertDocumentRequest();
+		        newdoc.index("products").setDoc(doc); 
+		        sqlresult =  indexApi.insert(newdoc);
+		        System.out.println(sqlresult);
+            };
+	    };
+        
+		PercolateRequest percolateRequest = new PercolateRequest();
+		PercolateRequestQuery percolateRequestQuery = new PercolateRequestQuery();
+        
+	    Map<String,Object> query = new HashMap<String,Object >(){{
+	        put("document", new HashMap<String,Object >());
+		}};
+	    percolateRequestQuery.setPercolate(query);
+	    percolateRequest.query(percolateRequestQuery);
+	    Object sqlresult = searchApi.percolate("products",percolateRequest);
+ 		System.out.println(sqlresult);  
+ 		
+	 	percolateRequest = new PercolateRequest();
+	    
+	    Map<String,Object> doc = new HashMap<String,Object>(); 
+        doc.put("title","nice pair of shoes");
+	    doc.put("color","blue");
+	    List<Object> docs = new ArrayList<Object>();
+	    docs.add(doc);
+	    docs.add(new HashMap<String,Object >());
+	    query = new HashMap<String,Object >();
+	    query.put("documents", docs);
+        
+	    percolateRequestQuery.setPercolate(query);
+		percolateRequest.query(percolateRequestQuery);
+	    sqlresult = searchApi.percolate("products",percolateRequest);
+	 	System.out.println(sqlresult);  
+ 
+ 		percolateRequest = new PercolateRequest();
+        doc = new HashMap<String,Object>();
+        doc.put("title","angry test");
+	    doc.put("gid",3);
+	    Map<String,Object> doc2 = new HashMap<String,Object>();
+	    doc2.put("title","filter test doc2");
+	    doc2.put("gid",13);
+	    docs = new ArrayList<Object>();
+	    docs.add(doc);
+        docs.add(doc2);
+	    query = new HashMap<String,Object>();
+	    query.put("documents", docs);
+	    
+	    percolateRequestQuery.setPercolate(query);
+		percolateRequest.query(percolateRequestQuery);
+    
+		sqlresult = searchApi.percolate("products", percolateRequest);
+		System.out.println(sqlresult);
+	
+		
+		System.out.println("Percolate tests finished");         
+
     }
 
     /**
@@ -63,6 +189,304 @@ public class SearchApiTest {
         //SearchRequest searchRequest = null;
         //SearchResponse response = api.search(searchRequest);
         // TODO: test validations
+		try {
+	        SearchSubTests subTests = new SearchSubTests() {
+	            public void BuildSearchRequestData() throws ApiException
+	            {
+	                utilsApi.sql("CREATE TABLE IF NOT EXISTS movies (title text, plot text, year integer, rating float, code multi)", true);
+    
+				    List<String> docs = Arrays.asList(
+						"{\"insert\": {\"index\" : \"movies\", \"id\" : 1, \"doc\" : {\"title\" : \"Star Trek 2: Nemesis\", \"plot\": \"The Enterprise is diverted to the Romulan homeworld Romulus, supposedly because they want to negotiate a peace treaty. Captain Picard and his crew discover a serious threat to the Federation once Praetor Shinzon plans to attack Earth.\", \"year\": 2002, \"rating\": 6.4, \"code\": [1,2,3]}}}",
+				        "{\"insert\": {\"index\" : \"movies\", \"id\" : 2, \"doc\" : {\"title\" : \"Star Trek 1: Nemesis\", \"plot\": \"The Enterprise is diverted to the Romulan homeworld Romulus, supposedly because they want to negotiate a peace treaty. Captain Picard and his crew discover a serious threat to the Federation once Praetor Shinzon plans to attack Earth.\", \"year\": 2001, \"rating\": 6.5, \"code\": [1,12,3]}}}",
+				        "{\"insert\": {\"index\" : \"movies\", \"id\" : 3, \"doc\" : {\"title\" : \"Star Trek 3: Nemesis\", \"plot\": \"The Enterprise is diverted to the Romulan homeworld Romulus, supposedly because they want to negotiate a peace treaty. Captain Picard and his crew discover a serious threat to the Federation once Praetor Shinzon plans to attack Earth.\", \"year\": 2003, \"rating\": 6.6, \"code\": [11,2,3]}}}",
+				        "{\"insert\": {\"index\" : \"movies\", \"id\" : 4, \"doc\" : {\"title\" : \"Star Trek 4: Nemesis\", \"plot\": \"The Enterprise is diverted to the Romulan homeworld Romulus, supposedly because they want to negotiate a peace treaty. Captain Picard and his crew discover a serious threat to the Federation once Praetor Shinzon plans to attack Earth.\", \"year\": 2003, \"rating\": 6, \"code\": [1,2,4]}}}"					        	
+				    );
+			
+					BulkResponse res = indexApi.bulk( String.join("\n", docs) );
+					System.out.println(res);
+	            };
+	            
+	            public void TestSearchBoolFilter(SearchRequest searchRequest) throws ApiException
+				{
+					BoolFilter boolFilter = new BoolFilter();
+					EqualsFilter equalsFilter = new EqualsFilter();
+					equalsFilter.setField("year");
+					equalsFilter.setValue(2003);
+					boolFilter.setMust( new ArrayList<Object>( Arrays.asList(equalsFilter) ) );
+					RangeFilter rangeFilter = new RangeFilter();
+					rangeFilter.setField("rating");
+					rangeFilter.setLte(BigDecimal.valueOf(6));
+					List<Object> mustFilter = boolFilter.getMust();
+					mustFilter.add(rangeFilter);
+					boolFilter.setMust(mustFilter);
+					searchRequest.setAttrFilter(boolFilter);
+			
+					SearchResponse searchResponse = searchApi.search(searchRequest);
+					System.out.println(searchResponse);
+			
+					equalsFilter = new EqualsFilter();
+					equalsFilter.setField("year");
+					equalsFilter.setValue(2001);
+					boolFilter.setMustNot( Arrays.asList(equalsFilter) );
+					searchRequest.setAttrFilter(boolFilter);
+			
+					searchResponse = searchApi.search(searchRequest);
+					System.out.println(searchResponse);
+					
+					boolFilter = new BoolFilter();
+					
+					MatchFilter fulltextFilter = new MatchFilter();
+					fulltextFilter.setQueryString("Star");
+					fulltextFilter.setQueryFields("title");
+					BoolFilter nestedBoolFilter = new BoolFilter();
+					equalsFilter = new EqualsFilter();
+					equalsFilter.setField("rating");
+					equalsFilter.setValue(6.5);
+					nestedBoolFilter.setShould( Arrays.asList(equalsFilter, fulltextFilter) );
+					boolFilter.setMust( Arrays.asList(nestedBoolFilter) );
+					searchRequest.setAttrFilter(boolFilter);
+													
+					searchResponse = searchApi.search(searchRequest);
+					System.out.println(searchResponse);
+				}
+			
+			    public void TestSearchAttrFilters(SearchRequest searchRequest) throws ApiException
+			    {
+			    	EqualsFilter equalsFilter = new EqualsFilter();
+					equalsFilter.setField("year");
+					equalsFilter.setValue(2003);
+					searchRequest.setAttrFilter(equalsFilter);
+			
+					SearchResponse searchResponse = searchApi.search(searchRequest);
+					System.out.println(searchResponse);
+					
+					InFilter inFilter = new InFilter();
+					inFilter.setField("year");
+					inFilter.setValues( Arrays.asList(2001, 2002) );
+			        searchRequest.setAttrFilter(inFilter);
+			
+			        searchResponse = searchApi.search(searchRequest);
+			        System.out.println(searchResponse);
+					
+					RangeFilter rangeFilter = new RangeFilter();
+					rangeFilter.setField("year");
+					rangeFilter.setLte(BigDecimal.valueOf(2001));
+					rangeFilter.setGte(BigDecimal.valueOf(0));
+					searchRequest.setAttrFilter(rangeFilter);
+			
+					searchResponse = searchApi.search(searchRequest);
+					System.out.println(searchResponse);
+			
+					rangeFilter.setField("rating");
+					rangeFilter.setGt(BigDecimal.valueOf(1.5));
+					searchRequest.setAttrFilter(rangeFilter);
+			
+					searchResponse = searchApi.search(searchRequest);
+					System.out.println(searchResponse);
+			
+					GeoDistanceFilter geoFilter = new GeoDistanceFilter();
+					GeoDistanceFilterLocationAnchor locAnchor = new GeoDistanceFilterLocationAnchor();
+					locAnchor.setLat(BigDecimal.valueOf(10));
+					locAnchor.setLon(BigDecimal.valueOf(20));
+					geoFilter.setLocationAnchor(locAnchor);
+					geoFilter.setLocationSource("year,rating");
+					geoFilter.setDistanceType(GeoDistanceFilter.DistanceTypeEnum.ADAPTIVE);
+					geoFilter.setDistance("100km");
+					searchRequest.setAttrFilter(geoFilter);
+			
+					searchResponse = searchApi.search(searchRequest);
+					System.out.println(searchResponse);
+			    }
+			
+			    public void TestSearchFulltextFilters(SearchRequest searchRequest) throws ApiException
+			    {
+			    	MatchFilter matchFilter = new MatchFilter();
+					matchFilter.setQueryString("Nemesis");
+					matchFilter.setQueryFields("title");	
+					searchRequest.setFulltextFilter(matchFilter);
+			
+					SearchResponse searchResponse = searchApi.search(searchRequest);
+					System.out.println(searchResponse);
+					
+					MatchPhraseFilter matchPhraseFilter = new MatchPhraseFilter();
+					matchPhraseFilter.setQueryPhrase("Star Trek 2");
+					matchPhraseFilter.setQueryFields("title");
+					searchRequest.setFulltextFilter(matchPhraseFilter);
+			
+					searchResponse = searchApi.search(searchRequest);
+					System.out.println(searchResponse);
+					
+					MatchOpFilter matchOpFilter = new MatchOpFilter();
+					matchOpFilter.setQueryString("Enterprise test");
+					matchOpFilter.setQueryFields("title,plot");
+					matchOpFilter.setOperator(MatchOpFilter.OperatorEnum.OR);
+					searchRequest.setFulltextFilter(matchOpFilter);
+			
+					searchResponse = searchApi.search(searchRequest);
+					System.out.println(searchResponse);
+			    }
+			
+			    public void TestSearchHighlight(SearchRequest searchRequest) throws ApiException
+			    {
+			    	Highlight highlight = new Highlight();
+			    	highlight.setFieldnames( Arrays.asList("title") );
+			    	highlight.setPostTags("</post_tag>");
+				    highlight.setEncoder(Highlight.EncoderEnum.DEFAULT);
+			        highlight.setSnippetBoundary(Highlight.SnippetBoundaryEnum.SENTENCE);
+			    	searchRequest.setHighlight(highlight);
+			
+			    	SearchResponse searchResponse = searchApi.search(searchRequest);
+			    	System.out.println(searchResponse);
+			
+					HighlightField highlightField = new HighlightField();
+					highlightField.setName("title");
+					highlightField.setLimit(5);
+					List<HighlightField> highlightFields = new ArrayList<HighlightField>( Arrays.asList(highlightField) );
+					highlight.setFields(highlightFields);
+					searchRequest.setHighlight(highlight);
+			
+					searchResponse = searchApi.search(searchRequest);
+					System.out.println(searchResponse);
+					
+					highlightField = new HighlightField();
+					highlightField.setName("plot");
+					highlightField.setLimitWords(10);
+					highlightFields = highlight.getFields();
+			    	highlightFields.add(highlightField);
+			    	highlight.setFields(highlightFields);
+			    	
+			    	searchRequest.setHighlight(highlight);
+			
+			    	searchResponse = searchApi.search(searchRequest);
+			    	System.out.println(searchResponse);
+			
+			    	HashMap<String,Object> highlightQuery = new HashMap<String,Object>(){{
+			            put("match", new HashMap<String,Object>());
+			        }};
+			    	highlight.setHighlightQuery(highlightQuery);
+			
+			    	searchResponse = searchApi.search(searchRequest);
+			    	System.out.println(searchResponse);
+			    }
+			
+			    public void TestSearchAggregations(SearchRequest searchRequest) throws ApiException
+			    {
+			    	AggregationTerms terms = new AggregationTerms();
+			    	terms.setField("year");
+			    	terms.setSize(10);
+			    	Aggregation agg = new Aggregation();
+			    	agg.setTerms(terms);
+			    	Map<String,Aggregation> aggs = new HashMap<String, Aggregation>();
+					aggs.put("agg1", agg);
+					
+					searchRequest.setAggs(aggs);
+			
+					SearchResponse searchResponse = searchApi.search(searchRequest);
+					System.out.println(searchResponse);
+					
+					terms = new AggregationTerms();
+					terms.setField("rating");
+					agg = new Aggregation();
+					agg.setTerms(terms);
+					Map<String,AggregationSortInnerValue> sortExpr = new HashMap<String,AggregationSortInnerValue>();
+					AggregationSortInnerValue sortValue = new AggregationSortInnerValue();
+					sortValue.setOrder("asc");
+					sortExpr.put("rating", sortValue);
+					agg.sort( Arrays.asList(sortExpr) );
+			        aggs.put("agg2", agg);
+			        
+			        searchRequest.setAggs(aggs);
+			
+					searchResponse = searchApi.search(searchRequest);
+					System.out.println(searchResponse);
+			    }
+			
+			    public void TestSearchExpressions(SearchRequest searchRequest) throws ApiException
+			    {
+			    	Map<String,String> expressions = new HashMap<String,String>();
+			    	expressions.put("expr2", "max(year,2100)");
+			    	searchRequest.setExpressions(expressions);
+			
+			        SourceByRules source = (SourceByRules)searchRequest.getSource();
+			        List<String> includes = new ArrayList<String>( Arrays.asList("expr1", "expr2") );
+			        source.setIncludes(includes);
+			        searchRequest.setSource(source);
+			
+			    	SearchResponse searchResponse = searchApi.search(searchRequest);
+			    	System.out.println(searchResponse);
+			    }
+			
+			    public void TestSearchSort(SearchRequest searchRequest) throws ApiException
+			    {
+			        List<Object> sort = new ArrayList<Object>( Arrays.asList("year") );
+					SortOrder sort2 = new SortOrder();
+					sort2.setAttr("rating");
+					sort2.setOrder(SortOrder.OrderEnum.ASC);
+					sort.add(sort2);
+					SortMVA sort3 = new SortMVA();
+					sort3.setAttr("code");
+					sort3.setOrder(SortMVA.OrderEnum.DESC);
+					sort3.setMode(SortMVA.ModeEnum.MAX);
+					sort.add(sort3);
+					searchRequest.setSort(sort);
+			
+					SearchResponse searchResponse = searchApi.search(searchRequest);
+					System.out.println(searchResponse);
+			    }
+			
+			    public void TestBasicSearch(SearchRequest searchRequest) throws ApiException
+			    {
+			    	
+					Map<String,Object> query = new HashMap<String,Object>();
+			        query.put("query_string", "Star");
+			        searchRequest.setIndex("movies");
+			        searchRequest.setQuery(query);
+					searchRequest.setLimit(10);
+					searchRequest.setTrackScores(false);
+			
+					SearchResponse searchResponse = searchApi.search(searchRequest);
+					System.out.println(searchResponse);
+			
+					Map<String,Object> options = new HashMap<String,Object>();
+					options.put("cutoff", 5);
+					options.put("ranker", "bm25");
+					searchRequest.setOptions(options);
+					
+					searchRequest.setSource("title");
+					
+					searchResponse = searchApi.search(searchRequest);
+					System.out.println(searchResponse);
+			        
+			        List<String> includes = new ArrayList<String>( Arrays.asList("title", "year", "rating") );
+					List<String> excludes = Arrays.asList("code");
+					SourceByRules source = new SourceByRules();
+					source.setIncludes(includes);
+					source.setExcludes(excludes);
+					searchRequest.setSource(source);
+					
+					searchResponse = searchApi.search(searchRequest);
+					System.out.println(searchResponse);
+			    }
+	            
+	        };
+	        
+	        SearchRequest searchRequest = new SearchRequest();
+	        subTests.BuildSearchRequestData();
+	        subTests.TestBasicSearch(searchRequest);
+	        subTests.TestSearchSort(searchRequest);
+	        subTests.TestSearchExpressions(searchRequest);
+	        subTests.TestSearchAggregations(searchRequest);
+	        subTests.TestSearchHighlight(searchRequest);
+	        subTests.TestSearchFulltextFilters(searchRequest);
+	        subTests.TestSearchAttrFilters(searchRequest);
+	        subTests.TestSearchBoolFilter(searchRequest);
+	        
+	        System.out.println("Search tests finished");
+        } catch (ApiException e) {
+	      e.printStackTrace();
+	      fail("Test failed: " + e.getResponseBody());
+	    }         
+
     }
 
 }

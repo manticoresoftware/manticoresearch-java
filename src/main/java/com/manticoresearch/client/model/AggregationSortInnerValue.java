@@ -29,77 +29,48 @@ import com.manticoresearch.client.JSON;
 
 
 /**
- * Equals attribute filter
+ * AggregationSortInnerValue
  */
 @JsonPropertyOrder({
-  EqualsFilter.JSON_PROPERTY_FIELD,
-  EqualsFilter.JSON_PROPERTY_VALUE
+  AggregationSortInnerValue.JSON_PROPERTY_ORDER
 })
-@JsonTypeName("equalsFilter")
+@JsonTypeName("aggregation_sort_inner_value")
 @JsonIgnoreProperties(ignoreUnknown = true)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-16T16:10:26.238505Z[Etc/UTC]")
-public class EqualsFilter {
-  public static final String JSON_PROPERTY_FIELD = "field";
-  private String field;
+public class AggregationSortInnerValue {
+  public static final String JSON_PROPERTY_ORDER = "order";
+  private String order;
 
-  public static final String JSON_PROPERTY_VALUE = "value";
-  private Object value;
-
-  public EqualsFilter() { 
+  public AggregationSortInnerValue() { 
   }
 
-  public EqualsFilter field(String field) {
-    this.field = field;
+  public AggregationSortInnerValue order(String order) {
+    this.order = order;
     return this;
   }
 
    /**
-   * Get field
-   * @return field
+   * Get order
+   * @return order
   **/
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_FIELD)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ORDER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getField() {
-    return field;
+  public String getOrder() {
+    return order;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FIELD)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setField(String field) {
-    this.field = field;
-  }
-
-
-  public EqualsFilter value(Object value) {
-    this.value = value;
-    return this;
-  }
-
-   /**
-   * Get value
-   * @return value
-  **/
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_VALUE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public Object getValue() {
-    return value;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_VALUE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setValue(Object value) {
-    this.value = value;
+  @JsonProperty(JSON_PROPERTY_ORDER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setOrder(String order) {
+    this.order = order;
   }
 
 
   /**
-   * Return true if this equalsFilter object is equal to o.
+   * Return true if this aggregation_sort_inner_value object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -109,22 +80,20 @@ public class EqualsFilter {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    EqualsFilter equalsFilter = (EqualsFilter) o;
-    return Objects.equals(this.field, equalsFilter.field) &&
-        Objects.equals(this.value, equalsFilter.value);
+    AggregationSortInnerValue aggregationSortInnerValue = (AggregationSortInnerValue) o;
+    return Objects.equals(this.order, aggregationSortInnerValue.order);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(field, value);
+    return Objects.hash(order);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class EqualsFilter {\n");
-    sb.append("    field: ").append(toIndentedString(field)).append("\n");
-    sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("class AggregationSortInnerValue {\n");
+    sb.append("    order: ").append(toIndentedString(order)).append("\n");
     sb.append("}");
     return sb.toString();
   }

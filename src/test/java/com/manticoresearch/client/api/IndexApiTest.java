@@ -15,6 +15,7 @@ package com.manticoresearch.client.api;
 
 import com.manticoresearch.client.*;
 import com.manticoresearch.client.auth.*;
+import com.manticoresearch.client.model.*;
 import com.manticoresearch.client.model.BulkResponse;
 import com.manticoresearch.client.model.DeleteDocumentRequest;
 import com.manticoresearch.client.model.DeleteResponse;
@@ -24,21 +25,64 @@ import com.manticoresearch.client.model.SuccessResponse;
 import com.manticoresearch.client.model.UpdateDocumentRequest;
 import com.manticoresearch.client.model.UpdateResponse;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import java.math.BigDecimal;
 /**
  * API tests for IndexApi
  */
 public class IndexApiTest {
 
-    private final IndexApi api = new IndexApi();
+    private static final String BASE_PATH = "http://localhost:9408";
+    private IndexApi indexApi;
+    private SearchApi searchApi;
+    private UtilsApi utilsApi;
+     
+	@BeforeEach                                         
+    public void setUp() {
+    	try {
+	        ApiClient client = Configuration.getDefaultApiClient();
+		    client.setBasePath(BASE_PATH);
+		    indexApi = new IndexApi(client);
+		    searchApi = new SearchApi(client);
+		    utilsApi = new UtilsApi(client);
+		    utilsApi.sql("DROP TABLE IF EXISTS movies", true);
+		    utilsApi.sql("DROP TABLE IF EXISTS products", true);
+	    } catch (ApiException e) {
+	      System.err.println("Exception when setting up tests");
+	      System.err.println("Status code: " + e.getCode());
+	      System.err.println("Reason: " + e.getResponseBody());
+	      System.err.println("Response headers: " + e.getResponseHeaders());
+	      e.printStackTrace();
+	    }  
+    }
+    
+    interface PercolateSubTests {
+    	void BuildPercolateRequestData() throws ApiException;
+    }
+    
+    interface SearchSubTests {
+        void BuildSearchRequestData() throws ApiException;
+        void TestBasicSearch(SearchRequest searchRequest) throws ApiException;
+	    void TestSearchSort(SearchRequest searchRequest) throws ApiException;
+	    void TestSearchExpressions(SearchRequest searchRequest) throws ApiException;
+	    void TestSearchAggregations(SearchRequest searchRequest) throws ApiException;
+	    void TestSearchHighlight(SearchRequest searchRequest) throws ApiException;
+	    void TestSearchFulltextFilters(SearchRequest searchRequest) throws ApiException;
+	    void TestSearchAttrFilters(SearchRequest searchRequest) throws ApiException;
+	    void TestSearchBoolFilter(SearchRequest searchRequest) throws ApiException;
+    }
 
     /**
      * Bulk index operations
@@ -52,6 +96,20 @@ public class IndexApiTest {
         //String body = null;
         //BulkResponse response = api.bulk(body);
         // TODO: test validations
+        Object sqlresult = utilsApi.sql("CREATE TABLE IF NOT EXISTS products (title text, price float, sizes multi, meta json, coeff float, tags1 multi, tags2 multi)", true);
+    	System.out.println(sqlresult);
+    	
+        String body = "{\"insert\": {\"index\" : \"products\", \"id\" : 3, \"doc\" : {\"title\" : \"Crossbody Bag with Tassel\", \"price\" : 19.85}}}" +"\n"+
+	    "{\"insert\": {\"index\" : \"products\", \"id\" : 4, \"doc\" : {\"title\" : \"microfiber sheet set\", \"price\" : 19.99}}}"+"\n"+
+	    "{\"insert\": {\"index\" : \"products\", \"id\" : 5, \"doc\" : {\"title\" : \"CPet Hair Remover Glove\", \"price\" : 7.99}}}"+"\n";         
+	    BulkResponse bulkresult = indexApi.bulk(body);
+	    System.out.println(bulkresult);
+	    
+	    body = "{ \"update\" : { \"index\" : \"products\", \"doc\": { \"coeff\" : 1000 }, \"query\": { \"range\": { \"price\": { \"gte\": 1000 } } } }} "+"\n"+
+        "{ \"update\" : { \"index\" : \"products\", \"doc\": { \"coeff\" : 0 }, \"query\": { \"range\": { \"price\": { \"lt\": 1000 } } } } }"+"\n";         
+        bulkresult = indexApi.bulk(body);
+        System.out.println(bulkresult);
+
     }
 
     /**
@@ -66,6 +124,38 @@ public class IndexApiTest {
         //DeleteDocumentRequest deleteDocumentRequest = null;
         //DeleteResponse response = api.delete(deleteDocumentRequest);
         // TODO: test validations
+        
+        Object indexSqlresult = utilsApi.sql("CREATE TABLE IF NOT EXISTS products (title text, price float, sizes multi, meta json, coeff float, tags1 multi, tags2 multi)", true);
+    	System.out.println(indexSqlresult);
+    	
+	    InsertDocumentRequest indexNewdoc = new InsertDocumentRequest();
+        HashMap<String,Object> indexDoc = new HashMap<String,Object>(){{
+            put("title","first");
+            put("tags1",new int[] {4,2,1,3});
+        }};
+        indexNewdoc.index("products").id(1L).setDoc(indexDoc); 
+        indexSqlresult = indexApi.insert(indexNewdoc);
+        
+        indexDoc = new HashMap<String,Object>();
+        indexNewdoc.index("products").id(2L).setDoc(indexDoc); 
+        indexSqlresult = indexApi.insert(indexNewdoc);
+        System.out.println(indexSqlresult);              
+        
+        indexDoc = new HashMap<String,Object>();
+        indexNewdoc.index("products").id(0L).setDoc(indexDoc); 
+        indexSqlresult = indexApi.insert(indexNewdoc);
+        System.out.println(indexSqlresult);
+	    
+
+        DeleteDocumentRequest deleteRequest = new DeleteDocumentRequest();
+        Map<String,Object> query = new HashMap<String,Object>();
+        Map<String,Object> matchExpr = new HashMap<String,Object>();
+        matchExpr.put("*","dummy");
+        query.put("match", matchExpr);
+        deleteRequest.index("products").setQuery(query); 
+        Object sqlresult = indexApi.delete(deleteRequest);
+        System.out.println(sqlresult);
+
     }
 
     /**
@@ -80,6 +170,29 @@ public class IndexApiTest {
         //InsertDocumentRequest insertDocumentRequest = null;
         //SuccessResponse response = api.insert(insertDocumentRequest);
         // TODO: test validations
+        
+        Object indexSqlresult = utilsApi.sql("CREATE TABLE IF NOT EXISTS products (title text, price float, sizes multi, meta json, coeff float, tags1 multi, tags2 multi)", true);
+    	System.out.println(indexSqlresult);
+    	
+	    InsertDocumentRequest indexNewdoc = new InsertDocumentRequest();
+        HashMap<String,Object> indexDoc = new HashMap<String,Object>(){{
+            put("title","first");
+            put("tags1",new int[] {4,2,1,3});
+        }};
+        indexNewdoc.index("products").id(1L).setDoc(indexDoc); 
+        indexSqlresult = indexApi.insert(indexNewdoc);
+        
+        indexDoc = new HashMap<String,Object>();
+        indexNewdoc.index("products").id(2L).setDoc(indexDoc); 
+        indexSqlresult = indexApi.insert(indexNewdoc);
+        System.out.println(indexSqlresult);              
+        
+        indexDoc = new HashMap<String,Object>();
+        indexNewdoc.index("products").id(0L).setDoc(indexDoc); 
+        indexSqlresult = indexApi.insert(indexNewdoc);
+        System.out.println(indexSqlresult);
+	    
+
     }
 
     /**
@@ -94,6 +207,36 @@ public class IndexApiTest {
         //InsertDocumentRequest insertDocumentRequest = null;
         //SuccessResponse response = api.replace(insertDocumentRequest);
         // TODO: test validations
+        
+        Object indexSqlresult = utilsApi.sql("CREATE TABLE IF NOT EXISTS products (title text, price float, sizes multi, meta json, coeff float, tags1 multi, tags2 multi)", true);
+    	System.out.println(indexSqlresult);
+    	
+	    InsertDocumentRequest indexNewdoc = new InsertDocumentRequest();
+        HashMap<String,Object> indexDoc = new HashMap<String,Object>(){{
+            put("title","first");
+            put("tags1",new int[] {4,2,1,3});
+        }};
+        indexNewdoc.index("products").id(1L).setDoc(indexDoc); 
+        indexSqlresult = indexApi.insert(indexNewdoc);
+        
+        indexDoc = new HashMap<String,Object>();
+        indexNewdoc.index("products").id(2L).setDoc(indexDoc); 
+        indexSqlresult = indexApi.insert(indexNewdoc);
+        System.out.println(indexSqlresult);              
+        
+        indexDoc = new HashMap<String,Object>();
+        indexNewdoc.index("products").id(0L).setDoc(indexDoc); 
+        indexSqlresult = indexApi.insert(indexNewdoc);
+        System.out.println(indexSqlresult);
+	    
+        InsertDocumentRequest docRequest = new InsertDocumentRequest();
+		HashMap<String,Object> doc = new HashMap<String,Object>();
+		doc.put("title","document one");
+		doc.put("price",10);
+		docRequest.index("products").id(1L).setDoc(doc); 
+		Object sqlresult = indexApi.replace(docRequest);
+		System.out.println(sqlresult);
+
     }
 
     /**
@@ -108,6 +251,72 @@ public class IndexApiTest {
         //UpdateDocumentRequest updateDocumentRequest = null;
         //UpdateResponse response = api.update(updateDocumentRequest);
         // TODO: test validations
+        
+        Object indexSqlresult = utilsApi.sql("CREATE TABLE IF NOT EXISTS products (title text, price float, sizes multi, meta json, coeff float, tags1 multi, tags2 multi)", true);
+    	System.out.println(indexSqlresult);
+    	
+	    InsertDocumentRequest indexNewdoc = new InsertDocumentRequest();
+        HashMap<String,Object> indexDoc = new HashMap<String,Object>(){{
+            put("title","first");
+            put("tags1",new int[] {4,2,1,3});
+        }};
+        indexNewdoc.index("products").id(1L).setDoc(indexDoc); 
+        indexSqlresult = indexApi.insert(indexNewdoc);
+        
+        indexDoc = new HashMap<String,Object>();
+        indexNewdoc.index("products").id(2L).setDoc(indexDoc); 
+        indexSqlresult = indexApi.insert(indexNewdoc);
+        System.out.println(indexSqlresult);              
+        
+        indexDoc = new HashMap<String,Object>();
+        indexNewdoc.index("products").id(0L).setDoc(indexDoc); 
+        indexSqlresult = indexApi.insert(indexNewdoc);
+        System.out.println(indexSqlresult);
+	    
+        UpdateDocumentRequest updatedoc = new UpdateDocumentRequest();
+	    HashMap<String,Object> doc = new HashMap<String,Object >();
+	    updatedoc.index("products").id(1L).setDoc(doc); 
+	    Object sqlresult = indexApi.update(updatedoc);
+	    System.out.println(sqlresult);
+	        
+	    updatedoc = new UpdateDocumentRequest();
+	    doc = new HashMap<String,Object >(){{
+            put("price",10);
+            put("coeff",3465.23);
+            put("tags1",new int[]{3,6,4});
+            put("tags2",new int[]{});
+ 	    }};
+        updatedoc.index("products").id(1L).setDoc(doc); 
+        sqlresult = indexApi.update(updatedoc);
+        System.out.println(sqlresult);              
+         
+        doc = new HashMap<String,Object>(){{
+            put("title","title");
+            put("meta", 
+                 new HashMap<String,Object>(){{
+                     put("tags",new int[]{1,2,3});
+                }}
+            );
+        }};
+        InsertDocumentRequest newdoc = new InsertDocumentRequest();
+        newdoc.index("products").id(100L).setDoc(doc);        
+        sqlresult = indexApi.insert(newdoc);
+        System.out.println(sqlresult);       
+        
+        updatedoc = new UpdateDocumentRequest();
+        doc = new HashMap<String,Object >();
+        updatedoc.index("products").id(100L).setDoc(doc); 
+        sqlresult =  indexApi.update(updatedoc);
+        System.out.println(sqlresult);        
+        
+        updatedoc = new UpdateDocumentRequest();
+        doc = new HashMap<String,Object>(){{
+            put("tags1",new int[]{});
+        }};
+        updatedoc.index("products").id(1L).setDoc(doc); 
+        sqlresult =  indexApi.update(updatedoc);
+        System.out.println(sqlresult);      
+
     }
 
 }

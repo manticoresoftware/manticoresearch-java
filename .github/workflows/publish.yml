@@ -1,0 +1,35 @@
+name: Publishing
+
+on:
+  push:
+    branches-ignore: [ master ]
+
+jobs:
+  publish:
+    name: Publish the client to the public registry
+    runs-on: ubuntu-latest
+    env:
+      MVNSETTINGS: ${{ secrets.MVNSETTINGS }}
+      PRIVATEKEY: ${{ secrets.PRIVATEKEY }}
+      GPGKEY: ${{ secrets.GPGKEY }}
+    strategy:
+      matrix:
+        java: [ '8' ]
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up JDK
+      uses: actions/setup-java@v2
+      with:
+        java-version: ${{ matrix.java }}
+        distribution: 'temurin'
+        cache: maven
+    - name: Use Maven
+      run: |
+        mkdir -p ~/.m2
+        export GPG_TTY=$(tty)
+        export MAVEN_OPTS="--add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.base/java.text=ALL-UNNAMED --add-opens=java.desktop/java.awt.font=ALL-UNNAMED"
+        cp $MVNSETTINGS ~/.m2/settings.xml
+        apt update && apt install gnupg2 -y && rm -rf /var/lib/apt/lists/* 
+        gpg2 --import --batch $PRIVATEKEY
+        mvn verify -Dgpg.passphrase=$GPGKEY
+        mvn clean deploy

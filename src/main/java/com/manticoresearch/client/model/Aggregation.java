@@ -22,108 +22,92 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.manticoresearch.client.model.AggregationSortInnerValue;
+import com.manticoresearch.client.model.AggregationTerms;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.manticoresearch.client.JSON;
 
 
 /**
- * Query aggregation object
+ * Aggregation Alias
  */
 @JsonPropertyOrder({
-  Aggregation.JSON_PROPERTY_NAME,
-  Aggregation.JSON_PROPERTY_FIELD,
-  Aggregation.JSON_PROPERTY_SIZE
+  Aggregation.JSON_PROPERTY_TERMS,
+  Aggregation.JSON_PROPERTY_SORT
 })
 @JsonTypeName("aggregation")
 @JsonIgnoreProperties(ignoreUnknown = true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-10-05T06:01:01.549441Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-16T16:10:26.238505Z[Etc/UTC]")
 public class Aggregation {
-  public static final String JSON_PROPERTY_NAME = "name";
-  private String name;
+  public static final String JSON_PROPERTY_TERMS = "terms";
+  private AggregationTerms terms;
 
-  public static final String JSON_PROPERTY_FIELD = "field";
-  private String field;
-
-  public static final String JSON_PROPERTY_SIZE = "size";
-  private Integer size = 20;
+  public static final String JSON_PROPERTY_SORT = "sort";
+  private List<Map<String, AggregationSortInnerValue>> sort;
 
   public Aggregation() { 
   }
 
-  public Aggregation name(String name) {
-    this.name = name;
+  public Aggregation terms(AggregationTerms terms) {
+    this.terms = terms;
     return this;
   }
 
    /**
-   * Get name
-   * @return name
-  **/
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public String getName() {
-    return name;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
-    this.name = name;
-  }
-
-
-  public Aggregation field(String field) {
-    this.field = field;
-    return this;
-  }
-
-   /**
-   * Get field
-   * @return field
-  **/
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_FIELD)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public String getField() {
-    return field;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_FIELD)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setField(String field) {
-    this.field = field;
-  }
-
-
-  public Aggregation size(Integer size) {
-    this.size = size;
-    return this;
-  }
-
-   /**
-   * Get size
-   * @return size
+   * Get terms
+   * @return terms
   **/
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SIZE)
+  @JsonProperty(JSON_PROPERTY_TERMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Integer getSize() {
-    return size;
+  public AggregationTerms getTerms() {
+    return terms;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SIZE)
+  @JsonProperty(JSON_PROPERTY_TERMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSize(Integer size) {
-    this.size = size;
+  public void setTerms(AggregationTerms terms) {
+    this.terms = terms;
+  }
+
+
+  public Aggregation sort(List<Map<String, AggregationSortInnerValue>> sort) {
+    this.sort = sort;
+    return this;
+  }
+
+  public Aggregation addSortItem(Map<String, AggregationSortInnerValue> sortItem) {
+    if (this.sort == null) {
+      this.sort = new ArrayList<>();
+    }
+    this.sort.add(sortItem);
+    return this;
+  }
+
+   /**
+   * Get sort
+   * @return sort
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SORT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<Map<String, AggregationSortInnerValue>> getSort() {
+    return sort;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SORT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSort(List<Map<String, AggregationSortInnerValue>> sort) {
+    this.sort = sort;
   }
 
 
@@ -139,23 +123,21 @@ public class Aggregation {
       return false;
     }
     Aggregation aggregation = (Aggregation) o;
-    return Objects.equals(this.name, aggregation.name) &&
-        Objects.equals(this.field, aggregation.field) &&
-        Objects.equals(this.size, aggregation.size);
+    return Objects.equals(this.terms, aggregation.terms) &&
+        Objects.equals(this.sort, aggregation.sort);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, field, size);
+    return Objects.hash(terms, sort);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Aggregation {\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    field: ").append(toIndentedString(field)).append("\n");
-    sb.append("    size: ").append(toIndentedString(size)).append("\n");
+    sb.append("    terms: ").append(toIndentedString(terms)).append("\n");
+    sb.append("    sort: ").append(toIndentedString(sort)).append("\n");
     sb.append("}");
     return sb.toString();
   }

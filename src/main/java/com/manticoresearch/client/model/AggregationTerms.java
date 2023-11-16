@@ -29,37 +29,37 @@ import com.manticoresearch.client.JSON;
 
 
 /**
- * Equals attribute filter
+ * AggregationTerms
  */
 @JsonPropertyOrder({
-  EqualsFilter.JSON_PROPERTY_FIELD,
-  EqualsFilter.JSON_PROPERTY_VALUE
+  AggregationTerms.JSON_PROPERTY_FIELD,
+  AggregationTerms.JSON_PROPERTY_SIZE
 })
-@JsonTypeName("equalsFilter")
+@JsonTypeName("aggregation_terms")
 @JsonIgnoreProperties(ignoreUnknown = true)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-16T16:10:26.238505Z[Etc/UTC]")
-public class EqualsFilter {
+public class AggregationTerms {
   public static final String JSON_PROPERTY_FIELD = "field";
   private String field;
 
-  public static final String JSON_PROPERTY_VALUE = "value";
-  private Object value;
+  public static final String JSON_PROPERTY_SIZE = "size";
+  private Integer size;
 
-  public EqualsFilter() { 
+  public AggregationTerms() { 
   }
 
-  public EqualsFilter field(String field) {
+  public AggregationTerms field(String field) {
     this.field = field;
     return this;
   }
 
    /**
-   * Get field
+   * Attribute Name to Aggregate
    * @return field
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FIELD)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getField() {
     return field;
@@ -67,39 +67,39 @@ public class EqualsFilter {
 
 
   @JsonProperty(JSON_PROPERTY_FIELD)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setField(String field) {
     this.field = field;
   }
 
 
-  public EqualsFilter value(Object value) {
-    this.value = value;
+  public AggregationTerms size(Integer size) {
+    this.size = size;
     return this;
   }
 
    /**
-   * Get value
-   * @return value
+   * Maximum Number of Buckets in the Result
+   * @return size
   **/
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_VALUE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SIZE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Object getValue() {
-    return value;
+  public Integer getSize() {
+    return size;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_VALUE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setValue(Object value) {
-    this.value = value;
+  @JsonProperty(JSON_PROPERTY_SIZE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSize(Integer size) {
+    this.size = size;
   }
 
 
   /**
-   * Return true if this equalsFilter object is equal to o.
+   * Return true if this aggregation_terms object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -109,22 +109,22 @@ public class EqualsFilter {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    EqualsFilter equalsFilter = (EqualsFilter) o;
-    return Objects.equals(this.field, equalsFilter.field) &&
-        Objects.equals(this.value, equalsFilter.value);
+    AggregationTerms aggregationTerms = (AggregationTerms) o;
+    return Objects.equals(this.field, aggregationTerms.field) &&
+        Objects.equals(this.size, aggregationTerms.size);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(field, value);
+    return Objects.hash(field, size);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class EqualsFilter {\n");
+    sb.append("class AggregationTerms {\n");
     sb.append("    field: ").append(toIndentedString(field)).append("\n");
-    sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("}");
     return sb.toString();
   }

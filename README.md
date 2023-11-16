@@ -1,14 +1,9 @@
 # Manticore Java client
 
-❗ WARNING: this is a development version of the client. The latest release's readme is https://github.com/manticoresoftware/manticoresearch-java/tree/3.3.1
-
-Manticore Search Client
-
-- API version: 3.3.1
-
-- Build date: 2023-10-05T06:01:01.549441Z[Etc/UTC]
 
 Сlient for Manticore Search.
+
+❗ WARNING: this is a development version of the client. The latest release's readme is https://github.com/manticoresoftware/manticoresearch-java/tree/3.3.1
 
 
 ## Requirements
@@ -48,7 +43,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.manticoresearch</groupId>
   <artifactId>manticoresearch</artifactId>
-  <version>3.3.1</version>
+  <version>4.0.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -64,7 +59,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.manticoresearch:manticoresearch:3.3.1"
+     implementation "com.manticoresearch:manticoresearch:4.0.0"
   }
 ```
 
@@ -78,7 +73,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-- `target/manticoresearch-3.3.1.jar`
+- `target/manticoresearch-4.0.0.jar`
 - `target/lib/*.jar`
 
 ## Usage
@@ -179,6 +174,8 @@ Class | Method | HTTP request | Description
 ## Documentation for Models
 
  - [Aggregation](docs/Aggregation.md)
+ - [AggregationSortInnerValue](docs/AggregationSortInnerValue.md)
+ - [AggregationTerms](docs/AggregationTerms.md)
  - [BoolFilter](docs/BoolFilter.md)
  - [BulkResponse](docs/BulkResponse.md)
  - [DeleteDocumentRequest](docs/DeleteDocumentRequest.md)

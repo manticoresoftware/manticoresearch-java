@@ -76,7 +76,7 @@ import com.manticoresearch.client.model.SearchRequest;
 /**
  * <p>ApiClient class.</p>
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-10-05T06:01:01.549441Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-16T16:10:26.238505Z[Etc/UTC]")
 public class ApiClient extends JavaTimeFormatter {
   private static final Pattern JSON_MIME_PATTERN = Pattern.compile("(?i)^(application/json|[^;/ \t]+/[^;/ \t]+[+]json)[ \t]*(;.*)?$");
 
@@ -131,7 +131,7 @@ public class ApiClient extends JavaTimeFormatter {
     this.dateFormat = new RFC3339DateFormat();
 
     // Set default User-Agent.
-    setUserAgent("OpenAPI-Generator/3.3.1/java");
+    setUserAgent("OpenAPI-Generator/4.0.0/java");
 
     // Setup authentications (key: authentication name, value: authentication).
     authentications = new HashMap<>();
@@ -945,7 +945,7 @@ public class ApiClient extends JavaTimeFormatter {
 				map.put("query", query);
 			}
         	
-			List<String> propSignList = Arrays.asList("expressions", "aggs", "highlight.fields");
+			List<String> propSignList = Arrays.asList("highlight.fields");
 			propSignList.forEach(propSign -> {
 			    List<String> propNames = Arrays.asList(propSign.split("\\."));
 			    List<Object> nestedObj = new ArrayList<>();

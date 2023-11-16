@@ -56,7 +56,7 @@ import com.manticoresearch.client.JSON;
 })
 @JsonTypeName("searchRequest")
 @JsonIgnoreProperties(ignoreUnknown = true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-10-05T06:01:01.549441Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-16T16:10:26.238505Z[Etc/UTC]")
 public class SearchRequest {
   public static final String JSON_PROPERTY_INDEX = "index";
   private String index = "";
@@ -83,10 +83,10 @@ public class SearchRequest {
   private List<Object> sort;
 
   public static final String JSON_PROPERTY_AGGS = "aggs";
-  private List<Aggregation> aggs;
+  private Map<String, Aggregation> aggs = new HashMap<>();
 
   public static final String JSON_PROPERTY_EXPRESSIONS = "expressions";
-  private List<Object> expressions;
+  private Map<String, String> expressions = new HashMap<>();
 
   public static final String JSON_PROPERTY_HIGHLIGHT = "highlight";
   private Highlight highlight;
@@ -316,16 +316,16 @@ public class SearchRequest {
   }
 
 
-  public SearchRequest aggs(List<Aggregation> aggs) {
+  public SearchRequest aggs(Map<String, Aggregation> aggs) {
     this.aggs = aggs;
     return this;
   }
 
-  public SearchRequest addAggsItem(Aggregation aggsItem) {
+  public SearchRequest putAggsItem(String key, Aggregation aggsItem) {
     if (this.aggs == null) {
-      this.aggs = new ArrayList<>();
+      this.aggs = new HashMap<>();
     }
-    this.aggs.add(aggsItem);
+    this.aggs.put(key, aggsItem);
     return this;
   }
 
@@ -337,28 +337,28 @@ public class SearchRequest {
   @JsonProperty(JSON_PROPERTY_AGGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<Aggregation> getAggs() {
+  public Map<String, Aggregation> getAggs() {
     return aggs;
   }
 
 
   @JsonProperty(JSON_PROPERTY_AGGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAggs(List<Aggregation> aggs) {
+  public void setAggs(Map<String, Aggregation> aggs) {
     this.aggs = aggs;
   }
 
 
-  public SearchRequest expressions(List<Object> expressions) {
+  public SearchRequest expressions(Map<String, String> expressions) {
     this.expressions = expressions;
     return this;
   }
 
-  public SearchRequest addExpressionsItem(Object expressionsItem) {
+  public SearchRequest putExpressionsItem(String key, String expressionsItem) {
     if (this.expressions == null) {
-      this.expressions = new ArrayList<>();
+      this.expressions = new HashMap<>();
     }
-    this.expressions.add(expressionsItem);
+    this.expressions.put(key, expressionsItem);
     return this;
   }
 
@@ -370,14 +370,14 @@ public class SearchRequest {
   @JsonProperty(JSON_PROPERTY_EXPRESSIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<Object> getExpressions() {
+  public Map<String, String> getExpressions() {
     return expressions;
   }
 
 
   @JsonProperty(JSON_PROPERTY_EXPRESSIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setExpressions(List<Object> expressions) {
+  public void setExpressions(Map<String, String> expressions) {
     this.expressions = expressions;
   }
 
