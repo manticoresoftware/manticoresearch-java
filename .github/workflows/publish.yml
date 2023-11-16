@@ -7,14 +7,19 @@ on:
 jobs:
   publish:
     name: Publish the client to the public registry
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     env:
       MVNSETTINGS: ${{ secrets.MVNSETTINGS }}
       PRIVATEKEY: ${{ secrets.PRIVATEKEY }}
       GPGKEY: ${{ secrets.GPGKEY }}
     strategy:
       matrix:
-        java: [ '8' ]
+        java: [ '11' ]
+    services:
+      manticoresearch-manticore:
+        image: manticoresearch/manticore:dev
+        ports:
+          - 9408:9308
     steps:
     - uses: actions/checkout@v2
     - name: Set up JDK
@@ -28,8 +33,11 @@ jobs:
         mkdir -p ~/.m2
         export GPG_TTY=$(tty)
         export MAVEN_OPTS="--add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.base/java.text=ALL-UNNAMED --add-opens=java.desktop/java.awt.font=ALL-UNNAMED"
-        cp $MVNSETTINGS ~/.m2/settings.xml
-        apt update && apt install gnupg2 -y && rm -rf /var/lib/apt/lists/* 
-        gpg2 --import --batch $PRIVATEKEY
-        mvn verify -Dgpg.passphrase=$GPGKEY
-        mvn clean deploy
+        echo "$MVNSETTINGS" > ~/.m2/settings.xml
+        echo "import" 
+        echo "$PRIVATEKEY" > ~/key
+        gpg2 --import --batch ~/key
+        echo "verify"
+        mvn install -Dmaven.test.skip.exec=true -DskipTests=true -Dmaven.test.skip=true -Dgpg.passphrase=$GPGKEY
+        echo "deploy"
+        mvn clean deploy -e -X
