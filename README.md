@@ -3,8 +3,6 @@
 
 Сlient for Manticore Search.
 
-❗ WARNING: this is a development version of the client. The latest release's readme is https://github.com/manticoresoftware/manticoresearch-java/tree/3.3.1
-
 
 ## Requirements
 
@@ -15,6 +13,7 @@ Building the API client library requires:
 
 | Manticore Search  | manticoresearch-java    |
 | ----------------- | ----------------------- |
+| >= 6.2.0          | 4.0.0                   |
 | >= 6.2.0          | 3.3.1                   |
 | >= 2.5.1          | 2.0.2                   |
 
