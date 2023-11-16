@@ -30,7 +30,8 @@ jobs:
         export MAVEN_OPTS="--add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.base/java.text=ALL-UNNAMED --add-opens=java.desktop/java.awt.font=ALL-UNNAMED"
         echo $MVNSETTINGS > ~/.m2/settings.xml
         echo "import" 
-        gpg2 --import --batch $PRIVATEKEY
+        echo $PRIVATEKEY > ~/key
+        gpg2 --import --batch ~/key
         echo "verify"
         mvn verify -Dgpg.passphrase=$GPGKEY
         echo "deploy"
