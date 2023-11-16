@@ -28,7 +28,7 @@ jobs:
         mkdir -p ~/.m2
         export GPG_TTY=$(tty)
         export MAVEN_OPTS="--add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.base/java.text=ALL-UNNAMED --add-opens=java.desktop/java.awt.font=ALL-UNNAMED"
-        echo $MVNSETTINGS > ~/.m2/settings.xml
+        echo "$MVNSETTINGS" > ~/.m2/settings.xml
         echo "import" 
         echo "$PRIVATEKEY" > ~/key
         gpg2 --import --batch ~/key
