@@ -40,4 +40,4 @@ jobs:
         echo "verify"
         mvn install -Dmaven.test.skip.exec=true -DskipTests=true -Dmaven.test.skip=true -Dgpg.passphrase=$GPGKEY
         echo "deploy"
-        mvn clean deploy
+        mvn clean deploy -e -X
