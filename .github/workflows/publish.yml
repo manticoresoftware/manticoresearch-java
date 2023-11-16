@@ -14,7 +14,7 @@ jobs:
       GPGKEY: ${{ secrets.GPGKEY }}
     strategy:
       matrix:
-        java: [ '9' ]
+        java: [ '11' ]
     steps:
     - uses: actions/checkout@v2
     - name: Set up JDK
