@@ -7,7 +7,7 @@ on:
 jobs:
   publish:
     name: Publish the client to the public registry
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     env:
       MVNSETTINGS: ${{ secrets.MVNSETTINGS }}
       PRIVATEKEY: ${{ secrets.PRIVATEKEY }}
@@ -15,6 +15,11 @@ jobs:
     strategy:
       matrix:
         java: [ '11' ]
+    services:
+      manticoresearch-manticore:
+        image: manticoresearch/manticore:dev
+        ports:
+          - 9408:9308
     steps:
     - uses: actions/checkout@v2
     - name: Set up JDK
