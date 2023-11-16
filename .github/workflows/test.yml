@@ -18,6 +18,13 @@ jobs:
     strategy:
       matrix:
         java: [ '8' ]
+    
+    services:
+      manticoresearch-manticore:
+        image: manticoresearch/manticore:dev
+        ports:
+          - 9408:9308
+    
     steps:
     - uses: actions/checkout@v2
     - name: Set up JDK
