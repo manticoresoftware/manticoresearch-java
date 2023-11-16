@@ -33,6 +33,6 @@ jobs:
         echo "$PRIVATEKEY" > ~/key
         gpg2 --import --batch ~/key
         echo "verify"
-        mvn verify -DskipTests -Dgpg.passphrase=$GPGKEY
+        mvn verify -Dmaven.test.skip=true -DskipTests -Dgpg.passphrase=$GPGKEY
         echo "deploy"
         mvn clean deploy
