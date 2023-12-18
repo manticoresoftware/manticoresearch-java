@@ -1,12 +1,11 @@
 # Manticore Java client
 
-❗ WARNING: this is a development version of the client. The latest release's readme is https://github.com/manticoresoftware/manticoresearch-java/tree/4.1.0
 
 Manticore Search Client
 
-- API version: 4.1.0
+- API version: 5.0.0
 
-- Build date: 2023-12-18T10:27:43.373739969Z[Etc/UTC]
+- Build date: 2023-12-18T11:24:55.908019234Z[Etc/UTC]
 
 Сlient for Manticore Search.
 
@@ -15,7 +14,7 @@ Manticore Search Client
 
 Building the API client library requires:
 
-1. Java 1.8+
+1. Java 17+
 2. Maven/Gradle
 
 | Manticore Search  | manticoresearch-java    |
@@ -48,7 +47,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.manticoresearch</groupId>
   <artifactId>manticoresearch</artifactId>
-  <version>4.1.0</version>
+  <version>5.0.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -64,7 +63,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.manticoresearch:manticoresearch:4.1.0"
+     implementation "com.manticoresearch:manticoresearch:5.0.0"
   }
 ```
 
@@ -78,7 +77,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-- `target/manticoresearch-4.1.0.jar`
+- `target/manticoresearch-5.0.0.jar`
 - `target/lib/*.jar`
 
 ## Getting Started

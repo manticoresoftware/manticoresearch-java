@@ -36,7 +36,7 @@ import com.manticoresearch.client.JSON;
 })
 @JsonTypeName("matchFilter")
 @JsonIgnoreProperties(ignoreUnknown = true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-18T10:27:43.373739969Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-18T11:24:55.908019234Z[Etc/UTC]")
 public class MatchFilter {
   public static final String JSON_PROPERTY_QUERY_STRING = "query_string";
   private String queryString = "";

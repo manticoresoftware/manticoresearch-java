@@ -37,7 +37,7 @@ import com.manticoresearch.client.JSON;
 })
 @JsonTypeName("geoDistanceFilter_location_anchor")
 @JsonIgnoreProperties(ignoreUnknown = true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-18T10:27:43.373739969Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-18T11:24:55.908019234Z[Etc/UTC]")
 public class GeoDistanceFilterLocationAnchor {
   public static final String JSON_PROPERTY_LAT = "lat";
   private BigDecimal lat;
