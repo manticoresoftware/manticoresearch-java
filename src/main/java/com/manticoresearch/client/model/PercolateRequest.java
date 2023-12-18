@@ -14,7 +14,6 @@
 package com.manticoresearch.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -37,7 +36,7 @@ import com.manticoresearch.client.JSON;
 })
 @JsonTypeName("percolateRequest")
 @JsonIgnoreProperties(ignoreUnknown = true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-16T16:10:26.238505Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-18T10:27:43.373739969Z[Etc/UTC]")
 public class PercolateRequest {
   public static final String JSON_PROPERTY_QUERY = "query";
   private PercolateRequestQuery query;
@@ -54,7 +53,7 @@ public class PercolateRequest {
    * Get query
    * @return query
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

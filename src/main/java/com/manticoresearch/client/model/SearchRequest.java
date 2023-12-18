@@ -14,7 +14,6 @@
 package com.manticoresearch.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -56,7 +55,7 @@ import com.manticoresearch.client.JSON;
 })
 @JsonTypeName("searchRequest")
 @JsonIgnoreProperties(ignoreUnknown = true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-16T16:10:26.238505Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-18T10:27:43.373739969Z[Etc/UTC]")
 public class SearchRequest {
   public static final String JSON_PROPERTY_INDEX = "index";
   private String index = "";
@@ -115,7 +114,7 @@ public class SearchRequest {
    * Get index
    * @return index
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_INDEX)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -140,7 +139,7 @@ public class SearchRequest {
    * Get query
    * @return query
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -167,7 +166,7 @@ public class SearchRequest {
    * Get fulltextFilter
    * @return fulltextFilter
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FULLTEXT_FILTER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -192,7 +191,7 @@ public class SearchRequest {
    * Get attrFilter
    * @return attrFilter
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ATTR_FILTER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -217,7 +216,7 @@ public class SearchRequest {
    * Get limit
    * @return limit
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -242,7 +241,7 @@ public class SearchRequest {
    * Get offset
    * @return offset
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_OFFSET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -267,7 +266,7 @@ public class SearchRequest {
    * Get maxMatches
    * @return maxMatches
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MAX_MATCHES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -300,7 +299,7 @@ public class SearchRequest {
    * Get sort
    * @return sort
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SORT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -333,7 +332,7 @@ public class SearchRequest {
    * Get aggs
    * @return aggs
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AGGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -366,7 +365,7 @@ public class SearchRequest {
    * Get expressions
    * @return expressions
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EXPRESSIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -391,7 +390,7 @@ public class SearchRequest {
    * Get highlight
    * @return highlight
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_HIGHLIGHT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -416,7 +415,7 @@ public class SearchRequest {
    * Get source
    * @return source
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -449,7 +448,7 @@ public class SearchRequest {
    * Get options
    * @return options
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_OPTIONS)
   @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -474,7 +473,7 @@ public class SearchRequest {
    * Get profile
    * @return profile
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PROFILE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -499,7 +498,7 @@ public class SearchRequest {
    * Get trackScores
    * @return trackScores
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TRACK_SCORES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

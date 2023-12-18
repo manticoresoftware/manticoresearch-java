@@ -14,7 +14,6 @@
 package com.manticoresearch.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -39,7 +38,7 @@ import com.manticoresearch.client.JSON;
 })
 @JsonTypeName("highlightField")
 @JsonIgnoreProperties(ignoreUnknown = true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-16T16:10:26.238505Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-18T10:27:43.373739969Z[Etc/UTC]")
 public class HighlightField {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -65,7 +64,7 @@ public class HighlightField {
    * Get name
    * @return name
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -90,7 +89,7 @@ public class HighlightField {
    * Get limit
    * @return limit
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -115,7 +114,7 @@ public class HighlightField {
    * Get limitWords
    * @return limitWords
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LIMIT_WORDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -140,7 +139,7 @@ public class HighlightField {
    * Get limitSnippets
    * @return limitSnippets
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LIMIT_SNIPPETS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

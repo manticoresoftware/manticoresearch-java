@@ -14,7 +14,6 @@
 package com.manticoresearch.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -41,7 +40,7 @@ import com.manticoresearch.client.JSON;
 })
 @JsonTypeName("searchResponse_hits")
 @JsonIgnoreProperties(ignoreUnknown = true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-16T16:10:26.238505Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-18T10:27:43.373739969Z[Etc/UTC]")
 public class SearchResponseHits {
   public static final String JSON_PROPERTY_MAX_SCORE = "max_score";
   private Integer maxScore;
@@ -67,7 +66,7 @@ public class SearchResponseHits {
    * Get maxScore
    * @return maxScore
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MAX_SCORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -92,7 +91,7 @@ public class SearchResponseHits {
    * Get total
    * @return total
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -117,7 +116,7 @@ public class SearchResponseHits {
    * Get totalRelation
    * @return totalRelation
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TOTAL_RELATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -150,7 +149,7 @@ public class SearchResponseHits {
    * Get hits
    * @return hits
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_HITS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

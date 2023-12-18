@@ -14,7 +14,6 @@
 package com.manticoresearch.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -36,7 +35,7 @@ import com.manticoresearch.client.JSON;
 })
 @JsonTypeName("matchOp")
 @JsonIgnoreProperties(ignoreUnknown = true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-16T16:10:26.238505Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-18T10:27:43.373739969Z[Etc/UTC]")
 public class MatchOp {
   public static final String JSON_PROPERTY_QUERY_INFO = "query_info";
   private Object queryInfo;
@@ -53,7 +52,7 @@ public class MatchOp {
    * Get queryInfo
    * @return queryInfo
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_QUERY_INFO)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

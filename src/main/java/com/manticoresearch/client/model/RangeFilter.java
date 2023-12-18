@@ -14,7 +14,6 @@
 package com.manticoresearch.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -45,7 +44,7 @@ import com.manticoresearch.client.JSON;
 })
 @JsonTypeName("rangeFilter")
 @JsonIgnoreProperties(ignoreUnknown = true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-16T16:10:26.238505Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-18T10:27:43.373739969Z[Etc/UTC]")
 public class RangeFilter {
   public static final String JSON_PROPERTY_FIELD = "field";
   private String field;
@@ -74,7 +73,7 @@ public class RangeFilter {
    * Get field
    * @return field
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_FIELD)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -99,7 +98,7 @@ public class RangeFilter {
    * Get lte
    * @return lte
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
 
   public BigDecimal getLte() {
@@ -132,7 +131,7 @@ public class RangeFilter {
    * Get gte
    * @return gte
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
 
   public BigDecimal getGte() {
@@ -165,7 +164,7 @@ public class RangeFilter {
    * Get lt
    * @return lt
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
 
   public BigDecimal getLt() {
@@ -198,7 +197,7 @@ public class RangeFilter {
    * Get gt
    * @return gt
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
 
   public BigDecimal getGt() {

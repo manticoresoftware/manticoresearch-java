@@ -14,7 +14,6 @@
 package com.manticoresearch.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -38,7 +37,7 @@ import com.manticoresearch.client.JSON;
 })
 @JsonTypeName("matchOpFilter")
 @JsonIgnoreProperties(ignoreUnknown = true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-16T16:10:26.238505Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-18T10:27:43.373739969Z[Etc/UTC]")
 public class MatchOpFilter {
   public static final String JSON_PROPERTY_QUERY_STRING = "query_string";
   private String queryString;
@@ -96,7 +95,7 @@ public class MatchOpFilter {
    * Get queryString
    * @return queryString
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_QUERY_STRING)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -121,7 +120,7 @@ public class MatchOpFilter {
    * Get queryFields
    * @return queryFields
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_QUERY_FIELDS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -146,7 +145,7 @@ public class MatchOpFilter {
    * Get operator
    * @return operator
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_OPERATOR)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

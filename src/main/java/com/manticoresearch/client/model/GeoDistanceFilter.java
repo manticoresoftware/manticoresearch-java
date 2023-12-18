@@ -14,7 +14,6 @@
 package com.manticoresearch.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -40,7 +39,7 @@ import com.manticoresearch.client.JSON;
 })
 @JsonTypeName("geoDistanceFilter")
 @JsonIgnoreProperties(ignoreUnknown = true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-16T16:10:26.238505Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-18T10:27:43.373739969Z[Etc/UTC]")
 public class GeoDistanceFilter {
   public static final String JSON_PROPERTY_LOCATION_ANCHOR = "location_anchor";
   private GeoDistanceFilterLocationAnchor locationAnchor;
@@ -101,7 +100,7 @@ public class GeoDistanceFilter {
    * Get locationAnchor
    * @return locationAnchor
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LOCATION_ANCHOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -126,7 +125,7 @@ public class GeoDistanceFilter {
    * Attribute containing latitude and longitude data
    * @return locationSource
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LOCATION_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -151,7 +150,7 @@ public class GeoDistanceFilter {
    * Get distanceType
    * @return distanceType
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DISTANCE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -176,7 +175,7 @@ public class GeoDistanceFilter {
    * Get distance
    * @return distance
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DISTANCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

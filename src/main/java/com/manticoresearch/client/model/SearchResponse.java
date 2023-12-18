@@ -14,7 +14,6 @@
 package com.manticoresearch.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -44,7 +43,7 @@ import com.manticoresearch.client.JSON;
 })
 @JsonTypeName("searchResponse")
 @JsonIgnoreProperties(ignoreUnknown = true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-16T16:10:26.238505Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-18T10:27:43.373739969Z[Etc/UTC]")
 public class SearchResponse {
   public static final String JSON_PROPERTY_TOOK = "took";
   private Integer took;
@@ -76,7 +75,7 @@ public class SearchResponse {
    * Get took
    * @return took
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TOOK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -101,7 +100,7 @@ public class SearchResponse {
    * Get timedOut
    * @return timedOut
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TIMED_OUT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -134,7 +133,7 @@ public class SearchResponse {
    * Get aggregations
    * @return aggregations
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AGGREGATIONS)
   @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -159,7 +158,7 @@ public class SearchResponse {
    * Get hits
    * @return hits
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_HITS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -184,7 +183,7 @@ public class SearchResponse {
    * Get profile
    * @return profile
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PROFILE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -217,7 +216,7 @@ public class SearchResponse {
    * Get warning
    * @return warning
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_WARNING)
   @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
 

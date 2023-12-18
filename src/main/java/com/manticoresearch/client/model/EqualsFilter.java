@@ -14,7 +14,6 @@
 package com.manticoresearch.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -37,7 +36,7 @@ import com.manticoresearch.client.JSON;
 })
 @JsonTypeName("equalsFilter")
 @JsonIgnoreProperties(ignoreUnknown = true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-16T16:10:26.238505Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-18T10:27:43.373739969Z[Etc/UTC]")
 public class EqualsFilter {
   public static final String JSON_PROPERTY_FIELD = "field";
   private String field;
@@ -57,7 +56,7 @@ public class EqualsFilter {
    * Get field
    * @return field
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_FIELD)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -82,7 +81,7 @@ public class EqualsFilter {
    * Get value
    * @return value
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

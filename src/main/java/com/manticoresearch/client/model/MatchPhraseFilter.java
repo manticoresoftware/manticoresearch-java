@@ -14,7 +14,6 @@
 package com.manticoresearch.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -37,7 +36,7 @@ import com.manticoresearch.client.JSON;
 })
 @JsonTypeName("matchPhraseFilter")
 @JsonIgnoreProperties(ignoreUnknown = true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-16T16:10:26.238505Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-18T10:27:43.373739969Z[Etc/UTC]")
 public class MatchPhraseFilter {
   public static final String JSON_PROPERTY_QUERY_PHRASE = "query_phrase";
   private String queryPhrase;
@@ -57,7 +56,7 @@ public class MatchPhraseFilter {
    * Get queryPhrase
    * @return queryPhrase
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_QUERY_PHRASE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -82,7 +81,7 @@ public class MatchPhraseFilter {
    * Get queryFields
    * @return queryFields
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_QUERY_FIELDS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

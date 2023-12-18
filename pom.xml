@@ -5,7 +5,7 @@
     <artifactId>manticoresearch</artifactId>
     <packaging>jar</packaging>
     <name>manticoresearch</name>
-    <version>4.0.0</version>
+    <version>4.1.0</version>
     <url>https://github.com/manticoresoftware/manticoresearch-java</url>
     <description>Client for Manticore Search</description>
     <scm>
@@ -184,6 +184,17 @@
                 </executions>
             </plugin>
             <plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <version>1.6.7</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <serverId>ossrh</serverId>
+                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                </configuration>
+            </plugin>
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-gpg-plugin</artifactId>
                 <version>1.6</version>
@@ -244,17 +255,6 @@
                   <importOrder/>
                 </java>
               </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.sonatype.plugins</groupId>
-                <artifactId>nexus-staging-maven-plugin</artifactId>
-                <version>1.6.7</version>
-                <extensions>true</extensions>
-                <configuration>
-                    <serverId>ossrh</serverId>
-                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
-                </configuration>
             </plugin>
         </plugins>
     </build>
@@ -361,13 +361,12 @@
     </dependencies>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <swagger-annotations-version>1.6.6</swagger-annotations-version>
-        <jersey-version>2.35</jersey-version>
-        <jackson-version>2.13.4</jackson-version>
-        <jackson-databind-version>2.13.4.2</jackson-databind-version>
+        <jersey-version>3.1.1</jersey-version>
+        <jackson-version>2.15.2</jackson-version>
+        <jackson-databind-version>2.15.2</jackson-databind-version>
         <jackson-databind-nullable-version>0.2.6</jackson-databind-nullable-version>
-        <jakarta-annotation-version>1.3.5</jakarta-annotation-version>
-        <junit-version>5.8.2</junit-version>
+        <jakarta-annotation-version>2.1.1</jakarta-annotation-version>
+        <junit-version>5.10.0</junit-version>
         <spotless.version>2.21.0</spotless.version>
     </properties>
     <distributionManagement>

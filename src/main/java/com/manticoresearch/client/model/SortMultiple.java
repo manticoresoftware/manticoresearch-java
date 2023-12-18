@@ -14,7 +14,6 @@
 package com.manticoresearch.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -39,7 +38,7 @@ import com.manticoresearch.client.JSON;
 })
 @JsonTypeName("sortMultiple")
 @JsonIgnoreProperties(ignoreUnknown = true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-16T16:10:26.238505Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-18T10:27:43.373739969Z[Etc/UTC]")
 public class SortMultiple {
   public static final String JSON_PROPERTY_ATTRS = "attrs";
   private Map<String, Object> attrs = new HashMap<>();
@@ -67,7 +66,7 @@ public class SortMultiple {
    * Get attrs
    * @return attrs
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_ATTRS)
   @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.ALWAYS)
 
@@ -92,7 +91,7 @@ public class SortMultiple {
    * Get replace
    * @return replace
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_REPLACE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

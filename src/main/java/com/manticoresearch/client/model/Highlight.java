@@ -14,7 +14,6 @@
 package com.manticoresearch.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -66,7 +65,7 @@ import com.manticoresearch.client.JSON;
 })
 @JsonTypeName("highlight")
 @JsonIgnoreProperties(ignoreUnknown = true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-16T16:10:26.238505Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-18T10:27:43.373739969Z[Etc/UTC]")
 public class Highlight {
   public static final String JSON_PROPERTY_FIELDNAMES = "fieldnames";
   private List<String> fieldnames;
@@ -300,7 +299,7 @@ public class Highlight {
    * Get fieldnames
    * @return fieldnames
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FIELDNAMES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -333,7 +332,7 @@ public class Highlight {
    * Get fields
    * @return fields
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -358,7 +357,7 @@ public class Highlight {
    * Get encoder
    * @return encoder
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ENCODER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -395,7 +394,7 @@ public class Highlight {
    * Get highlightQuery
    * @return highlightQuery
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonIgnore
 
   public Map<String, Object> getHighlightQuery() {
@@ -428,7 +427,7 @@ public class Highlight {
    * Get preTags
    * @return preTags
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PRE_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -453,7 +452,7 @@ public class Highlight {
    * Get postTags
    * @return postTags
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_POST_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -478,7 +477,7 @@ public class Highlight {
    * Get noMatchSize
    * @return noMatchSize
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NO_MATCH_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -503,7 +502,7 @@ public class Highlight {
    * Get fragmentSize
    * @return fragmentSize
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FRAGMENT_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -528,7 +527,7 @@ public class Highlight {
    * Get numberOfFragments
    * @return numberOfFragments
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NUMBER_OF_FRAGMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -553,7 +552,7 @@ public class Highlight {
    * Get limit
    * @return limit
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -578,7 +577,7 @@ public class Highlight {
    * Get limitWords
    * @return limitWords
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LIMIT_WORDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -603,7 +602,7 @@ public class Highlight {
    * Get limitSnippets
    * @return limitSnippets
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LIMIT_SNIPPETS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -628,7 +627,7 @@ public class Highlight {
    * Get limitsPerField
    * @return limitsPerField
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LIMITS_PER_FIELD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -653,7 +652,7 @@ public class Highlight {
    * Get useBoundaries
    * @return useBoundaries
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_USE_BOUNDARIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -678,7 +677,7 @@ public class Highlight {
    * Get forceAllWords
    * @return forceAllWords
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FORCE_ALL_WORDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -703,7 +702,7 @@ public class Highlight {
    * Get allowEmpty
    * @return allowEmpty
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ALLOW_EMPTY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -728,7 +727,7 @@ public class Highlight {
    * Get emitZones
    * @return emitZones
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EMIT_ZONES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -753,7 +752,7 @@ public class Highlight {
    * Get forceSnippets
    * @return forceSnippets
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FORCE_SNIPPETS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -778,7 +777,7 @@ public class Highlight {
    * Get around
    * @return around
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AROUND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -803,7 +802,7 @@ public class Highlight {
    * Get startSnippetId
    * @return startSnippetId
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_START_SNIPPET_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -828,7 +827,7 @@ public class Highlight {
    * Get htmlStripMode
    * @return htmlStripMode
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_HTML_STRIP_MODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -853,7 +852,7 @@ public class Highlight {
    * Get snippetBoundary
    * @return snippetBoundary
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SNIPPET_BOUNDARY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

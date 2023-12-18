@@ -6,7 +6,7 @@ import com.manticoresearch.client.ApiResponse;
 import com.manticoresearch.client.Configuration;
 import com.manticoresearch.client.Pair;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 
 import com.manticoresearch.client.model.ErrorResponse;
 import com.manticoresearch.client.model.PercolateRequest;
@@ -19,7 +19,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-16T16:10:26.238505Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-18T10:27:43.373739969Z[Etc/UTC]")
 public class SearchApi {
   private ApiClient apiClient;
 
@@ -86,6 +86,7 @@ public class SearchApi {
    * @see <a href="https://manual.manticoresearch.com/Updating_documents/UPDATE">Perform reverse search on a percolate index Documentation</a>
    */
   public ApiResponse<SearchResponse> percolateWithHttpInfo(String index, PercolateRequest percolateRequest) throws ApiException {
+      Object localVarPostBody = percolateRequest;
     // Check required parameters
     if (index == null) {
       throw new ApiException(400, "Missing the required parameter 'index' when calling percolate");
@@ -93,7 +94,6 @@ public class SearchApi {
     if (percolateRequest == null) {
       throw new ApiException(400, "Missing the required parameter 'percolateRequest' when calling percolate");
     }
-    
 
     // Path parameters
     String localVarPath = "/pq/{index}/search"
@@ -102,7 +102,7 @@ public class SearchApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
     GenericType<SearchResponse> localVarReturnType = new GenericType<SearchResponse>() {};
-    return apiClient.invokeAPI("SearchApi.percolate", localVarPath, "POST", new ArrayList<>(), percolateRequest,
+    return apiClient.invokeAPI("SearchApi.percolate", localVarPath, "POST", new ArrayList<>(), localVarPostBody,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                null, localVarReturnType, false);
   }
@@ -141,16 +141,16 @@ public class SearchApi {
    * @see <a href="https://manual.manticoresearch.com/Searching/Full_text_matching/Basic_usage#HTTP-JSON">Performs a search on an index Documentation</a>
    */
   public ApiResponse<SearchResponse> searchWithHttpInfo(SearchRequest searchRequest) throws ApiException {
+      Object localVarPostBody = searchRequest;
     // Check required parameters
     if (searchRequest == null) {
       throw new ApiException(400, "Missing the required parameter 'searchRequest' when calling search");
     }
-    
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
     GenericType<SearchResponse> localVarReturnType = new GenericType<SearchResponse>() {};
-    return apiClient.invokeAPI("SearchApi.search", "/search", "POST", new ArrayList<>(), searchRequest,
+    return apiClient.invokeAPI("SearchApi.search", "/search", "POST", new ArrayList<>(), localVarPostBody,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                null, localVarReturnType, false);
   }

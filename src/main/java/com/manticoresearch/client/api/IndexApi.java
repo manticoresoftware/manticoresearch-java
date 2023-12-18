@@ -6,7 +6,7 @@ import com.manticoresearch.client.ApiResponse;
 import com.manticoresearch.client.Configuration;
 import com.manticoresearch.client.Pair;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 
 import com.manticoresearch.client.model.BulkResponse;
 import com.manticoresearch.client.model.DeleteDocumentRequest;
@@ -23,7 +23,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-16T16:10:26.238505Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-18T10:27:43.373739969Z[Etc/UTC]")
 public class IndexApi {
   private ApiClient apiClient;
 
@@ -88,16 +88,16 @@ public class IndexApi {
    * @see <a href="https://manual.manticoresearch.com/Updating_documents/UPDATE">Bulk index operations Documentation</a>
    */
   public ApiResponse<BulkResponse> bulkWithHttpInfo(String body) throws ApiException {
+      Object localVarPostBody = body;
     // Check required parameters
     if (body == null) {
       throw new ApiException(400, "Missing the required parameter 'body' when calling bulk");
     }
-    
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/x-ndjson");
     GenericType<BulkResponse> localVarReturnType = new GenericType<BulkResponse>() {};
-    return apiClient.invokeAPI("IndexApi.bulk", "/bulk", "POST", new ArrayList<>(), body,
+    return apiClient.invokeAPI("IndexApi.bulk", "/bulk", "POST", new ArrayList<>(), localVarPostBody,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                null, localVarReturnType, false);
   }
@@ -136,16 +136,16 @@ public class IndexApi {
    * @see <a href="https://manual.manticoresearch.com/Updating_documents/UPDATE">Delete a document in an index Documentation</a>
    */
   public ApiResponse<DeleteResponse> deleteWithHttpInfo(DeleteDocumentRequest deleteDocumentRequest) throws ApiException {
+      Object localVarPostBody = deleteDocumentRequest;
     // Check required parameters
     if (deleteDocumentRequest == null) {
       throw new ApiException(400, "Missing the required parameter 'deleteDocumentRequest' when calling delete");
     }
-    
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
     GenericType<DeleteResponse> localVarReturnType = new GenericType<DeleteResponse>() {};
-    return apiClient.invokeAPI("IndexApi.delete", "/delete", "POST", new ArrayList<>(), deleteDocumentRequest,
+    return apiClient.invokeAPI("IndexApi.delete", "/delete", "POST", new ArrayList<>(), localVarPostBody,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                null, localVarReturnType, false);
   }
@@ -184,16 +184,16 @@ public class IndexApi {
    * @see <a href="https://manual.manticoresearch.com/Adding_documents_to_an_index/Adding_documents_to_a_real-time_index#Adding-documents-to-a-real-time-index">Create a new document in an index Documentation</a>
    */
   public ApiResponse<SuccessResponse> insertWithHttpInfo(InsertDocumentRequest insertDocumentRequest) throws ApiException {
+      Object localVarPostBody = insertDocumentRequest;
     // Check required parameters
     if (insertDocumentRequest == null) {
       throw new ApiException(400, "Missing the required parameter 'insertDocumentRequest' when calling insert");
     }
-    
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
     GenericType<SuccessResponse> localVarReturnType = new GenericType<SuccessResponse>() {};
-    return apiClient.invokeAPI("IndexApi.insert", "/insert", "POST", new ArrayList<>(), insertDocumentRequest,
+    return apiClient.invokeAPI("IndexApi.insert", "/insert", "POST", new ArrayList<>(), localVarPostBody,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                null, localVarReturnType, false);
   }
@@ -232,16 +232,16 @@ public class IndexApi {
    * @see <a href="https://manual.manticoresearch.com/Adding_documents_to_an_index/Adding_documents_to_a_real-time_index#Adding-documents-to-a-real-time-index">Replace new document in an index Documentation</a>
    */
   public ApiResponse<SuccessResponse> replaceWithHttpInfo(InsertDocumentRequest insertDocumentRequest) throws ApiException {
+      Object localVarPostBody = insertDocumentRequest;
     // Check required parameters
     if (insertDocumentRequest == null) {
       throw new ApiException(400, "Missing the required parameter 'insertDocumentRequest' when calling replace");
     }
-    
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
     GenericType<SuccessResponse> localVarReturnType = new GenericType<SuccessResponse>() {};
-    return apiClient.invokeAPI("IndexApi.replace", "/replace", "POST", new ArrayList<>(), insertDocumentRequest,
+    return apiClient.invokeAPI("IndexApi.replace", "/replace", "POST", new ArrayList<>(), localVarPostBody,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                null, localVarReturnType, false);
   }
@@ -280,16 +280,16 @@ public class IndexApi {
    * @see <a href="https://manual.manticoresearch.com/Updating_documents/UPDATE">Update a document in an index Documentation</a>
    */
   public ApiResponse<UpdateResponse> updateWithHttpInfo(UpdateDocumentRequest updateDocumentRequest) throws ApiException {
+      Object localVarPostBody = updateDocumentRequest;
     // Check required parameters
     if (updateDocumentRequest == null) {
       throw new ApiException(400, "Missing the required parameter 'updateDocumentRequest' when calling update");
     }
-    
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
     GenericType<UpdateResponse> localVarReturnType = new GenericType<UpdateResponse>() {};
-    return apiClient.invokeAPI("IndexApi.update", "/update", "POST", new ArrayList<>(), updateDocumentRequest,
+    return apiClient.invokeAPI("IndexApi.update", "/update", "POST", new ArrayList<>(), localVarPostBody,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                null, localVarReturnType, false);
   }

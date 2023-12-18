@@ -12,10 +12,10 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-import javax.ws.rs.core.GenericType;
-import javax.ws.rs.ext.ContextResolver;
+import jakarta.ws.rs.core.GenericType;
+import jakarta.ws.rs.ext.ContextResolver;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-16T16:10:26.238505Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-18T10:27:43.373739969Z[Etc/UTC]")
 public class JSON implements ContextResolver<ObjectMapper> {
   private ObjectMapper mapper;
 

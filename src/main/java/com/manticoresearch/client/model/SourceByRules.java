@@ -14,7 +14,6 @@
 package com.manticoresearch.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -39,7 +38,7 @@ import com.manticoresearch.client.JSON;
 })
 @JsonTypeName("sourceByRules")
 @JsonIgnoreProperties(ignoreUnknown = true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-16T16:10:26.238505Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-18T10:27:43.373739969Z[Etc/UTC]")
 public class SourceByRules {
   public static final String JSON_PROPERTY_INCLUDES = "includes";
   private List<String> includes = new ArrayList<>();
@@ -67,7 +66,7 @@ public class SourceByRules {
    * Get includes
    * @return includes
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_INCLUDES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -100,7 +99,7 @@ public class SourceByRules {
    * Get excludes
    * @return excludes
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_EXCLUDES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

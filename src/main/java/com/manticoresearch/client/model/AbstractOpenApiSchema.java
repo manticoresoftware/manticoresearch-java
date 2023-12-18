@@ -17,14 +17,14 @@ import com.manticoresearch.client.ApiException;
 import java.util.Objects;
 import java.lang.reflect.Type;
 import java.util.Map;
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
  * Abstract class for oneOf,anyOf schemas defined in OpenAPI spec
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-16T16:10:26.238505Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-18T10:27:43.373739969Z[Etc/UTC]")
 public abstract class AbstractOpenApiSchema {
 
     // store the actual instance of the schema/object

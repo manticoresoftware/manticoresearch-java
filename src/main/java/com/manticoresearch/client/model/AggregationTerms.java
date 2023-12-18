@@ -14,7 +14,6 @@
 package com.manticoresearch.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -37,7 +36,7 @@ import com.manticoresearch.client.JSON;
 })
 @JsonTypeName("aggregation_terms")
 @JsonIgnoreProperties(ignoreUnknown = true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-16T16:10:26.238505Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-18T10:27:43.373739969Z[Etc/UTC]")
 public class AggregationTerms {
   public static final String JSON_PROPERTY_FIELD = "field";
   private String field;
@@ -57,7 +56,7 @@ public class AggregationTerms {
    * Attribute Name to Aggregate
    * @return field
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FIELD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -82,7 +81,7 @@ public class AggregationTerms {
    * Maximum Number of Buckets in the Result
    * @return size
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

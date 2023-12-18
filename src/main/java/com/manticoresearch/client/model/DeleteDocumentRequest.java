@@ -14,7 +14,6 @@
 package com.manticoresearch.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -39,7 +38,7 @@ import com.manticoresearch.client.JSON;
 })
 @JsonTypeName("deleteDocumentRequest")
 @JsonIgnoreProperties(ignoreUnknown = true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-16T16:10:26.238505Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-18T10:27:43.373739969Z[Etc/UTC]")
 public class DeleteDocumentRequest {
   public static final String JSON_PROPERTY_INDEX = "index";
   private String index;
@@ -65,7 +64,7 @@ public class DeleteDocumentRequest {
    * Index name
    * @return index
   **/
-  @javax.annotation.Nonnull
+  @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_INDEX)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -90,7 +89,7 @@ public class DeleteDocumentRequest {
    * cluster name
    * @return cluster
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CLUSTER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -115,7 +114,7 @@ public class DeleteDocumentRequest {
    * Document ID
    * @return id
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -140,7 +139,7 @@ public class DeleteDocumentRequest {
    * Query tree object
    * @return query
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

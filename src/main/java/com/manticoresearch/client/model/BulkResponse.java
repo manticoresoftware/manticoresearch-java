@@ -18,7 +18,6 @@ import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -42,7 +41,7 @@ import com.manticoresearch.client.JSON;
 })
 @JsonTypeName("bulkResponse")
 @JsonIgnoreProperties(ignoreUnknown = true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-16T16:10:26.238505Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-18T10:27:43.373739969Z[Etc/UTC]")
 public class BulkResponse {
   public static final String JSON_PROPERTY_ITEMS = "items";
   private Object items;
@@ -65,7 +64,7 @@ public class BulkResponse {
    * Get items
    * @return items
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -90,7 +89,7 @@ public class BulkResponse {
    * Get errors
    * @return errors
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -115,7 +114,7 @@ public class BulkResponse {
    * Get error
    * @return error
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ERROR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

@@ -14,7 +14,6 @@
 package com.manticoresearch.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -40,7 +39,7 @@ import com.manticoresearch.client.JSON;
 })
 @JsonTypeName("boolFilter")
 @JsonIgnoreProperties(ignoreUnknown = true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-16T16:10:26.238505Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-18T10:27:43.373739969Z[Etc/UTC]")
 public class BoolFilter {
   public static final String JSON_PROPERTY_SHOULD = "should";
   private List<Object> should;
@@ -71,7 +70,7 @@ public class BoolFilter {
    * Get should
    * @return should
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SHOULD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -104,7 +103,7 @@ public class BoolFilter {
    * Get must
    * @return must
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MUST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -137,7 +136,7 @@ public class BoolFilter {
    * Get mustNot
    * @return mustNot
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MUST_NOT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

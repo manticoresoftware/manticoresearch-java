@@ -6,7 +6,7 @@ import com.manticoresearch.client.ApiResponse;
 import com.manticoresearch.client.Configuration;
 import com.manticoresearch.client.Pair;
 
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 
 import com.manticoresearch.client.model.ErrorResponse;
 
@@ -16,7 +16,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-16T16:10:26.238505Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-18T10:27:43.373739969Z[Etc/UTC]")
 public class UtilsApi {
   private ApiClient apiClient;
 
@@ -83,16 +83,18 @@ public class UtilsApi {
    * @see <a href="https://manual.manticoresearch.com/Connecting_to_the_server/HTTP#sql-api">Perform SQL requests Documentation</a>
    */
   public ApiResponse<List<Object>> sqlWithHttpInfo(String body, Boolean rawResponse) throws ApiException {
+      Object localVarPostBody = body;
+      if  (localVarPostBody != null) {
+        if  (!rawResponse) {
+          localVarPostBody = "query=" + apiClient.escapeString( localVarPostBody.toString() ); 
+        } else {
+          localVarPostBody = "mode=raw&query=" + apiClient.escapeString( localVarPostBody.toString() );
+        }
+      }
     // Check required parameters
     if (body == null) {
       throw new ApiException(400, "Missing the required parameter 'body' when calling sql");
     }
-    
-    if  (!rawResponse) {
-		body = "query=" + apiClient.escapeString(body); 
-	} else {
-		body = "mode=raw&query=" + apiClient.escapeString(body);
-	}
 
     // Query parameters
     List<Pair> localVarQueryParams = new ArrayList<>(
@@ -103,17 +105,14 @@ public class UtilsApi {
     String localVarContentType = apiClient.selectHeaderContentType("text/plain");
     GenericType<List<Object>> localVarReturnType = new GenericType<List<Object>>() {};
     if (!rawResponse) {
-    	ApiResponse<Map<String, Object>> res = apiClient.invokeAPI("UtilsApi.sql", "/sql", "POST", localVarQueryParams, body,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               null, new GenericType<Map<String, Object>>() {}, false);
-    	/*ApiResponse<Map<String, Object>> res = apiClient.invokeAPI("UtilsApi.sql", "/sql", "POST", localVarQueryParams, body,
+    	ApiResponse<Map<String, Object>> res = apiClient.invokeAPI("UtilsApi.sql", "/sql", "POST", localVarQueryParams, localVarPostBody,
             new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-        	null, new GenericType<Map<String, Object>>() {}, false);*/
+        	null, new GenericType<Map<String, Object>>() {}, false);
         List<Object> resList = new ArrayList<Object>();
         resList.add(res.getData());
     	return new ApiResponse<List<Object>>(res.getStatusCode(), res.getHeaders(), resList);
-    }
-    return apiClient.invokeAPI("UtilsApi.sql", "/sql", "POST", localVarQueryParams, body,
+    } 
+    return apiClient.invokeAPI("UtilsApi.sql", "/sql", "POST", localVarQueryParams, localVarPostBody,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                null, localVarReturnType, false);
   }

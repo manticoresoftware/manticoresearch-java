@@ -4,16 +4,16 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import org.openapitools.jackson.nullable.JsonNullableModule;
 
-import javax.ws.rs.client.Client;
-import javax.ws.rs.client.ClientBuilder;
-import javax.ws.rs.client.Entity;
-import javax.ws.rs.client.Invocation;
-import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.Form;
-import javax.ws.rs.core.GenericType;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
-import javax.ws.rs.core.Response.Status;
+import jakarta.ws.rs.client.Client;
+import jakarta.ws.rs.client.ClientBuilder;
+import jakarta.ws.rs.client.Entity;
+import jakarta.ws.rs.client.Invocation;
+import jakarta.ws.rs.client.WebTarget;
+import jakarta.ws.rs.core.Form;
+import jakarta.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.Response;
+import jakarta.ws.rs.core.Response.Status;
 
 import org.glassfish.jersey.client.ClientConfig;
 import org.glassfish.jersey.client.ClientProperties;
@@ -72,11 +72,10 @@ import com.manticoresearch.client.auth.HttpBearerAuth;
 import com.manticoresearch.client.auth.ApiKeyAuth;
 import com.manticoresearch.client.model.SearchRequest;
 
-
 /**
  * <p>ApiClient class.</p>
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-16T16:10:26.238505Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-18T10:27:43.373739969Z[Etc/UTC]")
 public class ApiClient extends JavaTimeFormatter {
   private static final Pattern JSON_MIME_PATTERN = Pattern.compile("(?i)^(application/json|[^;/ \t]+/[^;/ \t]+[+]json)[ \t]*(;.*)?$");
 
@@ -95,7 +94,7 @@ public class ApiClient extends JavaTimeFormatter {
   ));
   protected Integer serverIndex = 0;
   protected Map<String, String> serverVariables = null;
-  protected Map<String, List<ServerConfiguration>> operationServers = new HashMap<>();
+  protected Map<String, List<ServerConfiguration>> operationServers = new LinkedHashMap<>();
   protected Map<String, Integer> operationServerIndex = new HashMap<>();
   protected Map<String, Map<String, String>> operationServerVariables = new HashMap<>();
   protected boolean debugging = false;
@@ -131,7 +130,7 @@ public class ApiClient extends JavaTimeFormatter {
     this.dateFormat = new RFC3339DateFormat();
 
     // Set default User-Agent.
-    setUserAgent("OpenAPI-Generator/4.0.0/java");
+    setUserAgent("OpenAPI-Generator/4.1.0/java");
 
     // Setup authentications (key: authentication name, value: authentication).
     authentications = new HashMap<>();
@@ -155,7 +154,7 @@ public class ApiClient extends JavaTimeFormatter {
   /**
    * <p>Getter for the field <code>httpClient</code>.</p>
    *
-   * @return a {@link javax.ws.rs.client.Client} object.
+   * @return a {@link jakarta.ws.rs.client.Client} object.
    */
   public Client getHttpClient() {
     return httpClient;
@@ -164,7 +163,7 @@ public class ApiClient extends JavaTimeFormatter {
   /**
    * <p>Setter for the field <code>httpClient</code>.</p>
    *
-   * @param httpClient a {@link javax.ws.rs.client.Client} object.
+   * @param httpClient a {@link jakarta.ws.rs.client.Client} object.
    * @return a {@link org.openapitools.client.ApiClient} object.
    */
   public ApiClient setHttpClient(Client httpClient) {
@@ -764,7 +763,17 @@ public class ApiClient extends JavaTimeFormatter {
           File file = (File) param.getValue();
           FormDataContentDisposition contentDisp = FormDataContentDisposition.name(param.getKey())
               .fileName(file.getName()).size(file.length()).build();
-          multiPart.bodyPart(new FormDataBodyPart(contentDisp, file, MediaType.APPLICATION_OCTET_STREAM_TYPE));
+
+          // Attempt to probe the content type for the file so that the form part is more correctly
+          // and precisely identified, but fall back to application/octet-stream if that fails.      
+          MediaType type;
+          try {
+            type = MediaType.valueOf(Files.probeContentType(file.toPath()));
+          } catch (IOException | IllegalArgumentException e) {
+            type = MediaType.APPLICATION_OCTET_STREAM_TYPE;
+          }
+        
+          multiPart.bodyPart(new FormDataBodyPart(contentDisp, file, type));
         } else {
           FormDataContentDisposition contentDisp = FormDataContentDisposition.name(param.getKey()).build();
           multiPart.bodyPart(new FormDataBodyPart(contentDisp, parameterToString(param.getValue())));
@@ -786,7 +795,7 @@ public class ApiClient extends JavaTimeFormatter {
           entity = Entity.entity(obj == null ? "null" : obj, contentType);
         }
       } else {
-        if (obj instanceof SearchRequest) {
+          if (obj instanceof SearchRequest) {
            ObjectMapper oMapper = new ObjectMapper();
            oMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
            oMapper.registerModule(new JsonNullableModule());
@@ -907,7 +916,7 @@ public class ApiClient extends JavaTimeFormatter {
 
 	                return (Map<String, Object>) nestedObj.get(0);
 	            }
-            };
+        	};
 
 			SearchRequestRestruct restruct = new SearchRequestRestruct();
 			        	
@@ -927,7 +936,7 @@ public class ApiClient extends JavaTimeFormatter {
 	 		        } 
 	 		    }
 	 		    map.put("sort", restrSortList);
-            }
+	 		}
 	 		
 	 		Boolean hasFilterSet = (map.containsKey("fulltext_filter") && map.get("fulltext_filter") != null) ||
 	 			(map.containsKey("attr_filter") && map.get("attr_filter") != null);
@@ -964,7 +973,7 @@ public class ApiClient extends JavaTimeFormatter {
 			});
 						
         } else {
-        	entity = Entity.entity(obj == null ? "" : obj, contentType);
+          entity = Entity.entity(obj == null ? "" :  obj, contentType);
         }
       }
     }
@@ -1059,7 +1068,7 @@ public class ApiClient extends JavaTimeFormatter {
   /**
    * <p>Prepare the file for download from the response.</p>
    *
-   * @param response a {@link javax.ws.rs.core.Response} object.
+   * @param response a {@link jakarta.ws.rs.core.Response} object.
    * @return a {@link java.io.File} object.
    * @throws java.io.IOException if any.
    */
@@ -1281,8 +1290,8 @@ public class ApiClient extends JavaTimeFormatter {
     clientConfig = getDefaultClientConfig();
 
     ClientBuilder clientBuilder = ClientBuilder.newBuilder();
-    customizeClientBuilder(clientBuilder);
     clientBuilder = clientBuilder.withConfig(clientConfig);
+    customizeClientBuilder(clientBuilder);
     return clientBuilder.build();
   }
 
@@ -1326,7 +1335,7 @@ public class ApiClient extends JavaTimeFormatter {
    * To completely disable certificate validation (at your own risk), you can
    * override this method and invoke disableCertificateValidation(clientBuilder).
    *
-   * @param clientBuilder a {@link javax.ws.rs.client.ClientBuilder} object.
+   * @param clientBuilder a {@link jakarta.ws.rs.client.ClientBuilder} object.
    */
   protected void customizeClientBuilder(ClientBuilder clientBuilder) {
     // No-op extension point
@@ -1338,7 +1347,7 @@ public class ApiClient extends JavaTimeFormatter {
    * Please note that trusting all certificates is extremely risky.
    * This may be useful in a development environment with self-signed certificates.
    *
-   * @param clientBuilder a {@link javax.ws.rs.client.ClientBuilder} object.
+   * @param clientBuilder a {@link jakarta.ws.rs.client.ClientBuilder} object.
    * @throws java.security.KeyManagementException if any.
    * @throws java.security.NoSuchAlgorithmException if any.
    */
@@ -1365,7 +1374,7 @@ public class ApiClient extends JavaTimeFormatter {
   /**
    * <p>Build the response headers.</p>
    *
-   * @param response a {@link javax.ws.rs.core.Response} object.
+   * @param response a {@link jakarta.ws.rs.core.Response} object.
    * @return a {@link java.util.Map} of response headers.
    */
   protected Map<String, List<String>> buildResponseHeaders(Response response) {

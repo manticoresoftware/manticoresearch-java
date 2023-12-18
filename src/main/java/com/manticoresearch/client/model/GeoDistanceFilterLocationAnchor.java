@@ -14,7 +14,6 @@
 package com.manticoresearch.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -38,7 +37,7 @@ import com.manticoresearch.client.JSON;
 })
 @JsonTypeName("geoDistanceFilter_location_anchor")
 @JsonIgnoreProperties(ignoreUnknown = true)
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-16T16:10:26.238505Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-18T10:27:43.373739969Z[Etc/UTC]")
 public class GeoDistanceFilterLocationAnchor {
   public static final String JSON_PROPERTY_LAT = "lat";
   private BigDecimal lat;
@@ -58,7 +57,7 @@ public class GeoDistanceFilterLocationAnchor {
    * Geo latitude of pin point in degrees
    * @return lat
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LAT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -83,7 +82,7 @@ public class GeoDistanceFilterLocationAnchor {
    * Geo longitude pf pin point in degrees
    * @return lon
   **/
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
