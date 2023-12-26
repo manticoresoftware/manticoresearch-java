@@ -17,11 +17,6 @@ Building the API client library requires:
 1. Java 17+
 2. Maven/Gradle
 
-| Manticore Search  | manticoresearch-java    |
-| ----------------- | ----------------------- |
-| >= 6.2.0          | 3.3.1                   |
-| >= 2.5.1          | 2.0.2                   |
-
 
 ## Installation
 
