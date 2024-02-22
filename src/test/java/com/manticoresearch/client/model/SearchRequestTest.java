@@ -20,11 +20,16 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.manticoresearch.client.model.Aggregation;
 import com.manticoresearch.client.model.Highlight;
+import com.manticoresearch.client.model.SearchRequestKnn;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
@@ -50,6 +55,14 @@ public class SearchRequestTest {
     @Test
     public void indexTest() {
         // TODO: test index
+    }
+
+    /**
+     * Test the property 'knn'
+     */
+    @Test
+    public void knnTest() {
+        // TODO: test knn
     }
 
     /**
@@ -162,6 +175,30 @@ public class SearchRequestTest {
     @Test
     public void trackScoresTest() {
         // TODO: test trackScores
+    }
+
+    /**
+     * Test the property 'queryVector'
+     */
+    @Test
+    public void queryVectorTest() {
+        // TODO: test queryVector
+    }
+
+    /**
+     * Test the property 'docId'
+     */
+    @Test
+    public void docIdTest() {
+        // TODO: test docId
+    }
+
+    /**
+     * Test the property 'k'
+     */
+    @Test
+    public void kTest() {
+        // TODO: test k
     }
 
 }

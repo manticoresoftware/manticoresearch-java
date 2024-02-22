@@ -9,6 +9,7 @@ Request object for search operation
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**index** | **String** |  |  |
+|**knn** | [**SearchRequestKnn**](SearchRequestKnn.md) |  |  [optional] |
 |**query** | **Object** |  |  [optional] |
 |**fulltextFilter** | **Object** |  |  [optional] |
 |**attrFilter** | **Object** |  |  [optional] |
@@ -23,6 +24,9 @@ Request object for search operation
 |**options** | **Map&lt;String, Object&gt;** |  |  [optional] |
 |**profile** | **Boolean** |  |  [optional] |
 |**trackScores** | **Boolean** |  |  [optional] |
+|**queryVector** | **Object** |  |  [optional] |
+|**docId** | **Object** |  |  [optional] |
+|**k** | **Object** |  |  [optional] |
 
 
 ## Building a search request
@@ -114,15 +118,10 @@ System.out.println( searchResponse.toString() );
 [[Docs on expressions in Manticore Search Manual]](https://manual.manticoresearch.com/Searching/Expressions#Expressions-in-HTTP-JSON)
 ```java    
 //Setting the `expressions` property:
-Map<String,String> expr = new HashMap<String,String>();
-expr.put("expr1", "min(year,2900)");
-List<Object> expressions = new ArrayList<Object>();
-expressions.add(expr);
-expressions.add( 
-	new HashMap<String,String>()
-);
+Map<String,String> expressions = new HashMap<String,String>();
+expressions.put("expr2", "max(year,2100)");
 searchRequest.setExpressions(expressions);
-					        	
+
 SearchResponse searchResponse = searchApi.search(searchRequest);
 System.out.println( searchResponse.toString() );
 ```
@@ -133,18 +132,26 @@ System.out.println( searchResponse.toString() );
 
 [[Docs on aggregations in Manticore Search Manual](https://manual.manticoresearch.com/Searching/Faceted_search#Aggregations)
 ```java    
-//Setting the `aggs` property with an auxiliary object:
+//Setting the `aggs` property with an auxiliary objects:
+AggregationTerms terms = new AggregationTerms();
+terms.setField("year");
+terms.setSize(10);
 Aggregation agg = new Aggregation();
-agg.setName("agg1");
-agg.setField("year");
-agg.setSize(10);
-searchRequest.setAggs( new ArrayList<Aggregation>( Arrays.asList(agg) ) );
+agg.setTerms(terms);
+Map<String,Aggregation> aggs = new HashMap<String, Aggregation>();
+aggs.put("agg1", agg);
 
+terms = new AggregationTerms();
+terms.setField("rating");
 agg = new Aggregation();
-agg.setName("agg2");
-agg.setField("rating");
-List<Aggregation> aggs = searchRequest.getAggs();
-aggs.add(agg);
+agg.setTerms(terms);
+Map<String,AggregationSortInnerValue> sortExpr = new HashMap<String,AggregationSortInnerValue>();
+AggregationSortInnerValue sortValue = new AggregationSortInnerValue();
+sortValue.setOrder("asc");
+sortExpr.put("rating", sortValue);
+agg.sort( Arrays.asList(sortExpr) );
+aggs.put("agg2", agg);
+			        
 searchRequest.setAggs(aggs);
 
 SearchResponse searchResponse = searchApi.search(searchRequest);

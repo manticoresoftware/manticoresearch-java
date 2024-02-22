@@ -2,23 +2,22 @@
 
 All URIs are relative to *http://127.0.0.1:9308*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**sql**](UtilsApi.md#sql) | **POST** /sql | Perform SQL requests
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**sql**](UtilsApi.md#sql) | **POST** /sql | Perform SQL requests |
 
 
 
 ## sql
 
-> Map&lt;String, Array&gt; sql(body, rawResponse)
+> List&lt;Object&gt; sql(body, rawResponse)
 
 Perform SQL requests
 
 Run a query in SQL format.
-Expects a query string passed through `body` parameter and `rawResponse` parameter that defines a format of response:
-* `rawResponse` parameter can be set to false for Select only queries, e.g., `SELECT * FROM myindex`.  
-* `rawResponse` parameter can be set to true for any type of query (including Select qieries as well) , e.g., `SHOW TABLES`.
-The query string must stay as it is, no URL encoding is needed.  
+Expects a query string passed through `body` parameter and optional `raw_response` parameter that defines a format of response.
+`raw_response` can be set to `False` for Select queries only, e.g., `SELECT * FROM myindex`
+The query string must stay as it is, no URL encoding is needed.
 The response object depends on the query executed. In select mode the response has same format as `/search` operation.
 
 
@@ -37,11 +36,12 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://127.0.0.1:9308");
 
-        UtilsApi utilsApi = new UtilsApi(defaultClient);
- 
+        UtilsApi apiInstance = new UtilsApi(defaultClient);
+        String body = SHOW TABLES; // String | A query parameter string. 
+        Boolean rawResponse = true; // Boolean | Optional parameter, defines a format of response. Can be set to `False` for Select only queries and set to `True` or omitted for any type of queries: 
         try {
-            Object sqlresult =  utilsApi.sql("SHOW TABLES");
-            System.out.println(sqlresult);  
+            List<Object> result = apiInstance.sql(body, rawResponse);
+            System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UtilsApi#sql");
             System.err.println("Status code: " + e.getCode());
@@ -56,14 +56,14 @@ public class Example {
 ### Parameters
 
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | **String**| A query string.  |
- **rawResponse** | **Boolean**| Defines a format of response. Can be set to false for Select only queries or set to true for any queries (including Select queries).  |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **body** | **String**| A query parameter string.  | |
+| **rawResponse** | **Boolean**| Optional parameter, defines a format of response. Can be set to &#x60;False&#x60; for Select only queries and set to &#x60;True&#x60; or omitted for any type of queries:  | [optional] [default to true] |
 
 ### Return type
 
-**Map&lt;String, Array&gt;**
+**List&lt;Object&gt;**
 
 ### Authorization
 

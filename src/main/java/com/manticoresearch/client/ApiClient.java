@@ -75,7 +75,7 @@ import com.manticoresearch.client.model.SearchRequest;
 /**
  * <p>ApiClient class.</p>
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-18T10:27:43.373739969Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-02-22T08:36:02.662182043Z[Etc/UTC]")
 public class ApiClient extends JavaTimeFormatter {
   private static final Pattern JSON_MIME_PATTERN = Pattern.compile("(?i)^(application/json|[^;/ \t]+/[^;/ \t]+[+]json)[ \t]*(;.*)?$");
 
@@ -130,7 +130,7 @@ public class ApiClient extends JavaTimeFormatter {
     this.dateFormat = new RFC3339DateFormat();
 
     // Set default User-Agent.
-    setUserAgent("OpenAPI-Generator/4.1.0/java");
+    setUserAgent("OpenAPI-Generator/5.0.0/java");
 
     // Setup authentications (key: authentication name, value: authentication).
     authentications = new HashMap<>();
@@ -892,7 +892,7 @@ public class ApiClient extends JavaTimeFormatter {
 				        	newObj.put(keyPropVal, obj);
 		 		        }
 	 		        }
-	 		        
+	 		      
  			    	return newObj;
 	 			}
  			
@@ -940,6 +940,14 @@ public class ApiClient extends JavaTimeFormatter {
 	 		
 	 		Boolean hasFilterSet = (map.containsKey("fulltext_filter") && map.get("fulltext_filter") != null) ||
 	 			(map.containsKey("attr_filter") && map.get("attr_filter") != null);
+      if (map.containsKey("knn") && map.get("knn") != null) {
+        map.remove("query");
+        map.remove("fulltext_filter");
+        map.remove("attr_filter");
+        map.remove("query_vector");
+        map.remove("doc_id");
+        map.remove("k");
+      }
 	 		if (hasFilterSet) {
 				Map<String, Object> query = new HashMap<String, Object>();
 				
@@ -977,6 +985,7 @@ public class ApiClient extends JavaTimeFormatter {
         }
       }
     }
+   
     return entity;
   }
 

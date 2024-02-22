@@ -1,12 +1,11 @@
 # Manticore Java client
 
-❗ WARNING: this is a development version of the client. The latest release's readme is https://github.com/manticoresoftware/manticoresearch-java/tree/5.0.0
 
 Manticore Search Client
 
 - API version: 5.0.0
 
-- Build date: 2023-12-18T10:27:43.373739969Z[Etc/UTC]
+- Build date: 2024-02-22T08:36:02.662182043Z[Etc/UTC]
 
 Сlient for Manticore Search.
 
@@ -15,13 +14,8 @@ Manticore Search Client
 
 Building the API client library requires:
 
-1. Java 17+
+1. Java 1.8+
 2. Maven/Gradle
-
-| Manticore Search  | manticoresearch-java    |
-| ----------------- | ----------------------- |
-| >= 6.2.0          | >= 3.3.1                |
-| >= 2.5.1          | >= 2.0.2                |
 
 
 ## Installation
@@ -48,7 +42,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.manticoresearch</groupId>
   <artifactId>manticoresearch</artifactId>
-  <version>4.1.0</version>
+  <version>5.0.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -64,7 +58,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.manticoresearch:manticoresearch:4.1.0"
+     implementation "com.manticoresearch:manticoresearch:5.0.0"
   }
 ```
 
@@ -78,7 +72,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-- `target/manticoresearch-4.1.0.jar`
+- `target/manticoresearch-5.0.0.jar`
 - `target/lib/*.jar`
 
 ## Getting Started
@@ -172,6 +166,8 @@ Class | Method | HTTP request | Description
  - [HighlightField](docs/HighlightField.md)
  - [InFilter](docs/InFilter.md)
  - [InsertDocumentRequest](docs/InsertDocumentRequest.md)
+ - [KnnQueryByDocId](docs/KnnQueryByDocId.md)
+ - [KnnQueryByVector](docs/KnnQueryByVector.md)
  - [MatchFilter](docs/MatchFilter.md)
  - [MatchOp](docs/MatchOp.md)
  - [MatchOpFilter](docs/MatchOpFilter.md)
@@ -184,6 +180,7 @@ Class | Method | HTTP request | Description
  - [QueryFilter](docs/QueryFilter.md)
  - [RangeFilter](docs/RangeFilter.md)
  - [SearchRequest](docs/SearchRequest.md)
+ - [SearchRequestKnn](docs/SearchRequestKnn.md)
  - [SearchResponse](docs/SearchResponse.md)
  - [SearchResponseHits](docs/SearchResponseHits.md)
  - [SortMVA](docs/SortMVA.md)
