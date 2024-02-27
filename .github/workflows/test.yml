@@ -22,6 +22,8 @@ jobs:
     services:
       manticoresearch-manticore:
         image: manticoresearch/manticore:dev
+        env:
+          EXTRA: 1
         ports:
           - 9408:9308
     
