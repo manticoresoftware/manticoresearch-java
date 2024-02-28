@@ -3,7 +3,7 @@ apply plugin: 'eclipse'
 apply plugin: 'com.diffplug.spotless'
 
 group = 'com.manticoresearch'
-version = '5.0.0'
+version = '5.0.1'
 
 buildscript {
     repositories {
@@ -84,7 +84,7 @@ if(hasProperty('target') && target == 'android') {
     publishing {
         publications {
             maven(MavenPublication) {
-               artifactId = 'manticoresearch'
+               artifactId = 'manticoresearch-dev'
 
                from components.java
             }

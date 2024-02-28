@@ -1,12 +1,13 @@
 name: Publishing
 
-on:
-  push:
-    branches-ignore: [ master ]
+on: [push]
 
 jobs:
+  test:
+    uses: ./.github/workflows/test.yml
   publish:
     name: Publish the client to the public registry
+    needs: [test]
     runs-on: ubuntu-22.04
     env:
       MVNSETTINGS: ${{ secrets.MVNSETTINGS }}
@@ -15,11 +16,6 @@ jobs:
     strategy:
       matrix:
         java: [ '17' ]
-    services:
-      manticoresearch-manticore:
-        image: manticoresearch/manticore:dev
-        ports:
-          - 9408:9308
     steps:
     - uses: actions/checkout@v2
     - name: Set up JDK

@@ -2,10 +2,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.manticoresearch</groupId>
-    <artifactId>manticoresearch</artifactId>
+    <artifactId>manticoresearch-dev</artifactId>
     <packaging>jar</packaging>
-    <name>manticoresearch</name>
-    <version>5.0.0</version>
+    <name>manticoresearch-dev</name>
+    <version>5.0.1</version>
     <url>https://github.com/manticoresoftware/manticoresearch-java</url>
     <description>Client for Manticore Search</description>
     <scm>

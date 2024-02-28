@@ -41,8 +41,8 @@ Add this dependency to your project's POM:
 ```xml
 <dependency>
   <groupId>com.manticoresearch</groupId>
-  <artifactId>manticoresearch</artifactId>
-  <version>5.0.0</version>
+  <artifactId>manticoresearch-dev</artifactId>
+  <version>5.0.1</version>
   <scope>compile</scope>
 </dependency>
 ```
