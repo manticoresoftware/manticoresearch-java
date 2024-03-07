@@ -32,4 +32,6 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Build with Maven
-      run: mvn test
+    - run: |
+        sleep 3m
+        mvn test
