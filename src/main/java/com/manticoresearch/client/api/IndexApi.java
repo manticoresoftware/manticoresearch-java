@@ -8,11 +8,13 @@ import com.manticoresearch.client.Pair;
 
 import jakarta.ws.rs.core.GenericType;
 
+import java.math.BigDecimal;
 import com.manticoresearch.client.model.BulkResponse;
 import com.manticoresearch.client.model.DeleteDocumentRequest;
 import com.manticoresearch.client.model.DeleteResponse;
 import com.manticoresearch.client.model.ErrorResponse;
 import com.manticoresearch.client.model.InsertDocumentRequest;
+import com.manticoresearch.client.model.ReplaceDocumentRequest;
 import com.manticoresearch.client.model.SuccessResponse;
 import com.manticoresearch.client.model.UpdateDocumentRequest;
 import com.manticoresearch.client.model.UpdateResponse;
@@ -290,6 +292,70 @@ public class IndexApi {
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
     GenericType<UpdateResponse> localVarReturnType = new GenericType<UpdateResponse>() {};
     return apiClient.invokeAPI("IndexApi.update", "/update", "POST", new ArrayList<>(), localVarPostBody,
+                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
+                               null, localVarReturnType, false);
+  }
+  
+  /**
+   * Partially replaces a document in an index
+   * Partially replaces a document with given id in an index Responds with an object of the following format:     &#x60;&#x60;&#x60;   {&#39;_index&#39;:&#39;products&#39;,&#39;updated&#39;:1}   &#x60;&#x60;&#x60; 
+   * @param index Name of the percolate index (required)
+   * @param id Id of the document to replace (required)
+   * @param replaceDocumentRequest  (required)
+   * @return UpdateResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> item updated </td><td>  -  </td></tr>
+       <tr><td> 0 </td><td> error </td><td>  -  </td></tr>
+     </table>
+   * 
+   * @see <a href="https://manual.manticoresearch.com/Updating_documents/REPLACE#JSON-REPLACE">Partially replaces a document in an index Documentation</a>
+   */
+  public UpdateResponse update_0(String index, BigDecimal id, ReplaceDocumentRequest replaceDocumentRequest) throws ApiException {
+    return update_0WithHttpInfo(index, id, replaceDocumentRequest).getData();
+  }
+
+  /**
+   * Partially replaces a document in an index
+   * Partially replaces a document with given id in an index Responds with an object of the following format:     &#x60;&#x60;&#x60;   {&#39;_index&#39;:&#39;products&#39;,&#39;updated&#39;:1}   &#x60;&#x60;&#x60; 
+   * @param index Name of the percolate index (required)
+   * @param id Id of the document to replace (required)
+   * @param replaceDocumentRequest  (required)
+   * @return ApiResponse&lt;UpdateResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> item updated </td><td>  -  </td></tr>
+       <tr><td> 0 </td><td> error </td><td>  -  </td></tr>
+     </table>
+   * 
+   * @see <a href="https://manual.manticoresearch.com/Updating_documents/REPLACE#JSON-REPLACE">Partially replaces a document in an index Documentation</a>
+   */
+  public ApiResponse<UpdateResponse> update_0WithHttpInfo(String index, BigDecimal id, ReplaceDocumentRequest replaceDocumentRequest) throws ApiException {
+      Object localVarPostBody = replaceDocumentRequest;
+    // Check required parameters
+    if (index == null) {
+      throw new ApiException(400, "Missing the required parameter 'index' when calling update_0");
+    }
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling update_0");
+    }
+    if (replaceDocumentRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'replaceDocumentRequest' when calling update_0");
+    }
+
+    // Path parameters
+    String localVarPath = "/{index}/_update/{id}"
+            .replaceAll("\\{index}", apiClient.escapeString(index))
+            .replaceAll("\\{id}", apiClient.escapeString(id.toString()));
+
+    String localVarAccept = apiClient.selectHeaderAccept("application/json");
+    String localVarContentType = apiClient.selectHeaderContentType("application/json");
+    GenericType<UpdateResponse> localVarReturnType = new GenericType<UpdateResponse>() {};
+    return apiClient.invokeAPI("IndexApi.update_0", localVarPath, "POST", new ArrayList<>(), localVarPostBody,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                null, localVarReturnType, false);
   }

@@ -12,7 +12,7 @@
 
 Building the API client library requires:
 
-1. Java 1.8+
+1. Java 17+
 2. Maven/Gradle
 
 | Manticore Search  | manticoresearch-java    |
@@ -143,6 +143,7 @@ Class | Method | HTTP request | Description
 *IndexApi* | [**insert**](docs/IndexApi.md#insert) | **POST** /insert | Create a new document in an index
 *IndexApi* | [**replace**](docs/IndexApi.md#replace) | **POST** /replace | Replace new document in an index
 *IndexApi* | [**update**](docs/IndexApi.md#update) | **POST** /update | Update a document in an index
+*IndexApi* | [**update_0**](docs/IndexApi.md#update_0) | **POST** /{index}/_update/{id} | Partially replaces a document in an index
 *SearchApi* | [**percolate**](docs/SearchApi.md#percolate) | **POST** /pq/{index}/search | Perform reverse search on a percolate index
 *SearchApi* | [**search**](docs/SearchApi.md#search) | **POST** /search | Performs a search on an index
 *UtilsApi* | [**sql**](docs/UtilsApi.md#sql) | **POST** /sql | Perform SQL requests
@@ -182,6 +183,7 @@ Class | Method | HTTP request | Description
  - [PercolateRequestQuery](docs/PercolateRequestQuery.md)
  - [QueryFilter](docs/QueryFilter.md)
  - [RangeFilter](docs/RangeFilter.md)
+ - [ReplaceDocumentRequest](docs/ReplaceDocumentRequest.md)
  - [SearchRequest](docs/SearchRequest.md)
  - [SearchRequestKnn](docs/SearchRequestKnn.md)
  - [SearchResponse](docs/SearchResponse.md)

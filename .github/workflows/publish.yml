@@ -31,7 +31,13 @@ jobs:
         java-version: ${{ matrix.java }}
         distribution: 'temurin'
         cache: maven
-    - name: Use Maven
+    - name: Check for dev-version
+      if:  ${{ contains(github.ref, 'master') }}
+      run: |
+        VERSION=`git log -1 --date=format:"%y%m%d%H" --format=%cd-%h|head`
+        echo "version $VERSION"
+        sed -i -E "s/(\<version\>)([0-9]\.[0-9]\.)(.*)(\<)/\1\2$VERSION\4/1" pom.xml
+    - name: Publish
       run: |
         mkdir -p ~/.m2
         export GPG_TTY=$(tty)
