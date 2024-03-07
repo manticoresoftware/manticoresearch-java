@@ -39,6 +39,7 @@ jobs:
         sed -i -E "s/(\<version\>)([0-9]\.[0-9]\.)(.*)(\<)/\1\2$VERSION\4/1" pom.xml
     - name: Publish
       run: |
+        sleep 3m
         mkdir -p ~/.m2
         export GPG_TTY=$(tty)
         export MAVEN_OPTS="--add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.base/java.text=ALL-UNNAMED --add-opens=java.desktop/java.awt.font=ALL-UNNAMED"
