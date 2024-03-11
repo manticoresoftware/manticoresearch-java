@@ -17,6 +17,7 @@ Building the API client library requires:
 
 | Manticore Search  | manticoresearch-java    |
 | ----------------- | ----------------------- |
+| dev               | manticoresearch-dev     |
 | >= 6.2.0          | >= 3.3.1                |
 | >= 2.5.1          | >= 2.0.2                |
 
