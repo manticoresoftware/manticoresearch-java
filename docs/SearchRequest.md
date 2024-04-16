@@ -156,6 +156,33 @@ searchRequest.setAggs(aggs);
 
 SearchResponse searchResponse = searchApi.search(searchRequest);
 System.out.println( searchResponse.toString() );
+
+// Composite aggregation
+AggregationCompositeSourcesInnerValueTerms compAggTerms1 = new AggregationCompositeSourcesInnerValueTerms();
+compAggTerms1.setField("_year");
+AggregationCompositeSourcesInnerValueTerms compAggTerms2 = new AggregationCompositeSourcesInnerValueTerms();
+compAggTerms2.setField("rating");
+AggregationCompositeSourcesInnerValue compAgg1 = new AggregationCompositeSourcesInnerValue();
+compAgg1.setTerms(compAggTerms1);
+AggregationCompositeSourcesInnerValue compAgg2 = new AggregationCompositeSourcesInnerValue();
+compAgg2.setTerms(compAggTerms2);
+Map<String, AggregationCompositeSourcesInnerValue> source1 = new HashMap<String, AggregationCompositeSourcesInnerValue>();
+source1.put("comp_agg_1", compAgg1);
+Map<String, AggregationCompositeSourcesInnerValue> source2 = new HashMap<String, AggregationCompositeSourcesInnerValue>();
+source2.put("comp_agg_2", compAgg2);
+List<Map<String, AggregationCompositeSourcesInnerValue>> compSources = Arrays.asList(source1, source2);
+AggregationComposite composite = new AggregationComposite();
+composite.setSize(5);
+composite.setSources(compSources);
+agg = new Aggregation();
+agg.setComposite(composite);
+aggs = new HashMap<String, Aggregation>();
+aggs.put("comp_agg", agg);
+
+searchRequest.setAggs(aggs);
+
+SearchResponse searchResponse = searchApi.search(searchRequest);
+System.out.println( searchResponse.toString() );
 ```
 
 ### Highlight

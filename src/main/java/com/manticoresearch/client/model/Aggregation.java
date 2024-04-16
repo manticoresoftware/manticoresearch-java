@@ -21,6 +21,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.manticoresearch.client.model.AggregationComposite;
 import com.manticoresearch.client.model.AggregationSortInnerValue;
 import com.manticoresearch.client.model.AggregationTerms;
 import java.util.ArrayList;
@@ -37,17 +38,21 @@ import com.manticoresearch.client.JSON;
  */
 @JsonPropertyOrder({
   Aggregation.JSON_PROPERTY_TERMS,
-  Aggregation.JSON_PROPERTY_SORT
+  Aggregation.JSON_PROPERTY_SORT,
+  Aggregation.JSON_PROPERTY_COMPOSITE
 })
 @JsonTypeName("aggregation")
 @JsonIgnoreProperties(ignoreUnknown = true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-02-22T08:36:02.662182043Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-16T09:24:57.812240843Z[Etc/UTC]")
 public class Aggregation {
   public static final String JSON_PROPERTY_TERMS = "terms";
   private AggregationTerms terms;
 
   public static final String JSON_PROPERTY_SORT = "sort";
   private List<Map<String, AggregationSortInnerValue>> sort;
+
+  public static final String JSON_PROPERTY_COMPOSITE = "composite";
+  private AggregationComposite composite;
 
   public Aggregation() { 
   }
@@ -110,6 +115,31 @@ public class Aggregation {
   }
 
 
+  public Aggregation composite(AggregationComposite composite) {
+    this.composite = composite;
+    return this;
+  }
+
+   /**
+   * Get composite
+   * @return composite
+  **/
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_COMPOSITE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public AggregationComposite getComposite() {
+    return composite;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_COMPOSITE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setComposite(AggregationComposite composite) {
+    this.composite = composite;
+  }
+
+
   /**
    * Return true if this aggregation object is equal to o.
    */
@@ -123,12 +153,13 @@ public class Aggregation {
     }
     Aggregation aggregation = (Aggregation) o;
     return Objects.equals(this.terms, aggregation.terms) &&
-        Objects.equals(this.sort, aggregation.sort);
+        Objects.equals(this.sort, aggregation.sort) &&
+        Objects.equals(this.composite, aggregation.composite);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(terms, sort);
+    return Objects.hash(terms, sort, composite);
   }
 
   @Override
@@ -137,6 +168,7 @@ public class Aggregation {
     sb.append("class Aggregation {\n");
     sb.append("    terms: ").append(toIndentedString(terms)).append("\n");
     sb.append("    sort: ").append(toIndentedString(sort)).append("\n");
+    sb.append("    composite: ").append(toIndentedString(composite)).append("\n");
     sb.append("}");
     return sb.toString();
   }
