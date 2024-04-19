@@ -326,9 +326,9 @@ System.out.println( searchResponse.toString() );
 ```java
 //Using a RangeFilter object
 RangeFilter rangeFilter = new RangeFilter();
-rangeFilter.setField("year");
-rangeFilter.setLte(BigDecimal.valueOf(2001));
-rangeFilter.setGte(BigDecimal.valueOf(1000));
+rangeFilter.setField("_year");
+rangeFilter.setLte(new RangeFilterValue(BigDecimal.valueOf(2001)));
+rangeFilter.setGte(new RangeFilterValue(BigDecimal.valueOf(1000)));
 searchRequest.setAttrFilter(rangeFilter);
 
 SearchResponse searchResponse = searchApi.search(searchRequest);
@@ -374,7 +374,7 @@ boolFilter.setMust( new ArrayList<Object>( Arrays.asList(equalsFilter) ) );
 
 rangeFilter = new RangeFilter();
 rangeFilter.setField("rating");
-rangeFilter.setLte(BigDecimal.valueOf(6.5));
+rangeFilter.setLte(new RangeFilterValue(BigDecimal.valueOf(6.5)));
 List<Object> mustFilter = boolFilter.getMust();
 mustFilter.add(rangeFilter);
 boolFilter.setMust(mustFilter);

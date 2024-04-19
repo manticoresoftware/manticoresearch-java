@@ -194,13 +194,13 @@ public class SearchApiTest {
 	        SearchSubTests subTests = new SearchSubTests() {
 	            public void BuildSearchRequestData() throws ApiException
 	            {
-	                utilsApi.sql("CREATE TABLE IF NOT EXISTS movies (title text, plot text, _year integer, rating float, code multi, type_vector float_vector knn_type='hnsw' knn_dims='3' hnsw_similarity='l2' )", true);
+	                utilsApi.sql("CREATE TABLE IF NOT EXISTS movies (title text, plot text, _year integer, rating float, cat string, code multi, type_vector float_vector knn_type='hnsw' knn_dims='3' hnsw_similarity='l2' )", true);
     
 				    List<String> docs = Arrays.asList(
-						"{\"insert\": {\"index\" : \"movies\", \"id\" : 1, \"doc\" : {\"title\" : \"Star Trek 2: Nemesis\", \"plot\": \"The Enterprise is diverted to the Romulan homeworld Romulus, supposedly because they want to negotiate a peace treaty. Captain Picard and his crew discover a serious threat to the Federation once Praetor Shinzon plans to attack Earth.\", \"_year\": 2002, \"rating\": 6.4, \"code\": [1,2,3], \"type_vector\": [0.2, 1.4, -2.3]}}}",
-				        "{\"insert\": {\"index\" : \"movies\", \"id\" : 2, \"doc\" : {\"title\" : \"Star Trek 1: Nemesis\", \"plot\": \"The Enterprise is diverted to the Romulan homeworld Romulus, supposedly because they want to negotiate a peace treaty. Captain Picard and his crew discover a serious threat to the Federation once Praetor Shinzon plans to attack Earth.\", \"_year\": 2001, \"rating\": 6.5, \"code\": [1,12,3], \"type_vector\": [0.8, 0.4, 1.3]}}}",
-				        "{\"insert\": {\"index\" : \"movies\", \"id\" : 3, \"doc\" : {\"title\" : \"Star Trek 3: Nemesis\", \"plot\": \"The Enterprise is diverted to the Romulan homeworld Romulus, supposedly because they want to negotiate a peace treaty. Captain Picard and his crew discover a serious threat to the Federation once Praetor Shinzon plans to attack Earth.\", \"_year\": 2003, \"rating\": 6.6, \"code\": [11,2,3], \"type_vector\": [1.5, -1.0, 1.6]}}}",
-				        "{\"insert\": {\"index\" : \"movies\", \"id\" : 4, \"doc\" : {\"title\" : \"Star Trek 4: Nemesis\", \"plot\": \"The Enterprise is diverted to the Romulan homeworld Romulus, supposedly because they want to negotiate a peace treaty. Captain Picard and his crew discover a serious threat to the Federation once Praetor Shinzon plans to attack Earth.\", \"_year\": 2003, \"rating\": 6, \"code\": [1,2,4], \"type_vector\": [0.4, 2.4, 0.9]}}}"					        	
+						"{\"insert\": {\"index\" : \"movies\", \"id\" : 1, \"doc\" : {\"title\" : \"Star Trek 2: Nemesis\", \"plot\": \"The Enterprise is diverted to the Romulan homeworld Romulus, supposedly because they want to negotiate a peace treaty. Captain Picard and his crew discover a serious threat to the Federation once Praetor Shinzon plans to attack Earth.\", \"_year\": 2002, \"rating\": 6.4, \"cat\": \"R\", \"code\": [1,2,3], \"type_vector\": [0.2, 1.4, -2.3]}}}",
+				        "{\"insert\": {\"index\" : \"movies\", \"id\" : 2, \"doc\" : {\"title\" : \"Star Trek 1: Nemesis\", \"plot\": \"The Enterprise is diverted to the Romulan homeworld Romulus, supposedly because they want to negotiate a peace treaty. Captain Picard and his crew discover a serious threat to the Federation once Praetor Shinzon plans to attack Earth.\", \"_year\": 2001, \"rating\": 6.5, \"cat\": \"PG-13\", \"code\": [1,12,3], \"type_vector\": [0.8, 0.4, 1.3]}}}",
+				        "{\"insert\": {\"index\" : \"movies\", \"id\" : 3, \"doc\" : {\"title\" : \"Star Trek 3: Nemesis\", \"plot\": \"The Enterprise is diverted to the Romulan homeworld Romulus, supposedly because they want to negotiate a peace treaty. Captain Picard and his crew discover a serious threat to the Federation once Praetor Shinzon plans to attack Earth.\", \"_year\": 2003, \"rating\": 6.6, \"cat\": \"R\", \"code\": [11,2,3], \"type_vector\": [1.5, -1.0, 1.6]}}}",
+				        "{\"insert\": {\"index\" : \"movies\", \"id\" : 4, \"doc\" : {\"title\" : \"Star Trek 4: Nemesis\", \"plot\": \"The Enterprise is diverted to the Romulan homeworld Romulus, supposedly because they want to negotiate a peace treaty. Captain Picard and his crew discover a serious threat to the Federation once Praetor Shinzon plans to attack Earth.\", \"_year\": 2003, \"rating\": 6, \"cat\": \"R\", \"code\": [1,2,4], \"type_vector\": [0.4, 2.4, 0.9]}}}"					        	
 				    );
 			
 					BulkResponse res = indexApi.bulk( String.join("\n", docs) );
@@ -216,7 +216,7 @@ public class SearchApiTest {
 					boolFilter.setMust( new ArrayList<Object>( Arrays.asList(equalsFilter) ) );
 					RangeFilter rangeFilter = new RangeFilter();
 					rangeFilter.setField("rating");
-					rangeFilter.setLte(BigDecimal.valueOf(6));
+					rangeFilter.setLte(new RangeFilterValue(BigDecimal.valueOf(6)));
 					List<Object> mustFilter = boolFilter.getMust();
 					mustFilter.add(rangeFilter);
 					boolFilter.setMust(mustFilter);
@@ -271,19 +271,29 @@ public class SearchApiTest {
 					
 					RangeFilter rangeFilter = new RangeFilter();
 					rangeFilter.setField("_year");
-					rangeFilter.setLte(BigDecimal.valueOf(2001));
-					rangeFilter.setGte(BigDecimal.valueOf(0));
+					rangeFilter.setLte(new RangeFilterValue(BigDecimal.valueOf(2001)));
+					rangeFilter.setGte(new RangeFilterValue(BigDecimal.valueOf(0)));
 					searchRequest.setAttrFilter(rangeFilter);
 			
 					searchResponse = searchApi.search(searchRequest);
 					System.out.println(searchResponse);
 			
+					rangeFilter = new RangeFilter();
 					rangeFilter.setField("rating");
-					rangeFilter.setGt(BigDecimal.valueOf(1.5));
+					rangeFilter.setGt(new RangeFilterValue(BigDecimal.valueOf(1.5)));
 					searchRequest.setAttrFilter(rangeFilter);
 			
 					searchResponse = searchApi.search(searchRequest);
 					System.out.println(searchResponse);
+
+					rangeFilter = new RangeFilter();
+					rangeFilter.setField("cat");
+					rangeFilter.setGte(new RangeFilterValue("A"));
+					searchRequest.setAttrFilter(rangeFilter);
+					System.out.println(searchRequest);
+					searchResponse = searchApi.search(searchRequest);
+					System.out.println(searchResponse);
+					
 			
 					GeoDistanceFilter geoFilter = new GeoDistanceFilter();
 					GeoDistanceFilterLocationAnchor locAnchor = new GeoDistanceFilterLocationAnchor();

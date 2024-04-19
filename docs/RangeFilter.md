@@ -9,10 +9,10 @@ Range attribute filter
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**field** | **String** |  |  |
-|**lte** | **BigDecimal** |  |  [optional] |
-|**gte** | **BigDecimal** |  |  [optional] |
-|**lt** | **BigDecimal** |  |  [optional] |
-|**gt** | **BigDecimal** |  |  [optional] |
+|**lte** | [**RangeFilterValue**](RangeFilterValue.md) |  |  [optional] |
+|**gte** | [**RangeFilterValue**](RangeFilterValue.md) |  |  [optional] |
+|**lt** | [**RangeFilterValue**](RangeFilterValue.md) |  |  [optional] |
+|**gt** | [**RangeFilterValue**](RangeFilterValue.md) |  |  [optional] |
 
 [[Using in search requests]](SearchRequest.md#RangeFilter)
 

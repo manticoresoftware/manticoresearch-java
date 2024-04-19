@@ -21,7 +21,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.math.BigDecimal;
+import com.manticoresearch.client.model.RangeFilterValue;
 import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -44,22 +44,22 @@ import com.manticoresearch.client.JSON;
 })
 @JsonTypeName("rangeFilter")
 @JsonIgnoreProperties(ignoreUnknown = true)
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-02-22T08:36:02.662182043Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-19T06:56:36.968588540Z[Etc/UTC]")
 public class RangeFilter {
   public static final String JSON_PROPERTY_FIELD = "field";
   private String field;
 
   public static final String JSON_PROPERTY_LTE = "lte";
-  private JsonNullable<BigDecimal> lte = JsonNullable.<BigDecimal>undefined();
+  private JsonNullable<RangeFilterValue> lte = JsonNullable.<RangeFilterValue>undefined();
 
   public static final String JSON_PROPERTY_GTE = "gte";
-  private JsonNullable<BigDecimal> gte = JsonNullable.<BigDecimal>undefined();
+  private JsonNullable<RangeFilterValue> gte = JsonNullable.<RangeFilterValue>undefined();
 
   public static final String JSON_PROPERTY_LT = "lt";
-  private JsonNullable<BigDecimal> lt = JsonNullable.<BigDecimal>undefined();
+  private JsonNullable<RangeFilterValue> lt = JsonNullable.<RangeFilterValue>undefined();
 
   public static final String JSON_PROPERTY_GT = "gt";
-  private JsonNullable<BigDecimal> gt = JsonNullable.<BigDecimal>undefined();
+  private JsonNullable<RangeFilterValue> gt = JsonNullable.<RangeFilterValue>undefined();
 
   public RangeFilter() { 
   }
@@ -89,8 +89,8 @@ public class RangeFilter {
   }
 
 
-  public RangeFilter lte(BigDecimal lte) {
-    this.lte = JsonNullable.<BigDecimal>of(lte);
+  public RangeFilter lte(RangeFilterValue lte) {
+    this.lte = JsonNullable.<RangeFilterValue>of(lte);
     return this;
   }
 
@@ -101,29 +101,29 @@ public class RangeFilter {
   @jakarta.annotation.Nullable
   @JsonIgnore
 
-  public BigDecimal getLte() {
+  public RangeFilterValue getLte() {
         return lte.orElse(null);
   }
 
   @JsonProperty(JSON_PROPERTY_LTE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<BigDecimal> getLte_JsonNullable() {
+  public JsonNullable<RangeFilterValue> getLte_JsonNullable() {
     return lte;
   }
   
   @JsonProperty(JSON_PROPERTY_LTE)
-  public void setLte_JsonNullable(JsonNullable<BigDecimal> lte) {
+  public void setLte_JsonNullable(JsonNullable<RangeFilterValue> lte) {
     this.lte = lte;
   }
 
-  public void setLte(BigDecimal lte) {
-    this.lte = JsonNullable.<BigDecimal>of(lte);
+  public void setLte(RangeFilterValue lte) {
+    this.lte = JsonNullable.<RangeFilterValue>of(lte);
   }
 
 
-  public RangeFilter gte(BigDecimal gte) {
-    this.gte = JsonNullable.<BigDecimal>of(gte);
+  public RangeFilter gte(RangeFilterValue gte) {
+    this.gte = JsonNullable.<RangeFilterValue>of(gte);
     return this;
   }
 
@@ -134,29 +134,29 @@ public class RangeFilter {
   @jakarta.annotation.Nullable
   @JsonIgnore
 
-  public BigDecimal getGte() {
+  public RangeFilterValue getGte() {
         return gte.orElse(null);
   }
 
   @JsonProperty(JSON_PROPERTY_GTE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<BigDecimal> getGte_JsonNullable() {
+  public JsonNullable<RangeFilterValue> getGte_JsonNullable() {
     return gte;
   }
   
   @JsonProperty(JSON_PROPERTY_GTE)
-  public void setGte_JsonNullable(JsonNullable<BigDecimal> gte) {
+  public void setGte_JsonNullable(JsonNullable<RangeFilterValue> gte) {
     this.gte = gte;
   }
 
-  public void setGte(BigDecimal gte) {
-    this.gte = JsonNullable.<BigDecimal>of(gte);
+  public void setGte(RangeFilterValue gte) {
+    this.gte = JsonNullable.<RangeFilterValue>of(gte);
   }
 
 
-  public RangeFilter lt(BigDecimal lt) {
-    this.lt = JsonNullable.<BigDecimal>of(lt);
+  public RangeFilter lt(RangeFilterValue lt) {
+    this.lt = JsonNullable.<RangeFilterValue>of(lt);
     return this;
   }
 
@@ -167,29 +167,29 @@ public class RangeFilter {
   @jakarta.annotation.Nullable
   @JsonIgnore
 
-  public BigDecimal getLt() {
+  public RangeFilterValue getLt() {
         return lt.orElse(null);
   }
 
   @JsonProperty(JSON_PROPERTY_LT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<BigDecimal> getLt_JsonNullable() {
+  public JsonNullable<RangeFilterValue> getLt_JsonNullable() {
     return lt;
   }
   
   @JsonProperty(JSON_PROPERTY_LT)
-  public void setLt_JsonNullable(JsonNullable<BigDecimal> lt) {
+  public void setLt_JsonNullable(JsonNullable<RangeFilterValue> lt) {
     this.lt = lt;
   }
 
-  public void setLt(BigDecimal lt) {
-    this.lt = JsonNullable.<BigDecimal>of(lt);
+  public void setLt(RangeFilterValue lt) {
+    this.lt = JsonNullable.<RangeFilterValue>of(lt);
   }
 
 
-  public RangeFilter gt(BigDecimal gt) {
-    this.gt = JsonNullable.<BigDecimal>of(gt);
+  public RangeFilter gt(RangeFilterValue gt) {
+    this.gt = JsonNullable.<RangeFilterValue>of(gt);
     return this;
   }
 
@@ -200,24 +200,24 @@ public class RangeFilter {
   @jakarta.annotation.Nullable
   @JsonIgnore
 
-  public BigDecimal getGt() {
+  public RangeFilterValue getGt() {
         return gt.orElse(null);
   }
 
   @JsonProperty(JSON_PROPERTY_GT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<BigDecimal> getGt_JsonNullable() {
+  public JsonNullable<RangeFilterValue> getGt_JsonNullable() {
     return gt;
   }
   
   @JsonProperty(JSON_PROPERTY_GT)
-  public void setGt_JsonNullable(JsonNullable<BigDecimal> gt) {
+  public void setGt_JsonNullable(JsonNullable<RangeFilterValue> gt) {
     this.gt = gt;
   }
 
-  public void setGt(BigDecimal gt) {
-    this.gt = JsonNullable.<BigDecimal>of(gt);
+  public void setGt(RangeFilterValue gt) {
+    this.gt = JsonNullable.<RangeFilterValue>of(gt);
   }
 
 

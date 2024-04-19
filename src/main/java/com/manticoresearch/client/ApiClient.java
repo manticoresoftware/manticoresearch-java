@@ -940,14 +940,14 @@ public class ApiClient extends JavaTimeFormatter {
 	 		
 	 		Boolean hasFilterSet = (map.containsKey("fulltext_filter") && map.get("fulltext_filter") != null) ||
 	 			(map.containsKey("attr_filter") && map.get("attr_filter") != null);
-      if (map.containsKey("knn") && map.get("knn") != null) {
-        map.remove("query");
-        map.remove("fulltext_filter");
-        map.remove("attr_filter");
-        map.remove("query_vector");
-        map.remove("doc_id");
-        map.remove("k");
-      }
+		    if (map.containsKey("knn") && map.get("knn") != null) {
+		        map.remove("query");
+		        map.remove("fulltext_filter");
+		        map.remove("attr_filter");
+		        map.remove("query_vector");
+		        map.remove("doc_id");
+		        map.remove("k");
+		    }
 	 		if (hasFilterSet) {
 				Map<String, Object> query = new HashMap<String, Object>();
 				
