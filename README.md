@@ -96,8 +96,11 @@ public class ApiExample {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://127.0.0.1:9308");
         
+        UtilsApi utilsApi = new UtilsApi(defaultClient);
+        utilsApi.sql("CREATE TABLE IF NOT EXISTS test (title text)", true);
+    	
         IndexApi apiInstance = new IndexApi(defaultClient);
-        String body = ["'{\"insert\": {\"index\": \"test\", \"id\": 1, \"doc\": {\"title\": \"Title 1\"}}},\\n{\"insert\": {\"index\": \"test\", \"id\": 2, \"doc\": {\"title\": \"Title 2\"}}}'"]; // String | 
+        String body = "{\"insert\": {\"index\": \"test\", \"id\": 1, \"doc\": {\"title\": \"Title 1\"}}}\n{\"insert\": {\"index\": \"test\", \"id\": 2, \"doc\": {\"title\": \"Title 2\"}}}\n"; 
         try {
             BulkResponse result = apiInstance.bulk(body);
             System.out.println(result);
@@ -109,7 +112,7 @@ public class ApiExample {
             e.printStackTrace();
         }
         
-        SearchApi searchApi = new SearchApi(client);
+        SearchApi searchApi = new SearchApi(defaultClient);
         try {
             // Create SearchRequest
             SearchRequest searchRequest = new SearchRequest();
