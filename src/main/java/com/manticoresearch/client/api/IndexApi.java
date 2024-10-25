@@ -25,7 +25,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-02-22T08:36:02.662182043Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-25T12:46:50.106840837Z[Etc/UTC]", comments = "Generator version: 7.3.0-SNAPSHOT")
 public class IndexApi {
   private ApiClient apiClient;
 
@@ -57,7 +57,7 @@ public class IndexApi {
 
   /**
    * Bulk index operations
-   * Sends multiple operatons like inserts, updates, replaces or deletes.  For each operation it&#39;s object must have same format as in their dedicated method.  The method expects a raw string as the batch in NDJSON.  Each operation object needs to be serialized to   JSON and separated by endline (\\n).      An example of raw input:      &#x60;&#x60;&#x60;   {\&quot;insert\&quot;: {\&quot;index\&quot;: \&quot;movies\&quot;, \&quot;doc\&quot;: {\&quot;plot\&quot;: \&quot;A secret team goes to North Pole\&quot;, \&quot;rating\&quot;: 9.5, \&quot;language\&quot;: [2, 3], \&quot;title\&quot;: \&quot;This is an older movie\&quot;, \&quot;lon\&quot;: 51.99, \&quot;meta\&quot;: {\&quot;keywords\&quot;:[\&quot;travel\&quot;,\&quot;ice\&quot;],\&quot;genre\&quot;:[\&quot;adventure\&quot;]}, \&quot;year\&quot;: 1950, \&quot;lat\&quot;: 60.4, \&quot;advise\&quot;: \&quot;PG-13\&quot;}}}   \\n   {\&quot;delete\&quot;: {\&quot;index\&quot;: \&quot;movies\&quot;,\&quot;id\&quot;:700}}   &#x60;&#x60;&#x60;      Responds with an object telling whenever any errors occured and an array with status for each operation:      &#x60;&#x60;&#x60;   {     &#39;items&#39;:     [       {         &#39;update&#39;:{&#39;_index&#39;:&#39;products&#39;,&#39;_id&#39;:1,&#39;result&#39;:&#39;updated&#39;}       },       {         &#39;update&#39;:{&#39;_index&#39;:&#39;products&#39;,&#39;_id&#39;:2,&#39;result&#39;:&#39;updated&#39;}       }     ],     &#39;errors&#39;:false   }   &#x60;&#x60;&#x60;   
+   * Sends multiple operatons like inserts, updates, replaces or deletes.  For each operation it&#39;s object must have same format as in their dedicated method.  The method expects a raw string as the batch in NDJSON.  Each operation object needs to be serialized to   JSON and separated by endline (\\n).      An example of raw input:      &#x60;&#x60;&#x60;   {\&quot;insert\&quot;: {\&quot;index\&quot;: \&quot;movies\&quot;, \&quot;doc\&quot;: {\&quot;plot\&quot;: \&quot;A secret team goes to North Pole\&quot;, \&quot;rating\&quot;: 9.5, \&quot;language\&quot;: [2, 3], \&quot;title\&quot;: \&quot;This is an older movie\&quot;, \&quot;lon\&quot;: 51.99, \&quot;meta\&quot;: {\&quot;keywords\&quot;:[\&quot;travel\&quot;,\&quot;ice\&quot;],\&quot;genre\&quot;:[\&quot;adventure\&quot;]}, \&quot;year\&quot;: 1950, \&quot;lat\&quot;: 60.4, \&quot;advise\&quot;: \&quot;PG-13\&quot;}}}   \\n   {\&quot;delete\&quot;: {\&quot;index\&quot;: \&quot;movies\&quot;,\&quot;id\&quot;:700}}   &#x60;&#x60;&#x60;      Responds with an object telling whenever any errors occured and an array with status for each operation:      &#x60;&#x60;&#x60;   {     &#39;items&#39;:     [       {         &#39;update&#39;:{&#39;_index&#39;:&#39;products&#39;,&#39;_id&#39;:1,&#39;result&#39;:&#39;updated&#39;}       },       {         &#39;update&#39;:{&#39;_index&#39;:&#39;products&#39;,&#39;_id&#39;:2,&#39;result&#39;:&#39;updated&#39;}       }     ],     &#39;errors&#39;:false   }   &#x60;&#x60;&#x60; 
    * @param body  (required)
    * @return BulkResponse
    * @throws ApiException if fails to make API call
@@ -76,7 +76,7 @@ public class IndexApi {
 
   /**
    * Bulk index operations
-   * Sends multiple operatons like inserts, updates, replaces or deletes.  For each operation it&#39;s object must have same format as in their dedicated method.  The method expects a raw string as the batch in NDJSON.  Each operation object needs to be serialized to   JSON and separated by endline (\\n).      An example of raw input:      &#x60;&#x60;&#x60;   {\&quot;insert\&quot;: {\&quot;index\&quot;: \&quot;movies\&quot;, \&quot;doc\&quot;: {\&quot;plot\&quot;: \&quot;A secret team goes to North Pole\&quot;, \&quot;rating\&quot;: 9.5, \&quot;language\&quot;: [2, 3], \&quot;title\&quot;: \&quot;This is an older movie\&quot;, \&quot;lon\&quot;: 51.99, \&quot;meta\&quot;: {\&quot;keywords\&quot;:[\&quot;travel\&quot;,\&quot;ice\&quot;],\&quot;genre\&quot;:[\&quot;adventure\&quot;]}, \&quot;year\&quot;: 1950, \&quot;lat\&quot;: 60.4, \&quot;advise\&quot;: \&quot;PG-13\&quot;}}}   \\n   {\&quot;delete\&quot;: {\&quot;index\&quot;: \&quot;movies\&quot;,\&quot;id\&quot;:700}}   &#x60;&#x60;&#x60;      Responds with an object telling whenever any errors occured and an array with status for each operation:      &#x60;&#x60;&#x60;   {     &#39;items&#39;:     [       {         &#39;update&#39;:{&#39;_index&#39;:&#39;products&#39;,&#39;_id&#39;:1,&#39;result&#39;:&#39;updated&#39;}       },       {         &#39;update&#39;:{&#39;_index&#39;:&#39;products&#39;,&#39;_id&#39;:2,&#39;result&#39;:&#39;updated&#39;}       }     ],     &#39;errors&#39;:false   }   &#x60;&#x60;&#x60;   
+   * Sends multiple operatons like inserts, updates, replaces or deletes.  For each operation it&#39;s object must have same format as in their dedicated method.  The method expects a raw string as the batch in NDJSON.  Each operation object needs to be serialized to   JSON and separated by endline (\\n).      An example of raw input:      &#x60;&#x60;&#x60;   {\&quot;insert\&quot;: {\&quot;index\&quot;: \&quot;movies\&quot;, \&quot;doc\&quot;: {\&quot;plot\&quot;: \&quot;A secret team goes to North Pole\&quot;, \&quot;rating\&quot;: 9.5, \&quot;language\&quot;: [2, 3], \&quot;title\&quot;: \&quot;This is an older movie\&quot;, \&quot;lon\&quot;: 51.99, \&quot;meta\&quot;: {\&quot;keywords\&quot;:[\&quot;travel\&quot;,\&quot;ice\&quot;],\&quot;genre\&quot;:[\&quot;adventure\&quot;]}, \&quot;year\&quot;: 1950, \&quot;lat\&quot;: 60.4, \&quot;advise\&quot;: \&quot;PG-13\&quot;}}}   \\n   {\&quot;delete\&quot;: {\&quot;index\&quot;: \&quot;movies\&quot;,\&quot;id\&quot;:700}}   &#x60;&#x60;&#x60;      Responds with an object telling whenever any errors occured and an array with status for each operation:      &#x60;&#x60;&#x60;   {     &#39;items&#39;:     [       {         &#39;update&#39;:{&#39;_index&#39;:&#39;products&#39;,&#39;_id&#39;:1,&#39;result&#39;:&#39;updated&#39;}       },       {         &#39;update&#39;:{&#39;_index&#39;:&#39;products&#39;,&#39;_id&#39;:2,&#39;result&#39;:&#39;updated&#39;}       }     ],     &#39;errors&#39;:false   }   &#x60;&#x60;&#x60; 
    * @param body  (required)
    * @return ApiResponse&lt;BulkResponse&gt;
    * @throws ApiException if fails to make API call
@@ -90,7 +90,6 @@ public class IndexApi {
    * @see <a href="https://manual.manticoresearch.com/Updating_documents/UPDATE">Bulk index operations Documentation</a>
    */
   public ApiResponse<BulkResponse> bulkWithHttpInfo(String body) throws ApiException {
-      Object localVarPostBody = body;
     // Check required parameters
     if (body == null) {
       throw new ApiException(400, "Missing the required parameter 'body' when calling bulk");
@@ -99,7 +98,7 @@ public class IndexApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/x-ndjson");
     GenericType<BulkResponse> localVarReturnType = new GenericType<BulkResponse>() {};
-    return apiClient.invokeAPI("IndexApi.bulk", "/bulk", "POST", new ArrayList<>(), localVarPostBody,
+    return apiClient.invokeAPI("IndexApi.bulk", "/bulk", "POST", new ArrayList<>(), body,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                null, localVarReturnType, false);
   }
@@ -138,7 +137,6 @@ public class IndexApi {
    * @see <a href="https://manual.manticoresearch.com/Updating_documents/UPDATE">Delete a document in an index Documentation</a>
    */
   public ApiResponse<DeleteResponse> deleteWithHttpInfo(DeleteDocumentRequest deleteDocumentRequest) throws ApiException {
-      Object localVarPostBody = deleteDocumentRequest;
     // Check required parameters
     if (deleteDocumentRequest == null) {
       throw new ApiException(400, "Missing the required parameter 'deleteDocumentRequest' when calling delete");
@@ -147,7 +145,7 @@ public class IndexApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
     GenericType<DeleteResponse> localVarReturnType = new GenericType<DeleteResponse>() {};
-    return apiClient.invokeAPI("IndexApi.delete", "/delete", "POST", new ArrayList<>(), localVarPostBody,
+    return apiClient.invokeAPI("IndexApi.delete", "/delete", "POST", new ArrayList<>(), deleteDocumentRequest,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                null, localVarReturnType, false);
   }
@@ -186,7 +184,6 @@ public class IndexApi {
    * @see <a href="https://manual.manticoresearch.com/Adding_documents_to_an_index/Adding_documents_to_a_real-time_index#Adding-documents-to-a-real-time-index">Create a new document in an index Documentation</a>
    */
   public ApiResponse<SuccessResponse> insertWithHttpInfo(InsertDocumentRequest insertDocumentRequest) throws ApiException {
-      Object localVarPostBody = insertDocumentRequest;
     // Check required parameters
     if (insertDocumentRequest == null) {
       throw new ApiException(400, "Missing the required parameter 'insertDocumentRequest' when calling insert");
@@ -195,7 +192,69 @@ public class IndexApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
     GenericType<SuccessResponse> localVarReturnType = new GenericType<SuccessResponse>() {};
-    return apiClient.invokeAPI("IndexApi.insert", "/insert", "POST", new ArrayList<>(), localVarPostBody,
+    return apiClient.invokeAPI("IndexApi.insert", "/insert", "POST", new ArrayList<>(), insertDocumentRequest,
+                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
+                               null, localVarReturnType, false);
+  }
+  /**
+   * Partially replaces a document in an index
+   * Partially replaces a document with given id in an index Responds with an object of the following format:     &#x60;&#x60;&#x60;   {&#39;_index&#39;:&#39;products&#39;,&#39;updated&#39;:1}   &#x60;&#x60;&#x60; 
+   * @param index Name of the percolate index (required)
+   * @param id Id of the document to replace (required)
+   * @param replaceDocumentRequest  (required)
+   * @return UpdateResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> item updated </td><td>  -  </td></tr>
+       <tr><td> 0 </td><td> error </td><td>  -  </td></tr>
+     </table>
+   * 
+   * @see <a href="https://manual.manticoresearch.com/Updating_documents/REPLACE#JSON-REPLACE">Partially replaces a document in an index Documentation</a>
+   */
+  public UpdateResponse partialReplace(String index, BigDecimal id, ReplaceDocumentRequest replaceDocumentRequest) throws ApiException {
+    return partialReplaceWithHttpInfo(index, id, replaceDocumentRequest).getData();
+  }
+
+  /**
+   * Partially replaces a document in an index
+   * Partially replaces a document with given id in an index Responds with an object of the following format:     &#x60;&#x60;&#x60;   {&#39;_index&#39;:&#39;products&#39;,&#39;updated&#39;:1}   &#x60;&#x60;&#x60; 
+   * @param index Name of the percolate index (required)
+   * @param id Id of the document to replace (required)
+   * @param replaceDocumentRequest  (required)
+   * @return ApiResponse&lt;UpdateResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> item updated </td><td>  -  </td></tr>
+       <tr><td> 0 </td><td> error </td><td>  -  </td></tr>
+     </table>
+   * 
+   * @see <a href="https://manual.manticoresearch.com/Updating_documents/REPLACE#JSON-REPLACE">Partially replaces a document in an index Documentation</a>
+   */
+  public ApiResponse<UpdateResponse> partialReplaceWithHttpInfo(String index, BigDecimal id, ReplaceDocumentRequest replaceDocumentRequest) throws ApiException {
+    // Check required parameters
+    if (index == null) {
+      throw new ApiException(400, "Missing the required parameter 'index' when calling partialReplace");
+    }
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling partialReplace");
+    }
+    if (replaceDocumentRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'replaceDocumentRequest' when calling partialReplace");
+    }
+
+    // Path parameters
+    String localVarPath = "/{index}/_update/{id}"
+            .replaceAll("\\{index}", apiClient.escapeString(index.toString()))
+            .replaceAll("\\{id}", apiClient.escapeString(id.toString()));
+
+    String localVarAccept = apiClient.selectHeaderAccept("application/json");
+    String localVarContentType = apiClient.selectHeaderContentType("application/json");
+    GenericType<UpdateResponse> localVarReturnType = new GenericType<UpdateResponse>() {};
+    return apiClient.invokeAPI("IndexApi.partialReplace", localVarPath, "POST", new ArrayList<>(), replaceDocumentRequest,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                null, localVarReturnType, false);
   }
@@ -234,7 +293,6 @@ public class IndexApi {
    * @see <a href="https://manual.manticoresearch.com/Adding_documents_to_an_index/Adding_documents_to_a_real-time_index#Adding-documents-to-a-real-time-index">Replace new document in an index Documentation</a>
    */
   public ApiResponse<SuccessResponse> replaceWithHttpInfo(InsertDocumentRequest insertDocumentRequest) throws ApiException {
-      Object localVarPostBody = insertDocumentRequest;
     // Check required parameters
     if (insertDocumentRequest == null) {
       throw new ApiException(400, "Missing the required parameter 'insertDocumentRequest' when calling replace");
@@ -243,7 +301,7 @@ public class IndexApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
     GenericType<SuccessResponse> localVarReturnType = new GenericType<SuccessResponse>() {};
-    return apiClient.invokeAPI("IndexApi.replace", "/replace", "POST", new ArrayList<>(), localVarPostBody,
+    return apiClient.invokeAPI("IndexApi.replace", "/replace", "POST", new ArrayList<>(), insertDocumentRequest,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                null, localVarReturnType, false);
   }
@@ -282,7 +340,6 @@ public class IndexApi {
    * @see <a href="https://manual.manticoresearch.com/Updating_documents/UPDATE">Update a document in an index Documentation</a>
    */
   public ApiResponse<UpdateResponse> updateWithHttpInfo(UpdateDocumentRequest updateDocumentRequest) throws ApiException {
-      Object localVarPostBody = updateDocumentRequest;
     // Check required parameters
     if (updateDocumentRequest == null) {
       throw new ApiException(400, "Missing the required parameter 'updateDocumentRequest' when calling update");
@@ -291,71 +348,7 @@ public class IndexApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
     GenericType<UpdateResponse> localVarReturnType = new GenericType<UpdateResponse>() {};
-    return apiClient.invokeAPI("IndexApi.update", "/update", "POST", new ArrayList<>(), localVarPostBody,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               null, localVarReturnType, false);
-  }
-  
-  /**
-   * Partially replaces a document in an index
-   * Partially replaces a document with given id in an index Responds with an object of the following format:     &#x60;&#x60;&#x60;   {&#39;_index&#39;:&#39;products&#39;,&#39;updated&#39;:1}   &#x60;&#x60;&#x60; 
-   * @param index Name of the percolate index (required)
-   * @param id Id of the document to replace (required)
-   * @param replaceDocumentRequest  (required)
-   * @return UpdateResponse
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> item updated </td><td>  -  </td></tr>
-       <tr><td> 0 </td><td> error </td><td>  -  </td></tr>
-     </table>
-   * 
-   * @see <a href="https://manual.manticoresearch.com/Updating_documents/REPLACE#JSON-REPLACE">Partially replaces a document in an index Documentation</a>
-   */
-  public UpdateResponse update_0(String index, BigDecimal id, ReplaceDocumentRequest replaceDocumentRequest) throws ApiException {
-    return update_0WithHttpInfo(index, id, replaceDocumentRequest).getData();
-  }
-
-  /**
-   * Partially replaces a document in an index
-   * Partially replaces a document with given id in an index Responds with an object of the following format:     &#x60;&#x60;&#x60;   {&#39;_index&#39;:&#39;products&#39;,&#39;updated&#39;:1}   &#x60;&#x60;&#x60; 
-   * @param index Name of the percolate index (required)
-   * @param id Id of the document to replace (required)
-   * @param replaceDocumentRequest  (required)
-   * @return ApiResponse&lt;UpdateResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> item updated </td><td>  -  </td></tr>
-       <tr><td> 0 </td><td> error </td><td>  -  </td></tr>
-     </table>
-   * 
-   * @see <a href="https://manual.manticoresearch.com/Updating_documents/REPLACE#JSON-REPLACE">Partially replaces a document in an index Documentation</a>
-   */
-  public ApiResponse<UpdateResponse> update_0WithHttpInfo(String index, BigDecimal id, ReplaceDocumentRequest replaceDocumentRequest) throws ApiException {
-      Object localVarPostBody = replaceDocumentRequest;
-    // Check required parameters
-    if (index == null) {
-      throw new ApiException(400, "Missing the required parameter 'index' when calling update_0");
-    }
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling update_0");
-    }
-    if (replaceDocumentRequest == null) {
-      throw new ApiException(400, "Missing the required parameter 'replaceDocumentRequest' when calling update_0");
-    }
-
-    // Path parameters
-    String localVarPath = "/{index}/_update/{id}"
-            .replaceAll("\\{index}", apiClient.escapeString(index))
-            .replaceAll("\\{id}", apiClient.escapeString(id.toString()));
-
-    String localVarAccept = apiClient.selectHeaderAccept("application/json");
-    String localVarContentType = apiClient.selectHeaderContentType("application/json");
-    GenericType<UpdateResponse> localVarReturnType = new GenericType<UpdateResponse>() {};
-    return apiClient.invokeAPI("IndexApi.update_0", localVarPath, "POST", new ArrayList<>(), localVarPostBody,
+    return apiClient.invokeAPI("IndexApi.update", "/update", "POST", new ArrayList<>(), updateDocumentRequest,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                null, localVarReturnType, false);
   }

@@ -2,13 +2,13 @@
 
 All URIs are relative to *http://127.0.0.1:9308*
 
-| Method | HTTP request | Description |
-|------------- | ------------- | -------------|
-| [**bulk**](IndexApi.md#bulk) | **POST** /bulk | Bulk index operations |
-| [**delete**](IndexApi.md#delete) | **POST** /delete | Delete a document in an index |
-| [**insert**](IndexApi.md#insert) | **POST** /insert | Create a new document in an index |
-| [**replace**](IndexApi.md#replace) | **POST** /replace | Replace new document in an index |
-| [**update**](IndexApi.md#update) | **POST** /update | Update a document in an index |
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**bulk**](IndexApi.md#bulk) | **POST** /json/bulk | Bulk index operations
+[**delete**](IndexApi.md#delete) | **POST** /json/delete | Delete a document in an index
+[**insert**](IndexApi.md#insert) | **POST** /json/insert | Create a new document in an index
+[**replace**](IndexApi.md#replace) | **POST** /json/replace | Replace new document in an index
+[**update**](IndexApi.md#update) | **POST** /json/update | Update a document in an index
 
 
 
@@ -35,18 +35,7 @@ The method expects a raw string as the batch in NDJSON.
   Responds with an object telling whenever any errors occured and an array with status for each operation:
   
   ```
-  {
-    'items':
-    [
-      {
-        'update':{'_index':'products','_id':1,'result':'updated'}
-      },
-      {
-        'update':{'_index':'products','_id':2,'result':'updated'}
-      }
-    ],
-    'errors':false
-  }
+  {'items':[{'update':{'_index':'products','_id':1,'result':'updated'}},{'update':{'_index':'products','_id':2,'result':'updated'}}],'errors':false}
   ```
  
 
@@ -65,12 +54,14 @@ public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://127.0.0.1:9308");
-
-        IndexApi apiInstance = new IndexApi(defaultClient);
-        String body = ["'{\"insert\": {\"index\": \"test\", \"id\": 1, \"doc\": {\"title\": \"Title 1\"}}},\\n{\"insert\": {\"index\": \"test\", \"id\": 2, \"doc\": {\"title\": \"Title 2\"}}}'"]; // String | 
+        IndexApi indexApi = new IndexApi(defaultClient);
         try {
-            BulkResponse result = apiInstance.bulk(body);
-            System.out.println(result);
+             String body = "{\"insert\": {\"index\" : \"products\", \"id\" : 3, \"doc\" : {\"title\" : \"Crossbody Bag with Tassel\", \"price\" : 19.85}}}" +"\n"+"{\"delete\":{\"index\" : \"movies\", \"id\" : 701}}"+"\n"+
+                      "{\"insert\": {\"index\" : \"products\", \"id\" : 4, \"doc\" : {\"title\" : \"microfiber sheet set\", \"price\" : 19.99}}}"+"\n"+
+                      "{\"insert\": {\"index\" : \"products\", \"id\" : 5, \"doc\" : {\"title\" : \"CPet Hair Remover Glove\", \"price\" : 7.99}}}"+"\n";         
+            BulkResponse bulkresult = indexApi.bulk(body);
+        
+            System.out.println(bulkresult);
         } catch (ApiException e) {
             System.err.println("Exception when calling IndexApi#bulk");
             System.err.println("Status code: " + e.getCode());
@@ -85,9 +76,9 @@ public class Example {
 ### Parameters
 
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **body** | **String**|  | |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | **String**|  |
 
 ### Return type
 
@@ -126,19 +117,7 @@ Example of input to delete by id:
 Example of input to delete using a query:
 
   ```
-  {
-    'index':'movies',
-    'query':
-    {
-      'bool':
-      {
-        'must':
-        [
-          {'query_string':'new movie'}
-        ]
-      }
-    }
-  }
+  {'index':'movies','query':{'bool':{'must':[{'query_string':'new movie'}]}}}
   ```
 
 The match query has same syntax as in for searching.
@@ -164,11 +143,17 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://127.0.0.1:9308");
 
-        IndexApi apiInstance = new IndexApi(defaultClient);
-        DeleteDocumentRequest deleteDocumentRequest = new DeleteDocumentRequest(); // DeleteDocumentRequest | 
+        IndexApi indexApi = new IndexApi(defaultClient);
+
         try {
-            DeleteResponse result = apiInstance.delete(deleteDocumentRequest);
-            System.out.println(result);
+            DeleteDocumentRequest deleteRequest = new DeleteDocumentRequest();
+            query = new HashMap<String,Object>();
+            query.put("match",new HashMap<String,Object>(){{
+                put("*","dummy");
+            }});
+            deleteRequest.index("products").setQuery(query); 
+            Oject result = indexApi.delete(deleteRequest);
+            System.out.println(result);      
         } catch (ApiException e) {
             System.err.println("Exception when calling IndexApi#delete");
             System.err.println("Status code: " + e.getCode());
@@ -183,9 +168,9 @@ public class Example {
 ### Parameters
 
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **deleteDocumentRequest** | [**DeleteDocumentRequest**](DeleteDocumentRequest.md)|  | |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **deleteDocumentRequest** | [**DeleteDocumentRequest**](DeleteDocumentRequest.md)|  |
 
 ### Return type
 
@@ -217,42 +202,13 @@ Insert a document.
 Expects an object like:
  
   ```
-  {
-    'index':'movies',
-    'id':701,
-    'doc':
-    {
-      'title':'This is an old movie',
-      'plot':'A secret team goes to North Pole',
-      'year':1950,
-      'rating':9.5,
-      'lat':60.4,
-      'lon':51.99,
-      'advise':'PG-13',
-      'meta':'{"keywords":{"travel","ice"},"genre":{"adventure"}}',
-      'language':[2,3]
-    }
-  }
+  {'index':'movies','id':701,'doc':{'title':'This is an old movie','plot':'A secret team goes to North Pole','year':1950,'rating':9.5,'lat':60.4,'lon':51.99,'advise':'PG-13','meta':'{"keywords":{"travel","ice"},"genre":{"adventure"}}','language':[2,3]}}
   ```
  
 The document id can also be missing, in which case an autogenerated one will be used:
          
   ```
-  {
-    'index':'movies',
-    'doc':
-    {
-      'title':'This is a new movie',
-      'plot':'A secret team goes to North Pole',
-      'year':2020,
-      'rating':9.5,
-      'lat':60.4,
-      'lon':51.99,
-      'advise':'PG-13',
-      'meta':'{"keywords":{"travel","ice"},"genre":{"adventure"}}',
-      'language':[2,3]
-    }
-  }
+  {'index':'movies','doc':{'title':'This is a new movie','plot':'A secret team goes to North Pole','year':2020,'rating':9.5,'lat':60.4,'lon':51.99,'advise':'PG-13','meta':'{"keywords":{"travel","ice"},"genre":{"adventure"}}','language':[2,3]}}
   ```
  
 It responds with an object in format:
@@ -277,10 +233,15 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://127.0.0.1:9308");
 
-        IndexApi apiInstance = new IndexApi(defaultClient);
-        InsertDocumentRequest insertDocumentRequest = new InsertDocumentRequest(); // InsertDocumentRequest | 
+        IndexApi indexApi = new IndexApi(defaultClient);
         try {
-            SuccessResponse result = apiInstance.insert(insertDocumentRequest);
+            InsertDocumentRequest newdoc = new InsertDocumentRequest();
+            HashMap<String,Object> doc = new HashMap<String,Object>(){{
+                put("title","first");
+                put("tags1",new int[] {4,2,1,3});
+            }};
+            newdoc.index("products").id(1L).setDoc(doc); 
+            Object result = indexApi.insert(newdoc);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling IndexApi#insert");
@@ -296,9 +257,9 @@ public class Example {
 ### Parameters
 
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **insertDocumentRequest** | [**InsertDocumentRequest**](InsertDocumentRequest.md)|  | |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **insertDocumentRequest** | [**InsertDocumentRequest**](InsertDocumentRequest.md)|  |
 
 ### Return type
 
@@ -349,11 +310,16 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://127.0.0.1:9308");
 
-        IndexApi apiInstance = new IndexApi(defaultClient);
-        InsertDocumentRequest insertDocumentRequest = new InsertDocumentRequest(); // InsertDocumentRequest | 
+        IndexApi indexApi = new IndexApi(defaultClient);
+
         try {
-            SuccessResponse result = apiInstance.replace(insertDocumentRequest);
-            System.out.println(result);
+            InsertDocumentRequest docRequest = new InsertDocumentRequest();
+            doc = new HashMap<String,Object>(){{
+                put("title","document one");
+                put("price",10);
+            }};
+            docRequest.index("products").id(1L).setDoc(doc); 
+            Object result = indexApi.replace(docRequest);
         } catch (ApiException e) {
             System.err.println("Exception when calling IndexApi#replace");
             System.err.println("Status code: " + e.getCode());
@@ -368,9 +334,9 @@ public class Example {
 ### Parameters
 
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **insertDocumentRequest** | [**InsertDocumentRequest**](InsertDocumentRequest.md)|  | |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **insertDocumentRequest** | [**InsertDocumentRequest**](InsertDocumentRequest.md)|  |
 
 ### Return type
 
@@ -408,20 +374,7 @@ The update can be made by passing the id or by using a match query in case multi
 And update by using a match query:
 
   ```
-  {
-    'index':'movies',
-    'doc':{'rating':9.49},
-    'query':
-    {
-      'bool':
-      {
-        'must':
-        [
-          {'query_string':'new movie'}
-        ]
-      }
-    }
-  }
+  {'index':'movies','doc':{'rating':9.49},'query':{'bool':{'must':[{'query_string':'new movie'}]}}}
   ``` 
 
 The match query has same syntax as for searching.
@@ -447,11 +400,15 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://127.0.0.1:9308");
 
-        IndexApi apiInstance = new IndexApi(defaultClient);
-        UpdateDocumentRequest updateDocumentRequest = new UpdateDocumentRequest(); // UpdateDocumentRequest | 
+        IndexApi indexApi = new IndexApi(defaultClient);
+        
         try {
-            UpdateResponse result = apiInstance.update(updateDocumentRequest);
-            System.out.println(result);
+            UpdateDocumentRequest updatedoc = new UpdateDocumentRequest();
+            doc = new HashMap<String,Object >(){{
+                put("price",10);
+            }};
+            updatedoc.index("products").id(1L).setDoc(doc); 
+            Object result =  indexApi.update(updatedoc);
         } catch (ApiException e) {
             System.err.println("Exception when calling IndexApi#update");
             System.err.println("Status code: " + e.getCode());
@@ -466,9 +423,9 @@ public class Example {
 ### Parameters
 
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **updateDocumentRequest** | [**UpdateDocumentRequest**](UpdateDocumentRequest.md)|  | |
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **updateDocumentRequest** | [**UpdateDocumentRequest**](UpdateDocumentRequest.md)|  |
 
 ### Return type
 

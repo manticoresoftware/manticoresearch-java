@@ -2,25 +2,27 @@
 
 ❗ WARNING: this is a development version of the client. The latest release's readme is https://github.com/manticoresoftware/manticoresearch-java/tree/5.0.0
 
+Manticore Search Client
+
 - API version: 5.0.0
 
-- Build date: 2024-02-22T08:36:02.662182043Z[Etc/UTC]
+- Build date: 2024-10-25T12:46:50.106840837Z[Etc/UTC]
 
 Сlient for Manticore Search.
+
 
 ## Requirements
 
 Building the API client library requires:
 
-1. Java 17+
+1. Java 1.8+
 2. Maven/Gradle
 
 | Manticore Search  | manticoresearch-java    |
 | ----------------- | ----------------------- |
-| dev               | manticoresearch-dev     |
+| >= 6.3.6          | >= 5.0.x                |
 | >= 6.2.0          | >= 3.3.1                |
 | >= 2.5.1          | >= 2.0.2                |
-
 
 ## Installation
 
@@ -45,8 +47,8 @@ Add this dependency to your project's POM:
 ```xml
 <dependency>
   <groupId>com.manticoresearch</groupId>
-  <artifactId>manticoresearch-dev</artifactId>
-  <version>5.0.1</version>
+  <artifactId>manticoresearch</artifactId>
+  <version>5.0.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -96,11 +98,8 @@ public class ApiExample {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://127.0.0.1:9308");
         
-        UtilsApi utilsApi = new UtilsApi(defaultClient);
-        utilsApi.sql("CREATE TABLE IF NOT EXISTS test (title text)", true);
-    	
         IndexApi apiInstance = new IndexApi(defaultClient);
-        String body = "{\"insert\": {\"index\": \"test\", \"id\": 1, \"doc\": {\"title\": \"Title 1\"}}}\n{\"insert\": {\"index\": \"test\", \"id\": 2, \"doc\": {\"title\": \"Title 2\"}}}\n"; 
+        String body = "body_example"; // String | 
         try {
             BulkResponse result = apiInstance.bulk(body);
             System.out.println(result);
@@ -112,14 +111,17 @@ public class ApiExample {
             e.printStackTrace();
         }
         
-        SearchApi searchApi = new SearchApi(defaultClient);
+        SearchApi searchApi = new SearchApi(client);
         try {
             // Create SearchRequest
-            SearchRequest searchRequest = new SearchRequest();
-            searchRequest.setIndex("test");
-            QueryFilter queryFilter = new QueryFilter();
-			queryFilter.setQueryString("Title 1");								
-			searchRequest.setFulltextFilter(queryFilter);
+            BasicSearchRequest basicSearchRequest = new BasicSearchRequest();
+            basicSearchRequest.setIndex("test");
+
+            QueryStringFilter queryStringFilter = new QueryStringFilter();
+            queryStringFilter.setQueryString("Title 1");
+            basicSearchRequest.setQuery(new QueryFilter( new FulltextFilter(queryStringFilter) ));
+
+            SearchRequest searchRequest = new SearchRequest(basicSearchRequest);
 			
 			// Perform a search
 			SearchResponse searchResponse = searchApi.search(searchRequest);
@@ -145,9 +147,9 @@ Class | Method | HTTP request | Description
 *IndexApi* | [**bulk**](docs/IndexApi.md#bulk) | **POST** /bulk | Bulk index operations
 *IndexApi* | [**delete**](docs/IndexApi.md#delete) | **POST** /delete | Delete a document in an index
 *IndexApi* | [**insert**](docs/IndexApi.md#insert) | **POST** /insert | Create a new document in an index
+*IndexApi* | [**partialReplace**](docs/IndexApi.md#partialReplace) | **POST** /{index}/_update/{id} | Partially replaces a document in an index
 *IndexApi* | [**replace**](docs/IndexApi.md#replace) | **POST** /replace | Replace new document in an index
 *IndexApi* | [**update**](docs/IndexApi.md#update) | **POST** /update | Update a document in an index
-*IndexApi* | [**update_0**](docs/IndexApi.md#update_0) | **POST** /{index}/_update/{id} | Partially replaces a document in an index
 *SearchApi* | [**percolate**](docs/SearchApi.md#percolate) | **POST** /pq/{index}/search | Perform reverse search on a percolate index
 *SearchApi* | [**search**](docs/SearchApi.md#search) | **POST** /search | Performs a search on an index
 *UtilsApi* | [**sql**](docs/UtilsApi.md#sql) | **POST** /sql | Perform SQL requests
@@ -155,51 +157,41 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Models
 
+ - [AggComposite](docs/AggComposite.md)
+ - [AggCompositeSource](docs/AggCompositeSource.md)
+ - [AggCompositeTerm](docs/AggCompositeTerm.md)
+ - [AggTerms](docs/AggTerms.md)
  - [Aggregation](docs/Aggregation.md)
- - [AggregationComposite](docs/AggregationComposite.md)
- - [AggregationCompositeSourcesInnerValue](docs/AggregationCompositeSourcesInnerValue.md)
- - [AggregationCompositeSourcesInnerValueTerms](docs/AggregationCompositeSourcesInnerValueTerms.md)
- - [AggregationSortInnerValue](docs/AggregationSortInnerValue.md)
- - [AggregationTerms](docs/AggregationTerms.md)
  - [BoolFilter](docs/BoolFilter.md)
  - [BulkResponse](docs/BulkResponse.md)
  - [DeleteDocumentRequest](docs/DeleteDocumentRequest.md)
  - [DeleteResponse](docs/DeleteResponse.md)
- - [EqualsFilter](docs/EqualsFilter.md)
  - [ErrorResponse](docs/ErrorResponse.md)
- - [Facet](docs/Facet.md)
- - [FilterBoolean](docs/FilterBoolean.md)
- - [FilterNumber](docs/FilterNumber.md)
- - [FilterString](docs/FilterString.md)
- - [GeoDistanceFilter](docs/GeoDistanceFilter.md)
- - [GeoDistanceFilterLocationAnchor](docs/GeoDistanceFilterLocationAnchor.md)
+ - [FulltextFilter](docs/FulltextFilter.md)
+ - [GeoDistance](docs/GeoDistance.md)
+ - [GeoDistanceLocationAnchor](docs/GeoDistanceLocationAnchor.md)
  - [Highlight](docs/Highlight.md)
- - [HighlightField](docs/HighlightField.md)
- - [InFilter](docs/InFilter.md)
+ - [HighlightFieldOption](docs/HighlightFieldOption.md)
  - [InsertDocumentRequest](docs/InsertDocumentRequest.md)
- - [KnnQueryByDocId](docs/KnnQueryByDocId.md)
- - [KnnQueryByVector](docs/KnnQueryByVector.md)
- - [MatchFilter](docs/MatchFilter.md)
- - [MatchOp](docs/MatchOp.md)
- - [MatchOpFilter](docs/MatchOpFilter.md)
- - [MatchPhraseFilter](docs/MatchPhraseFilter.md)
- - [NotFilterBoolean](docs/NotFilterBoolean.md)
- - [NotFilterNumber](docs/NotFilterNumber.md)
- - [NotFilterString](docs/NotFilterString.md)
+ - [Join](docs/Join.md)
+ - [JoinCond](docs/JoinCond.md)
+ - [JoinOn](docs/JoinOn.md)
+ - [KnnQuery](docs/KnnQuery.md)
+ - [Match](docs/Match.md)
+ - [MatchAll](docs/MatchAll.md)
  - [PercolateRequest](docs/PercolateRequest.md)
  - [PercolateRequestQuery](docs/PercolateRequestQuery.md)
  - [QueryFilter](docs/QueryFilter.md)
- - [RangeFilter](docs/RangeFilter.md)
- - [RangeFilterValue](docs/RangeFilterValue.md)
+ - [Range](docs/Range.md)
  - [ReplaceDocumentRequest](docs/ReplaceDocumentRequest.md)
+ - [ResponseError](docs/ResponseError.md)
+ - [ResponseErrorDetails](docs/ResponseErrorDetails.md)
+ - [SearchQuery](docs/SearchQuery.md)
  - [SearchRequest](docs/SearchRequest.md)
- - [SearchRequestKnn](docs/SearchRequestKnn.md)
  - [SearchResponse](docs/SearchResponse.md)
  - [SearchResponseHits](docs/SearchResponseHits.md)
- - [SortMVA](docs/SortMVA.md)
- - [SortMultiple](docs/SortMultiple.md)
- - [SortOrder](docs/SortOrder.md)
- - [SourceByRules](docs/SourceByRules.md)
+ - [SourceRules](docs/SourceRules.md)
+ - [SqlResponse](docs/SqlResponse.md)
  - [SuccessResponse](docs/SuccessResponse.md)
  - [UpdateDocumentRequest](docs/UpdateDocumentRequest.md)
  - [UpdateResponse](docs/UpdateResponse.md)

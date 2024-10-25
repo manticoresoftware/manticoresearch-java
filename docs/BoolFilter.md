@@ -2,18 +2,14 @@
 
 # BoolFilter
 
-Boolean attribute filter
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**should** | **List&lt;Object&gt;** |  |  [optional] |
-|**must** | **List&lt;Object&gt;** |  |  [optional] |
-|**mustNot** | **List&lt;Object&gt;** |  |  [optional] |
-
-[[Using in search requests]](SearchRequest.md#BoolFilter)
-
+|**must** | [**List&lt;QueryFilter&gt;**](QueryFilter.md) | Query clauses that must match for the document to be included |  [optional] |
+|**mustNot** | [**List&lt;QueryFilter&gt;**](QueryFilter.md) | Query clauses that must not match for the document to be included |  [optional] |
+|**should** | [**List&lt;QueryFilter&gt;**](QueryFilter.md) | Query clauses that should be matched, but are not required |  [optional] |
 
 
 
