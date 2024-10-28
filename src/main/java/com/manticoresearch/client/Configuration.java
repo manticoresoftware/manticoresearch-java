@@ -13,7 +13,7 @@
 
 package com.manticoresearch.client;
 
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-28T12:56:08.804080940Z[Etc/UTC]", comments = "Generator version: 7.3.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-28T13:38:57.134300935Z[Etc/UTC]", comments = "Generator version: 7.3.0-SNAPSHOT")
 public class Configuration {
     public static final String VERSION = "6.0.0";
 

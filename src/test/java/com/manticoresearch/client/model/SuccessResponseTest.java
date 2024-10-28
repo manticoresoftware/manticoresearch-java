@@ -47,6 +47,14 @@ public class SuccessResponseTest {
     }
 
     /**
+     * Test the property 'table'
+     */
+    @Test
+    public void tableTest() {
+        // TODO: test table
+    }
+
+    /**
      * Test the property 'id'
      */
     @Test

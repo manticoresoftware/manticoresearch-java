@@ -31,6 +31,7 @@ import com.manticoresearch.client.JSON;
  */
 @JsonPropertyOrder({
   SuccessResponse.JSON_PROPERTY_INDEX,
+  SuccessResponse.JSON_PROPERTY_TABLE,
   SuccessResponse.JSON_PROPERTY_ID,
   SuccessResponse.JSON_PROPERTY_CREATED,
   SuccessResponse.JSON_PROPERTY_RESULT,
@@ -38,10 +39,13 @@ import com.manticoresearch.client.JSON;
   SuccessResponse.JSON_PROPERTY_STATUS
 })
 @JsonTypeName("successResponse")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-28T12:56:08.804080940Z[Etc/UTC]", comments = "Generator version: 7.3.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-28T13:38:57.134300935Z[Etc/UTC]", comments = "Generator version: 7.3.0-SNAPSHOT")
 public class SuccessResponse {
   public static final String JSON_PROPERTY_INDEX = "_index";
   private String index;
+
+  public static final String JSON_PROPERTY_TABLE = "table";
+  private String table;
 
   public static final String JSON_PROPERTY_ID = "_id";
   private Long id;
@@ -83,6 +87,31 @@ public class SuccessResponse {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIndex(String index) {
     this.index = index;
+  }
+
+
+  public SuccessResponse table(String table) {
+    this.table = table;
+    return this;
+  }
+
+  /**
+   * Name of the document table (alias of index)
+   * @return table
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TABLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getTable() {
+    return table;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_TABLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTable(String table) {
+    this.table = table;
   }
 
 
@@ -224,6 +253,7 @@ public class SuccessResponse {
     }
     SuccessResponse successResponse = (SuccessResponse) o;
     return Objects.equals(this.index, successResponse.index) &&
+        Objects.equals(this.table, successResponse.table) &&
         Objects.equals(this.id, successResponse.id) &&
         Objects.equals(this.created, successResponse.created) &&
         Objects.equals(this.result, successResponse.result) &&
@@ -233,7 +263,7 @@ public class SuccessResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(index, id, created, result, found, status);
+    return Objects.hash(index, table, id, created, result, found, status);
   }
 
   @Override
@@ -241,6 +271,7 @@ public class SuccessResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class SuccessResponse {\n");
     sb.append("    index: ").append(toIndentedString(index)).append("\n");
+    sb.append("    table: ").append(toIndentedString(table)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    created: ").append(toIndentedString(created)).append("\n");
     sb.append("    result: ").append(toIndentedString(result)).append("\n");
