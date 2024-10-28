@@ -13,7 +13,7 @@
 
 package com.manticoresearch.client;
 
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-28T07:04:51.268969530Z[Etc/UTC]", comments = "Generator version: 7.3.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-28T12:56:08.804080940Z[Etc/UTC]", comments = "Generator version: 7.3.0-SNAPSHOT")
 public class Pair {
     private String name = "";
     private String value = "";

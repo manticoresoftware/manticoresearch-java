@@ -47,25 +47,25 @@ import com.manticoresearch.client.JSON;
   QueryFilter.JSON_PROPERTY_GEO_DISTANCE
 })
 @JsonTypeName("queryFilter")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-28T07:04:51.268969530Z[Etc/UTC]", comments = "Generator version: 7.3.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-28T12:56:08.804080940Z[Etc/UTC]", comments = "Generator version: 7.3.0-SNAPSHOT")
 public class QueryFilter {
   public static final String JSON_PROPERTY_QUERY_STRING = "query_string";
-  private JsonNullable<Object> queryString = JsonNullable.<Object>of(null);
+  private JsonNullable<Object> queryString = JsonNullable.<Object>undefined();
 
   public static final String JSON_PROPERTY_MATCH = "match";
-  private JsonNullable<Object> match = JsonNullable.<Object>of(null);
+  private JsonNullable<Object> match = JsonNullable.<Object>undefined();
 
   public static final String JSON_PROPERTY_MATCH_PHRASE = "match_phrase";
-  private JsonNullable<Object> matchPhrase = JsonNullable.<Object>of(null);
+  private JsonNullable<Object> matchPhrase = JsonNullable.<Object>undefined();
 
   public static final String JSON_PROPERTY_MATCH_ALL = "match_all";
-  private JsonNullable<Object> matchAll = JsonNullable.<Object>of(null);
+  private JsonNullable<Object> matchAll = JsonNullable.<Object>undefined();
 
   public static final String JSON_PROPERTY_BOOL = "bool";
   private BoolFilter bool;
 
   public static final String JSON_PROPERTY_EQUALS = "equals";
-  private JsonNullable<Object> equals = JsonNullable.<Object>of(null);
+  private JsonNullable<Object> equals = JsonNullable.<Object>undefined();
 
   public static final String JSON_PROPERTY_IN = "in";
   private Object in;

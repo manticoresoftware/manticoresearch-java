@@ -4,9 +4,9 @@
 
 Manticore Search Client
 
-- API version: 5.0.0
+- API version: 6.0.0
 
-- Build date: 2024-10-28T07:04:51.268969530Z[Etc/UTC]
+- Build date: 2024-10-28T12:56:08.804080940Z[Etc/UTC]
 
 Сlient for Manticore Search.
 
@@ -20,6 +20,7 @@ Building the API client library requires:
 
 | Manticore Search  | manticoresearch-java    |
 | ----------------- | ----------------------- |
+| dev               | dev     	              |
 | >= 6.3.6          | >= 5.0.x                |
 | >= 6.2.0          | >= 3.3.1                |
 | >= 2.5.1          | >= 2.0.2                |
@@ -48,7 +49,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.manticoresearch</groupId>
   <artifactId>manticoresearch</artifactId>
-  <version>5.0.0</version>
+  <version>6.0.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -64,7 +65,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.manticoresearch:manticoresearch:5.0.0"
+     implementation "com.manticoresearch:manticoresearch:6.0.0"
   }
 ```
 
@@ -78,7 +79,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-- `target/manticoresearch-5.0.0.jar`
+- `target/manticoresearch-6.0.0.jar`
 - `target/lib/*.jar`
 
 ## Getting Started
@@ -100,34 +101,33 @@ public class ApiExample {
         
         IndexApi apiInstance = new IndexApi(defaultClient);
         String body = "body_example"; // String | 
-        try {
-            BulkResponse result = apiInstance.bulk(body);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling IndexApi#bulk");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-        
+
+		# Perform insert and search operations        
         SearchApi searchApi = new SearchApi(client);
+        IndexApi indexApi = new IndexApi(client);
         try {
-            // Create SearchRequest
-            BasicSearchRequest basicSearchRequest = new BasicSearchRequest();
-            basicSearchRequest.setIndex("test");
+        	String tableName = "products";
 
-            QueryStringFilter queryStringFilter = new QueryStringFilter();
-            queryStringFilter.setQueryString("Title 1");
-            basicSearchRequest.setQuery(new QueryFilter( new FulltextFilter(queryStringFilter) ));
+			InsertDocumentRequest indexRequest = new InsertDocumentRequest();
+        	HashMap<String,Object> doc = new HashMap<String,Object>();
+        	indexRequest.index(tableName).id(1L).setDoc(doc); 
+        	indexApi.insert(indexRequest);
+        
+            Highlight highlight = new Highlight();
+			List<String> highlightFields = new ArrayList<String>();
+	    	highlightFields.add("title");
+			highlight.setFields(highlightFields);
 
-            SearchRequest searchRequest = new SearchRequest(basicSearchRequest);
-			
-			// Perform a search
+			SearchQuery query = new SearchQuery();
+			query.setQueryString("@title Bag");
+
+			SearchRequest searchRequest = new SearchRequest();
+			searchRequest.index(tableName).query(query).setHighlight(highlight);
+					
 			SearchResponse searchResponse = searchApi.search(searchRequest);
-			System.out.println( searchResponse.toString() );
+			System.out.println(searchResponse);
         } catch (ApiException e) {
-            System.err.println("Exception when calling SearchApi#search");
+            System.err.println("Exception when calling Api function");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());

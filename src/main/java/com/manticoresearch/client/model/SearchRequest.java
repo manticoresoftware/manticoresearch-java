@@ -60,7 +60,7 @@ import com.manticoresearch.client.JSON;
   SearchRequest.JSON_PROPERTY_TRACK_SCORES
 })
 @JsonTypeName("searchRequest")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-28T07:04:51.268969530Z[Etc/UTC]", comments = "Generator version: 7.3.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-28T12:56:08.804080940Z[Etc/UTC]", comments = "Generator version: 7.3.0-SNAPSHOT")
 public class SearchRequest {
   public static final String JSON_PROPERTY_INDEX = "index";
   private String index;
@@ -99,10 +99,10 @@ public class SearchRequest {
   private Boolean profile;
 
   public static final String JSON_PROPERTY_SORT = "sort";
-  private JsonNullable<Object> sort = JsonNullable.<Object>of(null);
+  private JsonNullable<Object> sort = JsonNullable.<Object>undefined();
 
   public static final String JSON_PROPERTY_SOURCE = "_source";
-  private JsonNullable<Object> source = JsonNullable.<Object>of(null);
+  private JsonNullable<Object> source = JsonNullable.<Object>undefined();
 
   public static final String JSON_PROPERTY_TRACK_SCORES = "track_scores";
   private Boolean trackScores;

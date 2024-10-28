@@ -45,13 +45,13 @@ import com.manticoresearch.client.JSON;
   GeoDistance.JSON_PROPERTY_DISTANCE
 })
 @JsonTypeName("geoDistance")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-28T07:04:51.268969530Z[Etc/UTC]", comments = "Generator version: 7.3.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-28T12:56:08.804080940Z[Etc/UTC]", comments = "Generator version: 7.3.0-SNAPSHOT")
 public class GeoDistance {
   public static final String JSON_PROPERTY_LOCATION_ANCHOR = "location_anchor";
   private GeoDistanceLocationAnchor locationAnchor;
 
   public static final String JSON_PROPERTY_LOCATION_SOURCE = "location_source";
-  private JsonNullable<Object> locationSource = JsonNullable.<Object>of(null);
+  private JsonNullable<Object> locationSource = JsonNullable.<Object>undefined();
 
   /**
    * Algorithm used to calculate the distance
@@ -89,10 +89,10 @@ public class GeoDistance {
   }
 
   public static final String JSON_PROPERTY_DISTANCE_TYPE = "distance_type";
-  private JsonNullable<DistanceTypeEnum> distanceType = JsonNullable.<DistanceTypeEnum>of(null);
+  private JsonNullable<DistanceTypeEnum> distanceType = JsonNullable.<DistanceTypeEnum>undefined();
 
   public static final String JSON_PROPERTY_DISTANCE = "distance";
-  private JsonNullable<Object> distance = JsonNullable.<Object>of(null);
+  private JsonNullable<Object> distance = JsonNullable.<Object>undefined();
 
   public GeoDistance() { 
   }
