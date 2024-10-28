@@ -39,7 +39,7 @@ import com.manticoresearch.client.JSON;
   Aggregation.JSON_PROPERTY_COMPOSITE
 })
 @JsonTypeName("aggregation")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-28T06:50:02.569821514Z[Etc/UTC]", comments = "Generator version: 7.3.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-28T07:04:51.268969530Z[Etc/UTC]", comments = "Generator version: 7.3.0-SNAPSHOT")
 public class Aggregation {
   public static final String JSON_PROPERTY_TERMS = "terms";
   private AggTerms terms;

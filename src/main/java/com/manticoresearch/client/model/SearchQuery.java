@@ -49,7 +49,7 @@ import com.manticoresearch.client.JSON;
   SearchQuery.JSON_PROPERTY_HIGHLIGHT
 })
 @JsonTypeName("searchQuery")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-28T06:50:02.569821514Z[Etc/UTC]", comments = "Generator version: 7.3.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-28T07:04:51.268969530Z[Etc/UTC]", comments = "Generator version: 7.3.0-SNAPSHOT")
 public class SearchQuery {
   public static final String JSON_PROPERTY_QUERY_STRING = "query_string";
   private JsonNullable<Object> queryString = JsonNullable.<Object>of(null);
