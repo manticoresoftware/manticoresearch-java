@@ -3,8 +3,8 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.manticoresearch</groupId>
     <artifactId>manticoresearch-dev</artifactId>
-    <packaging>jar</packaging>
     <name>manticoresearch-dev</name>
+    <packaging>jar</packaging>
     <version>6.0.0</version>
     <url>https://github.com/manticoresoftware/manticoresearch-java</url>
     <description>Client for Manticore Search</description>

@@ -13,6 +13,7 @@ Response object containing the results of a search request
 |**aggregations** | **Object** | Aggregated search results grouped by the specified criteria |  [optional] |
 |**hits** | [**SearchResponseHits**](SearchResponseHits.md) |  |  [optional] |
 |**profile** | **Object** | Profile information about the search execution, if profiling is enabled |  [optional] |
+|**scroll** | **String** | Scroll token to be used fo pagination |  [optional] |
 |**warning** | **Object** | Warnings encountered during the search operation |  [optional] |
 
 

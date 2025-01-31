@@ -80,6 +80,14 @@ public class SearchResponseTest {
     }
 
     /**
+     * Test the property 'scroll'
+     */
+    @Test
+    public void scrollTest() {
+        // TODO: test scroll
+    }
+
+    /**
      * Test the property 'warning'
      */
     @Test

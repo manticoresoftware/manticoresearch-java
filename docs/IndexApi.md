@@ -337,7 +337,6 @@ Responds with an object of the following format:
 ### Example
 
 ```java
-import java.math.BigDecimal;
 // Import classes:
 import com.manticoresearch.client.ApiClient;
 import com.manticoresearch.client.ApiException;
@@ -352,7 +351,7 @@ public class Example {
 
         IndexApi apiInstance = new IndexApi(defaultClient);
         String index = "index_example"; // String | Name of the percolate index
-        BigDecimal id = new BigDecimal(78); // BigDecimal | Id of the document to replace
+        Long id = 56L; // Long | Id of the document to replace
         ReplaceDocumentRequest replaceDocumentRequest = new ReplaceDocumentRequest(); // ReplaceDocumentRequest | 
         try {
             UpdateResponse result = apiInstance.partialReplace(index, id, replaceDocumentRequest);
@@ -374,7 +373,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **index** | **String**| Name of the percolate index | |
-| **id** | **BigDecimal**| Id of the document to replace | |
+| **id** | **Long**| Id of the document to replace | |
 | **replaceDocumentRequest** | [**ReplaceDocumentRequest**](ReplaceDocumentRequest.md)|  | |
 
 ### Return type

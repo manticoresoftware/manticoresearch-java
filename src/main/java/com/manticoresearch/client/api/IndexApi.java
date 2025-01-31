@@ -8,7 +8,6 @@ import com.manticoresearch.client.Pair;
 
 import jakarta.ws.rs.core.GenericType;
 
-import java.math.BigDecimal;
 import com.manticoresearch.client.model.BulkResponse;
 import com.manticoresearch.client.model.DeleteDocumentRequest;
 import com.manticoresearch.client.model.DeleteResponse;
@@ -25,7 +24,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-28T14:26:41.232179329Z[Etc/UTC]", comments = "Generator version: 7.3.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-01-31T13:59:29.723520242Z[Etc/UTC]", comments = "Generator version: 7.3.0-SNAPSHOT")
 public class IndexApi {
   private ApiClient apiClient;
 
@@ -213,7 +212,7 @@ public class IndexApi {
    * 
    * @see <a href="https://manual.manticoresearch.com/Updating_documents/REPLACE#JSON-REPLACE">Partially replaces a document in an index Documentation</a>
    */
-  public UpdateResponse partialReplace(String index, BigDecimal id, ReplaceDocumentRequest replaceDocumentRequest) throws ApiException {
+  public UpdateResponse partialReplace(String index, Long id, ReplaceDocumentRequest replaceDocumentRequest) throws ApiException {
     return partialReplaceWithHttpInfo(index, id, replaceDocumentRequest).getData();
   }
 
@@ -234,7 +233,7 @@ public class IndexApi {
    * 
    * @see <a href="https://manual.manticoresearch.com/Updating_documents/REPLACE#JSON-REPLACE">Partially replaces a document in an index Documentation</a>
    */
-  public ApiResponse<UpdateResponse> partialReplaceWithHttpInfo(String index, BigDecimal id, ReplaceDocumentRequest replaceDocumentRequest) throws ApiException {
+  public ApiResponse<UpdateResponse> partialReplaceWithHttpInfo(String index, Long id, ReplaceDocumentRequest replaceDocumentRequest) throws ApiException {
     // Check required parameters
     if (index == null) {
       throw new ApiException(400, "Missing the required parameter 'index' when calling partialReplace");

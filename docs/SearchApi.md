@@ -15,68 +15,50 @@ All URIs are relative to *http://127.0.0.1:9308*
 
 Perform reverse search on a percolate index
 
-Performs a percolate search. 
-This method must be used only on percolate indexes.
-
-Expects two parameters: the index name and an object with array of documents to be tested.
-An example of the documents object:
-
-  ```
-  {
-    "query":
-    {
-      "percolate":
-      {
-        "document":
-        {
-          "content":"sample content"
-        }
-      }
-    }
-  }
-  ```
-
-Responds with an object with matched stored queries: 
-
-  ```
-  {
-    'timed_out':false,
-    'hits':
-    {
-      'total':2,
-      'max_score':1,
-      'hits':
-      [
-        {
-          '_index':'idx_pq_1',
-          '_type':'doc',
-          '_id':'2',
-          '_score':'1',
-          '_source':
-          {
-            'query':
-            {
-              'match':{'title':'some'}
-            }
-          }
-        },
-        {
-          '_index':'idx_pq_1',
-          '_type':'doc',
-          '_id':'5',
-          '_score':'1',
-          '_source':
-          {
-            'query':
-            {
-              'ql':'some | none'
-            }
-          }
-        }
-      ]
-    }
-  }
-  ```
+Performs a percolate search. <br><br>
+This method must be used only on percolate indexes. <br>
+Expects two parameters: the index name and an object with array of documents to be tested. <br> <br> An example of the documents object: <br>
+  { <br>
+  &nbsp;&nbsp;"query" {<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;"percolate": {<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"document": { <br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"content":"sample content" <br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} <br>
+  &nbsp;&nbsp;&nbsp;&nbsp;} <br>
+  &nbsp;&nbsp;} <br>
+  } <br>
+<br> Responds with an object with matched stored queries:  <br>
+  { <br>
+  &nbsp;&nbsp;'timed_out':false, <br>
+  &nbsp;&nbsp;'hits': { <br>
+  &nbsp;&nbsp;&nbsp;&nbsp;'total':2, <br>
+  &nbsp;&nbsp;&nbsp;&nbsp;'max_score':1, <br>
+  &nbsp;&nbsp;&nbsp;&nbsp;'hits': [ <br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; { <br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; '_index':'idx_pq_1', <br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; '_type':'doc', <br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; '_id':'2', <br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; '_score':'1', <br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; '_source': { <br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'query': { <br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'match':{'title':'some'} <br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} <br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } <br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }, <br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; { <br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; '_index':'idx_pq_1', <br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; '_type':'doc', <br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; '_id':'5', <br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; '_score':'1', <br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; '_source': { <br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'query': { <br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'ql':'some | none' <br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } <br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } <br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } <br>
+  &nbsp;&nbsp;&nbsp;&nbsp; ] <br>
+  &nbsp;&nbsp; } <br>
+  } <br>
 
 
 ### Example
@@ -158,7 +140,7 @@ The method returns an object with the following properties:
      - _score: the score of the matched document.
      - _source: the source data of the matched document.
 
-In addition, if profiling is enabled, the response will include an additional array with profiling information attached.
+In addition, if profiling is enabled, the response will include an additional array with profiling information attached. Also, if pagination is enabled, the response will include an additional 'scroll' property with a scroll token to use for pagination
 Here is an example search response:
 
   ```

@@ -36,10 +36,11 @@ import com.manticoresearch.client.JSON;
   SearchResponse.JSON_PROPERTY_AGGREGATIONS,
   SearchResponse.JSON_PROPERTY_HITS,
   SearchResponse.JSON_PROPERTY_PROFILE,
+  SearchResponse.JSON_PROPERTY_SCROLL,
   SearchResponse.JSON_PROPERTY_WARNING
 })
 @JsonTypeName("searchResponse")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-28T14:26:41.232179329Z[Etc/UTC]", comments = "Generator version: 7.3.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-01-31T13:59:29.723520242Z[Etc/UTC]", comments = "Generator version: 7.3.0-SNAPSHOT")
 public class SearchResponse {
   public static final String JSON_PROPERTY_TOOK = "took";
   private Integer took;
@@ -55,6 +56,9 @@ public class SearchResponse {
 
   public static final String JSON_PROPERTY_PROFILE = "profile";
   private Object profile;
+
+  public static final String JSON_PROPERTY_SCROLL = "scroll";
+  private String scroll;
 
   public static final String JSON_PROPERTY_WARNING = "warning";
   private Object warning;
@@ -187,6 +191,31 @@ public class SearchResponse {
   }
 
 
+  public SearchResponse scroll(String scroll) {
+    this.scroll = scroll;
+    return this;
+  }
+
+  /**
+   * Scroll token to be used fo pagination
+   * @return scroll
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SCROLL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getScroll() {
+    return scroll;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SCROLL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setScroll(String scroll) {
+    this.scroll = scroll;
+  }
+
+
   public SearchResponse warning(Object warning) {
     this.warning = warning;
     return this;
@@ -229,12 +258,13 @@ public class SearchResponse {
         Objects.equals(this.aggregations, searchResponse.aggregations) &&
         Objects.equals(this.hits, searchResponse.hits) &&
         Objects.equals(this.profile, searchResponse.profile) &&
+        Objects.equals(this.scroll, searchResponse.scroll) &&
         Objects.equals(this.warning, searchResponse.warning);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(took, timedOut, aggregations, hits, profile, warning);
+    return Objects.hash(took, timedOut, aggregations, hits, profile, scroll, warning);
   }
 
   @Override
@@ -246,6 +276,7 @@ public class SearchResponse {
     sb.append("    aggregations: ").append(toIndentedString(aggregations)).append("\n");
     sb.append("    hits: ").append(toIndentedString(hits)).append("\n");
     sb.append("    profile: ").append(toIndentedString(profile)).append("\n");
+    sb.append("    scroll: ").append(toIndentedString(scroll)).append("\n");
     sb.append("    warning: ").append(toIndentedString(warning)).append("\n");
     sb.append("}");
     return sb.toString();
