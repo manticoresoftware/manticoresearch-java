@@ -10,7 +10,7 @@ jobs:
     needs: [test]
     runs-on: ubuntu-22.04
     env:
-      MVNSETTINGS: ${{ secrets.MVNSETTINGS }}
+      MVNSETTINGS: ${{ secrets.MVNSETTINGS_NEW }}
       PRIVATEKEY: ${{ secrets.PRIVATEKEY }}
       GPGKEY: ${{ secrets.GPGKEY }}
     strategy:
