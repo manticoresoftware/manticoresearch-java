@@ -38,7 +38,7 @@ import com.manticoresearch.client.JSON;
   BoolFilter.JSON_PROPERTY_SHOULD
 })
 @JsonTypeName("boolFilter")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-01-31T13:59:29.723520242Z[Etc/UTC]", comments = "Generator version: 7.3.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-03T11:48:40.720533039Z[Etc/UTC]", comments = "Generator version: 7.3.0-SNAPSHOT")
 public class BoolFilter {
   public static final String JSON_PROPERTY_MUST = "must";
   private List<QueryFilter> must;
