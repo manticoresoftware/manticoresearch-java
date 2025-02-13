@@ -43,7 +43,7 @@ import com.manticoresearch.client.JSON;
  * Request object for search operation
  */
 @JsonPropertyOrder({
-  SearchRequest.JSON_PROPERTY_INDEX,
+  SearchRequest.JSON_PROPERTY_TABLE,
   SearchRequest.JSON_PROPERTY_QUERY,
   SearchRequest.JSON_PROPERTY_JOIN,
   SearchRequest.JSON_PROPERTY_HIGHLIGHT,
@@ -60,10 +60,10 @@ import com.manticoresearch.client.JSON;
   SearchRequest.JSON_PROPERTY_TRACK_SCORES
 })
 @JsonTypeName("searchRequest")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-01-31T13:59:29.723520242Z[Etc/UTC]", comments = "Generator version: 7.3.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-13T13:30:48.201544819Z[Etc/UTC]", comments = "Generator version: 7.3.0-SNAPSHOT")
 public class SearchRequest {
-  public static final String JSON_PROPERTY_INDEX = "index";
-  private String index;
+  public static final String JSON_PROPERTY_TABLE = "table";
+  private String table;
 
   public static final String JSON_PROPERTY_QUERY = "query";
   private SearchQuery query;
@@ -110,28 +110,28 @@ public class SearchRequest {
   public SearchRequest() { 
   }
 
-  public SearchRequest index(String index) {
-    this.index = index;
+  public SearchRequest table(String table) {
+    this.table = table;
     return this;
   }
 
   /**
-   * The index to perform the search on
-   * @return index
+   * The table to perform the search on
+   * @return table
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_INDEX)
+  @JsonProperty(JSON_PROPERTY_TABLE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public String getIndex() {
-    return index;
+  public String getTable() {
+    return table;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_INDEX)
+  @JsonProperty(JSON_PROPERTY_TABLE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIndex(String index) {
-    this.index = index;
+  public void setTable(String table) {
+    this.table = table;
   }
 
 
@@ -537,7 +537,7 @@ public class SearchRequest {
       return false;
     }
     SearchRequest searchRequest = (SearchRequest) o;
-    return Objects.equals(this.index, searchRequest.index) &&
+    return Objects.equals(this.table, searchRequest.table) &&
         Objects.equals(this.query, searchRequest.query) &&
         Objects.equals(this.join, searchRequest.join) &&
         Objects.equals(this.highlight, searchRequest.highlight) &&
@@ -560,7 +560,7 @@ public class SearchRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(index, query, join, highlight, limit, knn, hashCodeNullable(aggs), hashCodeNullable(expressions), maxMatches, offset, options, profile, hashCodeNullable(sort), hashCodeNullable(source), trackScores);
+    return Objects.hash(table, query, join, highlight, limit, knn, hashCodeNullable(aggs), hashCodeNullable(expressions), maxMatches, offset, options, profile, hashCodeNullable(sort), hashCodeNullable(source), trackScores);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -574,7 +574,7 @@ public class SearchRequest {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SearchRequest {\n");
-    sb.append("    index: ").append(toIndentedString(index)).append("\n");
+    sb.append("    table: ").append(toIndentedString(table)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
     sb.append("    join: ").append(toIndentedString(join)).append("\n");
     sb.append("    highlight: ").append(toIndentedString(highlight)).append("\n");

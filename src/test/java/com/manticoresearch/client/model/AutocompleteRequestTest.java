@@ -18,44 +18,32 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.manticoresearch.client.model.FulltextFilter;
-import com.manticoresearch.client.model.JoinOn;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for Join
+ * Model tests for AutocompleteRequest
  */
-public class JoinTest {
-    private final Join model = new Join();
+public class AutocompleteRequestTest {
+    private final AutocompleteRequest model = new AutocompleteRequest();
 
     /**
-     * Model tests for Join
+     * Model tests for AutocompleteRequest
      */
     @Test
-    public void testJoin() {
-        // TODO: test Join
+    public void testAutocompleteRequest() {
+        // TODO: test AutocompleteRequest
     }
 
     /**
-     * Test the property 'type'
+     * Test the property 'table'
      */
     @Test
-    public void typeTest() {
-        // TODO: test type
-    }
-
-    /**
-     * Test the property 'on'
-     */
-    @Test
-    public void onTest() {
-        // TODO: test on
+    public void tableTest() {
+        // TODO: test table
     }
 
     /**
@@ -67,11 +55,11 @@ public class JoinTest {
     }
 
     /**
-     * Test the property 'table'
+     * Test the property 'options'
      */
     @Test
-    public void tableTest() {
-        // TODO: test table
+    public void optionsTest() {
+        // TODO: test options
     }
 
 }

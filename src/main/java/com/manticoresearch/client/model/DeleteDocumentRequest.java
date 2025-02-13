@@ -30,16 +30,16 @@ import com.manticoresearch.client.JSON;
  * Payload for delete request. Documents can be deleted either one by one by specifying the document id or by providing a query object. For more information see  [Delete API](https://manual.manticoresearch.com/Deleting_documents) 
  */
 @JsonPropertyOrder({
-  DeleteDocumentRequest.JSON_PROPERTY_INDEX,
+  DeleteDocumentRequest.JSON_PROPERTY_TABLE,
   DeleteDocumentRequest.JSON_PROPERTY_CLUSTER,
   DeleteDocumentRequest.JSON_PROPERTY_ID,
   DeleteDocumentRequest.JSON_PROPERTY_QUERY
 })
 @JsonTypeName("deleteDocumentRequest")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-01-31T13:59:29.723520242Z[Etc/UTC]", comments = "Generator version: 7.3.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-13T13:30:48.201544819Z[Etc/UTC]", comments = "Generator version: 7.3.0-SNAPSHOT")
 public class DeleteDocumentRequest {
-  public static final String JSON_PROPERTY_INDEX = "index";
-  private String index;
+  public static final String JSON_PROPERTY_TABLE = "table";
+  private String table;
 
   public static final String JSON_PROPERTY_CLUSTER = "cluster";
   private String cluster;
@@ -53,28 +53,28 @@ public class DeleteDocumentRequest {
   public DeleteDocumentRequest() { 
   }
 
-  public DeleteDocumentRequest index(String index) {
-    this.index = index;
+  public DeleteDocumentRequest table(String table) {
+    this.table = table;
     return this;
   }
 
   /**
-   * Index name
-   * @return index
+   * Table name
+   * @return table
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_INDEX)
+  @JsonProperty(JSON_PROPERTY_TABLE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public String getIndex() {
-    return index;
+  public String getTable() {
+    return table;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_INDEX)
+  @JsonProperty(JSON_PROPERTY_TABLE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIndex(String index) {
-    this.index = index;
+  public void setTable(String table) {
+    this.table = table;
   }
 
 
@@ -165,7 +165,7 @@ public class DeleteDocumentRequest {
       return false;
     }
     DeleteDocumentRequest deleteDocumentRequest = (DeleteDocumentRequest) o;
-    return Objects.equals(this.index, deleteDocumentRequest.index) &&
+    return Objects.equals(this.table, deleteDocumentRequest.table) &&
         Objects.equals(this.cluster, deleteDocumentRequest.cluster) &&
         Objects.equals(this.id, deleteDocumentRequest.id) &&
         Objects.equals(this.query, deleteDocumentRequest.query);
@@ -173,14 +173,14 @@ public class DeleteDocumentRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(index, cluster, id, query);
+    return Objects.hash(table, cluster, id, query);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteDocumentRequest {\n");
-    sb.append("    index: ").append(toIndentedString(index)).append("\n");
+    sb.append("    table: ").append(toIndentedString(table)).append("\n");
     sb.append("    cluster: ").append(toIndentedString(cluster)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");

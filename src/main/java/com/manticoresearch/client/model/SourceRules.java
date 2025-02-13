@@ -43,7 +43,7 @@ import com.manticoresearch.client.JSON;
   SourceRules.JSON_PROPERTY_EXCLUDES
 })
 @JsonTypeName("sourceRules")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-01-31T13:59:29.723520242Z[Etc/UTC]", comments = "Generator version: 7.3.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-13T13:30:48.201544819Z[Etc/UTC]", comments = "Generator version: 7.3.0-SNAPSHOT")
 public class SourceRules {
   public static final String JSON_PROPERTY_INCLUDES = "includes";
   private JsonNullable<Object> includes = JsonNullable.<Object>of(new ArrayList<>());

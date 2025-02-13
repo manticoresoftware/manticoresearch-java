@@ -28,13 +28,13 @@ import com.manticoresearch.client.JSON;
 
 
 /**
- * Object containing the query for percolating documents against stored queries in a percolate index
+ * Object containing the query for percolating documents against stored queries in a percolate table
  */
 @JsonPropertyOrder({
   PercolateRequest.JSON_PROPERTY_QUERY
 })
 @JsonTypeName("percolateRequest")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-01-31T13:59:29.723520242Z[Etc/UTC]", comments = "Generator version: 7.3.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-13T13:30:48.201544819Z[Etc/UTC]", comments = "Generator version: 7.3.0-SNAPSHOT")
 public class PercolateRequest {
   public static final String JSON_PROPERTY_QUERY = "query";
   private PercolateRequestQuery query;

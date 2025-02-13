@@ -36,10 +36,10 @@ import com.manticoresearch.client.JSON;
 @JsonPropertyOrder({
   ResponseErrorDetails.JSON_PROPERTY_TYPE,
   ResponseErrorDetails.JSON_PROPERTY_REASON,
-  ResponseErrorDetails.JSON_PROPERTY_INDEX
+  ResponseErrorDetails.JSON_PROPERTY_TABLE
 })
 @JsonTypeName("responseErrorDetails")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-01-31T13:59:29.723520242Z[Etc/UTC]", comments = "Generator version: 7.3.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-13T13:30:48.201544819Z[Etc/UTC]", comments = "Generator version: 7.3.0-SNAPSHOT")
 public class ResponseErrorDetails {
   public static final String JSON_PROPERTY_TYPE = "type";
   private String type;
@@ -47,8 +47,8 @@ public class ResponseErrorDetails {
   public static final String JSON_PROPERTY_REASON = "reason";
   private JsonNullable<String> reason = JsonNullable.<String>undefined();
 
-  public static final String JSON_PROPERTY_INDEX = "index";
-  private JsonNullable<String> index = JsonNullable.<String>undefined();
+  public static final String JSON_PROPERTY_TABLE = "table";
+  private JsonNullable<String> table = JsonNullable.<String>undefined();
 
   public ResponseErrorDetails() { 
   }
@@ -111,36 +111,36 @@ public class ResponseErrorDetails {
   }
 
 
-  public ResponseErrorDetails index(String index) {
-    this.index = JsonNullable.<String>of(index);
+  public ResponseErrorDetails table(String table) {
+    this.table = JsonNullable.<String>of(table);
     return this;
   }
 
   /**
-   * The index related to the error, if applicable
-   * @return index
+   * The table related to the error, if applicable
+   * @return table
    */
   @jakarta.annotation.Nullable
   @JsonIgnore
 
-  public String getIndex() {
-        return index.orElse(null);
+  public String getTable() {
+        return table.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_INDEX)
+  @JsonProperty(JSON_PROPERTY_TABLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<String> getIndex_JsonNullable() {
-    return index;
+  public JsonNullable<String> getTable_JsonNullable() {
+    return table;
   }
   
-  @JsonProperty(JSON_PROPERTY_INDEX)
-  public void setIndex_JsonNullable(JsonNullable<String> index) {
-    this.index = index;
+  @JsonProperty(JSON_PROPERTY_TABLE)
+  public void setTable_JsonNullable(JsonNullable<String> table) {
+    this.table = table;
   }
 
-  public void setIndex(String index) {
-    this.index = JsonNullable.<String>of(index);
+  public void setTable(String table) {
+    this.table = JsonNullable.<String>of(table);
   }
 
 
@@ -158,7 +158,7 @@ public class ResponseErrorDetails {
     ResponseErrorDetails responseErrorDetails = (ResponseErrorDetails) o;
     return Objects.equals(this.type, responseErrorDetails.type) &&
         equalsNullable(this.reason, responseErrorDetails.reason) &&
-        equalsNullable(this.index, responseErrorDetails.index);
+        equalsNullable(this.table, responseErrorDetails.table);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -167,7 +167,7 @@ public class ResponseErrorDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, hashCodeNullable(reason), hashCodeNullable(index));
+    return Objects.hash(type, hashCodeNullable(reason), hashCodeNullable(table));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -183,7 +183,7 @@ public class ResponseErrorDetails {
     sb.append("class ResponseErrorDetails {\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
-    sb.append("    index: ").append(toIndentedString(index)).append("\n");
+    sb.append("    table: ").append(toIndentedString(table)).append("\n");
     sb.append("}");
     return sb.toString();
   }

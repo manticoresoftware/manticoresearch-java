@@ -30,16 +30,16 @@ import com.manticoresearch.client.JSON;
  * Success response returned after updating one or more documents
  */
 @JsonPropertyOrder({
-  UpdateResponse.JSON_PROPERTY_INDEX,
+  UpdateResponse.JSON_PROPERTY_TABLE,
   UpdateResponse.JSON_PROPERTY_UPDATED,
   UpdateResponse.JSON_PROPERTY_ID,
   UpdateResponse.JSON_PROPERTY_RESULT
 })
 @JsonTypeName("updateResponse")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-01-31T13:59:29.723520242Z[Etc/UTC]", comments = "Generator version: 7.3.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-13T13:30:48.201544819Z[Etc/UTC]", comments = "Generator version: 7.3.0-SNAPSHOT")
 public class UpdateResponse {
-  public static final String JSON_PROPERTY_INDEX = "_index";
-  private String index;
+  public static final String JSON_PROPERTY_TABLE = "table";
+  private String table;
 
   public static final String JSON_PROPERTY_UPDATED = "updated";
   private Integer updated;
@@ -53,28 +53,28 @@ public class UpdateResponse {
   public UpdateResponse() { 
   }
 
-  public UpdateResponse index(String index) {
-    this.index = index;
+  public UpdateResponse table(String table) {
+    this.table = table;
     return this;
   }
 
   /**
-   * Name of the document index
-   * @return index
+   * Name of the document table
+   * @return table
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INDEX)
+  @JsonProperty(JSON_PROPERTY_TABLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getIndex() {
-    return index;
+  public String getTable() {
+    return table;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_INDEX)
+  @JsonProperty(JSON_PROPERTY_TABLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setIndex(String index) {
-    this.index = index;
+  public void setTable(String table) {
+    this.table = table;
   }
 
 
@@ -165,7 +165,7 @@ public class UpdateResponse {
       return false;
     }
     UpdateResponse updateResponse = (UpdateResponse) o;
-    return Objects.equals(this.index, updateResponse.index) &&
+    return Objects.equals(this.table, updateResponse.table) &&
         Objects.equals(this.updated, updateResponse.updated) &&
         Objects.equals(this.id, updateResponse.id) &&
         Objects.equals(this.result, updateResponse.result);
@@ -173,14 +173,14 @@ public class UpdateResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(index, updated, id, result);
+    return Objects.hash(table, updated, id, result);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateResponse {\n");
-    sb.append("    index: ").append(toIndentedString(index)).append("\n");
+    sb.append("    table: ").append(toIndentedString(table)).append("\n");
     sb.append("    updated: ").append(toIndentedString(updated)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    result: ").append(toIndentedString(result)).append("\n");

@@ -8,7 +8,7 @@ Request object for search operation
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**index** | **String** | The index to perform the search on |  |
+|**table** | **String** | The table to perform the search on |  |
 |**query** | [**SearchQuery**](SearchQuery.md) |  |  [optional] |
 |**join** | [**List&lt;Join&gt;**](Join.md) | Join clause to combine search data from multiple tables |  [optional] |
 |**highlight** | [**Highlight**](Highlight.md) |  |  [optional] |

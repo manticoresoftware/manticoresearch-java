@@ -27,19 +27,19 @@ import com.manticoresearch.client.JSON;
 
 
 /**
- * Object containing data for inserting a new document into the index 
+ * Object containing data for inserting a new document into the table 
  */
 @JsonPropertyOrder({
-  InsertDocumentRequest.JSON_PROPERTY_INDEX,
+  InsertDocumentRequest.JSON_PROPERTY_TABLE,
   InsertDocumentRequest.JSON_PROPERTY_CLUSTER,
   InsertDocumentRequest.JSON_PROPERTY_ID,
   InsertDocumentRequest.JSON_PROPERTY_DOC
 })
 @JsonTypeName("insertDocumentRequest")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-01-31T13:59:29.723520242Z[Etc/UTC]", comments = "Generator version: 7.3.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-13T13:30:48.201544819Z[Etc/UTC]", comments = "Generator version: 7.3.0-SNAPSHOT")
 public class InsertDocumentRequest {
-  public static final String JSON_PROPERTY_INDEX = "index";
-  private String index;
+  public static final String JSON_PROPERTY_TABLE = "table";
+  private String table;
 
   public static final String JSON_PROPERTY_CLUSTER = "cluster";
   private String cluster;
@@ -53,28 +53,28 @@ public class InsertDocumentRequest {
   public InsertDocumentRequest() { 
   }
 
-  public InsertDocumentRequest index(String index) {
-    this.index = index;
+  public InsertDocumentRequest table(String table) {
+    this.table = table;
     return this;
   }
 
   /**
-   * Name of the index to insert the document into
-   * @return index
+   * Name of the table to insert the document into
+   * @return table
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_INDEX)
+  @JsonProperty(JSON_PROPERTY_TABLE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public String getIndex() {
-    return index;
+  public String getTable() {
+    return table;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_INDEX)
+  @JsonProperty(JSON_PROPERTY_TABLE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIndex(String index) {
-    this.index = index;
+  public void setTable(String table) {
+    this.table = table;
   }
 
 
@@ -165,7 +165,7 @@ public class InsertDocumentRequest {
       return false;
     }
     InsertDocumentRequest insertDocumentRequest = (InsertDocumentRequest) o;
-    return Objects.equals(this.index, insertDocumentRequest.index) &&
+    return Objects.equals(this.table, insertDocumentRequest.table) &&
         Objects.equals(this.cluster, insertDocumentRequest.cluster) &&
         Objects.equals(this.id, insertDocumentRequest.id) &&
         Objects.equals(this.doc, insertDocumentRequest.doc);
@@ -173,14 +173,14 @@ public class InsertDocumentRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(index, cluster, id, doc);
+    return Objects.hash(table, cluster, id, doc);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InsertDocumentRequest {\n");
-    sb.append("    index: ").append(toIndentedString(index)).append("\n");
+    sb.append("    table: ").append(toIndentedString(table)).append("\n");
     sb.append("    cluster: ").append(toIndentedString(cluster)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    doc: ").append(toIndentedString(doc)).append("\n");

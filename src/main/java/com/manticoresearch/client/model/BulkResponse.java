@@ -39,7 +39,7 @@ import com.manticoresearch.client.JSON;
   BulkResponse.JSON_PROPERTY_SKIPPED_LINES
 })
 @JsonTypeName("bulkResponse")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-01-31T13:59:29.723520242Z[Etc/UTC]", comments = "Generator version: 7.3.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-13T13:30:48.201544819Z[Etc/UTC]", comments = "Generator version: 7.3.0-SNAPSHOT")
 public class BulkResponse {
   public static final String JSON_PROPERTY_ITEMS = "items";
   private List<Object> items;

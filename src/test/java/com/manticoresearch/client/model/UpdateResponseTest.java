@@ -39,11 +39,11 @@ public class UpdateResponseTest {
     }
 
     /**
-     * Test the property 'index'
+     * Test the property 'table'
      */
     @Test
-    public void indexTest() {
-        // TODO: test index
+    public void tableTest() {
+        // TODO: test table
     }
 
     /**

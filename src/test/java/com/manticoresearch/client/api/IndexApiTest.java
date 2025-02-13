@@ -87,7 +87,7 @@ public class IndexApiTest {
     /**
      * Bulk index operations
      *
-     * Sends multiple operatons like inserts, updates, replaces or deletes.  For each operation it&#39;s object must have same format as in their dedicated method.  The method expects a raw string as the batch in NDJSON.  Each operation object needs to be serialized to   JSON and separated by endline (\\n).      An example of raw input:      &#x60;&#x60;&#x60;   {\&quot;insert\&quot;: {\&quot;index\&quot;: \&quot;movies\&quot;, \&quot;doc\&quot;: {\&quot;plot\&quot;: \&quot;A secret team goes to North Pole\&quot;, \&quot;rating\&quot;: 9.5, \&quot;language\&quot;: [2, 3], \&quot;title\&quot;: \&quot;This is an older movie\&quot;, \&quot;lon\&quot;: 51.99, \&quot;meta\&quot;: {\&quot;keywords\&quot;:[\&quot;travel\&quot;,\&quot;ice\&quot;],\&quot;genre\&quot;:[\&quot;adventure\&quot;]}, \&quot;year\&quot;: 1950, \&quot;lat\&quot;: 60.4, \&quot;advise\&quot;: \&quot;PG-13\&quot;}}}   \\n   {\&quot;delete\&quot;: {\&quot;index\&quot;: \&quot;movies\&quot;,\&quot;id\&quot;:700}}   &#x60;&#x60;&#x60;      Responds with an object telling whenever any errors occured and an array with status for each operation:      &#x60;&#x60;&#x60;   {     &#39;items&#39;:     [       {         &#39;update&#39;:{&#39;_index&#39;:&#39;products&#39;,&#39;_id&#39;:1,&#39;result&#39;:&#39;updated&#39;}       },       {         &#39;update&#39;:{&#39;_index&#39;:&#39;products&#39;,&#39;_id&#39;:2,&#39;result&#39;:&#39;updated&#39;}       }     ],     &#39;errors&#39;:false   }   &#x60;&#x60;&#x60;   
+     * Sends multiple operatons like inserts, updates, replaces or deletes.  For each operation it&#39;s object must have same format as in their dedicated method.  The method expects a raw string as the batch in NDJSON.  Each operation object needs to be serialized to   JSON and separated by endline (\\n).      An example of raw input:      &#x60;&#x60;&#x60;   {\&quot;insert\&quot;: {\&quot;table\&quot;: \&quot;movies\&quot;, \&quot;doc\&quot;: {\&quot;plot\&quot;: \&quot;A secret team goes to North Pole\&quot;, \&quot;rating\&quot;: 9.5, \&quot;language\&quot;: [2, 3], \&quot;title\&quot;: \&quot;This is an older movie\&quot;, \&quot;lon\&quot;: 51.99, \&quot;meta\&quot;: {\&quot;keywords\&quot;:[\&quot;travel\&quot;,\&quot;ice\&quot;],\&quot;genre\&quot;:[\&quot;adventure\&quot;]}, \&quot;year\&quot;: 1950, \&quot;lat\&quot;: 60.4, \&quot;advise\&quot;: \&quot;PG-13\&quot;}}}   \\n   {\&quot;delete\&quot;: {\&quot;table\&quot;: \&quot;movies\&quot;,\&quot;id\&quot;:700}}   &#x60;&#x60;&#x60;      Responds with an object telling whenever any errors occured and an array with status for each operation:      &#x60;&#x60;&#x60;   {     &#39;items&#39;:     [       {         &#39;update&#39;:{&#39;table&#39;:&#39;products&#39;,&#39;_id&#39;:1,&#39;result&#39;:&#39;updated&#39;}       },       {         &#39;update&#39;:{&#39;table&#39;:&#39;products&#39;,&#39;_id&#39;:2,&#39;result&#39;:&#39;updated&#39;}       }     ],     &#39;errors&#39;:false   }   &#x60;&#x60;&#x60;   
      *
      * @throws ApiException if the Api call fails
      */
@@ -99,23 +99,23 @@ public class IndexApiTest {
         Object sqlresult = utilsApi.sql("CREATE TABLE IF NOT EXISTS products (title text, price float, sizes multi, meta json, coeff float, tags1 multi, tags2 multi)", true);
     	System.out.println(sqlresult);
     	
-        String body = "{\"insert\": {\"index\" : \"products\", \"id\" : 3, \"doc\" : {\"title\" : \"Crossbody Bag with Tassel\", \"price\" : 19.85}}}" +"\n"+
-	    "{\"insert\": {\"index\" : \"products\", \"id\" : 4, \"doc\" : {\"title\" : \"microfiber sheet set\", \"price\" : 19.99}}}"+"\n"+
-	    "{\"insert\": {\"index\" : \"products\", \"id\" : 5, \"doc\" : {\"title\" : \"CPet Hair Remover Glove\", \"price\" : 7.99}}}"+"\n";         
+        String body = "{\"insert\": {\"table\" : \"products\", \"id\" : 3, \"doc\" : {\"title\" : \"Crossbody Bag with Tassel\", \"price\" : 19.85}}}" +"\n"+
+	    "{\"insert\": {\"table\" : \"products\", \"id\" : 4, \"doc\" : {\"title\" : \"microfiber sheet set\", \"price\" : 19.99}}}"+"\n"+
+	    "{\"insert\": {\"table\" : \"products\", \"id\" : 5, \"doc\" : {\"title\" : \"CPet Hair Remover Glove\", \"price\" : 7.99}}}"+"\n";         
 	    BulkResponse bulkresult = indexApi.bulk(body);
 	    System.out.println(bulkresult);
 	    
-	    body = "{ \"update\" : { \"index\" : \"products\", \"doc\": { \"coeff\" : 1000 }, \"query\": { \"range\": { \"price\": { \"gte\": 1000 } } } }} "+"\n"+
-        "{ \"update\" : { \"index\" : \"products\", \"doc\": { \"coeff\" : 0 }, \"query\": { \"range\": { \"price\": { \"lt\": 1000 } } } } }"+"\n";         
+	    body = "{ \"update\" : { \"table\" : \"products\", \"doc\": { \"coeff\" : 1000 }, \"query\": { \"range\": { \"price\": { \"gte\": 1000 } } } }} "+"\n"+
+        "{ \"update\" : { \"table\" : \"products\", \"doc\": { \"coeff\" : 0 }, \"query\": { \"range\": { \"price\": { \"lt\": 1000 } } } } }"+"\n";         
         bulkresult = indexApi.bulk(body);
         System.out.println(bulkresult);
 
     }
 
     /**
-     * Create a new document in an index
+     * Create a new document in a table
      *
-     * Insert a document.  Expects an object like:     &#x60;&#x60;&#x60;   {     &#39;index&#39;:&#39;movies&#39;,     &#39;id&#39;:701,     &#39;doc&#39;:     {       &#39;title&#39;:&#39;This is an old movie&#39;,       &#39;plot&#39;:&#39;A secret team goes to North Pole&#39;,       &#39;year&#39;:1950,       &#39;rating&#39;:9.5,       &#39;lat&#39;:60.4,       &#39;lon&#39;:51.99,       &#39;advise&#39;:&#39;PG-13&#39;,       &#39;meta&#39;:&#39;{\&quot;keywords\&quot;:{\&quot;travel\&quot;,\&quot;ice\&quot;},\&quot;genre\&quot;:{\&quot;adventure\&quot;}}&#39;,       &#39;language&#39;:[2,3]     }   }   &#x60;&#x60;&#x60;   The document id can also be missing, in which case an autogenerated one will be used:             &#x60;&#x60;&#x60;   {     &#39;index&#39;:&#39;movies&#39;,     &#39;doc&#39;:     {       &#39;title&#39;:&#39;This is a new movie&#39;,       &#39;plot&#39;:&#39;A secret team goes to North Pole&#39;,       &#39;year&#39;:2020,       &#39;rating&#39;:9.5,       &#39;lat&#39;:60.4,       &#39;lon&#39;:51.99,       &#39;advise&#39;:&#39;PG-13&#39;,       &#39;meta&#39;:&#39;{\&quot;keywords\&quot;:{\&quot;travel\&quot;,\&quot;ice\&quot;},\&quot;genre\&quot;:{\&quot;adventure\&quot;}}&#39;,       &#39;language&#39;:[2,3]     }   }   &#x60;&#x60;&#x60;   It responds with an object in format:      &#x60;&#x60;&#x60;   {&#39;_index&#39;:&#39;products&#39;,&#39;_id&#39;:701,&#39;created&#39;:true,&#39;result&#39;:&#39;created&#39;,&#39;status&#39;:201}   &#x60;&#x60;&#x60; 
+     * Insert a document.  Expects an object like:     &#x60;&#x60;&#x60;   {     &#39;table&#39;:&#39;movies&#39;,     &#39;id&#39;:701,     &#39;doc&#39;:     {       &#39;title&#39;:&#39;This is an old movie&#39;,       &#39;plot&#39;:&#39;A secret team goes to North Pole&#39;,       &#39;year&#39;:1950,       &#39;rating&#39;:9.5,       &#39;lat&#39;:60.4,       &#39;lon&#39;:51.99,       &#39;advise&#39;:&#39;PG-13&#39;,       &#39;meta&#39;:&#39;{\&quot;keywords\&quot;:{\&quot;travel\&quot;,\&quot;ice\&quot;},\&quot;genre\&quot;:{\&quot;adventure\&quot;}}&#39;,       &#39;language&#39;:[2,3]     }   }   &#x60;&#x60;&#x60;   The document id can also be missing, in which case an autogenerated one will be used:             &#x60;&#x60;&#x60;   {     &#39;table&#39;:&#39;movies&#39;,     &#39;doc&#39;:     {       &#39;title&#39;:&#39;This is a new movie&#39;,       &#39;plot&#39;:&#39;A secret team goes to North Pole&#39;,       &#39;year&#39;:2020,       &#39;rating&#39;:9.5,       &#39;lat&#39;:60.4,       &#39;lon&#39;:51.99,       &#39;advise&#39;:&#39;PG-13&#39;,       &#39;meta&#39;:&#39;{\&quot;keywords\&quot;:{\&quot;travel\&quot;,\&quot;ice\&quot;},\&quot;genre\&quot;:{\&quot;adventure\&quot;}}&#39;,       &#39;language&#39;:[2,3]     }   }   &#x60;&#x60;&#x60;   It responds with an object in format:      &#x60;&#x60;&#x60;   {&#39;table&#39;:&#39;products&#39;,&#39;_id&#39;:701,&#39;created&#39;:true,&#39;result&#39;:&#39;created&#39;,&#39;status&#39;:201}   &#x60;&#x60;&#x60; 
      *
      * @throws ApiException if the Api call fails
      */
@@ -133,17 +133,17 @@ public class IndexApiTest {
             put("title","first");
             put("tags1",new int[] {4,2,1,3});
         }};
-        indexNewdoc.index("products").id(1L).setDoc(indexDoc); 
+        indexNewdoc.table("products").id(1L).setDoc(indexDoc); 
         indexSqlresult = indexApi.insert(indexNewdoc);
         
         indexDoc = new HashMap<String,Object>();
-        indexNewdoc.index("products").id(2L).setDoc(indexDoc); 
+        indexNewdoc.table("products").id(2L).setDoc(indexDoc); 
         indexSqlresult = indexApi.insert(indexNewdoc);
         System.out.println(indexSqlresult);              
         
         indexNewdoc = new InsertDocumentRequest();
         indexDoc = new HashMap<String,Object>();
-        indexNewdoc.index("products").setDoc(indexDoc); 
+        indexNewdoc.table("products").setDoc(indexDoc); 
         indexSqlresult = indexApi.insert(indexNewdoc);
         System.out.println(indexSqlresult);
 

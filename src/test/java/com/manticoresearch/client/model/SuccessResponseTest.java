@@ -39,14 +39,6 @@ public class SuccessResponseTest {
     }
 
     /**
-     * Test the property 'index'
-     */
-    @Test
-    public void indexTest() {
-        // TODO: test index
-    }
-
-    /**
      * Test the property 'table'
      */
     @Test

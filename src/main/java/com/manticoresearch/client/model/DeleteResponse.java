@@ -30,17 +30,17 @@ import com.manticoresearch.client.JSON;
  * Response object for successful delete request
  */
 @JsonPropertyOrder({
-  DeleteResponse.JSON_PROPERTY_INDEX,
+  DeleteResponse.JSON_PROPERTY_TABLE,
   DeleteResponse.JSON_PROPERTY_DELETED,
   DeleteResponse.JSON_PROPERTY_ID,
   DeleteResponse.JSON_PROPERTY_FOUND,
   DeleteResponse.JSON_PROPERTY_RESULT
 })
 @JsonTypeName("deleteResponse")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-01-31T13:59:29.723520242Z[Etc/UTC]", comments = "Generator version: 7.3.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-13T13:30:48.201544819Z[Etc/UTC]", comments = "Generator version: 7.3.0-SNAPSHOT")
 public class DeleteResponse {
-  public static final String JSON_PROPERTY_INDEX = "_index";
-  private String index;
+  public static final String JSON_PROPERTY_TABLE = "table";
+  private String table;
 
   public static final String JSON_PROPERTY_DELETED = "deleted";
   private Integer deleted;
@@ -57,28 +57,28 @@ public class DeleteResponse {
   public DeleteResponse() { 
   }
 
-  public DeleteResponse index(String index) {
-    this.index = index;
+  public DeleteResponse table(String table) {
+    this.table = table;
     return this;
   }
 
   /**
-   * The name of the index from which the document was deleted
-   * @return index
+   * The name of the table from which the document was deleted
+   * @return table
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INDEX)
+  @JsonProperty(JSON_PROPERTY_TABLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getIndex() {
-    return index;
+  public String getTable() {
+    return table;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_INDEX)
+  @JsonProperty(JSON_PROPERTY_TABLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setIndex(String index) {
-    this.index = index;
+  public void setTable(String table) {
+    this.table = table;
   }
 
 
@@ -194,7 +194,7 @@ public class DeleteResponse {
       return false;
     }
     DeleteResponse deleteResponse = (DeleteResponse) o;
-    return Objects.equals(this.index, deleteResponse.index) &&
+    return Objects.equals(this.table, deleteResponse.table) &&
         Objects.equals(this.deleted, deleteResponse.deleted) &&
         Objects.equals(this.id, deleteResponse.id) &&
         Objects.equals(this.found, deleteResponse.found) &&
@@ -203,14 +203,14 @@ public class DeleteResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(index, deleted, id, found, result);
+    return Objects.hash(table, deleted, id, found, result);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteResponse {\n");
-    sb.append("    index: ").append(toIndentedString(index)).append("\n");
+    sb.append("    table: ").append(toIndentedString(table)).append("\n");
     sb.append("    deleted: ").append(toIndentedString(deleted)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    found: ").append(toIndentedString(found)).append("\n");

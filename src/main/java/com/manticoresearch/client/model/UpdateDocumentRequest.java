@@ -32,20 +32,20 @@ import com.manticoresearch.client.JSON;
 
 
 /**
- * Payload for updating a document or multiple documents in an index
+ * Payload for updating a document or multiple documents in a table
  */
 @JsonPropertyOrder({
-  UpdateDocumentRequest.JSON_PROPERTY_INDEX,
+  UpdateDocumentRequest.JSON_PROPERTY_TABLE,
   UpdateDocumentRequest.JSON_PROPERTY_CLUSTER,
   UpdateDocumentRequest.JSON_PROPERTY_DOC,
   UpdateDocumentRequest.JSON_PROPERTY_ID,
   UpdateDocumentRequest.JSON_PROPERTY_QUERY
 })
 @JsonTypeName("updateDocumentRequest")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-01-31T13:59:29.723520242Z[Etc/UTC]", comments = "Generator version: 7.3.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-13T13:30:48.201544819Z[Etc/UTC]", comments = "Generator version: 7.3.0-SNAPSHOT")
 public class UpdateDocumentRequest {
-  public static final String JSON_PROPERTY_INDEX = "index";
-  private String index;
+  public static final String JSON_PROPERTY_TABLE = "table";
+  private String table;
 
   public static final String JSON_PROPERTY_CLUSTER = "cluster";
   private String cluster;
@@ -62,28 +62,28 @@ public class UpdateDocumentRequest {
   public UpdateDocumentRequest() { 
   }
 
-  public UpdateDocumentRequest index(String index) {
-    this.index = index;
+  public UpdateDocumentRequest table(String table) {
+    this.table = table;
     return this;
   }
 
   /**
-   * Name of the document index
-   * @return index
+   * Name of the document table
+   * @return table
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_INDEX)
+  @JsonProperty(JSON_PROPERTY_TABLE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public String getIndex() {
-    return index;
+  public String getTable() {
+    return table;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_INDEX)
+  @JsonProperty(JSON_PROPERTY_TABLE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setIndex(String index) {
-    this.index = index;
+  public void setTable(String table) {
+    this.table = table;
   }
 
 
@@ -207,7 +207,7 @@ public class UpdateDocumentRequest {
       return false;
     }
     UpdateDocumentRequest updateDocumentRequest = (UpdateDocumentRequest) o;
-    return Objects.equals(this.index, updateDocumentRequest.index) &&
+    return Objects.equals(this.table, updateDocumentRequest.table) &&
         Objects.equals(this.cluster, updateDocumentRequest.cluster) &&
         Objects.equals(this.doc, updateDocumentRequest.doc) &&
         Objects.equals(this.id, updateDocumentRequest.id) &&
@@ -220,7 +220,7 @@ public class UpdateDocumentRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(index, cluster, doc, id, hashCodeNullable(query));
+    return Objects.hash(table, cluster, doc, id, hashCodeNullable(query));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -234,7 +234,7 @@ public class UpdateDocumentRequest {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateDocumentRequest {\n");
-    sb.append("    index: ").append(toIndentedString(index)).append("\n");
+    sb.append("    table: ").append(toIndentedString(table)).append("\n");
     sb.append("    cluster: ").append(toIndentedString(cluster)).append("\n");
     sb.append("    doc: ").append(toIndentedString(doc)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");

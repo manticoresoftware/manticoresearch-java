@@ -30,7 +30,6 @@ import com.manticoresearch.client.JSON;
  * Response object indicating the success of an operation, such as inserting or updating a document
  */
 @JsonPropertyOrder({
-  SuccessResponse.JSON_PROPERTY_INDEX,
   SuccessResponse.JSON_PROPERTY_TABLE,
   SuccessResponse.JSON_PROPERTY_ID,
   SuccessResponse.JSON_PROPERTY_CREATED,
@@ -39,11 +38,8 @@ import com.manticoresearch.client.JSON;
   SuccessResponse.JSON_PROPERTY_STATUS
 })
 @JsonTypeName("successResponse")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-01-31T13:59:29.723520242Z[Etc/UTC]", comments = "Generator version: 7.3.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-13T13:30:48.201544819Z[Etc/UTC]", comments = "Generator version: 7.3.0-SNAPSHOT")
 public class SuccessResponse {
-  public static final String JSON_PROPERTY_INDEX = "_index";
-  private String index;
-
   public static final String JSON_PROPERTY_TABLE = "table";
   private String table;
 
@@ -65,38 +61,13 @@ public class SuccessResponse {
   public SuccessResponse() { 
   }
 
-  public SuccessResponse index(String index) {
-    this.index = index;
-    return this;
-  }
-
-  /**
-   * Name of the document index
-   * @return index
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INDEX)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getIndex() {
-    return index;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_INDEX)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setIndex(String index) {
-    this.index = index;
-  }
-
-
   public SuccessResponse table(String table) {
     this.table = table;
     return this;
   }
 
   /**
-   * Name of the document table (alias of index)
+   * Name of the document table
    * @return table
    */
   @jakarta.annotation.Nullable
@@ -196,7 +167,7 @@ public class SuccessResponse {
   }
 
   /**
-   * Indicates whether the document was found in the index
+   * Indicates whether the document was found in the table
    * @return found
    */
   @jakarta.annotation.Nullable
@@ -252,8 +223,7 @@ public class SuccessResponse {
       return false;
     }
     SuccessResponse successResponse = (SuccessResponse) o;
-    return Objects.equals(this.index, successResponse.index) &&
-        Objects.equals(this.table, successResponse.table) &&
+    return Objects.equals(this.table, successResponse.table) &&
         Objects.equals(this.id, successResponse.id) &&
         Objects.equals(this.created, successResponse.created) &&
         Objects.equals(this.result, successResponse.result) &&
@@ -263,14 +233,13 @@ public class SuccessResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(index, table, id, created, result, found, status);
+    return Objects.hash(table, id, created, result, found, status);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SuccessResponse {\n");
-    sb.append("    index: ").append(toIndentedString(index)).append("\n");
     sb.append("    table: ").append(toIndentedString(table)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    created: ").append(toIndentedString(created)).append("\n");
