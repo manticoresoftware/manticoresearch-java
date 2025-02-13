@@ -343,10 +343,10 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://127.0.0.1:9308");
 
-        SearchApi apiInstance = new SearchApi(defaultClient);
+        SearchApi searchApi = new SearchApi(defaultClient);
         AutocompleteRequest autocompleteRequest = new AutocompleteRequest(); // AutocompleteRequest | 
         try {
-            List<Object> result = apiInstance.autocomplete(autocompleteRequest);
+            List<Object> result = searchApi.autocomplete(autocompleteRequest);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling SearchApi#autocomplete");
