@@ -21,7 +21,7 @@ Building the API client library requires:
 | **manticoresearch-java**       | **Manticore Search**                |  **Compatibility**       |
 | ------------------------------ | ----------------------------------- |  ------------------------|
 | `dev`                          | `dev` (latest development version)  |  ✅ Fully Compatible     |
-| 8.0.0 or newer                 | 9.2.14 or newer                      |  ✅ Fully Compatible     |
+| 8.0.0 or newer                 | 9.2.14 or newer                     |  ✅ Fully Compatible     |
 | 6.0.0 to 8.0.0                 | 9.2.14 or newer                     |  ⚠️ Partially Compatible |
 | 6.0.0 to 8.0.0                 | 7.0.0 to 9.2.14                     |  ✅ Fully Compatible     |
 | 6.0.0 to 8.0.0                 | 2.5.1 to 7.0.0                      |  ⚠️ Partially Compatible |
