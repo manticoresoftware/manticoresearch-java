@@ -36,7 +36,7 @@ import com.manticoresearch.client.JSON;
   FulltextFilter.JSON_PROPERTY_MATCH_ALL
 })
 @JsonTypeName("fulltextFilter")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-31T04:42:17.765433185Z[Etc/UTC]", comments = "Generator version: 7.3.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-01T10:45:30.595251539Z[Etc/UTC]", comments = "Generator version: 7.3.0-SNAPSHOT")
 public class FulltextFilter {
   public static final String JSON_PROPERTY_QUERY_STRING = "query_string";
   private String queryString;

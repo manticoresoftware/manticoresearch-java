@@ -39,7 +39,7 @@ import com.manticoresearch.client.JSON;
   SearchResponseHits.JSON_PROPERTY_HITS
 })
 @JsonTypeName("searchResponse_hits")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-31T04:42:17.765433185Z[Etc/UTC]", comments = "Generator version: 7.3.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-01T10:45:30.595251539Z[Etc/UTC]", comments = "Generator version: 7.3.0-SNAPSHOT")
 public class SearchResponseHits {
   public static final String JSON_PROPERTY_MAX_SCORE = "max_score";
   private Integer maxScore;

@@ -23,7 +23,7 @@ import java.net.URI;
 import java.util.Map;
 import java.util.List;
 
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-31T04:42:17.765433185Z[Etc/UTC]", comments = "Generator version: 7.3.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-01T10:45:30.595251539Z[Etc/UTC]", comments = "Generator version: 7.3.0-SNAPSHOT")
 public class HttpBasicAuth implements Authentication {
   private String username;
   private String password;

@@ -18,6 +18,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.math.BigDecimal;
 import java.util.Arrays;
 
 import org.junit.jupiter.api.Assertions;
@@ -44,6 +45,22 @@ public class SqlObjResponseTest {
     @Test
     public void hitsTest() {
         // TODO: test hits
+    }
+
+    /**
+     * Test the property 'took'
+     */
+    @Test
+    public void tookTest() {
+        // TODO: test took
+    }
+
+    /**
+     * Test the property 'timedOut'
+     */
+    @Test
+    public void timedOutTest() {
+        // TODO: test timedOut
     }
 
 }

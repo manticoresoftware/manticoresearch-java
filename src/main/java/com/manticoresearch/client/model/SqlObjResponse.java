@@ -21,6 +21,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.math.BigDecimal;
 import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.manticoresearch.client.JSON;
@@ -30,13 +31,21 @@ import com.manticoresearch.client.JSON;
  * SqlObjResponse
  */
 @JsonPropertyOrder({
-  SqlObjResponse.JSON_PROPERTY_HITS
+  SqlObjResponse.JSON_PROPERTY_HITS,
+  SqlObjResponse.JSON_PROPERTY_TOOK,
+  SqlObjResponse.JSON_PROPERTY_TIMED_OUT
 })
 @JsonTypeName("sqlObjResponse")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-31T04:42:17.765433185Z[Etc/UTC]", comments = "Generator version: 7.3.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-01T10:45:30.595251539Z[Etc/UTC]", comments = "Generator version: 7.3.0-SNAPSHOT")
 public class SqlObjResponse {
   public static final String JSON_PROPERTY_HITS = "hits";
   private Object hits;
+
+  public static final String JSON_PROPERTY_TOOK = "took";
+  private BigDecimal took;
+
+  public static final String JSON_PROPERTY_TIMED_OUT = "timed_out";
+  private Boolean timedOut;
 
   public SqlObjResponse() { 
   }
@@ -66,6 +75,56 @@ public class SqlObjResponse {
   }
 
 
+  public SqlObjResponse took(BigDecimal took) {
+    this.took = took;
+    return this;
+  }
+
+  /**
+   * Get took
+   * @return took
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TOOK)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public BigDecimal getTook() {
+    return took;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_TOOK)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTook(BigDecimal took) {
+    this.took = took;
+  }
+
+
+  public SqlObjResponse timedOut(Boolean timedOut) {
+    this.timedOut = timedOut;
+    return this;
+  }
+
+  /**
+   * Get timedOut
+   * @return timedOut
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TIMED_OUT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getTimedOut() {
+    return timedOut;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_TIMED_OUT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTimedOut(Boolean timedOut) {
+    this.timedOut = timedOut;
+  }
+
+
   /**
    * Return true if this sqlObjResponse object is equal to o.
    */
@@ -78,12 +137,14 @@ public class SqlObjResponse {
       return false;
     }
     SqlObjResponse sqlObjResponse = (SqlObjResponse) o;
-    return Objects.equals(this.hits, sqlObjResponse.hits);
+    return Objects.equals(this.hits, sqlObjResponse.hits) &&
+        Objects.equals(this.took, sqlObjResponse.took) &&
+        Objects.equals(this.timedOut, sqlObjResponse.timedOut);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(hits);
+    return Objects.hash(hits, took, timedOut);
   }
 
   @Override
@@ -91,6 +152,8 @@ public class SqlObjResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class SqlObjResponse {\n");
     sb.append("    hits: ").append(toIndentedString(hits)).append("\n");
+    sb.append("    took: ").append(toIndentedString(took)).append("\n");
+    sb.append("    timedOut: ").append(toIndentedString(timedOut)).append("\n");
     sb.append("}");
     return sb.toString();
   }
