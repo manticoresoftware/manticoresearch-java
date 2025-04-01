@@ -18,60 +18,49 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.manticoresearch.client.model.FulltextFilter;
-import com.manticoresearch.client.model.JoinOn;
-import java.util.ArrayList;
+import java.math.BigDecimal;
 import java.util.Arrays;
-import java.util.List;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for Join
+ * Model tests for SqlObjResponse
  */
-public class JoinTest {
-    private final Join model = new Join();
+public class SqlObjResponseTest {
+    private final SqlObjResponse model = new SqlObjResponse();
 
     /**
-     * Model tests for Join
+     * Model tests for SqlObjResponse
      */
     @Test
-    public void testJoin() {
-        // TODO: test Join
+    public void testSqlObjResponse() {
+        // TODO: test SqlObjResponse
     }
 
     /**
-     * Test the property 'type'
+     * Test the property 'hits'
      */
     @Test
-    public void typeTest() {
-        // TODO: test type
+    public void hitsTest() {
+        // TODO: test hits
     }
 
     /**
-     * Test the property 'on'
+     * Test the property 'took'
      */
     @Test
-    public void onTest() {
-        // TODO: test on
+    public void tookTest() {
+        // TODO: test took
     }
 
     /**
-     * Test the property 'query'
+     * Test the property 'timedOut'
      */
     @Test
-    public void queryTest() {
-        // TODO: test query
-    }
-
-    /**
-     * Test the property 'table'
-     */
-    @Test
-    public void tableTest() {
-        // TODO: test table
+    public void timedOutTest() {
+        // TODO: test timedOut
     }
 
 }

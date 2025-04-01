@@ -18,7 +18,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.manticoresearch.client.model.SearchResponseHits;
+import java.math.BigDecimal;
 import java.util.Arrays;
 
 import org.junit.jupiter.api.Assertions;
@@ -26,73 +26,81 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for SearchResponse
+ * Model tests for HitsHits
  */
-public class SearchResponseTest {
-    private final SearchResponse model = new SearchResponse();
+public class HitsHitsTest {
+    private final HitsHits model = new HitsHits();
 
     /**
-     * Model tests for SearchResponse
+     * Model tests for HitsHits
      */
     @Test
-    public void testSearchResponse() {
-        // TODO: test SearchResponse
+    public void testHitsHits() {
+        // TODO: test HitsHits
     }
 
     /**
-     * Test the property 'took'
+     * Test the property 'id'
      */
     @Test
-    public void tookTest() {
-        // TODO: test took
+    public void idTest() {
+        // TODO: test id
     }
 
     /**
-     * Test the property 'timedOut'
+     * Test the property 'score'
      */
     @Test
-    public void timedOutTest() {
-        // TODO: test timedOut
+    public void scoreTest() {
+        // TODO: test score
     }
 
     /**
-     * Test the property 'aggregations'
+     * Test the property 'source'
      */
     @Test
-    public void aggregationsTest() {
-        // TODO: test aggregations
+    public void sourceTest() {
+        // TODO: test source
     }
 
     /**
-     * Test the property 'hits'
+     * Test the property 'knnDist'
      */
     @Test
-    public void hitsTest() {
-        // TODO: test hits
+    public void knnDistTest() {
+        // TODO: test knnDist
     }
 
     /**
-     * Test the property 'profile'
+     * Test the property 'highlight'
      */
     @Test
-    public void profileTest() {
-        // TODO: test profile
+    public void highlightTest() {
+        // TODO: test highlight
     }
 
     /**
-     * Test the property 'scroll'
+     * Test the property 'table'
      */
     @Test
-    public void scrollTest() {
-        // TODO: test scroll
+    public void tableTest() {
+        // TODO: test table
     }
 
     /**
-     * Test the property 'warning'
+     * Test the property 'typeColon'
      */
     @Test
-    public void warningTest() {
-        // TODO: test warning
+    public void typeColonTest() {
+        // TODO: test typeColon
+    }
+
+    /**
+     * Test the property 'fields'
+     */
+    @Test
+    public void fieldsTest() {
+        // TODO: test fields
     }
 
 }

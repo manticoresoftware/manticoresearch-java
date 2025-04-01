@@ -6,14 +6,14 @@ List of responses from executed SQL queries
 
 ## oneOf schemas
 * [List<Object>](List<Object>.md)
-* [Object](Object.md)
+* [SqlObjResponse](SqlObjResponse.md)
 
 ## Example
 ```java
 // Import classes:
 import com.manticoresearch.client.model.SqlResponse;
 import com.manticoresearch.client.model.List<Object>;
-import com.manticoresearch.client.model.Object;
+import com.manticoresearch.client.model.SqlObjResponse;
 
 public class Example {
     public static void main(String[] args) {
@@ -26,12 +26,12 @@ public class Example {
         // to get back the List<Object> set earlier
         List<Object> testList<Object> = (List<Object>) exampleSqlResponse.getActualInstance();
 
-        // create a new Object
-        Object exampleObject = new Object();
-        // set SqlResponse to Object
-        exampleSqlResponse.setActualInstance(exampleObject);
-        // to get back the Object set earlier
-        Object testObject = (Object) exampleSqlResponse.getActualInstance();
+        // create a new SqlObjResponse
+        SqlObjResponse exampleSqlObjResponse = new SqlObjResponse();
+        // set SqlResponse to SqlObjResponse
+        exampleSqlResponse.setActualInstance(exampleSqlObjResponse);
+        // to get back the SqlObjResponse set earlier
+        SqlObjResponse testSqlObjResponse = (SqlObjResponse) exampleSqlResponse.getActualInstance();
     }
 }
 ```

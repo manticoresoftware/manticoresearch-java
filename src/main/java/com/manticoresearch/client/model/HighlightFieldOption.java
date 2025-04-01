@@ -37,7 +37,7 @@ import com.manticoresearch.client.JSON;
   HighlightFieldOption.JSON_PROPERTY_NUMBER_OF_FRAGMENTS
 })
 @JsonTypeName("highlightFieldOption")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-13T13:30:48.201544819Z[Etc/UTC]", comments = "Generator version: 7.3.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-01T10:06:34.794647478Z[Etc/UTC]", comments = "Generator version: 7.3.0-SNAPSHOT")
 public class HighlightFieldOption {
   public static final String JSON_PROPERTY_FRAGMENT_SIZE = "fragment_size";
   private Integer fragmentSize;

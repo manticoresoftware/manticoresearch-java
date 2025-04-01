@@ -21,6 +21,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.manticoresearch.client.model.HitsHits;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -38,7 +39,7 @@ import com.manticoresearch.client.JSON;
   SearchResponseHits.JSON_PROPERTY_HITS
 })
 @JsonTypeName("searchResponse_hits")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-13T13:30:48.201544819Z[Etc/UTC]", comments = "Generator version: 7.3.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-01T10:06:34.794647478Z[Etc/UTC]", comments = "Generator version: 7.3.0-SNAPSHOT")
 public class SearchResponseHits {
   public static final String JSON_PROPERTY_MAX_SCORE = "max_score";
   private Integer maxScore;
@@ -50,7 +51,7 @@ public class SearchResponseHits {
   private String totalRelation;
 
   public static final String JSON_PROPERTY_HITS = "hits";
-  private List<Object> hits;
+  private List<HitsHits> hits;
 
   public SearchResponseHits() { 
   }
@@ -130,12 +131,12 @@ public class SearchResponseHits {
   }
 
 
-  public SearchResponseHits hits(List<Object> hits) {
+  public SearchResponseHits hits(List<HitsHits> hits) {
     this.hits = hits;
     return this;
   }
 
-  public SearchResponseHits addItem(Object hitsItem) {
+  public SearchResponseHits addItem(HitsHits hitsItem) {
     if (this.hits == null) {
       this.hits = new ArrayList<>();
     }
@@ -151,14 +152,14 @@ public class SearchResponseHits {
   @JsonProperty(JSON_PROPERTY_HITS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<Object> getHits() {
+  public List<HitsHits> getHits() {
     return hits;
   }
 
 
   @JsonProperty(JSON_PROPERTY_HITS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setHits(List<Object> hits) {
+  public void setHits(List<HitsHits> hits) {
     this.hits = hits;
   }
 
