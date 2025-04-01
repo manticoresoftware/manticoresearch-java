@@ -47,7 +47,7 @@ import com.manticoresearch.client.JSON;
   QueryFilter.JSON_PROPERTY_GEO_DISTANCE
 })
 @JsonTypeName("queryFilter")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-13T13:30:48.201544819Z[Etc/UTC]", comments = "Generator version: 7.3.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-31T04:42:17.765433185Z[Etc/UTC]", comments = "Generator version: 7.3.0-SNAPSHOT")
 public class QueryFilter {
   public static final String JSON_PROPERTY_QUERY_STRING = "query_string";
   private JsonNullable<Object> queryString = JsonNullable.<Object>undefined();

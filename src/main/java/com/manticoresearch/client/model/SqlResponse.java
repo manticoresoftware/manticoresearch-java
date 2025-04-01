@@ -16,7 +16,13 @@ package com.manticoresearch.client.model;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
+import com.manticoresearch.client.model.SqlObjResponse;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.manticoresearch.client.JSON;
 
@@ -30,7 +36,6 @@ import java.util.logging.Logger;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
-import java.util.List;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonParser;
@@ -48,7 +53,7 @@ import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import com.manticoresearch.client.JSON;
 
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-13T13:30:48.201544819Z[Etc/UTC]", comments = "Generator version: 7.3.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-31T04:42:17.765433185Z[Etc/UTC]", comments = "Generator version: 7.3.0-SNAPSHOT")
 @JsonDeserialize(using = SqlResponse.SqlResponseDeserializer.class)
 @JsonSerialize(using = SqlResponse.SqlResponseSerializer.class)
 public class SqlResponse extends AbstractOpenApiSchema {
@@ -101,19 +106,20 @@ public class SqlResponse extends AbstractOpenApiSchema {
                 log.log(Level.FINER, "Input data does not match schema 'List<Object>'", e);
             }
 
-            // deserialize Object
+            // deserialize SqlObjResponse
             try {
-                if (token != JsonToken.START_ARRAY) {
-                    deserialized = tree.traverse(jp.getCodec()).readValueAs(Object.class);
+                boolean attemptParsing = true;
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(SqlObjResponse.class);
                     // TODO: there is no validation against JSON schema constraints
                     // (min, max, enum, pattern...), this does not perform a strict JSON
                     // validation, which means the 'match' count may be higher than it should be.
                     match++;
-                    log.log(Level.FINER, "Input data matches schema 'Object'");
+                    log.log(Level.FINER, "Input data matches schema 'SqlObjResponse'");
                 }
             } catch (Exception e) {
                 // deserialization failed, continue
-                log.log(Level.FINER, "Input data does not match schema 'Object'", e);
+                log.log(Level.FINER, "Input data does not match schema 'SqlObjResponse'", e);
             }
 
             if (match == 1) {
@@ -145,7 +151,7 @@ public class SqlResponse extends AbstractOpenApiSchema {
         setActualInstance(o);
     }
 
-    public SqlResponse(Object o) {
+    public SqlResponse(SqlObjResponse o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
@@ -153,7 +159,7 @@ public class SqlResponse extends AbstractOpenApiSchema {
     static {
         schemas.put("List<Object>", new GenericType<List<Object>>() {
         });
-        schemas.put("Object", new GenericType<Object>() {
+        schemas.put("SqlObjResponse", new GenericType<SqlObjResponse>() {
         });
         JSON.registerDescendants(SqlResponse.class, Collections.unmodifiableMap(schemas));
     }
@@ -166,7 +172,7 @@ public class SqlResponse extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * List<Object>, Object
+     * List<Object>, SqlObjResponse
      *
      * It could be an instance of the 'oneOf' schemas.
      * The oneOf child schemas may themselves be a composed schema (allOf, anyOf, oneOf).
@@ -178,19 +184,19 @@ public class SqlResponse extends AbstractOpenApiSchema {
             return;
         }
 
-        if (JSON.isInstanceOf(Object.class, instance, new HashSet<>())) {
+        if (JSON.isInstanceOf(SqlObjResponse.class, instance, new HashSet<>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be List<Object>, Object");
+        throw new RuntimeException("Invalid instance type. Must be List<Object>, SqlObjResponse");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * List<Object>, Object
+     * List<Object>, SqlObjResponse
      *
-     * @return The actual instance (List<Object>, Object)
+     * @return The actual instance (List<Object>, SqlObjResponse)
      */
     @Override
     public Object getActualInstance() {
@@ -209,14 +215,14 @@ public class SqlResponse extends AbstractOpenApiSchema {
         }
 
     /**
-     * Get the actual instance of `Object`. If the actual instance is not `Object`,
+     * Get the actual instance of `SqlObjResponse`. If the actual instance is not `SqlObjResponse`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `Object`
-     * @throws ClassCastException if the instance is not `Object`
+     * @return The actual instance of `SqlObjResponse`
+     * @throws ClassCastException if the instance is not `SqlObjResponse`
      */
-    public Object getObject() throws ClassCastException {
-        return (Object)super.getActualInstance();
+    public SqlObjResponse getSqlObjResponse() throws ClassCastException {
+        return (SqlObjResponse)super.getActualInstance();
     }
 
 }

@@ -42,7 +42,7 @@ import com.manticoresearch.client.JSON;
   UpdateDocumentRequest.JSON_PROPERTY_QUERY
 })
 @JsonTypeName("updateDocumentRequest")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-13T13:30:48.201544819Z[Etc/UTC]", comments = "Generator version: 7.3.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-31T04:42:17.765433185Z[Etc/UTC]", comments = "Generator version: 7.3.0-SNAPSHOT")
 public class UpdateDocumentRequest {
   public static final String JSON_PROPERTY_TABLE = "table";
   private String table;

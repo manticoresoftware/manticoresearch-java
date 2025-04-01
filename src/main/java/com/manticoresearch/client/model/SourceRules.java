@@ -25,7 +25,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.ArrayList;
 import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -43,13 +42,13 @@ import com.manticoresearch.client.JSON;
   SourceRules.JSON_PROPERTY_EXCLUDES
 })
 @JsonTypeName("sourceRules")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-13T13:30:48.201544819Z[Etc/UTC]", comments = "Generator version: 7.3.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-31T04:42:17.765433185Z[Etc/UTC]", comments = "Generator version: 7.3.0-SNAPSHOT")
 public class SourceRules {
   public static final String JSON_PROPERTY_INCLUDES = "includes";
-  private JsonNullable<Object> includes = JsonNullable.<Object>of(new ArrayList<>());
+  private JsonNullable<Object> includes = JsonNullable.<Object>undefined();
 
   public static final String JSON_PROPERTY_EXCLUDES = "excludes";
-  private JsonNullable<Object> excludes = JsonNullable.<Object>of(new ArrayList<>(Arrays.asList("")));
+  private JsonNullable<Object> excludes = JsonNullable.<Object>undefined();
 
   public SourceRules() { 
   }

@@ -35,8 +35,8 @@ import com.manticoresearch.client.JSON;
   Match.JSON_PROPERTY_OPERATOR,
   Match.JSON_PROPERTY_BOOST
 })
-@JsonTypeName("match")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-13T13:30:48.201544819Z[Etc/UTC]", comments = "Generator version: 7.3.0-SNAPSHOT")
+@JsonTypeName("_match")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-31T04:42:17.765433185Z[Etc/UTC]", comments = "Generator version: 7.3.0-SNAPSHOT")
 public class Match {
   public static final String JSON_PROPERTY_QUERY = "query";
   private String query;
@@ -161,7 +161,7 @@ public class Match {
 
 
   /**
-   * Return true if this match object is equal to o.
+   * Return true if this _match object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
