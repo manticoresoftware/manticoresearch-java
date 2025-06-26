@@ -47,19 +47,19 @@ import com.manticoresearch.client.JSON;
   QueryFilter.JSON_PROPERTY_GEO_DISTANCE
 })
 @JsonTypeName("queryFilter")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-01T10:06:34.794647478Z[Etc/UTC]", comments = "Generator version: 7.3.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-26T07:24:06.103497054Z[Etc/UTC]", comments = "Generator version: 7.14.0")
 public class QueryFilter {
   public static final String JSON_PROPERTY_QUERY_STRING = "query_string";
-  private JsonNullable<Object> queryString = JsonNullable.<Object>undefined();
+  private String queryString;
 
   public static final String JSON_PROPERTY_MATCH = "match";
-  private JsonNullable<Object> match = JsonNullable.<Object>undefined();
+  private Object match;
 
   public static final String JSON_PROPERTY_MATCH_PHRASE = "match_phrase";
-  private JsonNullable<Object> matchPhrase = JsonNullable.<Object>undefined();
+  private Object matchPhrase;
 
   public static final String JSON_PROPERTY_MATCH_ALL = "match_all";
-  private JsonNullable<Object> matchAll = JsonNullable.<Object>undefined();
+  private Object matchAll;
 
   public static final String JSON_PROPERTY_BOOL = "bool";
   private BoolFilter bool;
@@ -79,8 +79,8 @@ public class QueryFilter {
   public QueryFilter() { 
   }
 
-  public QueryFilter queryString(Object queryString) {
-    this.queryString = JsonNullable.<Object>of(queryString);
+  public QueryFilter queryString(String queryString) {
+    this.queryString = queryString;
     return this;
   }
 
@@ -89,31 +89,23 @@ public class QueryFilter {
    * @return queryString
    */
   @jakarta.annotation.Nullable
-  @JsonIgnore
-
-  public Object getQueryString() {
-        return queryString.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_QUERY_STRING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getQueryString_JsonNullable() {
+  public String getQueryString() {
     return queryString;
   }
-  
-  @JsonProperty(JSON_PROPERTY_QUERY_STRING)
-  public void setQueryString_JsonNullable(JsonNullable<Object> queryString) {
-    this.queryString = queryString;
-  }
 
-  public void setQueryString(Object queryString) {
-    this.queryString = JsonNullable.<Object>of(queryString);
+
+  @JsonProperty(JSON_PROPERTY_QUERY_STRING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setQueryString(String queryString) {
+    this.queryString = queryString;
   }
 
 
   public QueryFilter match(Object match) {
-    this.match = JsonNullable.<Object>of(match);
+    this.match = match;
     return this;
   }
 
@@ -122,31 +114,23 @@ public class QueryFilter {
    * @return match
    */
   @jakarta.annotation.Nullable
-  @JsonIgnore
-
-  public Object getMatch() {
-        return match.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_MATCH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getMatch_JsonNullable() {
+  public Object getMatch() {
     return match;
   }
-  
-  @JsonProperty(JSON_PROPERTY_MATCH)
-  public void setMatch_JsonNullable(JsonNullable<Object> match) {
-    this.match = match;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_MATCH)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMatch(Object match) {
-    this.match = JsonNullable.<Object>of(match);
+    this.match = match;
   }
 
 
   public QueryFilter matchPhrase(Object matchPhrase) {
-    this.matchPhrase = JsonNullable.<Object>of(matchPhrase);
+    this.matchPhrase = matchPhrase;
     return this;
   }
 
@@ -155,31 +139,23 @@ public class QueryFilter {
    * @return matchPhrase
    */
   @jakarta.annotation.Nullable
-  @JsonIgnore
-
-  public Object getMatchPhrase() {
-        return matchPhrase.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_MATCH_PHRASE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getMatchPhrase_JsonNullable() {
+  public Object getMatchPhrase() {
     return matchPhrase;
   }
-  
-  @JsonProperty(JSON_PROPERTY_MATCH_PHRASE)
-  public void setMatchPhrase_JsonNullable(JsonNullable<Object> matchPhrase) {
-    this.matchPhrase = matchPhrase;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_MATCH_PHRASE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMatchPhrase(Object matchPhrase) {
-    this.matchPhrase = JsonNullable.<Object>of(matchPhrase);
+    this.matchPhrase = matchPhrase;
   }
 
 
   public QueryFilter matchAll(Object matchAll) {
-    this.matchAll = JsonNullable.<Object>of(matchAll);
+    this.matchAll = matchAll;
     return this;
   }
 
@@ -188,26 +164,18 @@ public class QueryFilter {
    * @return matchAll
    */
   @jakarta.annotation.Nullable
-  @JsonIgnore
-
-  public Object getMatchAll() {
-        return matchAll.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_MATCH_ALL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getMatchAll_JsonNullable() {
+  public Object getMatchAll() {
     return matchAll;
   }
-  
-  @JsonProperty(JSON_PROPERTY_MATCH_ALL)
-  public void setMatchAll_JsonNullable(JsonNullable<Object> matchAll) {
-    this.matchAll = matchAll;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_MATCH_ALL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMatchAll(Object matchAll) {
-    this.matchAll = JsonNullable.<Object>of(matchAll);
+    this.matchAll = matchAll;
   }
 
 
@@ -356,10 +324,10 @@ public class QueryFilter {
       return false;
     }
     QueryFilter queryFilter = (QueryFilter) o;
-    return equalsNullable(this.queryString, queryFilter.queryString) &&
-        equalsNullable(this.match, queryFilter.match) &&
-        equalsNullable(this.matchPhrase, queryFilter.matchPhrase) &&
-        equalsNullable(this.matchAll, queryFilter.matchAll) &&
+    return Objects.equals(this.queryString, queryFilter.queryString) &&
+        Objects.equals(this.match, queryFilter.match) &&
+        Objects.equals(this.matchPhrase, queryFilter.matchPhrase) &&
+        Objects.equals(this.matchAll, queryFilter.matchAll) &&
         Objects.equals(this.bool, queryFilter.bool) &&
         equalsNullable(this.equals, queryFilter.equals) &&
         Objects.equals(this.in, queryFilter.in) &&
@@ -373,7 +341,7 @@ public class QueryFilter {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(queryString), hashCodeNullable(match), hashCodeNullable(matchPhrase), hashCodeNullable(matchAll), bool, hashCodeNullable(equals), in, range, geoDistance);
+    return Objects.hash(queryString, match, matchPhrase, matchAll, bool, hashCodeNullable(equals), in, range, geoDistance);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {

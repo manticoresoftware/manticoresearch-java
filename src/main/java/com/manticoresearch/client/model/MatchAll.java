@@ -33,13 +33,13 @@ import com.manticoresearch.client.JSON;
   MatchAll.JSON_PROPERTY_ALL
 })
 @JsonTypeName("match_all")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-01T10:06:34.794647478Z[Etc/UTC]", comments = "Generator version: 7.3.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-26T07:24:06.103497054Z[Etc/UTC]", comments = "Generator version: 7.14.0")
 public class MatchAll {
   /**
    * Gets or Sets all
    */
   public enum AllEnum {
-    _("{}");
+    u("{}");
 
     private String value;
 

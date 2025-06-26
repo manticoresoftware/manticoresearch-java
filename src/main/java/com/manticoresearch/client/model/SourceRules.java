@@ -27,10 +27,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
-import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
+import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.manticoresearch.client.JSON;
 
@@ -43,19 +40,27 @@ import com.manticoresearch.client.JSON;
   SourceRules.JSON_PROPERTY_EXCLUDES
 })
 @JsonTypeName("sourceRules")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-01T10:06:34.794647478Z[Etc/UTC]", comments = "Generator version: 7.3.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-26T07:24:06.103497054Z[Etc/UTC]", comments = "Generator version: 7.14.0")
 public class SourceRules {
   public static final String JSON_PROPERTY_INCLUDES = "includes";
-  private JsonNullable<Object> includes = JsonNullable.<Object>of(new ArrayList<>());
+  private List<String> includes = new ArrayList<>();
 
   public static final String JSON_PROPERTY_EXCLUDES = "excludes";
-  private JsonNullable<Object> excludes = JsonNullable.<Object>of(new ArrayList<>(Arrays.asList("")));
+  private List<String> excludes = new ArrayList<>(Arrays.asList(""));
 
   public SourceRules() { 
   }
 
-  public SourceRules includes(Object includes) {
-    this.includes = JsonNullable.<Object>of(includes);
+  public SourceRules includes(List<String> includes) {
+    this.includes = includes;
+    return this;
+  }
+
+  public SourceRules addIncludesItem(String includesItem) {
+    if (this.includes == null) {
+      this.includes = new ArrayList<>();
+    }
+    this.includes.add(includesItem);
     return this;
   }
 
@@ -64,31 +69,31 @@ public class SourceRules {
    * @return includes
    */
   @jakarta.annotation.Nullable
-  @JsonIgnore
-
-  public Object getIncludes() {
-        return includes.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_INCLUDES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getIncludes_JsonNullable() {
+  public List<String> getIncludes() {
     return includes;
   }
-  
+
+
   @JsonProperty(JSON_PROPERTY_INCLUDES)
-  public void setIncludes_JsonNullable(JsonNullable<Object> includes) {
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setIncludes(List<String> includes) {
     this.includes = includes;
   }
 
-  public void setIncludes(Object includes) {
-    this.includes = JsonNullable.<Object>of(includes);
+
+  public SourceRules excludes(List<String> excludes) {
+    this.excludes = excludes;
+    return this;
   }
 
-
-  public SourceRules excludes(Object excludes) {
-    this.excludes = JsonNullable.<Object>of(excludes);
+  public SourceRules addExcludesItem(String excludesItem) {
+    if (this.excludes == null) {
+      this.excludes = new ArrayList<>(Arrays.asList(""));
+    }
+    this.excludes.add(excludesItem);
     return this;
   }
 
@@ -97,26 +102,18 @@ public class SourceRules {
    * @return excludes
    */
   @jakarta.annotation.Nullable
-  @JsonIgnore
-
-  public Object getExcludes() {
-        return excludes.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_EXCLUDES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getExcludes_JsonNullable() {
+  public List<String> getExcludes() {
     return excludes;
   }
-  
-  @JsonProperty(JSON_PROPERTY_EXCLUDES)
-  public void setExcludes_JsonNullable(JsonNullable<Object> excludes) {
-    this.excludes = excludes;
-  }
 
-  public void setExcludes(Object excludes) {
-    this.excludes = JsonNullable.<Object>of(excludes);
+
+  @JsonProperty(JSON_PROPERTY_EXCLUDES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setExcludes(List<String> excludes) {
+    this.excludes = excludes;
   }
 
   /**
@@ -169,25 +166,14 @@ public class SourceRules {
       return false;
     }
     SourceRules sourceRules = (SourceRules) o;
-    return equalsNullable(this.includes, sourceRules.includes) &&
-        equalsNullable(this.excludes, sourceRules.excludes)&&
+    return Objects.equals(this.includes, sourceRules.includes) &&
+        Objects.equals(this.excludes, sourceRules.excludes)&&
         Objects.equals(this.additionalProperties, sourceRules.additionalProperties);
-  }
-
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(includes), hashCodeNullable(excludes), additionalProperties);
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(includes, excludes, additionalProperties);
   }
 
   @Override

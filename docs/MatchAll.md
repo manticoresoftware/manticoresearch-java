@@ -16,7 +16,7 @@ Filter helper object defining the 'match all'' condition
 
 | Name | Value |
 |---- | -----|
-| _ | &quot;{}&quot; |
+| u | &quot;{}&quot; |
 
 
 

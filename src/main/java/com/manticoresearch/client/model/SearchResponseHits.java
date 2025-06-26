@@ -39,7 +39,7 @@ import com.manticoresearch.client.JSON;
   SearchResponseHits.JSON_PROPERTY_HITS
 })
 @JsonTypeName("searchResponse_hits")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-01T10:06:34.794647478Z[Etc/UTC]", comments = "Generator version: 7.3.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-26T07:24:06.103497054Z[Etc/UTC]", comments = "Generator version: 7.14.0")
 public class SearchResponseHits {
   public static final String JSON_PROPERTY_MAX_SCORE = "max_score";
   private Integer maxScore;
@@ -51,7 +51,7 @@ public class SearchResponseHits {
   private String totalRelation;
 
   public static final String JSON_PROPERTY_HITS = "hits";
-  private List<HitsHits> hits;
+  private List<HitsHits> hits = new ArrayList<>();
 
   public SearchResponseHits() { 
   }
@@ -136,7 +136,7 @@ public class SearchResponseHits {
     return this;
   }
 
-  public SearchResponseHits addItem(HitsHits hitsItem) {
+  public SearchResponseHits addHitsItem(HitsHits hitsItem) {
     if (this.hits == null) {
       this.hits = new ArrayList<>();
     }

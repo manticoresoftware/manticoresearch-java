@@ -88,11 +88,11 @@ public class HitsHitsTest {
     }
 
     /**
-     * Test the property 'typeColon'
+     * Test the property 'type'
      */
     @Test
-    public void typeColonTest() {
-        // TODO: test typeColon
+    public void typeTest() {
+        // TODO: test type
     }
 
     /**

@@ -60,7 +60,7 @@ import com.manticoresearch.client.JSON;
   SearchRequest.JSON_PROPERTY_TRACK_SCORES
 })
 @JsonTypeName("searchRequest")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-01T10:06:34.794647478Z[Etc/UTC]", comments = "Generator version: 7.3.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-26T07:24:06.103497054Z[Etc/UTC]", comments = "Generator version: 7.14.0")
 public class SearchRequest {
   public static final String JSON_PROPERTY_TABLE = "table";
   private String table;
@@ -69,7 +69,7 @@ public class SearchRequest {
   private SearchQuery query;
 
   public static final String JSON_PROPERTY_JOIN = "join";
-  private List<Join> join;
+  private List<Join> join = new ArrayList<>();
 
   public static final String JSON_PROPERTY_HIGHLIGHT = "highlight";
   private Highlight highlight;
@@ -81,10 +81,10 @@ public class SearchRequest {
   private KnnQuery knn;
 
   public static final String JSON_PROPERTY_AGGS = "aggs";
-  private JsonNullable<Map<String, Aggregation>> aggs = JsonNullable.<Map<String, Aggregation>>undefined();
+  private Map<String, Aggregation> aggs = new HashMap<>();
 
   public static final String JSON_PROPERTY_EXPRESSIONS = "expressions";
-  private JsonNullable<Map<String, String>> expressions = JsonNullable.<Map<String, String>>undefined();
+  private Map<String, String> expressions = new HashMap<>();
 
   public static final String JSON_PROPERTY_MAX_MATCHES = "max_matches";
   private Integer maxMatches;
@@ -165,7 +165,7 @@ public class SearchRequest {
     return this;
   }
 
-  public SearchRequest addItem(Join joinItem) {
+  public SearchRequest addJoinItem(Join joinItem) {
     if (this.join == null) {
       this.join = new ArrayList<>();
     }
@@ -269,7 +269,15 @@ public class SearchRequest {
 
 
   public SearchRequest aggs(Map<String, Aggregation> aggs) {
-    this.aggs = JsonNullable.<Map<String, Aggregation>>of(aggs);
+    this.aggs = aggs;
+    return this;
+  }
+
+  public SearchRequest putAggsItem(String key, Aggregation aggsItem) {
+    if (this.aggs == null) {
+      this.aggs = new HashMap<>();
+    }
+    this.aggs.put(key, aggsItem);
     return this;
   }
 
@@ -278,31 +286,31 @@ public class SearchRequest {
    * @return aggs
    */
   @jakarta.annotation.Nullable
-  @JsonIgnore
-
-  public Map<String, Aggregation> getAggs() {
-        return aggs.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_AGGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Map<String, Aggregation>> getAggs_JsonNullable() {
+  public Map<String, Aggregation> getAggs() {
     return aggs;
   }
-  
-  @JsonProperty(JSON_PROPERTY_AGGS)
-  public void setAggs_JsonNullable(JsonNullable<Map<String, Aggregation>> aggs) {
-    this.aggs = aggs;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_AGGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAggs(Map<String, Aggregation> aggs) {
-    this.aggs = JsonNullable.<Map<String, Aggregation>>of(aggs);
+    this.aggs = aggs;
   }
 
 
   public SearchRequest expressions(Map<String, String> expressions) {
-    this.expressions = JsonNullable.<Map<String, String>>of(expressions);
+    this.expressions = expressions;
+    return this;
+  }
+
+  public SearchRequest putExpressionsItem(String key, String expressionsItem) {
+    if (this.expressions == null) {
+      this.expressions = new HashMap<>();
+    }
+    this.expressions.put(key, expressionsItem);
     return this;
   }
 
@@ -311,26 +319,18 @@ public class SearchRequest {
    * @return expressions
    */
   @jakarta.annotation.Nullable
-  @JsonIgnore
-
-  public Map<String, String> getExpressions() {
-        return expressions.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_EXPRESSIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Map<String, String>> getExpressions_JsonNullable() {
+  public Map<String, String> getExpressions() {
     return expressions;
   }
-  
-  @JsonProperty(JSON_PROPERTY_EXPRESSIONS)
-  public void setExpressions_JsonNullable(JsonNullable<Map<String, String>> expressions) {
-    this.expressions = expressions;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_EXPRESSIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpressions(Map<String, String> expressions) {
-    this.expressions = JsonNullable.<Map<String, String>>of(expressions);
+    this.expressions = expressions;
   }
 
 
@@ -543,8 +543,8 @@ public class SearchRequest {
         Objects.equals(this.highlight, searchRequest.highlight) &&
         Objects.equals(this.limit, searchRequest.limit) &&
         Objects.equals(this.knn, searchRequest.knn) &&
-        equalsNullable(this.aggs, searchRequest.aggs) &&
-        equalsNullable(this.expressions, searchRequest.expressions) &&
+        Objects.equals(this.aggs, searchRequest.aggs) &&
+        Objects.equals(this.expressions, searchRequest.expressions) &&
         Objects.equals(this.maxMatches, searchRequest.maxMatches) &&
         Objects.equals(this.offset, searchRequest.offset) &&
         Objects.equals(this.options, searchRequest.options) &&
@@ -560,7 +560,7 @@ public class SearchRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(table, query, join, highlight, limit, knn, hashCodeNullable(aggs), hashCodeNullable(expressions), maxMatches, offset, options, profile, hashCodeNullable(sort), hashCodeNullable(source), trackScores);
+    return Objects.hash(table, query, join, highlight, limit, knn, aggs, expressions, maxMatches, offset, options, profile, hashCodeNullable(sort), hashCodeNullable(source), trackScores);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {

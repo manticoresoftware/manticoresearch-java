@@ -49,19 +49,19 @@ import com.manticoresearch.client.JSON;
   SearchQuery.JSON_PROPERTY_HIGHLIGHT
 })
 @JsonTypeName("searchQuery")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-01T10:06:34.794647478Z[Etc/UTC]", comments = "Generator version: 7.3.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-26T07:24:06.103497054Z[Etc/UTC]", comments = "Generator version: 7.14.0")
 public class SearchQuery {
   public static final String JSON_PROPERTY_QUERY_STRING = "query_string";
-  private JsonNullable<Object> queryString = JsonNullable.<Object>undefined();
+  private String queryString;
 
   public static final String JSON_PROPERTY_MATCH = "match";
-  private JsonNullable<Object> match = JsonNullable.<Object>undefined();
+  private Object match;
 
   public static final String JSON_PROPERTY_MATCH_PHRASE = "match_phrase";
-  private JsonNullable<Object> matchPhrase = JsonNullable.<Object>undefined();
+  private Object matchPhrase;
 
   public static final String JSON_PROPERTY_MATCH_ALL = "match_all";
-  private JsonNullable<Object> matchAll = JsonNullable.<Object>undefined();
+  private Object matchAll;
 
   public static final String JSON_PROPERTY_BOOL = "bool";
   private BoolFilter bool;
@@ -70,10 +70,10 @@ public class SearchQuery {
   private JsonNullable<Object> equals = JsonNullable.<Object>undefined();
 
   public static final String JSON_PROPERTY_IN = "in";
-  private JsonNullable<Object> in = JsonNullable.<Object>undefined();
+  private Object in;
 
   public static final String JSON_PROPERTY_RANGE = "range";
-  private JsonNullable<Object> range = JsonNullable.<Object>undefined();
+  private Object range;
 
   public static final String JSON_PROPERTY_GEO_DISTANCE = "geo_distance";
   private GeoDistance geoDistance;
@@ -84,8 +84,8 @@ public class SearchQuery {
   public SearchQuery() { 
   }
 
-  public SearchQuery queryString(Object queryString) {
-    this.queryString = JsonNullable.<Object>of(queryString);
+  public SearchQuery queryString(String queryString) {
+    this.queryString = queryString;
     return this;
   }
 
@@ -94,31 +94,23 @@ public class SearchQuery {
    * @return queryString
    */
   @jakarta.annotation.Nullable
-  @JsonIgnore
-
-  public Object getQueryString() {
-        return queryString.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_QUERY_STRING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getQueryString_JsonNullable() {
+  public String getQueryString() {
     return queryString;
   }
-  
-  @JsonProperty(JSON_PROPERTY_QUERY_STRING)
-  public void setQueryString_JsonNullable(JsonNullable<Object> queryString) {
-    this.queryString = queryString;
-  }
 
-  public void setQueryString(Object queryString) {
-    this.queryString = JsonNullable.<Object>of(queryString);
+
+  @JsonProperty(JSON_PROPERTY_QUERY_STRING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setQueryString(String queryString) {
+    this.queryString = queryString;
   }
 
 
   public SearchQuery match(Object match) {
-    this.match = JsonNullable.<Object>of(match);
+    this.match = match;
     return this;
   }
 
@@ -127,31 +119,23 @@ public class SearchQuery {
    * @return match
    */
   @jakarta.annotation.Nullable
-  @JsonIgnore
-
-  public Object getMatch() {
-        return match.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_MATCH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getMatch_JsonNullable() {
+  public Object getMatch() {
     return match;
   }
-  
-  @JsonProperty(JSON_PROPERTY_MATCH)
-  public void setMatch_JsonNullable(JsonNullable<Object> match) {
-    this.match = match;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_MATCH)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMatch(Object match) {
-    this.match = JsonNullable.<Object>of(match);
+    this.match = match;
   }
 
 
   public SearchQuery matchPhrase(Object matchPhrase) {
-    this.matchPhrase = JsonNullable.<Object>of(matchPhrase);
+    this.matchPhrase = matchPhrase;
     return this;
   }
 
@@ -160,31 +144,23 @@ public class SearchQuery {
    * @return matchPhrase
    */
   @jakarta.annotation.Nullable
-  @JsonIgnore
-
-  public Object getMatchPhrase() {
-        return matchPhrase.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_MATCH_PHRASE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getMatchPhrase_JsonNullable() {
+  public Object getMatchPhrase() {
     return matchPhrase;
   }
-  
-  @JsonProperty(JSON_PROPERTY_MATCH_PHRASE)
-  public void setMatchPhrase_JsonNullable(JsonNullable<Object> matchPhrase) {
-    this.matchPhrase = matchPhrase;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_MATCH_PHRASE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMatchPhrase(Object matchPhrase) {
-    this.matchPhrase = JsonNullable.<Object>of(matchPhrase);
+    this.matchPhrase = matchPhrase;
   }
 
 
   public SearchQuery matchAll(Object matchAll) {
-    this.matchAll = JsonNullable.<Object>of(matchAll);
+    this.matchAll = matchAll;
     return this;
   }
 
@@ -193,26 +169,18 @@ public class SearchQuery {
    * @return matchAll
    */
   @jakarta.annotation.Nullable
-  @JsonIgnore
-
-  public Object getMatchAll() {
-        return matchAll.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_MATCH_ALL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getMatchAll_JsonNullable() {
+  public Object getMatchAll() {
     return matchAll;
   }
-  
-  @JsonProperty(JSON_PROPERTY_MATCH_ALL)
-  public void setMatchAll_JsonNullable(JsonNullable<Object> matchAll) {
-    this.matchAll = matchAll;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_MATCH_ALL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMatchAll(Object matchAll) {
-    this.matchAll = JsonNullable.<Object>of(matchAll);
+    this.matchAll = matchAll;
   }
 
 
@@ -275,7 +243,7 @@ public class SearchQuery {
 
 
   public SearchQuery in(Object in) {
-    this.in = JsonNullable.<Object>of(in);
+    this.in = in;
     return this;
   }
 
@@ -284,31 +252,23 @@ public class SearchQuery {
    * @return in
    */
   @jakarta.annotation.Nullable
-  @JsonIgnore
-
-  public Object getIn() {
-        return in.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_IN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getIn_JsonNullable() {
+  public Object getIn() {
     return in;
   }
-  
-  @JsonProperty(JSON_PROPERTY_IN)
-  public void setIn_JsonNullable(JsonNullable<Object> in) {
-    this.in = in;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_IN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setIn(Object in) {
-    this.in = JsonNullable.<Object>of(in);
+    this.in = in;
   }
 
 
   public SearchQuery range(Object range) {
-    this.range = JsonNullable.<Object>of(range);
+    this.range = range;
     return this;
   }
 
@@ -317,26 +277,18 @@ public class SearchQuery {
    * @return range
    */
   @jakarta.annotation.Nullable
-  @JsonIgnore
-
-  public Object getRange() {
-        return range.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_RANGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getRange_JsonNullable() {
+  public Object getRange() {
     return range;
   }
-  
-  @JsonProperty(JSON_PROPERTY_RANGE)
-  public void setRange_JsonNullable(JsonNullable<Object> range) {
-    this.range = range;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_RANGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRange(Object range) {
-    this.range = JsonNullable.<Object>of(range);
+    this.range = range;
   }
 
 
@@ -402,14 +354,14 @@ public class SearchQuery {
       return false;
     }
     SearchQuery searchQuery = (SearchQuery) o;
-    return equalsNullable(this.queryString, searchQuery.queryString) &&
-        equalsNullable(this.match, searchQuery.match) &&
-        equalsNullable(this.matchPhrase, searchQuery.matchPhrase) &&
-        equalsNullable(this.matchAll, searchQuery.matchAll) &&
+    return Objects.equals(this.queryString, searchQuery.queryString) &&
+        Objects.equals(this.match, searchQuery.match) &&
+        Objects.equals(this.matchPhrase, searchQuery.matchPhrase) &&
+        Objects.equals(this.matchAll, searchQuery.matchAll) &&
         Objects.equals(this.bool, searchQuery.bool) &&
         equalsNullable(this.equals, searchQuery.equals) &&
-        equalsNullable(this.in, searchQuery.in) &&
-        equalsNullable(this.range, searchQuery.range) &&
+        Objects.equals(this.in, searchQuery.in) &&
+        Objects.equals(this.range, searchQuery.range) &&
         Objects.equals(this.geoDistance, searchQuery.geoDistance) &&
         Objects.equals(this.highlight, searchQuery.highlight);
   }
@@ -420,7 +372,7 @@ public class SearchQuery {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(queryString), hashCodeNullable(match), hashCodeNullable(matchPhrase), hashCodeNullable(matchAll), bool, hashCodeNullable(equals), hashCodeNullable(in), hashCodeNullable(range), geoDistance, highlight);
+    return Objects.hash(queryString, match, matchPhrase, matchAll, bool, hashCodeNullable(equals), in, range, geoDistance, highlight);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {

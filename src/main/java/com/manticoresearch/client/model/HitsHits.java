@@ -37,11 +37,11 @@ import com.manticoresearch.client.JSON;
   HitsHits.JSON_PROPERTY_KNN_DIST,
   HitsHits.JSON_PROPERTY_HIGHLIGHT,
   HitsHits.JSON_PROPERTY_TABLE,
-  HitsHits.JSON_PROPERTY_TYPE_COLON,
+  HitsHits.JSON_PROPERTY_TYPE,
   HitsHits.JSON_PROPERTY_FIELDS
 })
 @JsonTypeName("hitsHits")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-01T10:06:34.794647478Z[Etc/UTC]", comments = "Generator version: 7.3.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-26T07:24:06.103497054Z[Etc/UTC]", comments = "Generator version: 7.14.0")
 public class HitsHits {
   public static final String JSON_PROPERTY_ID = "_id";
   private Long id;
@@ -61,8 +61,8 @@ public class HitsHits {
   public static final String JSON_PROPERTY_TABLE = "table";
   private String table;
 
-  public static final String JSON_PROPERTY_TYPE_COLON = "_type:";
-  private String typeColon;
+  public static final String JSON_PROPERTY_TYPE = "_type:";
+  private String type;
 
   public static final String JSON_PROPERTY_FIELDS = "fields";
   private Object fields;
@@ -220,28 +220,28 @@ public class HitsHits {
   }
 
 
-  public HitsHits typeColon(String typeColon) {
-    this.typeColon = typeColon;
+  public HitsHits type(String type) {
+    this.type = type;
     return this;
   }
 
   /**
    * The type of the matched document returned for percolate queries
-   * @return typeColon
+   * @return type
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TYPE_COLON)
+  @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getTypeColon() {
-    return typeColon;
+  public String getType() {
+    return type;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TYPE_COLON)
+  @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTypeColon(String typeColon) {
-    this.typeColon = typeColon;
+  public void setType(String type) {
+    this.type = type;
   }
 
 
@@ -288,13 +288,13 @@ public class HitsHits {
         Objects.equals(this.knnDist, hitsHits.knnDist) &&
         Objects.equals(this.highlight, hitsHits.highlight) &&
         Objects.equals(this.table, hitsHits.table) &&
-        Objects.equals(this.typeColon, hitsHits.typeColon) &&
+        Objects.equals(this.type, hitsHits.type) &&
         Objects.equals(this.fields, hitsHits.fields);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, score, source, knnDist, highlight, table, typeColon, fields);
+    return Objects.hash(id, score, source, knnDist, highlight, table, type, fields);
   }
 
   @Override
@@ -307,7 +307,7 @@ public class HitsHits {
     sb.append("    knnDist: ").append(toIndentedString(knnDist)).append("\n");
     sb.append("    highlight: ").append(toIndentedString(highlight)).append("\n");
     sb.append("    table: ").append(toIndentedString(table)).append("\n");
-    sb.append("    typeColon: ").append(toIndentedString(typeColon)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    fields: ").append(toIndentedString(fields)).append("\n");
     sb.append("}");
     return sb.toString();

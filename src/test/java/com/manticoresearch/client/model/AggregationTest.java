@@ -19,6 +19,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.manticoresearch.client.model.AggComposite;
+import com.manticoresearch.client.model.AggHistogram;
 import com.manticoresearch.client.model.AggTerms;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -64,6 +65,14 @@ public class AggregationTest {
     @Test
     public void compositeTest() {
         // TODO: test composite
+    }
+
+    /**
+     * Test the property 'histogram'
+     */
+    @Test
+    public void histogramTest() {
+        // TODO: test histogram
     }
 
 }

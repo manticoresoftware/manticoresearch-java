@@ -21,6 +21,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.manticoresearch.client.model.HighlightAllOfFields;
 import com.manticoresearch.client.model.QueryFilter;
 import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -60,22 +61,22 @@ import com.manticoresearch.client.JSON;
   Highlight.JSON_PROPERTY_USE_BOUNDARIES
 })
 @JsonTypeName("highlight")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-01T10:06:34.794647478Z[Etc/UTC]", comments = "Generator version: 7.3.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-26T07:24:06.103497054Z[Etc/UTC]", comments = "Generator version: 7.14.0")
 public class Highlight {
   public static final String JSON_PROPERTY_FRAGMENT_SIZE = "fragment_size";
-  private JsonNullable<Object> fragmentSize = JsonNullable.<Object>undefined();
+  private Integer fragmentSize;
 
   public static final String JSON_PROPERTY_LIMIT = "limit";
-  private JsonNullable<Object> limit = JsonNullable.<Object>undefined();
+  private Integer limit;
 
   public static final String JSON_PROPERTY_LIMIT_SNIPPETS = "limit_snippets";
-  private JsonNullable<Object> limitSnippets = JsonNullable.<Object>undefined();
+  private Integer limitSnippets;
 
   public static final String JSON_PROPERTY_LIMIT_WORDS = "limit_words";
-  private JsonNullable<Object> limitWords = JsonNullable.<Object>undefined();
+  private Integer limitWords;
 
   public static final String JSON_PROPERTY_NUMBER_OF_FRAGMENTS = "number_of_fragments";
-  private JsonNullable<Object> numberOfFragments = JsonNullable.<Object>undefined();
+  private Integer numberOfFragments;
 
   public static final String JSON_PROPERTY_AFTER_MATCH = "after_match";
   private String afterMatch = "</strong>";
@@ -131,7 +132,7 @@ public class Highlight {
   private EncoderEnum encoder;
 
   public static final String JSON_PROPERTY_FIELDS = "fields";
-  private JsonNullable<Object> fields = JsonNullable.<Object>undefined();
+  private HighlightAllOfFields fields;
 
   public static final String JSON_PROPERTY_FORCE_ALL_WORDS = "force_all_words";
   private Boolean forceAllWords;
@@ -280,8 +281,8 @@ public class Highlight {
   public Highlight() { 
   }
 
-  public Highlight fragmentSize(Object fragmentSize) {
-    this.fragmentSize = JsonNullable.<Object>of(fragmentSize);
+  public Highlight fragmentSize(Integer fragmentSize) {
+    this.fragmentSize = fragmentSize;
     return this;
   }
 
@@ -290,31 +291,23 @@ public class Highlight {
    * @return fragmentSize
    */
   @jakarta.annotation.Nullable
-  @JsonIgnore
-
-  public Object getFragmentSize() {
-        return fragmentSize.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_FRAGMENT_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getFragmentSize_JsonNullable() {
+  public Integer getFragmentSize() {
     return fragmentSize;
   }
-  
+
+
   @JsonProperty(JSON_PROPERTY_FRAGMENT_SIZE)
-  public void setFragmentSize_JsonNullable(JsonNullable<Object> fragmentSize) {
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setFragmentSize(Integer fragmentSize) {
     this.fragmentSize = fragmentSize;
   }
 
-  public void setFragmentSize(Object fragmentSize) {
-    this.fragmentSize = JsonNullable.<Object>of(fragmentSize);
-  }
 
-
-  public Highlight limit(Object limit) {
-    this.limit = JsonNullable.<Object>of(limit);
+  public Highlight limit(Integer limit) {
+    this.limit = limit;
     return this;
   }
 
@@ -323,31 +316,23 @@ public class Highlight {
    * @return limit
    */
   @jakarta.annotation.Nullable
-  @JsonIgnore
-
-  public Object getLimit() {
-        return limit.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getLimit_JsonNullable() {
+  public Integer getLimit() {
     return limit;
   }
-  
+
+
   @JsonProperty(JSON_PROPERTY_LIMIT)
-  public void setLimit_JsonNullable(JsonNullable<Object> limit) {
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setLimit(Integer limit) {
     this.limit = limit;
   }
 
-  public void setLimit(Object limit) {
-    this.limit = JsonNullable.<Object>of(limit);
-  }
 
-
-  public Highlight limitSnippets(Object limitSnippets) {
-    this.limitSnippets = JsonNullable.<Object>of(limitSnippets);
+  public Highlight limitSnippets(Integer limitSnippets) {
+    this.limitSnippets = limitSnippets;
     return this;
   }
 
@@ -356,31 +341,23 @@ public class Highlight {
    * @return limitSnippets
    */
   @jakarta.annotation.Nullable
-  @JsonIgnore
-
-  public Object getLimitSnippets() {
-        return limitSnippets.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_LIMIT_SNIPPETS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getLimitSnippets_JsonNullable() {
+  public Integer getLimitSnippets() {
     return limitSnippets;
   }
-  
+
+
   @JsonProperty(JSON_PROPERTY_LIMIT_SNIPPETS)
-  public void setLimitSnippets_JsonNullable(JsonNullable<Object> limitSnippets) {
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setLimitSnippets(Integer limitSnippets) {
     this.limitSnippets = limitSnippets;
   }
 
-  public void setLimitSnippets(Object limitSnippets) {
-    this.limitSnippets = JsonNullable.<Object>of(limitSnippets);
-  }
 
-
-  public Highlight limitWords(Object limitWords) {
-    this.limitWords = JsonNullable.<Object>of(limitWords);
+  public Highlight limitWords(Integer limitWords) {
+    this.limitWords = limitWords;
     return this;
   }
 
@@ -389,31 +366,23 @@ public class Highlight {
    * @return limitWords
    */
   @jakarta.annotation.Nullable
-  @JsonIgnore
-
-  public Object getLimitWords() {
-        return limitWords.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_LIMIT_WORDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getLimitWords_JsonNullable() {
+  public Integer getLimitWords() {
     return limitWords;
   }
-  
+
+
   @JsonProperty(JSON_PROPERTY_LIMIT_WORDS)
-  public void setLimitWords_JsonNullable(JsonNullable<Object> limitWords) {
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setLimitWords(Integer limitWords) {
     this.limitWords = limitWords;
   }
 
-  public void setLimitWords(Object limitWords) {
-    this.limitWords = JsonNullable.<Object>of(limitWords);
-  }
 
-
-  public Highlight numberOfFragments(Object numberOfFragments) {
-    this.numberOfFragments = JsonNullable.<Object>of(numberOfFragments);
+  public Highlight numberOfFragments(Integer numberOfFragments) {
+    this.numberOfFragments = numberOfFragments;
     return this;
   }
 
@@ -422,26 +391,18 @@ public class Highlight {
    * @return numberOfFragments
    */
   @jakarta.annotation.Nullable
-  @JsonIgnore
-
-  public Object getNumberOfFragments() {
-        return numberOfFragments.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_NUMBER_OF_FRAGMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getNumberOfFragments_JsonNullable() {
+  public Integer getNumberOfFragments() {
     return numberOfFragments;
   }
-  
-  @JsonProperty(JSON_PROPERTY_NUMBER_OF_FRAGMENTS)
-  public void setNumberOfFragments_JsonNullable(JsonNullable<Object> numberOfFragments) {
-    this.numberOfFragments = numberOfFragments;
-  }
 
-  public void setNumberOfFragments(Object numberOfFragments) {
-    this.numberOfFragments = JsonNullable.<Object>of(numberOfFragments);
+
+  @JsonProperty(JSON_PROPERTY_NUMBER_OF_FRAGMENTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setNumberOfFragments(Integer numberOfFragments) {
+    this.numberOfFragments = numberOfFragments;
   }
 
 
@@ -595,8 +556,8 @@ public class Highlight {
   }
 
 
-  public Highlight fields(Object fields) {
-    this.fields = JsonNullable.<Object>of(fields);
+  public Highlight fields(HighlightAllOfFields fields) {
+    this.fields = fields;
     return this;
   }
 
@@ -605,26 +566,18 @@ public class Highlight {
    * @return fields
    */
   @jakarta.annotation.Nullable
-  @JsonIgnore
-
-  public Object getFields() {
-        return fields.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getFields_JsonNullable() {
+  public HighlightAllOfFields getFields() {
     return fields;
   }
-  
-  @JsonProperty(JSON_PROPERTY_FIELDS)
-  public void setFields_JsonNullable(JsonNullable<Object> fields) {
-    this.fields = fields;
-  }
 
-  public void setFields(Object fields) {
-    this.fields = JsonNullable.<Object>of(fields);
+
+  @JsonProperty(JSON_PROPERTY_FIELDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setFields(HighlightAllOfFields fields) {
+    this.fields = fields;
   }
 
 
@@ -923,18 +876,18 @@ public class Highlight {
       return false;
     }
     Highlight highlight = (Highlight) o;
-    return equalsNullable(this.fragmentSize, highlight.fragmentSize) &&
-        equalsNullable(this.limit, highlight.limit) &&
-        equalsNullable(this.limitSnippets, highlight.limitSnippets) &&
-        equalsNullable(this.limitWords, highlight.limitWords) &&
-        equalsNullable(this.numberOfFragments, highlight.numberOfFragments) &&
+    return Objects.equals(this.fragmentSize, highlight.fragmentSize) &&
+        Objects.equals(this.limit, highlight.limit) &&
+        Objects.equals(this.limitSnippets, highlight.limitSnippets) &&
+        Objects.equals(this.limitWords, highlight.limitWords) &&
+        Objects.equals(this.numberOfFragments, highlight.numberOfFragments) &&
         Objects.equals(this.afterMatch, highlight.afterMatch) &&
         Objects.equals(this.allowEmpty, highlight.allowEmpty) &&
         Objects.equals(this.around, highlight.around) &&
         Objects.equals(this.beforeMatch, highlight.beforeMatch) &&
         Objects.equals(this.emitZones, highlight.emitZones) &&
         Objects.equals(this.encoder, highlight.encoder) &&
-        equalsNullable(this.fields, highlight.fields) &&
+        Objects.equals(this.fields, highlight.fields) &&
         Objects.equals(this.forceAllWords, highlight.forceAllWords) &&
         Objects.equals(this.forceSnippets, highlight.forceSnippets) &&
         equalsNullable(this.highlightQuery, highlight.highlightQuery) &&
@@ -954,7 +907,7 @@ public class Highlight {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(fragmentSize), hashCodeNullable(limit), hashCodeNullable(limitSnippets), hashCodeNullable(limitWords), hashCodeNullable(numberOfFragments), afterMatch, allowEmpty, around, beforeMatch, emitZones, encoder, hashCodeNullable(fields), forceAllWords, forceSnippets, hashCodeNullable(highlightQuery), htmlStripMode, limitsPerField, noMatchSize, order, preTags, postTags, startSnippetId, useBoundaries);
+    return Objects.hash(fragmentSize, limit, limitSnippets, limitWords, numberOfFragments, afterMatch, allowEmpty, around, beforeMatch, emitZones, encoder, fields, forceAllWords, forceSnippets, hashCodeNullable(highlightQuery), htmlStripMode, limitsPerField, noMatchSize, order, preTags, postTags, startSnippetId, useBoundaries);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {

@@ -1,12 +1,12 @@
 # Manticore Java client
 
-❗ WARNING: this is a development version of the client. The latest release's readme is https://github.com/manticoresoftware/manticoresearch-java/tree/8.0.0
+❗ WARNING: this is a development version of the client. The latest release's readme is https://github.com/manticoresoftware/manticoresearch-java/tree/9.0.0
 
 Manticore Search Client
 
-- API version: 8.0.0
+- API version: 9.0.0
 
-- Build date: 2025-04-01T10:06:34.794647478Z[Etc/UTC]
+- Build date: 2025-06-26T07:24:06.103497054Z[Etc/UTC]
 
 ## Requirements
 
@@ -23,8 +23,8 @@ Building the API client library requires:
 | `dev`                          | `dev` (latest development version)  |  ✅ Fully Compatible     |
 | 8.0.0 or newer                 | 9.2.14 or newer                     |  ✅ Fully Compatible     |
 | 6.0.0 to 8.0.0                 | 9.2.14 or newer                     |  ⚠️ Partially Compatible |
-| 6.0.0 or newer                 | 7.0.0 to 9.2.14                     |  ✅ Fully Compatible     |
-| 6.0.0 or newer                 | 2.5.1 to 7.0.0                      |  ⚠️ Partially Compatible |
+| 6.0.0 to 8.0.0                 | 7.0.0 to 9.2.14                     |  ✅ Fully Compatible     |
+| 6.0.0 to 8.0.0                 | 2.5.1 to 7.0.0                      |  ⚠️ Partially Compatible |
 | 5.0.0 to 6.0.0                 | 6.3.6 to 7.0.0                      |  ✅ Fully Compatible     |
 | 5.0.0 to 6.0.0                 | 2.5.1 to 6.3.6                      |  ⚠️ Partially Compatible |
 | 3.3.1 to 5.0.0                 | 6.2.0 to 6.3.6                      |  ✅ Fully Compatible     |
@@ -56,7 +56,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.manticoresearch</groupId>
   <artifactId>manticoresearch</artifactId>
-  <version>8.0.0</version>
+  <version>9.0.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -72,7 +72,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.manticoresearch:manticoresearch:8.0.0"
+     implementation "com.manticoresearch:manticoresearch:9.0.0"
   }
 ```
 
@@ -86,7 +86,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-- `target/manticoresearch-8.0.0.jar`
+- `target/manticoresearch-9.0.0.jar`
 - `target/lib/*.jar`
 
 ## Getting Started
@@ -168,6 +168,8 @@ Class | Method | HTTP request | Description
  - [AggComposite](docs/AggComposite.md)
  - [AggCompositeSource](docs/AggCompositeSource.md)
  - [AggCompositeTerm](docs/AggCompositeTerm.md)
+ - [AggDateHistogram](docs/AggDateHistogram.md)
+ - [AggHistogram](docs/AggHistogram.md)
  - [AggTerms](docs/AggTerms.md)
  - [Aggregation](docs/Aggregation.md)
  - [AutocompleteRequest](docs/AutocompleteRequest.md)
@@ -180,6 +182,7 @@ Class | Method | HTTP request | Description
  - [GeoDistance](docs/GeoDistance.md)
  - [GeoDistanceLocationAnchor](docs/GeoDistanceLocationAnchor.md)
  - [Highlight](docs/Highlight.md)
+ - [HighlightAllOfFields](docs/HighlightAllOfFields.md)
  - [HighlightFieldOption](docs/HighlightFieldOption.md)
  - [HitsHits](docs/HitsHits.md)
  - [InsertDocumentRequest](docs/InsertDocumentRequest.md)

@@ -83,7 +83,7 @@ import com.manticoresearch.client.auth.ApiKeyAuth;
 /**
  * <p>ApiClient class.</p>
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-01T10:06:34.794647478Z[Etc/UTC]", comments = "Generator version: 7.3.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-26T07:24:06.103497054Z[Etc/UTC]", comments = "Generator version: 7.14.0")
 public class ApiClient extends JavaTimeFormatter {
   private static final Pattern JSON_MIME_PATTERN = Pattern.compile("(?i)^(application/json|[^;/ \t]+/[^;/ \t]+[+]json)[ \t]*(;.*)?$");
 
@@ -138,7 +138,7 @@ public class ApiClient extends JavaTimeFormatter {
     this.dateFormat = new RFC3339DateFormat();
 
     // Set default User-Agent.
-    setUserAgent("OpenAPI-Generator/8.0.0/java");
+    setUserAgent("OpenAPI-Generator/9.0.0/java");
 
     // Setup authentications (key: authentication name, value: authentication).
     authentications = new HashMap<>();

@@ -7,18 +7,18 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**fragmentSize** | **Object** | Maximum size of the text fragments in highlighted snippets per field |  [optional] |
-|**limit** | **Object** | Maximum size of snippets per field |  [optional] |
-|**limitSnippets** | **Object** | Maximum number of snippets per field |  [optional] |
-|**limitWords** | **Object** | Maximum number of words per field |  [optional] |
-|**numberOfFragments** | **Object** | Total number of highlighted fragments per field |  [optional] |
+|**fragmentSize** | **Integer** | Maximum size of the text fragments in highlighted snippets per field |  [optional] |
+|**limit** | **Integer** | Maximum size of snippets per field |  [optional] |
+|**limitSnippets** | **Integer** | Maximum number of snippets per field |  [optional] |
+|**limitWords** | **Integer** | Maximum number of words per field |  [optional] |
+|**numberOfFragments** | **Integer** | Total number of highlighted fragments per field |  [optional] |
 |**afterMatch** | **String** | Text inserted after the matched term, typically used for HTML formatting |  [optional] |
 |**allowEmpty** | **Boolean** | Permits an empty string to be returned as the highlighting result. Otherwise, the beginning of the original text would be returned |  [optional] |
 |**around** | **Integer** | Number of words around the match to include in the highlight |  [optional] |
 |**beforeMatch** | **String** | Text inserted before the match, typically used for HTML formatting |  [optional] |
 |**emitZones** | **Boolean** | Emits an HTML tag with the enclosing zone name before each highlighted snippet |  [optional] |
 |**encoder** | [**EncoderEnum**](#EncoderEnum) | If set to &#39;html&#39;, retains HTML markup when highlighting |  [optional] |
-|**fields** | **Object** |  |  [optional] |
+|**fields** | [**HighlightAllOfFields**](HighlightAllOfFields.md) |  |  [optional] |
 |**forceAllWords** | **Boolean** | Ignores the length limit until the result includes all keywords |  [optional] |
 |**forceSnippets** | **Boolean** | Forces snippet generation even if limits allow highlighting the entire text |  [optional] |
 |**highlightQuery** | [**QueryFilter**](QueryFilter.md) |  |  [optional] |

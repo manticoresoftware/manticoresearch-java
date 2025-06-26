@@ -21,11 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.math.BigDecimal;
 import java.util.Arrays;
-import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.manticoresearch.client.JSON;
 
@@ -38,19 +35,19 @@ import com.manticoresearch.client.JSON;
   GeoDistanceLocationAnchor.JSON_PROPERTY_LON
 })
 @JsonTypeName("geoDistance_location_anchor")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-01T10:06:34.794647478Z[Etc/UTC]", comments = "Generator version: 7.3.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-26T07:24:06.103497054Z[Etc/UTC]", comments = "Generator version: 7.14.0")
 public class GeoDistanceLocationAnchor {
   public static final String JSON_PROPERTY_LAT = "lat";
-  private JsonNullable<Object> lat = JsonNullable.<Object>undefined();
+  private BigDecimal lat;
 
   public static final String JSON_PROPERTY_LON = "lon";
-  private JsonNullable<Object> lon = JsonNullable.<Object>undefined();
+  private BigDecimal lon;
 
   public GeoDistanceLocationAnchor() { 
   }
 
-  public GeoDistanceLocationAnchor lat(Object lat) {
-    this.lat = JsonNullable.<Object>of(lat);
+  public GeoDistanceLocationAnchor lat(BigDecimal lat) {
+    this.lat = lat;
     return this;
   }
 
@@ -59,31 +56,23 @@ public class GeoDistanceLocationAnchor {
    * @return lat
    */
   @jakarta.annotation.Nullable
-  @JsonIgnore
-
-  public Object getLat() {
-        return lat.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_LAT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getLat_JsonNullable() {
+  public BigDecimal getLat() {
     return lat;
   }
-  
+
+
   @JsonProperty(JSON_PROPERTY_LAT)
-  public void setLat_JsonNullable(JsonNullable<Object> lat) {
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setLat(BigDecimal lat) {
     this.lat = lat;
   }
 
-  public void setLat(Object lat) {
-    this.lat = JsonNullable.<Object>of(lat);
-  }
 
-
-  public GeoDistanceLocationAnchor lon(Object lon) {
-    this.lon = JsonNullable.<Object>of(lon);
+  public GeoDistanceLocationAnchor lon(BigDecimal lon) {
+    this.lon = lon;
     return this;
   }
 
@@ -92,26 +81,18 @@ public class GeoDistanceLocationAnchor {
    * @return lon
    */
   @jakarta.annotation.Nullable
-  @JsonIgnore
-
-  public Object getLon() {
-        return lon.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_LON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getLon_JsonNullable() {
+  public BigDecimal getLon() {
     return lon;
   }
-  
-  @JsonProperty(JSON_PROPERTY_LON)
-  public void setLon_JsonNullable(JsonNullable<Object> lon) {
-    this.lon = lon;
-  }
 
-  public void setLon(Object lon) {
-    this.lon = JsonNullable.<Object>of(lon);
+
+  @JsonProperty(JSON_PROPERTY_LON)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setLon(BigDecimal lon) {
+    this.lon = lon;
   }
 
 
@@ -127,24 +108,13 @@ public class GeoDistanceLocationAnchor {
       return false;
     }
     GeoDistanceLocationAnchor geoDistanceLocationAnchor = (GeoDistanceLocationAnchor) o;
-    return equalsNullable(this.lat, geoDistanceLocationAnchor.lat) &&
-        equalsNullable(this.lon, geoDistanceLocationAnchor.lon);
-  }
-
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+    return Objects.equals(this.lat, geoDistanceLocationAnchor.lat) &&
+        Objects.equals(this.lon, geoDistanceLocationAnchor.lon);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(lat), hashCodeNullable(lon));
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(lat, lon);
   }
 
   @Override

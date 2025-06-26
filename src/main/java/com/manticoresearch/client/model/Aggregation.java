@@ -22,6 +22,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.manticoresearch.client.model.AggComposite;
+import com.manticoresearch.client.model.AggHistogram;
 import com.manticoresearch.client.model.AggTerms;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -36,19 +37,23 @@ import com.manticoresearch.client.JSON;
 @JsonPropertyOrder({
   Aggregation.JSON_PROPERTY_TERMS,
   Aggregation.JSON_PROPERTY_SORT,
-  Aggregation.JSON_PROPERTY_COMPOSITE
+  Aggregation.JSON_PROPERTY_COMPOSITE,
+  Aggregation.JSON_PROPERTY_HISTOGRAM
 })
 @JsonTypeName("aggregation")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-01T10:06:34.794647478Z[Etc/UTC]", comments = "Generator version: 7.3.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-26T07:24:06.103497054Z[Etc/UTC]", comments = "Generator version: 7.14.0")
 public class Aggregation {
   public static final String JSON_PROPERTY_TERMS = "terms";
   private AggTerms terms;
 
   public static final String JSON_PROPERTY_SORT = "sort";
-  private List<Object> sort;
+  private List<Object> sort = new ArrayList<>();
 
   public static final String JSON_PROPERTY_COMPOSITE = "composite";
   private AggComposite composite;
+
+  public static final String JSON_PROPERTY_HISTOGRAM = "histogram";
+  private AggHistogram histogram;
 
   public Aggregation() { 
   }
@@ -83,7 +88,7 @@ public class Aggregation {
     return this;
   }
 
-  public Aggregation addItem(Object sortItem) {
+  public Aggregation addSortItem(Object sortItem) {
     if (this.sort == null) {
       this.sort = new ArrayList<>();
     }
@@ -136,6 +141,31 @@ public class Aggregation {
   }
 
 
+  public Aggregation histogram(AggHistogram histogram) {
+    this.histogram = histogram;
+    return this;
+  }
+
+  /**
+   * Get histogram
+   * @return histogram
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_HISTOGRAM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public AggHistogram getHistogram() {
+    return histogram;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_HISTOGRAM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setHistogram(AggHistogram histogram) {
+    this.histogram = histogram;
+  }
+
+
   /**
    * Return true if this aggregation object is equal to o.
    */
@@ -150,12 +180,13 @@ public class Aggregation {
     Aggregation aggregation = (Aggregation) o;
     return Objects.equals(this.terms, aggregation.terms) &&
         Objects.equals(this.sort, aggregation.sort) &&
-        Objects.equals(this.composite, aggregation.composite);
+        Objects.equals(this.composite, aggregation.composite) &&
+        Objects.equals(this.histogram, aggregation.histogram);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(terms, sort, composite);
+    return Objects.hash(terms, sort, composite, histogram);
   }
 
   @Override
@@ -165,6 +196,7 @@ public class Aggregation {
     sb.append("    terms: ").append(toIndentedString(terms)).append("\n");
     sb.append("    sort: ").append(toIndentedString(sort)).append("\n");
     sb.append("    composite: ").append(toIndentedString(composite)).append("\n");
+    sb.append("    histogram: ").append(toIndentedString(histogram)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -10,6 +10,7 @@
 |**terms** | [**AggTerms**](AggTerms.md) |  |  [optional] |
 |**sort** | **List&lt;Object&gt;** |  |  [optional] |
 |**composite** | [**AggComposite**](AggComposite.md) |  |  [optional] |
+|**histogram** | [**AggHistogram**](AggHistogram.md) |  |  [optional] |
 
 
 

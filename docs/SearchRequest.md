@@ -14,8 +14,8 @@ Request object for search operation
 |**highlight** | [**Highlight**](Highlight.md) |  |  [optional] |
 |**limit** | **Integer** | Maximum number of results to return |  [optional] |
 |**knn** | [**KnnQuery**](KnnQuery.md) |  |  [optional] |
-|**aggs** |  | Defines aggregation settings for grouping results |  [optional] |
-|**expressions** |  | Expressions to calculate additional values for the result |  [optional] |
+|**aggs** | [**Map&lt;String, Aggregation&gt;**](Aggregation.md) | Defines aggregation settings for grouping results |  [optional] |
+|**expressions** | **Map&lt;String, String&gt;** | Expressions to calculate additional values for the result |  [optional] |
 |**maxMatches** | **Integer** | Maximum number of matches allowed in the result |  [optional] |
 |**offset** | **Integer** | Starting point for pagination of the result |  [optional] |
 |**options** | **Object** | Additional search options |  [optional] |

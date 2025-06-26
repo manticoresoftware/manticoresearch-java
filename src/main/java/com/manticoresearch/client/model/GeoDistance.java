@@ -27,10 +27,6 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.manticoresearch.client.model.GeoDistanceLocationAnchor;
 import java.util.Arrays;
-import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.manticoresearch.client.JSON;
 
@@ -45,13 +41,13 @@ import com.manticoresearch.client.JSON;
   GeoDistance.JSON_PROPERTY_DISTANCE
 })
 @JsonTypeName("geoDistance")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-01T10:06:34.794647478Z[Etc/UTC]", comments = "Generator version: 7.3.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-26T07:24:06.103497054Z[Etc/UTC]", comments = "Generator version: 7.14.0")
 public class GeoDistance {
   public static final String JSON_PROPERTY_LOCATION_ANCHOR = "location_anchor";
   private GeoDistanceLocationAnchor locationAnchor;
 
   public static final String JSON_PROPERTY_LOCATION_SOURCE = "location_source";
-  private JsonNullable<Object> locationSource = JsonNullable.<Object>undefined();
+  private String locationSource;
 
   /**
    * Algorithm used to calculate the distance
@@ -61,14 +57,14 @@ public class GeoDistance {
     
     HAVERSINE("haversine");
 
-    private Object value;
+    private String value;
 
-    DistanceTypeEnum(Object value) {
+    DistanceTypeEnum(String value) {
       this.value = value;
     }
 
     @JsonValue
-    public Object getValue() {
+    public String getValue() {
       return value;
     }
 
@@ -78,21 +74,21 @@ public class GeoDistance {
     }
 
     @JsonCreator
-    public static DistanceTypeEnum fromValue(Object value) {
+    public static DistanceTypeEnum fromValue(String value) {
       for (DistanceTypeEnum b : DistanceTypeEnum.values()) {
         if (b.value.equals(value)) {
           return b;
         }
       }
-      return null;
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
   }
 
   public static final String JSON_PROPERTY_DISTANCE_TYPE = "distance_type";
-  private JsonNullable<DistanceTypeEnum> distanceType = JsonNullable.<DistanceTypeEnum>undefined();
+  private DistanceTypeEnum distanceType;
 
   public static final String JSON_PROPERTY_DISTANCE = "distance";
-  private JsonNullable<Object> distance = JsonNullable.<Object>undefined();
+  private String distance;
 
   public GeoDistance() { 
   }
@@ -122,8 +118,8 @@ public class GeoDistance {
   }
 
 
-  public GeoDistance locationSource(Object locationSource) {
-    this.locationSource = JsonNullable.<Object>of(locationSource);
+  public GeoDistance locationSource(String locationSource) {
+    this.locationSource = locationSource;
     return this;
   }
 
@@ -132,31 +128,23 @@ public class GeoDistance {
    * @return locationSource
    */
   @jakarta.annotation.Nullable
-  @JsonIgnore
-
-  public Object getLocationSource() {
-        return locationSource.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_LOCATION_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getLocationSource_JsonNullable() {
+  public String getLocationSource() {
     return locationSource;
   }
-  
-  @JsonProperty(JSON_PROPERTY_LOCATION_SOURCE)
-  public void setLocationSource_JsonNullable(JsonNullable<Object> locationSource) {
-    this.locationSource = locationSource;
-  }
 
-  public void setLocationSource(Object locationSource) {
-    this.locationSource = JsonNullable.<Object>of(locationSource);
+
+  @JsonProperty(JSON_PROPERTY_LOCATION_SOURCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setLocationSource(String locationSource) {
+    this.locationSource = locationSource;
   }
 
 
   public GeoDistance distanceType(DistanceTypeEnum distanceType) {
-    this.distanceType = JsonNullable.<DistanceTypeEnum>of(distanceType);
+    this.distanceType = distanceType;
     return this;
   }
 
@@ -165,31 +153,23 @@ public class GeoDistance {
    * @return distanceType
    */
   @jakarta.annotation.Nullable
-  @JsonIgnore
-
-  public DistanceTypeEnum getDistanceType() {
-        return distanceType.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_DISTANCE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<DistanceTypeEnum> getDistanceType_JsonNullable() {
+  public DistanceTypeEnum getDistanceType() {
     return distanceType;
   }
-  
+
+
   @JsonProperty(JSON_PROPERTY_DISTANCE_TYPE)
-  public void setDistanceType_JsonNullable(JsonNullable<DistanceTypeEnum> distanceType) {
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setDistanceType(DistanceTypeEnum distanceType) {
     this.distanceType = distanceType;
   }
 
-  public void setDistanceType(DistanceTypeEnum distanceType) {
-    this.distanceType = JsonNullable.<DistanceTypeEnum>of(distanceType);
-  }
 
-
-  public GeoDistance distance(Object distance) {
-    this.distance = JsonNullable.<Object>of(distance);
+  public GeoDistance distance(String distance) {
+    this.distance = distance;
     return this;
   }
 
@@ -198,26 +178,18 @@ public class GeoDistance {
    * @return distance
    */
   @jakarta.annotation.Nullable
-  @JsonIgnore
-
-  public Object getDistance() {
-        return distance.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_DISTANCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getDistance_JsonNullable() {
+  public String getDistance() {
     return distance;
   }
-  
-  @JsonProperty(JSON_PROPERTY_DISTANCE)
-  public void setDistance_JsonNullable(JsonNullable<Object> distance) {
-    this.distance = distance;
-  }
 
-  public void setDistance(Object distance) {
-    this.distance = JsonNullable.<Object>of(distance);
+
+  @JsonProperty(JSON_PROPERTY_DISTANCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setDistance(String distance) {
+    this.distance = distance;
   }
 
   /**
@@ -271,26 +243,15 @@ public class GeoDistance {
     }
     GeoDistance geoDistance = (GeoDistance) o;
     return Objects.equals(this.locationAnchor, geoDistance.locationAnchor) &&
-        equalsNullable(this.locationSource, geoDistance.locationSource) &&
-        equalsNullable(this.distanceType, geoDistance.distanceType) &&
-        equalsNullable(this.distance, geoDistance.distance)&&
+        Objects.equals(this.locationSource, geoDistance.locationSource) &&
+        Objects.equals(this.distanceType, geoDistance.distanceType) &&
+        Objects.equals(this.distance, geoDistance.distance)&&
         Objects.equals(this.additionalProperties, geoDistance.additionalProperties);
-  }
-
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(locationAnchor, hashCodeNullable(locationSource), hashCodeNullable(distanceType), hashCodeNullable(distance), additionalProperties);
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(locationAnchor, locationSource, distanceType, distance, additionalProperties);
   }
 
   @Override

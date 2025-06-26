@@ -22,11 +22,9 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.manticoresearch.client.model.SqlObjResponse;
+import java.math.BigDecimal;
 import java.util.Arrays;
-import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
+import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.manticoresearch.client.JSON;
 
@@ -58,7 +56,7 @@ import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import com.manticoresearch.client.JSON;
 
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-04-01T10:06:34.794647478Z[Etc/UTC]", comments = "Generator version: 7.3.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-26T07:24:06.103497054Z[Etc/UTC]", comments = "Generator version: 7.14.0")
 @JsonDeserialize(using = SqlResponse.SqlResponseDeserializer.class)
 @JsonSerialize(using = SqlResponse.SqlResponseSerializer.class)
 public class SqlResponse extends AbstractOpenApiSchema {
@@ -215,7 +213,7 @@ public class SqlResponse extends AbstractOpenApiSchema {
      * @return The actual instance of `List<Object>`
      * @throws ClassCastException if the instance is not `List<Object>`
      */
-        public List<Object> get() throws ClassCastException {
+        public List<Object> getListObject() throws ClassCastException {
         return (List<Object>)super.getActualInstance();
         }
 
