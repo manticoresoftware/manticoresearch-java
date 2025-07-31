@@ -1,12 +1,12 @@
 # Manticore Java client
 
-❗ WARNING: this is a development version of the client. The latest release's readme is https://github.com/manticoresoftware/manticoresearch-java/tree/9.0.0
+❗ WARNING: this is a development version of the client. The latest release's readme is https://github.com/manticoresoftware/manticoresearch-java/tree/8.0.0
 
 Manticore Search Client
 
-- API version: 9.0.0
+- API version: 9.1.0
 
-- Build date: 2025-06-26T07:24:06.103497054Z[Etc/UTC]
+- Build date: 2025-07-31T07:57:08.554806755Z[Etc/UTC]
 
 ## Requirements
 
@@ -56,7 +56,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.manticoresearch</groupId>
   <artifactId>manticoresearch</artifactId>
-  <version>9.0.0</version>
+  <version>9.1.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -72,7 +72,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.manticoresearch:manticoresearch:9.0.0"
+     implementation "com.manticoresearch:manticoresearch:9.1.0"
   }
 ```
 
@@ -86,7 +86,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-- `target/manticoresearch-9.0.0.jar`
+- `target/manticoresearch-9.1.0.jar`
 - `target/lib/*.jar`
 
 ## Getting Started
@@ -182,8 +182,8 @@ Class | Method | HTTP request | Description
  - [GeoDistance](docs/GeoDistance.md)
  - [GeoDistanceLocationAnchor](docs/GeoDistanceLocationAnchor.md)
  - [Highlight](docs/Highlight.md)
- - [HighlightAllOfFields](docs/HighlightAllOfFields.md)
  - [HighlightFieldOption](docs/HighlightFieldOption.md)
+ - [HighlightFields](docs/HighlightFields.md)
  - [HitsHits](docs/HitsHits.md)
  - [InsertDocumentRequest](docs/InsertDocumentRequest.md)
  - [Join](docs/Join.md)

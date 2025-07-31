@@ -33,7 +33,7 @@ import com.manticoresearch.client.JSON;
   AggCompositeTerm.JSON_PROPERTY_FIELD
 })
 @JsonTypeName("aggCompositeTerm")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-26T07:24:06.103497054Z[Etc/UTC]", comments = "Generator version: 7.14.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-07-31T07:57:08.554806755Z[Etc/UTC]", comments = "Generator version: 7.14.0")
 public class AggCompositeTerm {
   public static final String JSON_PROPERTY_FIELD = "field";
   private String field;

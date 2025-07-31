@@ -16,14 +16,7 @@ package com.manticoresearch.client.model;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
-import com.manticoresearch.client.model.SqlObjResponse;
-import java.math.BigDecimal;
-import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.manticoresearch.client.JSON;
@@ -38,7 +31,6 @@ import java.util.logging.Logger;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
-import java.util.List;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonParser;
@@ -57,125 +49,128 @@ import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import com.manticoresearch.client.JSON;
 
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-07-31T07:57:08.554806755Z[Etc/UTC]", comments = "Generator version: 7.14.0")
-@JsonDeserialize(using = SqlResponse.SqlResponseDeserializer.class)
-@JsonSerialize(using = SqlResponse.SqlResponseSerializer.class)
-public class SqlResponse extends AbstractOpenApiSchema {
-    private static final Logger log = Logger.getLogger(SqlResponse.class.getName());
+@JsonDeserialize(using = HighlightFields.HighlightFieldsDeserializer.class)
+@JsonSerialize(using = HighlightFields.HighlightFieldsSerializer.class)
+public class HighlightFields extends AbstractOpenApiSchema {
+    private static final Logger log = Logger.getLogger(HighlightFields.class.getName());
 
-    public static class SqlResponseSerializer extends StdSerializer<SqlResponse> {
-        public SqlResponseSerializer(Class<SqlResponse> t) {
+    public static class HighlightFieldsSerializer extends StdSerializer<HighlightFields> {
+        public HighlightFieldsSerializer(Class<HighlightFields> t) {
             super(t);
         }
 
-        public SqlResponseSerializer() {
+        public HighlightFieldsSerializer() {
             this(null);
         }
 
         @Override
-        public void serialize(SqlResponse value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+        public void serialize(HighlightFields value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
             jgen.writeObject(value.getActualInstance());
         }
     }
 
-    public static class SqlResponseDeserializer extends StdDeserializer<SqlResponse> {
-        public SqlResponseDeserializer() {
-            this(SqlResponse.class);
+    public static class HighlightFieldsDeserializer extends StdDeserializer<HighlightFields> {
+        public HighlightFieldsDeserializer() {
+            this(HighlightFields.class);
         }
 
-        public SqlResponseDeserializer(Class<?> vc) {
+        public HighlightFieldsDeserializer(Class<?> vc) {
             super(vc);
         }
 
         @Override
-        public SqlResponse deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
+        public HighlightFields deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
             JsonNode tree = jp.readValueAsTree();
             Object deserialized = null;
             boolean typeCoercion = ctxt.isEnabled(MapperFeature.ALLOW_COERCION_OF_SCALARS);
             int match = 0;
             JsonToken token = tree.traverse(jp.getCodec()).nextToken();
-            // deserialize List<Object>
+            // deserialize List<String>
             try {
                 if (token == JsonToken.START_ARRAY) {
-                    final TypeReference<List<Object>> ref = new TypeReference<List<Object>>(){};
+                    final TypeReference<List<String>> ref = new TypeReference<List<String>>(){};
                     deserialized = tree.traverse(jp.getCodec()).readValueAs(ref);
                     // TODO: there is no validation against JSON schema constraints
                     // (min, max, enum, pattern...), this does not perform a strict JSON
                     // validation, which means the 'match' count may be higher than it should be.
                     match++;
-                    log.log(Level.FINER, "Input data matches schema 'List<Object>'");
+                    log.log(Level.FINER, "Input data matches schema 'List<String>'");
                 }
             } catch (Exception e) {
                 // deserialization failed, continue
-                log.log(Level.FINER, "Input data does not match schema 'List<Object>'", e);
+                log.log(Level.FINER, "Input data does not match schema 'List<String>'", e);
             }
 
-            // deserialize SqlObjResponse
+            // deserialize Object
             try {
                 boolean attemptParsing = true;
+                attemptParsing = typeCoercion; //respect type coercion setting
+                if (!attemptParsing) {
+                }
                 if (attemptParsing) {
-                    deserialized = tree.traverse(jp.getCodec()).readValueAs(SqlObjResponse.class);
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(Object.class);
                     // TODO: there is no validation against JSON schema constraints
                     // (min, max, enum, pattern...), this does not perform a strict JSON
                     // validation, which means the 'match' count may be higher than it should be.
                     match++;
-                    log.log(Level.FINER, "Input data matches schema 'SqlObjResponse'");
+                    log.log(Level.FINER, "Input data matches schema 'Object'");
                 }
             } catch (Exception e) {
                 // deserialization failed, continue
-                log.log(Level.FINER, "Input data does not match schema 'SqlObjResponse'", e);
+                log.log(Level.FINER, "Input data does not match schema 'Object'", e);
             }
 
             if (match == 1) {
-                SqlResponse ret = new SqlResponse();
+                HighlightFields ret = new HighlightFields();
                 ret.setActualInstance(deserialized);
                 return ret;
             }
-            throw new IOException(String.format("Failed deserialization for SqlResponse: %d classes match result, expected 1", match));
+            throw new IOException(String.format("Failed deserialization for HighlightFields: %d classes match result, expected 1", match));
         }
 
         /**
          * Handle deserialization of the 'null' value.
          */
         @Override
-        public SqlResponse getNullValue(DeserializationContext ctxt) throws JsonMappingException {
-            throw new JsonMappingException(ctxt.getParser(), "SqlResponse cannot be null");
+        public HighlightFields getNullValue(DeserializationContext ctxt) throws JsonMappingException {
+            throw new JsonMappingException(ctxt.getParser(), "HighlightFields cannot be null");
         }
     }
 
     // store a list of schema names defined in oneOf
     public static final Map<String, GenericType<?>> schemas = new HashMap<>();
 
-    public SqlResponse() {
+    public HighlightFields() {
         super("oneOf", Boolean.FALSE);
     }
 
-    public SqlResponse(List o) {
+    public HighlightFields(List o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
 
-    public SqlResponse(SqlObjResponse o) {
+    public HighlightFields(Object o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
     }
 
     static {
-        schemas.put("List<Object>", new GenericType<List<Object>>() {
+        schemas.put("List<String>", new GenericType<List<String>>() {
         });
-        schemas.put("SqlObjResponse", new GenericType<SqlObjResponse>() {
+        schemas.put("Object", new GenericType<Object>() {
         });
-        JSON.registerDescendants(SqlResponse.class, Collections.unmodifiableMap(schemas));
+        JSON.registerDescendants(HighlightFields.class, Collections.unmodifiableMap(schemas));
     }
 
     @Override
     public Map<String, GenericType<?>> getSchemas() {
-        return SqlResponse.schemas;
+        return HighlightFields.schemas;
     }
 
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * List<Object>, SqlObjResponse
+     * List<String>, Object
      *
      * It could be an instance of the 'oneOf' schemas.
      * The oneOf child schemas may themselves be a composed schema (allOf, anyOf, oneOf).
@@ -187,19 +182,19 @@ public class SqlResponse extends AbstractOpenApiSchema {
             return;
         }
 
-        if (JSON.isInstanceOf(SqlObjResponse.class, instance, new HashSet<>())) {
+        if (JSON.isInstanceOf(Object.class, instance, new HashSet<>())) {
             super.setActualInstance(instance);
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be List<Object>, SqlObjResponse");
+        throw new RuntimeException("Invalid instance type. Must be List<String>, Object");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * List<Object>, SqlObjResponse
+     * List<String>, Object
      *
-     * @return The actual instance (List<Object>, SqlObjResponse)
+     * @return The actual instance (List<String>, Object)
      */
     @Override
     public Object getActualInstance() {
@@ -207,25 +202,25 @@ public class SqlResponse extends AbstractOpenApiSchema {
     }
 
     /**
-     * Get the actual instance of `List<Object>`. If the actual instance is not `List<Object>`,
+     * Get the actual instance of `List<String>`. If the actual instance is not `List<String>`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `List<Object>`
-     * @throws ClassCastException if the instance is not `List<Object>`
+     * @return The actual instance of `List<String>`
+     * @throws ClassCastException if the instance is not `List<String>`
      */
-        public List<Object> getListObject() throws ClassCastException {
-        return (List<Object>)super.getActualInstance();
+        public List<String> getListString() throws ClassCastException {
+        return (List<String>)super.getActualInstance();
         }
 
     /**
-     * Get the actual instance of `SqlObjResponse`. If the actual instance is not `SqlObjResponse`,
+     * Get the actual instance of `Object`. If the actual instance is not `Object`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `SqlObjResponse`
-     * @throws ClassCastException if the instance is not `SqlObjResponse`
+     * @return The actual instance of `Object`
+     * @throws ClassCastException if the instance is not `Object`
      */
-    public SqlObjResponse getSqlObjResponse() throws ClassCastException {
-        return (SqlObjResponse)super.getActualInstance();
+    public Object getObject() throws ClassCastException {
+        return (Object)super.getActualInstance();
     }
 
 }

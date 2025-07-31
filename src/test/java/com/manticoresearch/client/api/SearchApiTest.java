@@ -103,8 +103,7 @@ public class SearchApiTest {
 			    public void TestBasicSearch(SearchRequest searchRequest) throws ApiException
 			    {
 					Highlight queryHighlight = new Highlight();
-					List<String> highlightFields = new ArrayList<String>();
-	    			highlightFields.add("title");
+					HighlightFields highlightFields = new HighlightFields(Arrays.asList("title"));
 					queryHighlight.setFields(highlightFields);
 
 					SearchQuery query = new SearchQuery();

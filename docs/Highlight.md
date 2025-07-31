@@ -18,7 +18,7 @@
 |**beforeMatch** | **String** | Text inserted before the match, typically used for HTML formatting |  [optional] |
 |**emitZones** | **Boolean** | Emits an HTML tag with the enclosing zone name before each highlighted snippet |  [optional] |
 |**encoder** | [**EncoderEnum**](#EncoderEnum) | If set to &#39;html&#39;, retains HTML markup when highlighting |  [optional] |
-|**fields** | [**HighlightAllOfFields**](HighlightAllOfFields.md) |  |  [optional] |
+|**fields** | [**HighlightFields**](HighlightFields.md) |  |  [optional] |
 |**forceAllWords** | **Boolean** | Ignores the length limit until the result includes all keywords |  [optional] |
 |**forceSnippets** | **Boolean** | Forces snippet generation even if limits allow highlighting the entire text |  [optional] |
 |**highlightQuery** | [**QueryFilter**](QueryFilter.md) |  |  [optional] |

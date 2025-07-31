@@ -21,17 +21,17 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for HighlightAllOfFields
+ * Model tests for HighlightFields
  */
-public class HighlightAllOfFieldsTest {
-    private final HighlightAllOfFields model = new HighlightAllOfFields();
+public class HighlightFieldsTest {
+    private final HighlightFields model = new HighlightFields();
 
     /**
-     * Model tests for HighlightAllOfFields
+     * Model tests for HighlightFields
      */
     @Test
-    public void testHighlightAllOfFields() {
-        // TODO: test HighlightAllOfFields
+    public void testHighlightFields() {
+        // TODO: test HighlightFields
     }
 
 }

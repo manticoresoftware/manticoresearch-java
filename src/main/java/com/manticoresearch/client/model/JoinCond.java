@@ -21,6 +21,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.manticoresearch.client.model.FulltextFilter;
 import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -36,16 +37,20 @@ import com.manticoresearch.client.JSON;
 @JsonPropertyOrder({
   JoinCond.JSON_PROPERTY_FIELD,
   JoinCond.JSON_PROPERTY_TABLE,
+  JoinCond.JSON_PROPERTY_QUERY,
   JoinCond.JSON_PROPERTY_TYPE
 })
 @JsonTypeName("joinCond")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-26T07:24:06.103497054Z[Etc/UTC]", comments = "Generator version: 7.14.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-07-31T07:57:08.554806755Z[Etc/UTC]", comments = "Generator version: 7.14.0")
 public class JoinCond {
   public static final String JSON_PROPERTY_FIELD = "field";
   private String field;
 
   public static final String JSON_PROPERTY_TABLE = "table";
   private String table;
+
+  public static final String JSON_PROPERTY_QUERY = "query";
+  private FulltextFilter query;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private JsonNullable<Object> type = JsonNullable.<Object>undefined();
@@ -103,6 +108,31 @@ public class JoinCond {
   }
 
 
+  public JoinCond query(FulltextFilter query) {
+    this.query = query;
+    return this;
+  }
+
+  /**
+   * Get query
+   * @return query
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public FulltextFilter getQuery() {
+    return query;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setQuery(FulltextFilter query) {
+    this.query = query;
+  }
+
+
   public JoinCond type(Object type) {
     this.type = JsonNullable.<Object>of(type);
     return this;
@@ -150,6 +180,7 @@ public class JoinCond {
     JoinCond joinCond = (JoinCond) o;
     return Objects.equals(this.field, joinCond.field) &&
         Objects.equals(this.table, joinCond.table) &&
+        Objects.equals(this.query, joinCond.query) &&
         equalsNullable(this.type, joinCond.type);
   }
 
@@ -159,7 +190,7 @@ public class JoinCond {
 
   @Override
   public int hashCode() {
-    return Objects.hash(field, table, hashCodeNullable(type));
+    return Objects.hash(field, table, query, hashCodeNullable(type));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -175,6 +206,7 @@ public class JoinCond {
     sb.append("class JoinCond {\n");
     sb.append("    field: ").append(toIndentedString(field)).append("\n");
     sb.append("    table: ").append(toIndentedString(table)).append("\n");
+    sb.append("    query: ").append(toIndentedString(query)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -18,7 +18,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.manticoresearch.client.model.HighlightAllOfFields;
+import com.manticoresearch.client.model.HighlightFields;
 import com.manticoresearch.client.model.QueryFilter;
 import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;

@@ -10,6 +10,7 @@ Object representing the conditions used to perform the join operation
 |------------ | ------------- | ------------- | -------------|
 |**field** | **String** | Field to join on |  |
 |**table** | **String** | Joined table |  |
+|**query** | [**FulltextFilter**](FulltextFilter.md) |  |  [optional] |
 |**type** | **Object** |  |  [optional] |
 
 

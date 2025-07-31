@@ -21,7 +21,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.manticoresearch.client.model.HighlightAllOfFields;
+import com.manticoresearch.client.model.HighlightFields;
 import com.manticoresearch.client.model.QueryFilter;
 import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -61,7 +61,7 @@ import com.manticoresearch.client.JSON;
   Highlight.JSON_PROPERTY_USE_BOUNDARIES
 })
 @JsonTypeName("highlight")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-26T07:24:06.103497054Z[Etc/UTC]", comments = "Generator version: 7.14.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-07-31T07:57:08.554806755Z[Etc/UTC]", comments = "Generator version: 7.14.0")
 public class Highlight {
   public static final String JSON_PROPERTY_FRAGMENT_SIZE = "fragment_size";
   private Integer fragmentSize;
@@ -132,7 +132,7 @@ public class Highlight {
   private EncoderEnum encoder;
 
   public static final String JSON_PROPERTY_FIELDS = "fields";
-  private HighlightAllOfFields fields;
+  private HighlightFields fields;
 
   public static final String JSON_PROPERTY_FORCE_ALL_WORDS = "force_all_words";
   private Boolean forceAllWords;
@@ -556,7 +556,7 @@ public class Highlight {
   }
 
 
-  public Highlight fields(HighlightAllOfFields fields) {
+  public Highlight fields(HighlightFields fields) {
     this.fields = fields;
     return this;
   }
@@ -569,14 +569,14 @@ public class Highlight {
   @JsonProperty(JSON_PROPERTY_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public HighlightAllOfFields getFields() {
+  public HighlightFields getFields() {
     return fields;
   }
 
 
   @JsonProperty(JSON_PROPERTY_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFields(HighlightAllOfFields fields) {
+  public void setFields(HighlightFields fields) {
     this.fields = fields;
   }
 
