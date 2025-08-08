@@ -36,7 +36,7 @@ import com.manticoresearch.client.JSON;
   AggHistogram.JSON_PROPERTY_KEYED
 })
 @JsonTypeName("aggHistogram")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-07-31T07:57:08.554806755Z[Etc/UTC]", comments = "Generator version: 7.14.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-01T15:59:28.052447079Z[Etc/UTC]", comments = "Generator version: 7.14.0")
 public class AggHistogram {
   public static final String JSON_PROPERTY_FIELD = "field";
   private String field;

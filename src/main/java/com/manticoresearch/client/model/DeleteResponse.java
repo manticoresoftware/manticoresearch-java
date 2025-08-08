@@ -37,7 +37,7 @@ import com.manticoresearch.client.JSON;
   DeleteResponse.JSON_PROPERTY_RESULT
 })
 @JsonTypeName("deleteResponse")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-07-31T07:57:08.554806755Z[Etc/UTC]", comments = "Generator version: 7.14.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-01T15:59:28.052447079Z[Etc/UTC]", comments = "Generator version: 7.14.0")
 public class DeleteResponse {
   public static final String JSON_PROPERTY_TABLE = "table";
   private String table;
