@@ -42,7 +42,7 @@ import com.manticoresearch.client.JSON;
   UpdateDocumentRequest.JSON_PROPERTY_QUERY
 })
 @JsonTypeName("updateDocumentRequest")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-07-31T07:57:08.554806755Z[Etc/UTC]", comments = "Generator version: 7.14.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-10-22T11:46:23.698699442Z[Etc/UTC]", comments = "Generator version: 7.17.0-SNAPSHOT")
 public class UpdateDocumentRequest {
   public static final String JSON_PROPERTY_TABLE = "table";
   private String table;
@@ -180,7 +180,6 @@ public class UpdateDocumentRequest {
 
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<QueryFilter> getQuery_JsonNullable() {
     return query;
   }
@@ -193,7 +192,6 @@ public class UpdateDocumentRequest {
   public void setQuery(QueryFilter query) {
     this.query = JsonNullable.<QueryFilter>of(query);
   }
-
 
   /**
    * Return true if this updateDocumentRequest object is equal to o.

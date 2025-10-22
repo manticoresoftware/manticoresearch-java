@@ -14,4 +14,3 @@ Payload for delete request. Documents can be deleted either one by one by specif
 |**query** | **Object** | Defines the criteria to match documents for deletion |  [optional] |
 
 
-

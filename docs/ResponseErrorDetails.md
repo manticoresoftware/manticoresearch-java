@@ -13,4 +13,3 @@ Detailed error information returned in case of an error response
 |**table** | **String** | The table related to the error, if applicable |  [optional] |
 
 
-

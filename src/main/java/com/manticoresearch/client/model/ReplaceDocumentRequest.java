@@ -33,7 +33,7 @@ import com.manticoresearch.client.JSON;
   ReplaceDocumentRequest.JSON_PROPERTY_DOC
 })
 @JsonTypeName("replaceDocumentRequest")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-07-31T07:57:08.554806755Z[Etc/UTC]", comments = "Generator version: 7.14.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-10-22T11:46:23.698699442Z[Etc/UTC]", comments = "Generator version: 7.17.0-SNAPSHOT")
 public class ReplaceDocumentRequest {
   public static final String JSON_PROPERTY_DOC = "doc";
   private Object doc;
@@ -64,7 +64,6 @@ public class ReplaceDocumentRequest {
   public void setDoc(Object doc) {
     this.doc = doc;
   }
-
 
   /**
    * Return true if this replaceDocumentRequest object is equal to o.

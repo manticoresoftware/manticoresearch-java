@@ -14,4 +14,3 @@ Defines a type of filter for full-text search queries
 |**matchAll** | **Object** | Filter object to select all documents |  [optional] |
 
 
-

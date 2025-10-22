@@ -35,7 +35,7 @@ import com.manticoresearch.client.JSON;
   GeoDistanceLocationAnchor.JSON_PROPERTY_LON
 })
 @JsonTypeName("geoDistance_location_anchor")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-07-31T07:57:08.554806755Z[Etc/UTC]", comments = "Generator version: 7.14.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-10-22T11:46:23.698699442Z[Etc/UTC]", comments = "Generator version: 7.17.0-SNAPSHOT")
 public class GeoDistanceLocationAnchor {
   public static final String JSON_PROPERTY_LAT = "lat";
   private BigDecimal lat;
@@ -94,7 +94,6 @@ public class GeoDistanceLocationAnchor {
   public void setLon(BigDecimal lon) {
     this.lon = lon;
   }
-
 
   /**
    * Return true if this geoDistance_location_anchor object is equal to o.

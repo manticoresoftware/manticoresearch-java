@@ -61,7 +61,7 @@ import com.manticoresearch.client.JSON;
   Highlight.JSON_PROPERTY_USE_BOUNDARIES
 })
 @JsonTypeName("highlight")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-07-31T07:57:08.554806755Z[Etc/UTC]", comments = "Generator version: 7.14.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-10-22T11:46:23.698699442Z[Etc/UTC]", comments = "Generator version: 7.17.0-SNAPSHOT")
 public class Highlight {
   public static final String JSON_PROPERTY_FRAGMENT_SIZE = "fragment_size";
   private Integer fragmentSize;
@@ -127,7 +127,6 @@ public class Highlight {
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
   }
-
   public static final String JSON_PROPERTY_ENCODER = "encoder";
   private EncoderEnum encoder;
 
@@ -181,7 +180,6 @@ public class Highlight {
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
   }
-
   public static final String JSON_PROPERTY_HTML_STRIP_MODE = "html_strip_mode";
   private HtmlStripModeEnum htmlStripMode;
 
@@ -222,7 +220,6 @@ public class Highlight {
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
   }
-
   public static final String JSON_PROPERTY_NO_MATCH_SIZE = "no_match_size";
   private NoMatchSizeEnum noMatchSize;
 
@@ -262,7 +259,6 @@ public class Highlight {
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
   }
-
   public static final String JSON_PROPERTY_ORDER = "order";
   private OrderEnum order;
 
@@ -649,7 +645,6 @@ public class Highlight {
 
   @JsonProperty(JSON_PROPERTY_HIGHLIGHT_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<QueryFilter> getHighlightQuery_JsonNullable() {
     return highlightQuery;
   }
@@ -862,7 +857,6 @@ public class Highlight {
   public void setUseBoundaries(Boolean useBoundaries) {
     this.useBoundaries = useBoundaries;
   }
-
 
   /**
    * Return true if this highlight object is equal to o.

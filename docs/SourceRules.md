@@ -12,4 +12,3 @@ Defines which fields to include or exclude in the response for a search query
 |**excludes** | **List&lt;String&gt;** | List of fields to exclude from the response |  [optional] |
 
 
-

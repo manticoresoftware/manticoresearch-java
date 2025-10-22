@@ -15,4 +15,3 @@ Response object for successful delete request
 |**result** | **String** | Result of the delete operation, typically &#39;deleted&#39; |  [optional] |
 
 
-

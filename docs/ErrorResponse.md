@@ -12,4 +12,3 @@ Error response object containing information about the error and a status code
 |**status** | **Integer** | HTTP status code of the error response |  [optional] |
 
 
-

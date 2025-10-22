@@ -39,7 +39,7 @@ import com.manticoresearch.client.JSON;
   ResponseErrorDetails.JSON_PROPERTY_TABLE
 })
 @JsonTypeName("responseErrorDetails")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-07-31T07:57:08.554806755Z[Etc/UTC]", comments = "Generator version: 7.14.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-10-22T11:46:23.698699442Z[Etc/UTC]", comments = "Generator version: 7.17.0-SNAPSHOT")
 public class ResponseErrorDetails {
   public static final String JSON_PROPERTY_TYPE = "type";
   private String type;
@@ -96,7 +96,6 @@ public class ResponseErrorDetails {
 
   @JsonProperty(JSON_PROPERTY_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getReason_JsonNullable() {
     return reason;
   }
@@ -129,7 +128,6 @@ public class ResponseErrorDetails {
 
   @JsonProperty(JSON_PROPERTY_TABLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getTable_JsonNullable() {
     return table;
   }
@@ -142,7 +140,6 @@ public class ResponseErrorDetails {
   public void setTable(String table) {
     this.table = JsonNullable.<String>of(table);
   }
-
 
   /**
    * Return true if this responseErrorDetails object is equal to o.

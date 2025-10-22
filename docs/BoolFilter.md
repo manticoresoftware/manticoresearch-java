@@ -12,4 +12,3 @@
 |**should** | [**List&lt;QueryFilter&gt;**](QueryFilter.md) | Query clauses that should be matched, but are not required |  [optional] |
 
 
-

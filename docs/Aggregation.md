@@ -13,4 +13,3 @@
 |**histogram** | [**AggHistogram**](AggHistogram.md) |  |  [optional] |
 
 
-

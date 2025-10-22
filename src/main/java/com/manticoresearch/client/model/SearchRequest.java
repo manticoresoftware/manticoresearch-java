@@ -24,7 +24,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.manticoresearch.client.model.Aggregation;
 import com.manticoresearch.client.model.Highlight;
 import com.manticoresearch.client.model.Join;
-import com.manticoresearch.client.model.KnnQuery;
+import com.manticoresearch.client.model.Knn;
 import com.manticoresearch.client.model.SearchQuery;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -60,7 +60,7 @@ import com.manticoresearch.client.JSON;
   SearchRequest.JSON_PROPERTY_TRACK_SCORES
 })
 @JsonTypeName("searchRequest")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-07-31T07:57:08.554806755Z[Etc/UTC]", comments = "Generator version: 7.14.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-10-22T11:46:23.698699442Z[Etc/UTC]", comments = "Generator version: 7.17.0-SNAPSHOT")
 public class SearchRequest {
   public static final String JSON_PROPERTY_TABLE = "table";
   private String table;
@@ -78,7 +78,7 @@ public class SearchRequest {
   private Integer limit;
 
   public static final String JSON_PROPERTY_KNN = "knn";
-  private KnnQuery knn;
+  private Knn knn;
 
   public static final String JSON_PROPERTY_AGGS = "aggs";
   private Map<String, Aggregation> aggs = new HashMap<>();
@@ -243,7 +243,7 @@ public class SearchRequest {
   }
 
 
-  public SearchRequest knn(KnnQuery knn) {
+  public SearchRequest knn(Knn knn) {
     this.knn = knn;
     return this;
   }
@@ -256,14 +256,14 @@ public class SearchRequest {
   @JsonProperty(JSON_PROPERTY_KNN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public KnnQuery getKnn() {
+  public Knn getKnn() {
     return knn;
   }
 
 
   @JsonProperty(JSON_PROPERTY_KNN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setKnn(KnnQuery knn) {
+  public void setKnn(Knn knn) {
     this.knn = knn;
   }
 
@@ -452,7 +452,6 @@ public class SearchRequest {
 
   @JsonProperty(JSON_PROPERTY_SORT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<Object> getSort_JsonNullable() {
     return sort;
   }
@@ -485,7 +484,6 @@ public class SearchRequest {
 
   @JsonProperty(JSON_PROPERTY_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<Object> getSource_JsonNullable() {
     return source;
   }
@@ -523,7 +521,6 @@ public class SearchRequest {
   public void setTrackScores(Boolean trackScores) {
     this.trackScores = trackScores;
   }
-
 
   /**
    * Return true if this searchRequest object is equal to o.

@@ -15,4 +15,3 @@ Payload for updating a document or multiple documents in a table
 |**query** | [**QueryFilter**](QueryFilter.md) |  |  [optional] |
 
 
-

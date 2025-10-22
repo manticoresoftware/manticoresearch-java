@@ -41,7 +41,7 @@ import com.manticoresearch.client.JSON;
   JoinCond.JSON_PROPERTY_TYPE
 })
 @JsonTypeName("joinCond")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-07-31T07:57:08.554806755Z[Etc/UTC]", comments = "Generator version: 7.14.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-10-22T11:46:23.698699442Z[Etc/UTC]", comments = "Generator version: 7.17.0-SNAPSHOT")
 public class JoinCond {
   public static final String JSON_PROPERTY_FIELD = "field";
   private String field;
@@ -151,7 +151,6 @@ public class JoinCond {
 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<Object> getType_JsonNullable() {
     return type;
   }
@@ -164,7 +163,6 @@ public class JoinCond {
   public void setType(Object type) {
     this.type = JsonNullable.<Object>of(type);
   }
-
 
   /**
    * Return true if this joinCond object is equal to o.

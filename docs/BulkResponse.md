@@ -15,4 +15,3 @@ Success response for bulk search requests
 |**skippedLines** | **Integer** | Number of rows skipped in the response |  [optional] |
 
 
-

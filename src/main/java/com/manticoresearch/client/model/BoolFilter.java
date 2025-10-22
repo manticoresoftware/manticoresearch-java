@@ -38,7 +38,7 @@ import com.manticoresearch.client.JSON;
   BoolFilter.JSON_PROPERTY_SHOULD
 })
 @JsonTypeName("boolFilter")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-07-31T07:57:08.554806755Z[Etc/UTC]", comments = "Generator version: 7.14.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-10-22T11:46:23.698699442Z[Etc/UTC]", comments = "Generator version: 7.17.0-SNAPSHOT")
 public class BoolFilter {
   public static final String JSON_PROPERTY_MUST = "must";
   private List<QueryFilter> must = new ArrayList<>();
@@ -149,7 +149,6 @@ public class BoolFilter {
   public void setShould(List<QueryFilter> should) {
     this.should = should;
   }
-
 
   /**
    * Return true if this boolFilter object is equal to o.

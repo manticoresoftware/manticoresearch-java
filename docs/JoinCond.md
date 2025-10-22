@@ -14,4 +14,3 @@ Object representing the conditions used to perform the join operation
 |**type** | **Object** |  |  [optional] |
 
 
-

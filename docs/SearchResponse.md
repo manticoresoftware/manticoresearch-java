@@ -17,4 +17,3 @@ Response object containing the results of a search request
 |**warning** | **Object** | Warnings encountered during the search operation |  [optional] |
 
 
-

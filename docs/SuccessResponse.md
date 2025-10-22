@@ -16,4 +16,3 @@ Response object indicating the success of an operation, such as inserting or upd
 |**status** | **Integer** | HTTP status code representing the result of the operation |  [optional] |
 
 
-

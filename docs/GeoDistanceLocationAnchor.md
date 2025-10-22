@@ -12,4 +12,3 @@ Specifies the location of the pin point used for search
 |**lon** | **BigDecimal** | Longitude of the anchor point |  [optional] |
 
 
-

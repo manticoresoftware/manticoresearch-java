@@ -14,4 +14,3 @@ Success response returned after updating one or more documents
 |**result** | **String** | Result of the update operation, typically &#39;updated&#39; |  [optional] |
 
 
-

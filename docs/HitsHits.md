@@ -18,4 +18,3 @@ Search hit representing a matched document
 |**fields** | **Object** | The percolate-related fields of the matched document returned for percolate queries |  [optional] |
 
 
-

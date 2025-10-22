@@ -40,7 +40,7 @@ import com.manticoresearch.client.JSON;
   Range.JSON_PROPERTY_GTE
 })
 @JsonTypeName("range")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-07-31T07:57:08.554806755Z[Etc/UTC]", comments = "Generator version: 7.14.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-10-22T11:46:23.698699442Z[Etc/UTC]", comments = "Generator version: 7.17.0-SNAPSHOT")
 public class Range {
   public static final String JSON_PROPERTY_LT = "lt";
   private JsonNullable<Object> lt = JsonNullable.<Object>undefined();
@@ -75,7 +75,6 @@ public class Range {
 
   @JsonProperty(JSON_PROPERTY_LT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<Object> getLt_JsonNullable() {
     return lt;
   }
@@ -108,7 +107,6 @@ public class Range {
 
   @JsonProperty(JSON_PROPERTY_LTE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<Object> getLte_JsonNullable() {
     return lte;
   }
@@ -141,7 +139,6 @@ public class Range {
 
   @JsonProperty(JSON_PROPERTY_GT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<Object> getGt_JsonNullable() {
     return gt;
   }
@@ -174,7 +171,6 @@ public class Range {
 
   @JsonProperty(JSON_PROPERTY_GTE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<Object> getGte_JsonNullable() {
     return gte;
   }
@@ -187,7 +183,6 @@ public class Range {
   public void setGte(Object gte) {
     this.gte = JsonNullable.<Object>of(gte);
   }
-
 
   /**
    * Return true if this range object is equal to o.

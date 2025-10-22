@@ -14,4 +14,3 @@ Object to use histograms in aggregation, i.e., grouping search results by histog
 |**keyed** | **Boolean** | Flag that defines if a search response will be a dictionary with the bucket keys. Default value is false. |  [optional] |
 
 
-

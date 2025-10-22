@@ -1,12 +1,12 @@
 # Manticore Java client
 
-❗ WARNING: this is a development version of the client. The latest release's readme is https://github.com/manticoresoftware/manticoresearch-java/tree/8.0.0
+❗ WARNING: this is a development version of the client. The latest release's readme is https://github.com/manticoresoftware/manticoresearch-java/tree/8.1.0
 
 Manticore Search Client
 
-- API version: 9.1.0
+- API version: 8.1.0
 
-- Build date: 2025-07-31T07:57:08.554806755Z[Etc/UTC]
+- Build date: 2025-10-22T11:46:23.698699442Z[Etc/UTC]
 
 ## Requirements
 
@@ -56,7 +56,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.manticoresearch</groupId>
   <artifactId>manticoresearch</artifactId>
-  <version>9.1.0</version>
+  <version>8.1.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -72,7 +72,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.manticoresearch:manticoresearch:9.1.0"
+     implementation "com.manticoresearch:manticoresearch:8.1.0"
   }
 ```
 
@@ -86,7 +86,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-- `target/manticoresearch-9.1.0.jar`
+- `target/manticoresearch-8.1.0.jar`
 - `target/lib/*.jar`
 
 ## Getting Started
@@ -189,6 +189,7 @@ Class | Method | HTTP request | Description
  - [Join](docs/Join.md)
  - [JoinCond](docs/JoinCond.md)
  - [JoinOn](docs/JoinOn.md)
+ - [Knn](docs/Knn.md)
  - [KnnQuery](docs/KnnQuery.md)
  - [Match](docs/Match.md)
  - [MatchAll](docs/MatchAll.md)

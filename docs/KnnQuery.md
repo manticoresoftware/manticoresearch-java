@@ -2,18 +2,35 @@
 
 # KnnQuery
 
-Object representing a k-nearest neighbor search query
+## oneOf schemas
+* [List<BigDecimal>](List<BigDecimal>.md)
+* [String](String.md)
 
-## Properties
+## Example
+```java
+// Import classes:
+import com.manticoresearch.client.model.KnnQuery;
+import com.manticoresearch.client.model.List<BigDecimal>;
+import com.manticoresearch.client.model.String;
 
-| Name | Type | Description | Notes |
-|------------ | ------------- | ------------- | -------------|
-|**field** | **String** | Field to perform the k-nearest neighbor search on |  |
-|**k** | **Integer** | The number of nearest neighbors to return |  |
-|**queryVector** | **List&lt;BigDecimal&gt;** | The vector used as input for the KNN search |  [optional] |
-|**docId** | **Long** | The docuemnt ID used as input for the KNN search |  [optional] |
-|**ef** | **Integer** | Optional parameter controlling the accuracy of the search |  [optional] |
-|**filter** | [**QueryFilter**](QueryFilter.md) |  |  [optional] |
+public class Example {
+    public static void main(String[] args) {
+        KnnQuery exampleKnnQuery = new KnnQuery();
 
+        // create a new List<BigDecimal>
+        List<BigDecimal> exampleList<BigDecimal> = new List<BigDecimal>();
+        // set KnnQuery to List<BigDecimal>
+        exampleKnnQuery.setActualInstance(exampleList<BigDecimal>);
+        // to get back the List<BigDecimal> set earlier
+        List<BigDecimal> testList<BigDecimal> = (List<BigDecimal>) exampleKnnQuery.getActualInstance();
 
+        // create a new String
+        String exampleString = new String();
+        // set KnnQuery to String
+        exampleKnnQuery.setActualInstance(exampleString);
+        // to get back the String set earlier
+        String testString = (String) exampleKnnQuery.getActualInstance();
+    }
+}
+```
 

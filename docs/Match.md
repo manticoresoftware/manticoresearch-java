@@ -22,4 +22,3 @@ Filter helper object defining a match keyword and match options
 | AND | &quot;and&quot; |
 
 
-

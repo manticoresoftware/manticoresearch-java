@@ -13,7 +13,7 @@ Request object for search operation
 |**join** | [**List&lt;Join&gt;**](Join.md) | Join clause to combine search data from multiple tables |  [optional] |
 |**highlight** | [**Highlight**](Highlight.md) |  |  [optional] |
 |**limit** | **Integer** | Maximum number of results to return |  [optional] |
-|**knn** | [**KnnQuery**](KnnQuery.md) |  |  [optional] |
+|**knn** | [**Knn**](Knn.md) |  |  [optional] |
 |**aggs** | [**Map&lt;String, Aggregation&gt;**](Aggregation.md) | Defines aggregation settings for grouping results |  [optional] |
 |**expressions** | **Map&lt;String, String&gt;** | Expressions to calculate additional values for the result |  [optional] |
 |**maxMatches** | **Integer** | Maximum number of matches allowed in the result |  [optional] |
@@ -23,6 +23,5 @@ Request object for search operation
 |**sort** | **Object** |  |  [optional] |
 |**source** | **Object** |  |  [optional] |
 |**trackScores** | **Boolean** | Enable or disable result weight calculation used for sorting |  [optional] |
-
 
 

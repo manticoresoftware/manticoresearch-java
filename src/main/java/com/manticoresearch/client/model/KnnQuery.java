@@ -16,262 +16,213 @@ package com.manticoresearch.client.model;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
-import com.manticoresearch.client.model.QueryFilter;
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.manticoresearch.client.JSON;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 
-/**
- * Object representing a k-nearest neighbor search query
- */
-@JsonPropertyOrder({
-  KnnQuery.JSON_PROPERTY_FIELD,
-  KnnQuery.JSON_PROPERTY_K,
-  KnnQuery.JSON_PROPERTY_QUERY_VECTOR,
-  KnnQuery.JSON_PROPERTY_DOC_ID,
-  KnnQuery.JSON_PROPERTY_EF,
-  KnnQuery.JSON_PROPERTY_FILTER
-})
-@JsonTypeName("knnQuery")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-07-31T07:57:08.554806755Z[Etc/UTC]", comments = "Generator version: 7.14.0")
-public class KnnQuery {
-  public static final String JSON_PROPERTY_FIELD = "field";
-  private String field;
+import jakarta.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.Response;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
 
-  public static final String JSON_PROPERTY_K = "k";
-  private Integer k;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.JsonToken;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.DeserializationContext;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.MapperFeature;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
+import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+import com.manticoresearch.client.JSON;
 
-  public static final String JSON_PROPERTY_QUERY_VECTOR = "query_vector";
-  private List<BigDecimal> queryVector = new ArrayList<>();
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-10-22T11:46:23.698699442Z[Etc/UTC]", comments = "Generator version: 7.17.0-SNAPSHOT")
+@JsonDeserialize(using = KnnQuery.KnnQueryDeserializer.class)
+@JsonSerialize(using = KnnQuery.KnnQuerySerializer.class)
+public class KnnQuery extends AbstractOpenApiSchema {
+    private static final Logger log = Logger.getLogger(KnnQuery.class.getName());
 
-  public static final String JSON_PROPERTY_DOC_ID = "doc_id";
-  private Long docId;
+    public static class KnnQuerySerializer extends StdSerializer<KnnQuery> {
+        public KnnQuerySerializer(Class<KnnQuery> t) {
+            super(t);
+        }
 
-  public static final String JSON_PROPERTY_EF = "ef";
-  private Integer ef;
+        public KnnQuerySerializer() {
+            this(null);
+        }
 
-  public static final String JSON_PROPERTY_FILTER = "filter";
-  private QueryFilter filter;
-
-  public KnnQuery() { 
-  }
-
-  public KnnQuery field(String field) {
-    this.field = field;
-    return this;
-  }
-
-  /**
-   * Field to perform the k-nearest neighbor search on
-   * @return field
-   */
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_FIELD)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public String getField() {
-    return field;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_FIELD)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setField(String field) {
-    this.field = field;
-  }
-
-
-  public KnnQuery k(Integer k) {
-    this.k = k;
-    return this;
-  }
-
-  /**
-   * The number of nearest neighbors to return
-   * @return k
-   */
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_K)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public Integer getK() {
-    return k;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_K)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setK(Integer k) {
-    this.k = k;
-  }
-
-
-  public KnnQuery queryVector(List<BigDecimal> queryVector) {
-    this.queryVector = queryVector;
-    return this;
-  }
-
-  public KnnQuery addQueryVectorItem(BigDecimal queryVectorItem) {
-    if (this.queryVector == null) {
-      this.queryVector = new ArrayList<>();
+        @Override
+        public void serialize(KnnQuery value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+            jgen.writeObject(value.getActualInstance());
+        }
     }
-    this.queryVector.add(queryVectorItem);
-    return this;
-  }
 
-  /**
-   * The vector used as input for the KNN search
-   * @return queryVector
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_QUERY_VECTOR)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public static class KnnQueryDeserializer extends StdDeserializer<KnnQuery> {
+        public KnnQueryDeserializer() {
+            this(KnnQuery.class);
+        }
 
-  public List<BigDecimal> getQueryVector() {
-    return queryVector;
-  }
+        public KnnQueryDeserializer(Class<?> vc) {
+            super(vc);
+        }
 
+        @Override
+        public KnnQuery deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
+            JsonNode tree = jp.readValueAsTree();
+            Object deserialized = null;
+            boolean typeCoercion = ctxt.isEnabled(MapperFeature.ALLOW_COERCION_OF_SCALARS);
+            int match = 0;
+            JsonToken token = tree.traverse(jp.getCodec()).nextToken();
+            // deserialize String
+            try {
+                boolean attemptParsing = true;
+                attemptParsing = typeCoercion; //respect type coercion setting
+                if (!attemptParsing) {
+                    attemptParsing |= (token == JsonToken.VALUE_STRING);
+                }
+                if (attemptParsing) {
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(String.class);
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'String'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'String'", e);
+            }
 
-  @JsonProperty(JSON_PROPERTY_QUERY_VECTOR)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setQueryVector(List<BigDecimal> queryVector) {
-    this.queryVector = queryVector;
-  }
+            // deserialize List<BigDecimal>
+            try {
+                if (token == JsonToken.START_ARRAY) {
+                    final TypeReference<List<BigDecimal>> ref = new TypeReference<List<BigDecimal>>(){};
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs(ref);
+                    // TODO: there is no validation against JSON schema constraints
+                    // (min, max, enum, pattern...), this does not perform a strict JSON
+                    // validation, which means the 'match' count may be higher than it should be.
+                    match++;
+                    log.log(Level.FINER, "Input data matches schema 'List<BigDecimal>'");
+                }
+            } catch (Exception e) {
+                // deserialization failed, continue
+                log.log(Level.FINER, "Input data does not match schema 'List<BigDecimal>'", e);
+            }
 
+            if (match == 1) {
+                KnnQuery ret = new KnnQuery();
+                ret.setActualInstance(deserialized);
+                return ret;
+            }
+            throw new IOException(String.format("Failed deserialization for KnnQuery: %d classes match result, expected 1", match));
+        }
 
-  public KnnQuery docId(Long docId) {
-    this.docId = docId;
-    return this;
-  }
-
-  /**
-   * The docuemnt ID used as input for the KNN search
-   * @return docId
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DOC_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Long getDocId() {
-    return docId;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_DOC_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDocId(Long docId) {
-    this.docId = docId;
-  }
-
-
-  public KnnQuery ef(Integer ef) {
-    this.ef = ef;
-    return this;
-  }
-
-  /**
-   * Optional parameter controlling the accuracy of the search
-   * @return ef
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EF)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Integer getEf() {
-    return ef;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_EF)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEf(Integer ef) {
-    this.ef = ef;
-  }
-
-
-  public KnnQuery filter(QueryFilter filter) {
-    this.filter = filter;
-    return this;
-  }
-
-  /**
-   * Get filter
-   * @return filter
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FILTER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public QueryFilter getFilter() {
-    return filter;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_FILTER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFilter(QueryFilter filter) {
-    this.filter = filter;
-  }
-
-
-  /**
-   * Return true if this knnQuery object is equal to o.
-   */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+        /**
+         * Handle deserialization of the 'null' value.
+         */
+        @Override
+        public KnnQuery getNullValue(DeserializationContext ctxt) throws JsonMappingException {
+            throw new JsonMappingException(ctxt.getParser(), "KnnQuery cannot be null");
+        }
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    // store a list of schema names defined in oneOf
+    public static final Map<String, GenericType<?>> schemas = new HashMap<>();
+
+    public KnnQuery() {
+        super("oneOf", Boolean.FALSE);
     }
-    KnnQuery knnQuery = (KnnQuery) o;
-    return Objects.equals(this.field, knnQuery.field) &&
-        Objects.equals(this.k, knnQuery.k) &&
-        Objects.equals(this.queryVector, knnQuery.queryVector) &&
-        Objects.equals(this.docId, knnQuery.docId) &&
-        Objects.equals(this.ef, knnQuery.ef) &&
-        Objects.equals(this.filter, knnQuery.filter);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(field, k, queryVector, docId, ef, filter);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class KnnQuery {\n");
-    sb.append("    field: ").append(toIndentedString(field)).append("\n");
-    sb.append("    k: ").append(toIndentedString(k)).append("\n");
-    sb.append("    queryVector: ").append(toIndentedString(queryVector)).append("\n");
-    sb.append("    docId: ").append(toIndentedString(docId)).append("\n");
-    sb.append("    ef: ").append(toIndentedString(ef)).append("\n");
-    sb.append("    filter: ").append(toIndentedString(filter)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public KnnQuery(String o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public KnnQuery(List o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
+    static {
+        schemas.put("List<BigDecimal>", new GenericType<List<BigDecimal>>() {
+        });
+        schemas.put("String", new GenericType<String>() {
+        });
+        JSON.registerDescendants(KnnQuery.class, Collections.unmodifiableMap(schemas));
+    }
+
+    @Override
+    public Map<String, GenericType<?>> getSchemas() {
+        return KnnQuery.schemas;
+    }
+
+    /**
+     * Set the instance that matches the oneOf child schema, check
+     * the instance parameter is valid against the oneOf child schemas:
+     * List<BigDecimal>, String
+     *
+     * It could be an instance of the 'oneOf' schemas.
+     * The oneOf child schemas may themselves be a composed schema (allOf, anyOf, oneOf).
+     */
+    @Override
+    public void setActualInstance(Object instance) {
+        if (JSON.isInstanceOf(String.class, instance, new HashSet<>())) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (JSON.isInstanceOf(List.class, instance, new HashSet<>())) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        throw new RuntimeException("Invalid instance type. Must be List<BigDecimal>, String");
+    }
+
+    /**
+     * Get the actual instance, which can be the following:
+     * List<BigDecimal>, String
+     *
+     * @return The actual instance (List<BigDecimal>, String)
+     */
+    @Override
+    public Object getActualInstance() {
+        return super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `String`. If the actual instance is not `String`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `String`
+     * @throws ClassCastException if the instance is not `String`
+     */
+    public String getString() throws ClassCastException {
+        return (String)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `List<BigDecimal>`. If the actual instance is not `List<BigDecimal>`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `List<BigDecimal>`
+     * @throws ClassCastException if the instance is not `List<BigDecimal>`
+     */
+        public List<BigDecimal> getListBigDecimal() throws ClassCastException {
+        return (List<BigDecimal>)super.getActualInstance();
+        }
 
 }
 

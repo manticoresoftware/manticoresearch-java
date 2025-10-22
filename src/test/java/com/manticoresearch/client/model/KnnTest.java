@@ -18,81 +18,85 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.manticoresearch.client.model.SearchResponseHits;
+import com.manticoresearch.client.model.KnnQuery;
+import com.manticoresearch.client.model.QueryFilter;
+import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for SearchResponse
+ * Model tests for Knn
  */
-public class SearchResponseTest {
-    private final SearchResponse model = new SearchResponse();
+public class KnnTest {
+    private final Knn model = new Knn();
 
     /**
-     * Model tests for SearchResponse
+     * Model tests for Knn
      */
     @Test
-    public void testSearchResponse() {
-        // TODO: test SearchResponse
+    public void testKnn() {
+        // TODO: test Knn
     }
 
     /**
-     * Test the property 'took'
+     * Test the property 'field'
      */
     @Test
-    public void tookTest() {
-        // TODO: test took
+    public void fieldTest() {
+        // TODO: test field
     }
 
     /**
-     * Test the property 'timedOut'
+     * Test the property 'k'
      */
     @Test
-    public void timedOutTest() {
-        // TODO: test timedOut
+    public void kTest() {
+        // TODO: test k
     }
 
     /**
-     * Test the property 'aggregations'
+     * Test the property 'query'
      */
     @Test
-    public void aggregationsTest() {
-        // TODO: test aggregations
+    public void queryTest() {
+        // TODO: test query
     }
 
     /**
-     * Test the property 'hits'
+     * Test the property 'queryVector'
      */
     @Test
-    public void hitsTest() {
-        // TODO: test hits
+    public void queryVectorTest() {
+        // TODO: test queryVector
     }
 
     /**
-     * Test the property 'profile'
+     * Test the property 'docId'
      */
     @Test
-    public void profileTest() {
-        // TODO: test profile
+    public void docIdTest() {
+        // TODO: test docId
     }
 
     /**
-     * Test the property 'scroll'
+     * Test the property 'ef'
      */
     @Test
-    public void scrollTest() {
-        // TODO: test scroll
+    public void efTest() {
+        // TODO: test ef
     }
 
     /**
-     * Test the property 'warning'
+     * Test the property 'filter'
      */
     @Test
-    public void warningTest() {
-        // TODO: test warning
+    public void filterTest() {
+        // TODO: test filter
     }
 
 }

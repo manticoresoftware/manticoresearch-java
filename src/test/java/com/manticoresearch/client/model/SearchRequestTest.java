@@ -21,7 +21,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.manticoresearch.client.model.Aggregation;
 import com.manticoresearch.client.model.Highlight;
 import com.manticoresearch.client.model.Join;
-import com.manticoresearch.client.model.KnnQuery;
+import com.manticoresearch.client.model.Knn;
 import com.manticoresearch.client.model.SearchQuery;
 import java.util.ArrayList;
 import java.util.Arrays;

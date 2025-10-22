@@ -49,7 +49,7 @@ import com.manticoresearch.client.JSON;
   SearchQuery.JSON_PROPERTY_HIGHLIGHT
 })
 @JsonTypeName("searchQuery")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-07-31T07:57:08.554806755Z[Etc/UTC]", comments = "Generator version: 7.14.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-10-22T11:46:23.698699442Z[Etc/UTC]", comments = "Generator version: 7.17.0-SNAPSHOT")
 public class SearchQuery {
   public static final String JSON_PROPERTY_QUERY_STRING = "query_string";
   private String queryString;
@@ -227,7 +227,6 @@ public class SearchQuery {
 
   @JsonProperty(JSON_PROPERTY_EQUALS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<Object> getEquals_JsonNullable() {
     return equals;
   }
@@ -340,7 +339,6 @@ public class SearchQuery {
   public void setHighlight(Highlight highlight) {
     this.highlight = highlight;
   }
-
 
   /**
    * Return true if this searchQuery object is equal to o.

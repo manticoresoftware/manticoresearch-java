@@ -40,7 +40,7 @@ import com.manticoresearch.client.JSON;
   Join.JSON_PROPERTY_TABLE
 })
 @JsonTypeName("join")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-07-31T07:57:08.554806755Z[Etc/UTC]", comments = "Generator version: 7.14.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-10-22T11:46:23.698699442Z[Etc/UTC]", comments = "Generator version: 7.17.0-SNAPSHOT")
 public class Join {
   /**
    * Type of the join operation
@@ -76,7 +76,6 @@ public class Join {
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
   }
-
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
@@ -198,7 +197,6 @@ public class Join {
   public void setTable(String table) {
     this.table = table;
   }
-
 
   /**
    * Return true if this join object is equal to o.

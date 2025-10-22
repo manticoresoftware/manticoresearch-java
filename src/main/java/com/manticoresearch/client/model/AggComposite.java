@@ -38,7 +38,7 @@ import com.manticoresearch.client.JSON;
   AggComposite.JSON_PROPERTY_SOURCES
 })
 @JsonTypeName("aggComposite")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-07-31T07:57:08.554806755Z[Etc/UTC]", comments = "Generator version: 7.14.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-10-22T11:46:23.698699442Z[Etc/UTC]", comments = "Generator version: 7.17.0-SNAPSHOT")
 public class AggComposite {
   public static final String JSON_PROPERTY_SIZE = "size";
   private Integer size;
@@ -105,7 +105,6 @@ public class AggComposite {
   public void setSources(List<Map<String, AggCompositeSource>> sources) {
     this.sources = sources;
   }
-
 
   /**
    * Return true if this aggComposite object is equal to o.

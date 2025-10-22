@@ -12,4 +12,3 @@ Object containing term fields to aggregate on
 |**size** | **Integer** | Maximum number of buckets in the result |  [optional] |
 
 
-

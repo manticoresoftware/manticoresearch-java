@@ -12,4 +12,3 @@ Object to perform composite aggregation, i.e., grouping search results by multip
 |**sources** | **List&lt;Map&lt;String, AggCompositeSource&gt;&gt;** |  |  [optional] |
 
 
-

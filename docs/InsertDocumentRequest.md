@@ -14,4 +14,3 @@ Object containing data for inserting a new document into the table
 |**doc** | **Object** | Object containing document data  |  |
 
 
-

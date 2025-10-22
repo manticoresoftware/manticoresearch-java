@@ -14,4 +14,3 @@ Object containing the search hits, which represent the documents that matched th
 |**hits** | [**List&lt;HitsHits&gt;**](HitsHits.md) | Array of hit objects, each representing a matched document |  [optional] |
 
 
-

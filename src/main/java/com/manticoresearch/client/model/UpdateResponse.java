@@ -36,7 +36,7 @@ import com.manticoresearch.client.JSON;
   UpdateResponse.JSON_PROPERTY_RESULT
 })
 @JsonTypeName("updateResponse")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-07-31T07:57:08.554806755Z[Etc/UTC]", comments = "Generator version: 7.14.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-10-22T11:46:23.698699442Z[Etc/UTC]", comments = "Generator version: 7.17.0-SNAPSHOT")
 public class UpdateResponse {
   public static final String JSON_PROPERTY_TABLE = "table";
   private String table;
@@ -151,7 +151,6 @@ public class UpdateResponse {
   public void setResult(String result) {
     this.result = result;
   }
-
 
   /**
    * Return true if this updateResponse object is equal to o.

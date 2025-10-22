@@ -39,7 +39,7 @@ import com.manticoresearch.client.JSON;
   SearchResponseHits.JSON_PROPERTY_HITS
 })
 @JsonTypeName("searchResponse_hits")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-07-31T07:57:08.554806755Z[Etc/UTC]", comments = "Generator version: 7.14.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-10-22T11:46:23.698699442Z[Etc/UTC]", comments = "Generator version: 7.17.0-SNAPSHOT")
 public class SearchResponseHits {
   public static final String JSON_PROPERTY_MAX_SCORE = "max_score";
   private Integer maxScore;
@@ -162,7 +162,6 @@ public class SearchResponseHits {
   public void setHits(List<HitsHits> hits) {
     this.hits = hits;
   }
-
 
   /**
    * Return true if this searchResponse_hits object is equal to o.

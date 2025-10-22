@@ -11,4 +11,3 @@ Object containing the query for percolating documents against stored queries in 
 |**query** | [**PercolateRequestQuery**](PercolateRequestQuery.md) |  |  |
 
 
-

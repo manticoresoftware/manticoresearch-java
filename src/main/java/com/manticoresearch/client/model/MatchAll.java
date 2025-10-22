@@ -33,7 +33,7 @@ import com.manticoresearch.client.JSON;
   MatchAll.JSON_PROPERTY_ALL
 })
 @JsonTypeName("match_all")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-07-31T07:57:08.554806755Z[Etc/UTC]", comments = "Generator version: 7.14.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-10-22T11:46:23.698699442Z[Etc/UTC]", comments = "Generator version: 7.17.0-SNAPSHOT")
 public class MatchAll {
   /**
    * Gets or Sets all
@@ -67,7 +67,6 @@ public class MatchAll {
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
   }
-
   public static final String JSON_PROPERTY_ALL = "_all";
   private AllEnum all;
 
@@ -97,7 +96,6 @@ public class MatchAll {
   public void setAll(AllEnum all) {
     this.all = all;
   }
-
 
   /**
    * Return true if this match_all object is equal to o.

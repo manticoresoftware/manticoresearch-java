@@ -56,7 +56,7 @@ import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import com.manticoresearch.client.JSON;
 
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-07-31T07:57:08.554806755Z[Etc/UTC]", comments = "Generator version: 7.14.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-10-22T11:46:23.698699442Z[Etc/UTC]", comments = "Generator version: 7.17.0-SNAPSHOT")
 @JsonDeserialize(using = SqlResponse.SqlResponseDeserializer.class)
 @JsonSerialize(using = SqlResponse.SqlResponseSerializer.class)
 public class SqlResponse extends AbstractOpenApiSchema {
@@ -148,7 +148,6 @@ public class SqlResponse extends AbstractOpenApiSchema {
     public SqlResponse() {
         super("oneOf", Boolean.FALSE);
     }
-
     public SqlResponse(List o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);

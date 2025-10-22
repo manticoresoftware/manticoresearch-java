@@ -16,8 +16,7 @@ Defines a query structure for performing search operations
 |**equals** | **Object** |  |  [optional] |
 |**in** | **Object** | Filter to match a given set of attribute values. |  [optional] |
 |**range** | **Object** | Filter to match a given range of attribute values passed in Range objects |  [optional] |
-|**geoDistance** | **GeoDistance** |  |  [optional] |
+|**geoDistance** | [**GeoDistance**](GeoDistance.md) |  |  [optional] |
 |**highlight** | [**Highlight**](Highlight.md) |  |  [optional] |
-
 
 

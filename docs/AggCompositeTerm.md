@@ -11,4 +11,3 @@ Object representing a term to be used in composite aggregation.
 |**field** | **String** | Name of field to operate with |  |
 
 
-

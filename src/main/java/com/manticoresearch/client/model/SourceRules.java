@@ -13,10 +13,6 @@
 
 package com.manticoresearch.client.model;
 
-import java.util.Map;
-import java.util.HashMap;
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
@@ -40,7 +36,7 @@ import com.manticoresearch.client.JSON;
   SourceRules.JSON_PROPERTY_EXCLUDES
 })
 @JsonTypeName("sourceRules")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-07-31T07:57:08.554806755Z[Etc/UTC]", comments = "Generator version: 7.14.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-10-22T11:46:23.698699442Z[Etc/UTC]", comments = "Generator version: 7.17.0-SNAPSHOT")
 public class SourceRules {
   public static final String JSON_PROPERTY_INCLUDES = "includes";
   private List<String> includes = new ArrayList<>();
@@ -117,44 +113,6 @@ public class SourceRules {
   }
 
   /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
-   */
-  private Map<String, Object> additionalProperties;
-
-  /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
-   */
-  @JsonAnySetter
-  public SourceRules putAdditionalProperty(String key, Object value) {
-    if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<>();
-    }
-    this.additionalProperties.put(key, value);
-    return this;
-  }
-
-  /**
-   * Return the additional (undeclared) property.
-   */
-  @JsonAnyGetter
-  public Map<String, Object> getAdditionalProperties() {
-    return additionalProperties;
-  }
-
-  /**
-   * Return the additional (undeclared) property with the specified name.
-   */
-  public Object getAdditionalProperty(String key) {
-    if (this.additionalProperties == null) {
-        return null;
-    }
-    return this.additionalProperties.get(key);
-  }
-
-  /**
    * Return true if this sourceRules object is equal to o.
    */
   @Override
@@ -167,13 +125,12 @@ public class SourceRules {
     }
     SourceRules sourceRules = (SourceRules) o;
     return Objects.equals(this.includes, sourceRules.includes) &&
-        Objects.equals(this.excludes, sourceRules.excludes)&&
-        Objects.equals(this.additionalProperties, sourceRules.additionalProperties);
+        Objects.equals(this.excludes, sourceRules.excludes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(includes, excludes, additionalProperties);
+    return Objects.hash(includes, excludes);
   }
 
   @Override
@@ -182,7 +139,6 @@ public class SourceRules {
     sb.append("class SourceRules {\n");
     sb.append("    includes: ").append(toIndentedString(includes)).append("\n");
     sb.append("    excludes: ").append(toIndentedString(excludes)).append("\n");
-    sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
   }

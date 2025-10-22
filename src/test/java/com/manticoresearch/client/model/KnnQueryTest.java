@@ -13,15 +13,8 @@
 
 package com.manticoresearch.client.model;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
-import com.manticoresearch.client.model.QueryFilter;
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import org.junit.jupiter.api.Assertions;
@@ -40,54 +33,6 @@ public class KnnQueryTest {
     @Test
     public void testKnnQuery() {
         // TODO: test KnnQuery
-    }
-
-    /**
-     * Test the property 'field'
-     */
-    @Test
-    public void fieldTest() {
-        // TODO: test field
-    }
-
-    /**
-     * Test the property 'k'
-     */
-    @Test
-    public void kTest() {
-        // TODO: test k
-    }
-
-    /**
-     * Test the property 'queryVector'
-     */
-    @Test
-    public void queryVectorTest() {
-        // TODO: test queryVector
-    }
-
-    /**
-     * Test the property 'docId'
-     */
-    @Test
-    public void docIdTest() {
-        // TODO: test docId
-    }
-
-    /**
-     * Test the property 'ef'
-     */
-    @Test
-    public void efTest() {
-        // TODO: test ef
-    }
-
-    /**
-     * Test the property 'filter'
-     */
-    @Test
-    public void filterTest() {
-        // TODO: test filter
     }
 
 }

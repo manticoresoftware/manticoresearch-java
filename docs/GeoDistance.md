@@ -23,4 +23,3 @@ Object to perform geo-distance based filtering on queries
 | HAVERSINE | &quot;haversine&quot; |
 
 
-

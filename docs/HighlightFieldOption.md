@@ -15,4 +15,3 @@ Options for controlling the behavior of highlighting on a per-field basis
 |**numberOfFragments** | **Integer** | Total number of highlighted fragments per field |  [optional] |
 
 
-

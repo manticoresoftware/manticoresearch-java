@@ -19,4 +19,3 @@ Filter helper object defining the 'match all'' condition
 | u | &quot;{}&quot; |
 
 
-
