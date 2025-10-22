@@ -18,7 +18,7 @@ import java.util.Map;
 /**
  * Representing a Server configuration.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-10-22T11:46:23.698699442Z[Etc/UTC]", comments = "Generator version: 7.17.0-SNAPSHOT")public class ServerConfiguration {
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-10-22T12:00:11.264281797Z[Etc/UTC]", comments = "Generator version: 7.17.0-SNAPSHOT")public class ServerConfiguration {
     public String URL;
     public String description;
     public Map<String, ServerVariable> variables;

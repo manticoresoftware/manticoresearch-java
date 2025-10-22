@@ -4,7 +4,7 @@
     <groupId>com.manticoresearch</groupId>
     <artifactId>manticoresearch-dev</artifactId>
     <name>manticoresearch-dev</name>
-    <version>8.1.0</version>
+    <version>9.0.0</version>
     <url>https://github.com/manticoresoftware/manticoresearch-java</url>
     <description>Client for Manticore Search</description>
     <scm>

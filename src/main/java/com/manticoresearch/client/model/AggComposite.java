@@ -38,7 +38,7 @@ import com.manticoresearch.client.JSON;
   AggComposite.JSON_PROPERTY_SOURCES
 })
 @JsonTypeName("aggComposite")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-10-22T11:46:23.698699442Z[Etc/UTC]", comments = "Generator version: 7.17.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-10-22T12:00:11.264281797Z[Etc/UTC]", comments = "Generator version: 7.17.0-SNAPSHOT")
 public class AggComposite {
   public static final String JSON_PROPERTY_SIZE = "size";
   private Integer size;
