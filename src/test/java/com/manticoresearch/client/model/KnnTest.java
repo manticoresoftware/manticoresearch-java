@@ -92,6 +92,22 @@ public class KnnTest {
     }
 
     /**
+     * Test the property 'rescore'
+     */
+    @Test
+    public void rescoreTest() {
+        // TODO: test rescore
+    }
+
+    /**
+     * Test the property 'oversampling'
+     */
+    @Test
+    public void oversamplingTest() {
+        // TODO: test oversampling
+    }
+
+    /**
      * Test the property 'filter'
      */
     @Test

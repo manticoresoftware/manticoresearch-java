@@ -41,10 +41,12 @@ import com.manticoresearch.client.JSON;
   Knn.JSON_PROPERTY_QUERY_VECTOR,
   Knn.JSON_PROPERTY_DOC_ID,
   Knn.JSON_PROPERTY_EF,
+  Knn.JSON_PROPERTY_RESCORE,
+  Knn.JSON_PROPERTY_OVERSAMPLING,
   Knn.JSON_PROPERTY_FILTER
 })
 @JsonTypeName("knn")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-10-22T12:00:11.264281797Z[Etc/UTC]", comments = "Generator version: 7.17.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-13T05:42:16.686744907Z[Etc/UTC]", comments = "Generator version: 7.17.0-SNAPSHOT")
 public class Knn {
   public static final String JSON_PROPERTY_FIELD = "field";
   private String field;
@@ -63,6 +65,12 @@ public class Knn {
 
   public static final String JSON_PROPERTY_EF = "ef";
   private Integer ef;
+
+  public static final String JSON_PROPERTY_RESCORE = "rescore";
+  private Boolean rescore;
+
+  public static final String JSON_PROPERTY_OVERSAMPLING = "oversampling";
+  private BigDecimal oversampling;
 
   public static final String JSON_PROPERTY_FILTER = "filter";
   private QueryFilter filter;
@@ -228,6 +236,56 @@ public class Knn {
   }
 
 
+  public Knn rescore(Boolean rescore) {
+    this.rescore = rescore;
+    return this;
+  }
+
+  /**
+   * Optional parameter enabling KNN rescoring (disabled by default)
+   * @return rescore
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RESCORE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getRescore() {
+    return rescore;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_RESCORE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setRescore(Boolean rescore) {
+    this.rescore = rescore;
+  }
+
+
+  public Knn oversampling(BigDecimal oversampling) {
+    this.oversampling = oversampling;
+    return this;
+  }
+
+  /**
+   * Optional parameter setting a factor by which k is multiplied when executing the KNN search
+   * @return oversampling
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_OVERSAMPLING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public BigDecimal getOversampling() {
+    return oversampling;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_OVERSAMPLING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setOversampling(BigDecimal oversampling) {
+    this.oversampling = oversampling;
+  }
+
+
   public Knn filter(QueryFilter filter) {
     this.filter = filter;
     return this;
@@ -270,12 +328,14 @@ public class Knn {
         Objects.equals(this.queryVector, knn.queryVector) &&
         Objects.equals(this.docId, knn.docId) &&
         Objects.equals(this.ef, knn.ef) &&
+        Objects.equals(this.rescore, knn.rescore) &&
+        Objects.equals(this.oversampling, knn.oversampling) &&
         Objects.equals(this.filter, knn.filter);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(field, k, query, queryVector, docId, ef, filter);
+    return Objects.hash(field, k, query, queryVector, docId, ef, rescore, oversampling, filter);
   }
 
   @Override
@@ -288,6 +348,8 @@ public class Knn {
     sb.append("    queryVector: ").append(toIndentedString(queryVector)).append("\n");
     sb.append("    docId: ").append(toIndentedString(docId)).append("\n");
     sb.append("    ef: ").append(toIndentedString(ef)).append("\n");
+    sb.append("    rescore: ").append(toIndentedString(rescore)).append("\n");
+    sb.append("    oversampling: ").append(toIndentedString(oversampling)).append("\n");
     sb.append("    filter: ").append(toIndentedString(filter)).append("\n");
     sb.append("}");
     return sb.toString();

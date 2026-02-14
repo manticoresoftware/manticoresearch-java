@@ -1,12 +1,12 @@
 # Manticore Java client
 
-❗ WARNING: this is a development version of the client. The latest release's readme is https://github.com/manticoresoftware/manticoresearch-java/tree/8.1.0
+❗ WARNING: this is a development version of the client. The latest release's readme is https://github.com/manticoresoftware/manticoresearch-java/tree/9.0.0
 
 Manticore Search Client
 
 - API version: 9.0.0
 
-- Build date: 2025-10-22T12:00:11.264281797Z[Etc/UTC]
+- Build date: 2026-02-13T05:42:16.686744907Z[Etc/UTC]
 
 ## Requirements
 
@@ -21,7 +21,10 @@ Building the API client library requires:
 | **manticoresearch-java**       | **Manticore Search**                |  **Compatibility**       |
 | ------------------------------ | ----------------------------------- |  ------------------------|
 | `dev`                          | `dev` (latest development version)  |  ✅ Fully Compatible     |
-| 8.0.0 or newer                 | 9.2.14 or newer                     |  ✅ Fully Compatible     |
+| 9.0.0 or newer                 | 17.5.1 or newer                     |  ✅ Fully Compatible     |
+| 9.0.0 or newer                 | 9.2.14 to 17.5.1                    |  ⚠️ Partially Compatible |
+| 8.0.0 to 9.0.0                 | 17.5.1 or newer                     |  ⚠️ Partially Compatible |
+| 8.0.0 to 9.0.0                 | 9.2.14 to 17.5.1                    |  ✅ Fully Compatible     |
 | 6.0.0 to 8.0.0                 | 9.2.14 or newer                     |  ⚠️ Partially Compatible |
 | 6.0.0 to 8.0.0                 | 7.0.0 to 9.2.14                     |  ✅ Fully Compatible     |
 | 6.0.0 to 8.0.0                 | 2.5.1 to 7.0.0                      |  ⚠️ Partially Compatible |
