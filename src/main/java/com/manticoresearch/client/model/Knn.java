@@ -46,7 +46,7 @@ import com.manticoresearch.client.JSON;
   Knn.JSON_PROPERTY_FILTER
 })
 @JsonTypeName("knn")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-13T05:42:16.686744907Z[Etc/UTC]", comments = "Generator version: 7.17.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-14T07:14:01.929727259Z[Etc/UTC]", comments = "Generator version: 7.17.0-SNAPSHOT")
 public class Knn {
   public static final String JSON_PROPERTY_FIELD = "field";
   private String field;
