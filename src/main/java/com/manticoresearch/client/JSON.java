@@ -28,7 +28,7 @@ import java.util.Set;
 import jakarta.ws.rs.core.GenericType;
 import jakarta.ws.rs.ext.ContextResolver;
 
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-14T07:14:01.929727259Z[Etc/UTC]", comments = "Generator version: 7.17.0-SNAPSHOT")public class JSON implements ContextResolver<ObjectMapper> {
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-16T11:46:54.154395587Z[Etc/UTC]", comments = "Generator version: 7.17.0-SNAPSHOT")public class JSON implements ContextResolver<ObjectMapper> {
   private ObjectMapper mapper;
 
   public JSON() {

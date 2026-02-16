@@ -41,7 +41,7 @@ import com.manticoresearch.client.JSON;
   JoinCond.JSON_PROPERTY_TYPE
 })
 @JsonTypeName("joinCond")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-14T07:14:01.929727259Z[Etc/UTC]", comments = "Generator version: 7.17.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-16T11:46:54.154395587Z[Etc/UTC]", comments = "Generator version: 7.17.0-SNAPSHOT")
 public class JoinCond {
   public static final String JSON_PROPERTY_FIELD = "field";
   private String field;
