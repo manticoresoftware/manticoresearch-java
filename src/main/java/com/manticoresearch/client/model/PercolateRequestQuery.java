@@ -13,6 +13,10 @@
 
 package com.manticoresearch.client.model;
 
+import java.util.Map;
+import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
@@ -33,7 +37,7 @@ import com.manticoresearch.client.JSON;
   PercolateRequestQuery.JSON_PROPERTY_PERCOLATE
 })
 @JsonTypeName("percolateRequest_query")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-14T07:14:01.929727259Z[Etc/UTC]", comments = "Generator version: 7.17.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-15T06:37:43.975133211Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
 public class PercolateRequestQuery {
   public static final String JSON_PROPERTY_PERCOLATE = "percolate";
   private Object percolate;
@@ -66,6 +70,43 @@ public class PercolateRequestQuery {
   }
 
   /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  private Map<String, Object> additionalProperties;
+
+  /**
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
+   */
+  @JsonAnySetter
+  public PercolateRequestQuery putAdditionalProperty(String key, Object value) {
+    if (this.additionalProperties == null) {
+        this.additionalProperties = new HashMap<>();
+    }
+    this.additionalProperties.put(key, value);
+    return this;
+  }
+
+  /**
+   * Return the additional (undeclared) property.
+   */
+  @JsonAnyGetter
+  public Map<String, Object> getAdditionalProperties() {
+    return additionalProperties;
+  }
+
+  /**
+   * Return the additional (undeclared) property with the specified name.
+   */
+  public Object getAdditionalProperty(String key) {
+    if (this.additionalProperties == null) {
+        return null;
+    }
+    return this.additionalProperties.get(key);
+  }
+  /**
    * Return true if this percolateRequest_query object is equal to o.
    */
   @Override
@@ -77,12 +118,13 @@ public class PercolateRequestQuery {
       return false;
     }
     PercolateRequestQuery percolateRequestQuery = (PercolateRequestQuery) o;
-    return Objects.equals(this.percolate, percolateRequestQuery.percolate);
+    return Objects.equals(this.percolate, percolateRequestQuery.percolate)&&
+        Objects.equals(this.additionalProperties, percolateRequestQuery.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(percolate);
+    return Objects.hash(percolate, additionalProperties);
   }
 
   @Override
@@ -90,6 +132,7 @@ public class PercolateRequestQuery {
     StringBuilder sb = new StringBuilder();
     sb.append("class PercolateRequestQuery {\n");
     sb.append("    percolate: ").append(toIndentedString(percolate)).append("\n");
+    sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
   }

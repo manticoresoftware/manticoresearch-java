@@ -34,7 +34,7 @@ import com.manticoresearch.client.JSON;
   AggCompositeSource.JSON_PROPERTY_TERMS
 })
 @JsonTypeName("aggCompositeSource")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-14T07:14:01.929727259Z[Etc/UTC]", comments = "Generator version: 7.17.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-15T06:37:43.975133211Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
 public class AggCompositeSource {
   public static final String JSON_PROPERTY_TERMS = "terms";
   private AggCompositeTerm terms;

@@ -22,6 +22,8 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.manticoresearch.client.model.QueryFilter;
+import com.manticoresearch.client.model.QueryFilterAlias1;
+import com.manticoresearch.client.model.QueryFilterAlias2;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -38,16 +40,16 @@ import com.manticoresearch.client.JSON;
   BoolFilter.JSON_PROPERTY_SHOULD
 })
 @JsonTypeName("boolFilter")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-14T07:14:01.929727259Z[Etc/UTC]", comments = "Generator version: 7.17.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-15T06:37:43.975133211Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
 public class BoolFilter {
   public static final String JSON_PROPERTY_MUST = "must";
   private List<QueryFilter> must = new ArrayList<>();
 
   public static final String JSON_PROPERTY_MUST_NOT = "must_not";
-  private List<QueryFilter> mustNot = new ArrayList<>();
+  private List<QueryFilterAlias1> mustNot = new ArrayList<>();
 
   public static final String JSON_PROPERTY_SHOULD = "should";
-  private List<QueryFilter> should = new ArrayList<>();
+  private List<QueryFilterAlias2> should = new ArrayList<>();
 
   public BoolFilter() { 
   }
@@ -85,12 +87,12 @@ public class BoolFilter {
   }
 
 
-  public BoolFilter mustNot(List<QueryFilter> mustNot) {
+  public BoolFilter mustNot(List<QueryFilterAlias1> mustNot) {
     this.mustNot = mustNot;
     return this;
   }
 
-  public BoolFilter addMustNotItem(QueryFilter mustNotItem) {
+  public BoolFilter addMustNotItem(QueryFilterAlias1 mustNotItem) {
     if (this.mustNot == null) {
       this.mustNot = new ArrayList<>();
     }
@@ -106,24 +108,24 @@ public class BoolFilter {
   @JsonProperty(JSON_PROPERTY_MUST_NOT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<QueryFilter> getMustNot() {
+  public List<QueryFilterAlias1> getMustNot() {
     return mustNot;
   }
 
 
   @JsonProperty(JSON_PROPERTY_MUST_NOT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMustNot(List<QueryFilter> mustNot) {
+  public void setMustNot(List<QueryFilterAlias1> mustNot) {
     this.mustNot = mustNot;
   }
 
 
-  public BoolFilter should(List<QueryFilter> should) {
+  public BoolFilter should(List<QueryFilterAlias2> should) {
     this.should = should;
     return this;
   }
 
-  public BoolFilter addShouldItem(QueryFilter shouldItem) {
+  public BoolFilter addShouldItem(QueryFilterAlias2 shouldItem) {
     if (this.should == null) {
       this.should = new ArrayList<>();
     }
@@ -139,14 +141,14 @@ public class BoolFilter {
   @JsonProperty(JSON_PROPERTY_SHOULD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<QueryFilter> getShould() {
+  public List<QueryFilterAlias2> getShould() {
     return should;
   }
 
 
   @JsonProperty(JSON_PROPERTY_SHOULD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setShould(List<QueryFilter> should) {
+  public void setShould(List<QueryFilterAlias2> should) {
     this.should = should;
   }
 

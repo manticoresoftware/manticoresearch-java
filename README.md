@@ -4,9 +4,9 @@
 
 Manticore Search Client
 
-- API version: 10.0.0
+- API version: 10.0.1
 
-- Build date: 2026-02-14T07:14:01.929727259Z[Etc/UTC]
+- Build date: 2026-04-15T06:37:43.975133211Z[Etc/UTC]
 
 ## Requirements
 
@@ -58,8 +58,8 @@ Add this dependency to your project's POM:
 ```xml
 <dependency>
   <groupId>com.manticoresearch</groupId>
-  <artifactId>manticoresearch</artifactId>
-  <version>10.0.0</version>
+  <artifactId>manticoresearch-dev</artifactId>
+  <version>10.0.1</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -75,7 +75,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.manticoresearch:manticoresearch:10.0.0"
+     implementation "com.manticoresearch:manticoresearch:10.0.1"
   }
 ```
 
@@ -89,7 +89,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-- `target/manticoresearch-10.0.0.jar`
+- `target/manticoresearch-10.0.1.jar`
 - `target/lib/*.jar`
 
 ## Getting Started
@@ -199,6 +199,8 @@ Class | Method | HTTP request | Description
  - [PercolateRequest](docs/PercolateRequest.md)
  - [PercolateRequestQuery](docs/PercolateRequestQuery.md)
  - [QueryFilter](docs/QueryFilter.md)
+ - [QueryFilterAlias1](docs/QueryFilterAlias1.md)
+ - [QueryFilterAlias2](docs/QueryFilterAlias2.md)
  - [Range](docs/Range.md)
  - [ReplaceDocumentRequest](docs/ReplaceDocumentRequest.md)
  - [ResponseError](docs/ResponseError.md)

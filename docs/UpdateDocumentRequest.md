@@ -10,8 +10,8 @@ Payload for updating a document or multiple documents in a table
 |------------ | ------------- | ------------- | -------------|
 |**table** | **String** | Name of the document table |  |
 |**cluster** | **String** | Name of the document cluster |  [optional] |
-|**doc** | **Object** | Object containing the document fields to update |  |
+|**doc** | **Map&lt;String, Object&gt;** | Object containing the document fields to update |  |
 |**id** | **Long** | Document ID |  [optional] |
-|**query** | [**QueryFilter**](QueryFilter.md) |  |  [optional] |
+|**query** | [**QueryFilter**](QueryFilter.md) | Object defining conditions to perform the updates |  [optional] |
 
 

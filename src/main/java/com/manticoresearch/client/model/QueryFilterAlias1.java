@@ -23,7 +23,6 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.manticoresearch.client.model.BoolFilter;
 import com.manticoresearch.client.model.GeoDistance;
-import com.manticoresearch.client.model.Highlight;
 import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -34,23 +33,22 @@ import com.manticoresearch.client.JSON;
 
 
 /**
- * Defines a query structure for performing search operations
+ * Object defining conditions to perform the updates
  */
 @JsonPropertyOrder({
-  SearchQuery.JSON_PROPERTY_QUERY_STRING,
-  SearchQuery.JSON_PROPERTY_MATCH,
-  SearchQuery.JSON_PROPERTY_MATCH_PHRASE,
-  SearchQuery.JSON_PROPERTY_MATCH_ALL,
-  SearchQuery.JSON_PROPERTY_BOOL,
-  SearchQuery.JSON_PROPERTY_EQUALS,
-  SearchQuery.JSON_PROPERTY_IN,
-  SearchQuery.JSON_PROPERTY_RANGE,
-  SearchQuery.JSON_PROPERTY_GEO_DISTANCE,
-  SearchQuery.JSON_PROPERTY_HIGHLIGHT
+  QueryFilterAlias1.JSON_PROPERTY_QUERY_STRING,
+  QueryFilterAlias1.JSON_PROPERTY_MATCH,
+  QueryFilterAlias1.JSON_PROPERTY_MATCH_PHRASE,
+  QueryFilterAlias1.JSON_PROPERTY_MATCH_ALL,
+  QueryFilterAlias1.JSON_PROPERTY_BOOL,
+  QueryFilterAlias1.JSON_PROPERTY_EQUALS,
+  QueryFilterAlias1.JSON_PROPERTY_IN,
+  QueryFilterAlias1.JSON_PROPERTY_RANGE,
+  QueryFilterAlias1.JSON_PROPERTY_GEO_DISTANCE
 })
-@JsonTypeName("searchQuery")
+@JsonTypeName("queryFilterAlias1")
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-15T06:37:43.975133211Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
-public class SearchQuery {
+public class QueryFilterAlias1 {
   public static final String JSON_PROPERTY_QUERY_STRING = "query_string";
   private String queryString;
 
@@ -78,13 +76,10 @@ public class SearchQuery {
   public static final String JSON_PROPERTY_GEO_DISTANCE = "geo_distance";
   private GeoDistance geoDistance;
 
-  public static final String JSON_PROPERTY_HIGHLIGHT = "highlight";
-  private Highlight highlight;
-
-  public SearchQuery() { 
+  public QueryFilterAlias1() { 
   }
 
-  public SearchQuery queryString(String queryString) {
+  public QueryFilterAlias1 queryString(String queryString) {
     this.queryString = queryString;
     return this;
   }
@@ -109,7 +104,7 @@ public class SearchQuery {
   }
 
 
-  public SearchQuery match(Object match) {
+  public QueryFilterAlias1 match(Object match) {
     this.match = match;
     return this;
   }
@@ -134,7 +129,7 @@ public class SearchQuery {
   }
 
 
-  public SearchQuery matchPhrase(Object matchPhrase) {
+  public QueryFilterAlias1 matchPhrase(Object matchPhrase) {
     this.matchPhrase = matchPhrase;
     return this;
   }
@@ -159,7 +154,7 @@ public class SearchQuery {
   }
 
 
-  public SearchQuery matchAll(Object matchAll) {
+  public QueryFilterAlias1 matchAll(Object matchAll) {
     this.matchAll = matchAll;
     return this;
   }
@@ -184,7 +179,7 @@ public class SearchQuery {
   }
 
 
-  public SearchQuery bool(BoolFilter bool) {
+  public QueryFilterAlias1 bool(BoolFilter bool) {
     this.bool = bool;
     return this;
   }
@@ -209,7 +204,7 @@ public class SearchQuery {
   }
 
 
-  public SearchQuery equalsDef(Object equals) {
+  public QueryFilterAlias1 equals(Object equals) {
     this.equals = JsonNullable.<Object>of(equals);
     return this;
   }
@@ -241,7 +236,7 @@ public class SearchQuery {
   }
 
 
-  public SearchQuery in(Object in) {
+  public QueryFilterAlias1 in(Object in) {
     this.in = in;
     return this;
   }
@@ -266,7 +261,7 @@ public class SearchQuery {
   }
 
 
-  public SearchQuery range(Object range) {
+  public QueryFilterAlias1 range(Object range) {
     this.range = range;
     return this;
   }
@@ -291,7 +286,7 @@ public class SearchQuery {
   }
 
 
-  public SearchQuery geoDistance(GeoDistance geoDistance) {
+  public QueryFilterAlias1 geoDistance(GeoDistance geoDistance) {
     this.geoDistance = geoDistance;
     return this;
   }
@@ -315,33 +310,8 @@ public class SearchQuery {
     this.geoDistance = geoDistance;
   }
 
-
-  public SearchQuery highlight(Highlight highlight) {
-    this.highlight = highlight;
-    return this;
-  }
-
   /**
-   * Get highlight
-   * @return highlight
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_HIGHLIGHT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Highlight getHighlight() {
-    return highlight;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_HIGHLIGHT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setHighlight(Highlight highlight) {
-    this.highlight = highlight;
-  }
-
-  /**
-   * Return true if this searchQuery object is equal to o.
+   * Return true if this queryFilterAlias1 object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -351,17 +321,16 @@ public class SearchQuery {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SearchQuery searchQuery = (SearchQuery) o;
-    return Objects.equals(this.queryString, searchQuery.queryString) &&
-        Objects.equals(this.match, searchQuery.match) &&
-        Objects.equals(this.matchPhrase, searchQuery.matchPhrase) &&
-        Objects.equals(this.matchAll, searchQuery.matchAll) &&
-        Objects.equals(this.bool, searchQuery.bool) &&
-        equalsNullable(this.equals, searchQuery.equals) &&
-        Objects.equals(this.in, searchQuery.in) &&
-        Objects.equals(this.range, searchQuery.range) &&
-        Objects.equals(this.geoDistance, searchQuery.geoDistance) &&
-        Objects.equals(this.highlight, searchQuery.highlight);
+    QueryFilterAlias1 queryFilterAlias1 = (QueryFilterAlias1) o;
+    return Objects.equals(this.queryString, queryFilterAlias1.queryString) &&
+        Objects.equals(this.match, queryFilterAlias1.match) &&
+        Objects.equals(this.matchPhrase, queryFilterAlias1.matchPhrase) &&
+        Objects.equals(this.matchAll, queryFilterAlias1.matchAll) &&
+        Objects.equals(this.bool, queryFilterAlias1.bool) &&
+        equalsNullable(this.equals, queryFilterAlias1.equals) &&
+        Objects.equals(this.in, queryFilterAlias1.in) &&
+        Objects.equals(this.range, queryFilterAlias1.range) &&
+        Objects.equals(this.geoDistance, queryFilterAlias1.geoDistance);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -370,7 +339,7 @@ public class SearchQuery {
 
   @Override
   public int hashCode() {
-    return Objects.hash(queryString, match, matchPhrase, matchAll, bool, hashCodeNullable(equals), in, range, geoDistance, highlight);
+    return Objects.hash(queryString, match, matchPhrase, matchAll, bool, hashCodeNullable(equals), in, range, geoDistance);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -383,7 +352,7 @@ public class SearchQuery {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SearchQuery {\n");
+    sb.append("class QueryFilterAlias1 {\n");
     sb.append("    queryString: ").append(toIndentedString(queryString)).append("\n");
     sb.append("    match: ").append(toIndentedString(match)).append("\n");
     sb.append("    matchPhrase: ").append(toIndentedString(matchPhrase)).append("\n");
@@ -393,7 +362,6 @@ public class SearchQuery {
     sb.append("    in: ").append(toIndentedString(in)).append("\n");
     sb.append("    range: ").append(toIndentedString(range)).append("\n");
     sb.append("    geoDistance: ").append(toIndentedString(geoDistance)).append("\n");
-    sb.append("    highlight: ").append(toIndentedString(highlight)).append("\n");
     sb.append("}");
     return sb.toString();
   }

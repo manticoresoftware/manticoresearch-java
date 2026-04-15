@@ -47,11 +47,11 @@ public class AggDateHistogramTest {
     }
 
     /**
-     * Test the property 'interval'
+     * Test the property 'calendarInterval'
      */
     @Test
-    public void intervalTest() {
-        // TODO: test interval
+    public void calendarIntervalTest() {
+        // TODO: test calendarInterval
     }
 
     /**

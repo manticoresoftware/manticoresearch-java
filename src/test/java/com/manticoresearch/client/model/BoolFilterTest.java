@@ -19,6 +19,8 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.manticoresearch.client.model.QueryFilter;
+import com.manticoresearch.client.model.QueryFilterAlias1;
+import com.manticoresearch.client.model.QueryFilterAlias2;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;

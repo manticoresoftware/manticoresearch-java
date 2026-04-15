@@ -19,6 +19,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.manticoresearch.client.model.AggComposite;
+import com.manticoresearch.client.model.AggDateHistogram;
 import com.manticoresearch.client.model.AggHistogram;
 import com.manticoresearch.client.model.AggTerms;
 import java.util.ArrayList;
@@ -73,6 +74,14 @@ public class AggregationTest {
     @Test
     public void histogramTest() {
         // TODO: test histogram
+    }
+
+    /**
+     * Test the property 'dateHistogram'
+     */
+    @Test
+    public void dateHistogramTest() {
+        // TODO: test dateHistogram
     }
 
 }

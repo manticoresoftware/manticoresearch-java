@@ -22,6 +22,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.manticoresearch.client.model.AggComposite;
+import com.manticoresearch.client.model.AggDateHistogram;
 import com.manticoresearch.client.model.AggHistogram;
 import com.manticoresearch.client.model.AggTerms;
 import java.util.ArrayList;
@@ -38,10 +39,11 @@ import com.manticoresearch.client.JSON;
   Aggregation.JSON_PROPERTY_TERMS,
   Aggregation.JSON_PROPERTY_SORT,
   Aggregation.JSON_PROPERTY_COMPOSITE,
-  Aggregation.JSON_PROPERTY_HISTOGRAM
+  Aggregation.JSON_PROPERTY_HISTOGRAM,
+  Aggregation.JSON_PROPERTY_DATE_HISTOGRAM
 })
 @JsonTypeName("aggregation")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-14T07:14:01.929727259Z[Etc/UTC]", comments = "Generator version: 7.17.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-15T06:37:43.975133211Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
 public class Aggregation {
   public static final String JSON_PROPERTY_TERMS = "terms";
   private AggTerms terms;
@@ -54,6 +56,9 @@ public class Aggregation {
 
   public static final String JSON_PROPERTY_HISTOGRAM = "histogram";
   private AggHistogram histogram;
+
+  public static final String JSON_PROPERTY_DATE_HISTOGRAM = "date_histogram";
+  private AggDateHistogram dateHistogram;
 
   public Aggregation() { 
   }
@@ -165,6 +170,31 @@ public class Aggregation {
     this.histogram = histogram;
   }
 
+
+  public Aggregation dateHistogram(AggDateHistogram dateHistogram) {
+    this.dateHistogram = dateHistogram;
+    return this;
+  }
+
+  /**
+   * Get dateHistogram
+   * @return dateHistogram
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DATE_HISTOGRAM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public AggDateHistogram getDateHistogram() {
+    return dateHistogram;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_DATE_HISTOGRAM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setDateHistogram(AggDateHistogram dateHistogram) {
+    this.dateHistogram = dateHistogram;
+  }
+
   /**
    * Return true if this aggregation object is equal to o.
    */
@@ -180,12 +210,13 @@ public class Aggregation {
     return Objects.equals(this.terms, aggregation.terms) &&
         Objects.equals(this.sort, aggregation.sort) &&
         Objects.equals(this.composite, aggregation.composite) &&
-        Objects.equals(this.histogram, aggregation.histogram);
+        Objects.equals(this.histogram, aggregation.histogram) &&
+        Objects.equals(this.dateHistogram, aggregation.dateHistogram);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(terms, sort, composite, histogram);
+    return Objects.hash(terms, sort, composite, histogram, dateHistogram);
   }
 
   @Override
@@ -196,6 +227,7 @@ public class Aggregation {
     sb.append("    sort: ").append(toIndentedString(sort)).append("\n");
     sb.append("    composite: ").append(toIndentedString(composite)).append("\n");
     sb.append("    histogram: ").append(toIndentedString(histogram)).append("\n");
+    sb.append("    dateHistogram: ").append(toIndentedString(dateHistogram)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -51,11 +51,11 @@ public class JoinTest {
     }
 
     /**
-     * Test the property 'on'
+     * Test the property 'true'
      */
     @Test
-    public void onTest() {
-        // TODO: test on
+    public void trueTest() {
+        // TODO: test true
     }
 
     /**

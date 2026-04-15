@@ -23,6 +23,8 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.manticoresearch.client.model.QueryFilter;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -42,7 +44,7 @@ import com.manticoresearch.client.JSON;
   UpdateDocumentRequest.JSON_PROPERTY_QUERY
 })
 @JsonTypeName("updateDocumentRequest")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-14T07:14:01.929727259Z[Etc/UTC]", comments = "Generator version: 7.17.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-15T06:37:43.975133211Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
 public class UpdateDocumentRequest {
   public static final String JSON_PROPERTY_TABLE = "table";
   private String table;
@@ -51,7 +53,7 @@ public class UpdateDocumentRequest {
   private String cluster;
 
   public static final String JSON_PROPERTY_DOC = "doc";
-  private Object doc;
+  private Map<String, Object> doc = new HashMap<>();
 
   public static final String JSON_PROPERTY_ID = "id";
   private Long id;
@@ -112,8 +114,16 @@ public class UpdateDocumentRequest {
   }
 
 
-  public UpdateDocumentRequest doc(Object doc) {
+  public UpdateDocumentRequest doc(Map<String, Object> doc) {
     this.doc = doc;
+    return this;
+  }
+
+  public UpdateDocumentRequest putDocItem(String key, Object docItem) {
+    if (this.doc == null) {
+      this.doc = new HashMap<>();
+    }
+    this.doc.put(key, docItem);
     return this;
   }
 
@@ -123,16 +133,16 @@ public class UpdateDocumentRequest {
    */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_DOC)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.ALWAYS)
 
-  public Object getDoc() {
+  public Map<String, Object> getDoc() {
     return doc;
   }
 
 
   @JsonProperty(JSON_PROPERTY_DOC)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setDoc(Object doc) {
+  @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.ALWAYS)
+  public void setDoc(Map<String, Object> doc) {
     this.doc = doc;
   }
 
@@ -168,7 +178,7 @@ public class UpdateDocumentRequest {
   }
 
   /**
-   * Get query
+   * Object defining conditions to perform the updates
    * @return query
    */
   @jakarta.annotation.Nullable

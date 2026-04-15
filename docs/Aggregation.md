@@ -11,5 +11,6 @@
 |**sort** | **List&lt;Object&gt;** |  |  [optional] |
 |**composite** | [**AggComposite**](AggComposite.md) |  |  [optional] |
 |**histogram** | [**AggHistogram**](AggHistogram.md) |  |  [optional] |
+|**dateHistogram** | [**AggDateHistogram**](AggDateHistogram.md) |  |  [optional] |
 
 

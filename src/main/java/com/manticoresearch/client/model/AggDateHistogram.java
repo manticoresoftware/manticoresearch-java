@@ -31,18 +31,18 @@ import com.manticoresearch.client.JSON;
  */
 @JsonPropertyOrder({
   AggDateHistogram.JSON_PROPERTY_FIELD,
-  AggDateHistogram.JSON_PROPERTY_INTERVAL,
+  AggDateHistogram.JSON_PROPERTY_CALENDAR_INTERVAL,
   AggDateHistogram.JSON_PROPERTY_OFFSET,
   AggDateHistogram.JSON_PROPERTY_KEYED
 })
 @JsonTypeName("aggDateHistogram")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-14T07:14:01.929727259Z[Etc/UTC]", comments = "Generator version: 7.17.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-15T06:37:43.975133211Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
 public class AggDateHistogram {
   public static final String JSON_PROPERTY_FIELD = "field";
   private String field;
 
-  public static final String JSON_PROPERTY_INTERVAL = "interval";
-  private Integer interval;
+  public static final String JSON_PROPERTY_CALENDAR_INTERVAL = "calendar_interval";
+  private Integer calendarInterval;
 
   public static final String JSON_PROPERTY_OFFSET = "offset";
   private Integer offset;
@@ -78,28 +78,28 @@ public class AggDateHistogram {
   }
 
 
-  public AggDateHistogram interval(Integer interval) {
-    this.interval = interval;
+  public AggDateHistogram calendarInterval(Integer calendarInterval) {
+    this.calendarInterval = calendarInterval;
     return this;
   }
 
   /**
    * Interval of the histogram values
-   * @return interval
+   * @return calendarInterval
    */
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_INTERVAL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CALENDAR_INTERVAL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Integer getInterval() {
-    return interval;
+  public Integer getCalendarInterval() {
+    return calendarInterval;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_INTERVAL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setInterval(Integer interval) {
-    this.interval = interval;
+  @JsonProperty(JSON_PROPERTY_CALENDAR_INTERVAL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCalendarInterval(Integer calendarInterval) {
+    this.calendarInterval = calendarInterval;
   }
 
 
@@ -165,14 +165,14 @@ public class AggDateHistogram {
     }
     AggDateHistogram aggDateHistogram = (AggDateHistogram) o;
     return Objects.equals(this.field, aggDateHistogram.field) &&
-        Objects.equals(this.interval, aggDateHistogram.interval) &&
+        Objects.equals(this.calendarInterval, aggDateHistogram.calendarInterval) &&
         Objects.equals(this.offset, aggDateHistogram.offset) &&
         Objects.equals(this.keyed, aggDateHistogram.keyed);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(field, interval, offset, keyed);
+    return Objects.hash(field, calendarInterval, offset, keyed);
   }
 
   @Override
@@ -180,7 +180,7 @@ public class AggDateHistogram {
     StringBuilder sb = new StringBuilder();
     sb.append("class AggDateHistogram {\n");
     sb.append("    field: ").append(toIndentedString(field)).append("\n");
-    sb.append("    interval: ").append(toIndentedString(interval)).append("\n");
+    sb.append("    calendarInterval: ").append(toIndentedString(calendarInterval)).append("\n");
     sb.append("    offset: ").append(toIndentedString(offset)).append("\n");
     sb.append("    keyed: ").append(toIndentedString(keyed)).append("\n");
     sb.append("}");

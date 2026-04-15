@@ -22,6 +22,8 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.manticoresearch.client.JSON;
 
@@ -36,7 +38,7 @@ import com.manticoresearch.client.JSON;
   InsertDocumentRequest.JSON_PROPERTY_DOC
 })
 @JsonTypeName("insertDocumentRequest")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-14T07:14:01.929727259Z[Etc/UTC]", comments = "Generator version: 7.17.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-15T06:37:43.975133211Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
 public class InsertDocumentRequest {
   public static final String JSON_PROPERTY_TABLE = "table";
   private String table;
@@ -48,7 +50,7 @@ public class InsertDocumentRequest {
   private Long id;
 
   public static final String JSON_PROPERTY_DOC = "doc";
-  private Object doc;
+  private Map<String, Object> doc = new HashMap<>();
 
   public InsertDocumentRequest() { 
   }
@@ -128,8 +130,16 @@ public class InsertDocumentRequest {
   }
 
 
-  public InsertDocumentRequest doc(Object doc) {
+  public InsertDocumentRequest doc(Map<String, Object> doc) {
     this.doc = doc;
+    return this;
+  }
+
+  public InsertDocumentRequest putDocItem(String key, Object docItem) {
+    if (this.doc == null) {
+      this.doc = new HashMap<>();
+    }
+    this.doc.put(key, docItem);
     return this;
   }
 
@@ -139,16 +149,16 @@ public class InsertDocumentRequest {
    */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_DOC)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.ALWAYS)
 
-  public Object getDoc() {
+  public Map<String, Object> getDoc() {
     return doc;
   }
 
 
   @JsonProperty(JSON_PROPERTY_DOC)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setDoc(Object doc) {
+  @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.ALWAYS)
+  public void setDoc(Map<String, Object> doc) {
     this.doc = doc;
   }
 
