@@ -22,8 +22,6 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.manticoresearch.client.JSON;
 
@@ -37,7 +35,7 @@ import com.manticoresearch.client.JSON;
   AutocompleteRequest.JSON_PROPERTY_OPTIONS
 })
 @JsonTypeName("autocompleteRequest")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-15T06:37:43.975133211Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-15T06:59:37.812808099Z[Etc/UTC]", comments = "Generator version: 7.17.0")
 public class AutocompleteRequest {
   public static final String JSON_PROPERTY_TABLE = "table";
   private String table;
@@ -46,7 +44,7 @@ public class AutocompleteRequest {
   private String query;
 
   public static final String JSON_PROPERTY_OPTIONS = "options";
-  private Map<String, Object> options = new HashMap<>();
+  private Object options;
 
   public AutocompleteRequest() { 
   }
@@ -101,16 +99,8 @@ public class AutocompleteRequest {
   }
 
 
-  public AutocompleteRequest options(Map<String, Object> options) {
+  public AutocompleteRequest options(Object options) {
     this.options = options;
-    return this;
-  }
-
-  public AutocompleteRequest putOptionsItem(String key, Object optionsItem) {
-    if (this.options == null) {
-      this.options = new HashMap<>();
-    }
-    this.options.put(key, optionsItem);
     return this;
   }
 
@@ -120,16 +110,16 @@ public class AutocompleteRequest {
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_OPTIONS)
-  @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Map<String, Object> getOptions() {
+  public Object getOptions() {
     return options;
   }
 
 
   @JsonProperty(JSON_PROPERTY_OPTIONS)
-  @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
-  public void setOptions(Map<String, Object> options) {
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setOptions(Object options) {
     this.options = options;
   }
 

@@ -8,6 +8,6 @@ Object containing the query for percolating documents against stored queries in 
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**query** | **PercolateRequestQuery** |  |  |
+|**query** | [**PercolateRequestQuery**](PercolateRequestQuery.md) |  |  |
 
 

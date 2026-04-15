@@ -21,7 +21,7 @@
 |**fields** | [**HighlightFields**](HighlightFields.md) |  |  [optional] |
 |**forceAllWords** | **Boolean** | Ignores the length limit until the result includes all keywords |  [optional] |
 |**forceSnippets** | **Boolean** | Forces snippet generation even if limits allow highlighting the entire text |  [optional] |
-|**highlightQuery** | [**QueryFilter**](QueryFilter.md) | Optional query object to customize highlighting behavior |  [optional] |
+|**highlightQuery** | [**QueryFilter**](QueryFilter.md) |  |  [optional] |
 |**htmlStripMode** | [**HtmlStripModeEnum**](#HtmlStripModeEnum) | Defines the mode for handling HTML markup in the highlight |  [optional] |
 |**limitsPerField** | **Boolean** | Determines whether the &#39;limit&#39;, &#39;limit_words&#39;, and &#39;limit_snippets&#39; options operate as individual limits in each field of the document |  [optional] |
 |**noMatchSize** | [**NoMatchSizeEnum**](#NoMatchSizeEnum) | If set to 1, allows an empty string to be returned as a highlighting result |  [optional] |

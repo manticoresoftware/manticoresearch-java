@@ -35,12 +35,12 @@ import com.manticoresearch.client.JSON;
  */
 @JsonPropertyOrder({
   Join.JSON_PROPERTY_TYPE,
-  Join.JSON_PROPERTY_TRUE,
+  Join.JSON_PROPERTY_ON,
   Join.JSON_PROPERTY_QUERY,
   Join.JSON_PROPERTY_TABLE
 })
 @JsonTypeName("join")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-15T06:37:43.975133211Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-15T06:59:37.812808099Z[Etc/UTC]", comments = "Generator version: 7.17.0")
 public class Join {
   /**
    * Type of the join operation
@@ -79,8 +79,8 @@ public class Join {
   public static final String JSON_PROPERTY_TYPE = "type";
   private TypeEnum type;
 
-  public static final String JSON_PROPERTY_TRUE = "true";
-  private List<JoinOn> true = new ArrayList<>();
+  public static final String JSON_PROPERTY_ON = "on";
+  private List<JoinOn> on = new ArrayList<>();
 
   public static final String JSON_PROPERTY_QUERY = "query";
   private FulltextFilter query;
@@ -116,36 +116,36 @@ public class Join {
   }
 
 
-  public Join true(List<JoinOn> true) {
-    this.true = true;
+  public Join on(List<JoinOn> on) {
+    this.on = on;
     return this;
   }
 
-  public Join addTrueItem(JoinOn trueItem) {
-    if (this.true == null) {
-      this.true = new ArrayList<>();
+  public Join addOnItem(JoinOn onItem) {
+    if (this.on == null) {
+      this.on = new ArrayList<>();
     }
-    this.true.add(trueItem);
+    this.on.add(onItem);
     return this;
   }
 
   /**
    * List of objects defining joined tables
-   * @return true
+   * @return on
    */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TRUE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_ON)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public List<JoinOn> getTrue() {
-    return true;
+  public List<JoinOn> getOn() {
+    return on;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TRUE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTrue(List<JoinOn> true) {
-    this.true = true;
+  @JsonProperty(JSON_PROPERTY_ON)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setOn(List<JoinOn> on) {
+    this.on = on;
   }
 
 
@@ -211,14 +211,14 @@ public class Join {
     }
     Join join = (Join) o;
     return Objects.equals(this.type, join.type) &&
-        Objects.equals(this.true, join.true) &&
+        Objects.equals(this.on, join.on) &&
         Objects.equals(this.query, join.query) &&
         Objects.equals(this.table, join.table);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, true, query, table);
+    return Objects.hash(type, on, query, table);
   }
 
   @Override
@@ -226,7 +226,7 @@ public class Join {
     StringBuilder sb = new StringBuilder();
     sb.append("class Join {\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    true: ").append(toIndentedString(true)).append("\n");
+    sb.append("    on: ").append(toIndentedString(on)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
     sb.append("    table: ").append(toIndentedString(table)).append("\n");
     sb.append("}");

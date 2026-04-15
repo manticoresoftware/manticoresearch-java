@@ -8,7 +8,7 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**type** | [**TypeEnum**](#TypeEnum) | Type of the join operation |  |
-|**true** | [**List&lt;JoinOn&gt;**](JoinOn.md) | List of objects defining joined tables |  [optional] |
+|**on** | [**List&lt;JoinOn&gt;**](JoinOn.md) | List of objects defining joined tables |  |
 |**query** | [**FulltextFilter**](FulltextFilter.md) |  |  [optional] |
 |**table** | **String** | Basic table of the join operation |  |
 

@@ -23,8 +23,6 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.manticoresearch.client.model.SearchResponseHits;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.manticoresearch.client.JSON;
 
@@ -42,7 +40,7 @@ import com.manticoresearch.client.JSON;
   SearchResponse.JSON_PROPERTY_WARNING
 })
 @JsonTypeName("searchResponse")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-15T06:37:43.975133211Z[Etc/UTC]", comments = "Generator version: 7.22.0-SNAPSHOT")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-15T06:59:37.812808099Z[Etc/UTC]", comments = "Generator version: 7.17.0")
 public class SearchResponse {
   public static final String JSON_PROPERTY_TOOK = "took";
   private Integer took;
@@ -51,7 +49,7 @@ public class SearchResponse {
   private Boolean timedOut;
 
   public static final String JSON_PROPERTY_AGGREGATIONS = "aggregations";
-  private Map<String, Object> aggregations = new HashMap<>();
+  private Object aggregations;
 
   public static final String JSON_PROPERTY_HITS = "hits";
   private SearchResponseHits hits;
@@ -63,7 +61,7 @@ public class SearchResponse {
   private String scroll;
 
   public static final String JSON_PROPERTY_WARNING = "warning";
-  private Map<String, Object> warning = new HashMap<>();
+  private Object warning;
 
   public SearchResponse() { 
   }
@@ -118,16 +116,8 @@ public class SearchResponse {
   }
 
 
-  public SearchResponse aggregations(Map<String, Object> aggregations) {
+  public SearchResponse aggregations(Object aggregations) {
     this.aggregations = aggregations;
-    return this;
-  }
-
-  public SearchResponse putAggregationsItem(String key, Object aggregationsItem) {
-    if (this.aggregations == null) {
-      this.aggregations = new HashMap<>();
-    }
-    this.aggregations.put(key, aggregationsItem);
     return this;
   }
 
@@ -137,16 +127,16 @@ public class SearchResponse {
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AGGREGATIONS)
-  @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Map<String, Object> getAggregations() {
+  public Object getAggregations() {
     return aggregations;
   }
 
 
   @JsonProperty(JSON_PROPERTY_AGGREGATIONS)
-  @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAggregations(Map<String, Object> aggregations) {
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAggregations(Object aggregations) {
     this.aggregations = aggregations;
   }
 
@@ -226,16 +216,8 @@ public class SearchResponse {
   }
 
 
-  public SearchResponse warning(Map<String, Object> warning) {
+  public SearchResponse warning(Object warning) {
     this.warning = warning;
-    return this;
-  }
-
-  public SearchResponse putWarningItem(String key, Object warningItem) {
-    if (this.warning == null) {
-      this.warning = new HashMap<>();
-    }
-    this.warning.put(key, warningItem);
     return this;
   }
 
@@ -245,16 +227,16 @@ public class SearchResponse {
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_WARNING)
-  @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Map<String, Object> getWarning() {
+  public Object getWarning() {
     return warning;
   }
 
 
   @JsonProperty(JSON_PROPERTY_WARNING)
-  @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
-  public void setWarning(Map<String, Object> warning) {
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setWarning(Object warning) {
     this.warning = warning;
   }
 
