@@ -24,6 +24,11 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.manticoresearch.client.model.AggComposite;
 import com.manticoresearch.client.model.AggDateHistogram;
 import com.manticoresearch.client.model.AggHistogram;
+import com.manticoresearch.client.model.AggMedianAbsoluteDeviation;
+import com.manticoresearch.client.model.AggMetric;
+import com.manticoresearch.client.model.AggPercentileRanks;
+import com.manticoresearch.client.model.AggPercentiles;
+import com.manticoresearch.client.model.AggRange;
 import com.manticoresearch.client.model.AggTerms;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -40,10 +45,19 @@ import com.manticoresearch.client.JSON;
   Aggregation.JSON_PROPERTY_SORT,
   Aggregation.JSON_PROPERTY_COMPOSITE,
   Aggregation.JSON_PROPERTY_HISTOGRAM,
-  Aggregation.JSON_PROPERTY_DATE_HISTOGRAM
+  Aggregation.JSON_PROPERTY_DATE_HISTOGRAM,
+  Aggregation.JSON_PROPERTY_RANGE,
+  Aggregation.JSON_PROPERTY_DATE_RANGE,
+  Aggregation.JSON_PROPERTY_PERCENTILES,
+  Aggregation.JSON_PROPERTY_PERCENTILE_RANKS,
+  Aggregation.JSON_PROPERTY_MEDIAN_ABSOLUTE_DEVIATION,
+  Aggregation.JSON_PROPERTY_MIN,
+  Aggregation.JSON_PROPERTY_MAX,
+  Aggregation.JSON_PROPERTY_SUM,
+  Aggregation.JSON_PROPERTY_AVG
 })
 @JsonTypeName("aggregation")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-15T06:59:37.812808099Z[Etc/UTC]", comments = "Generator version: 7.17.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-15T06:32:20.081730672Z[Etc/UTC]", comments = "Generator version: 7.17.0")
 public class Aggregation {
   public static final String JSON_PROPERTY_TERMS = "terms";
   private AggTerms terms;
@@ -59,6 +73,33 @@ public class Aggregation {
 
   public static final String JSON_PROPERTY_DATE_HISTOGRAM = "date_histogram";
   private AggDateHistogram dateHistogram;
+
+  public static final String JSON_PROPERTY_RANGE = "range";
+  private AggRange range;
+
+  public static final String JSON_PROPERTY_DATE_RANGE = "date_range";
+  private AggRange dateRange;
+
+  public static final String JSON_PROPERTY_PERCENTILES = "percentiles";
+  private AggPercentiles percentiles;
+
+  public static final String JSON_PROPERTY_PERCENTILE_RANKS = "percentile_ranks";
+  private AggPercentileRanks percentileRanks;
+
+  public static final String JSON_PROPERTY_MEDIAN_ABSOLUTE_DEVIATION = "median_absolute_deviation";
+  private AggMedianAbsoluteDeviation medianAbsoluteDeviation;
+
+  public static final String JSON_PROPERTY_MIN = "min";
+  private AggMetric min;
+
+  public static final String JSON_PROPERTY_MAX = "max";
+  private AggMetric max;
+
+  public static final String JSON_PROPERTY_SUM = "sum";
+  private AggMetric sum;
+
+  public static final String JSON_PROPERTY_AVG = "avg";
+  private AggMetric avg;
 
   public Aggregation() { 
   }
@@ -195,6 +236,231 @@ public class Aggregation {
     this.dateHistogram = dateHistogram;
   }
 
+
+  public Aggregation range(AggRange range) {
+    this.range = range;
+    return this;
+  }
+
+  /**
+   * Get range
+   * @return range
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RANGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public AggRange getRange() {
+    return range;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_RANGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setRange(AggRange range) {
+    this.range = range;
+  }
+
+
+  public Aggregation dateRange(AggRange dateRange) {
+    this.dateRange = dateRange;
+    return this;
+  }
+
+  /**
+   * Get dateRange
+   * @return dateRange
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DATE_RANGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public AggRange getDateRange() {
+    return dateRange;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_DATE_RANGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setDateRange(AggRange dateRange) {
+    this.dateRange = dateRange;
+  }
+
+
+  public Aggregation percentiles(AggPercentiles percentiles) {
+    this.percentiles = percentiles;
+    return this;
+  }
+
+  /**
+   * Get percentiles
+   * @return percentiles
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PERCENTILES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public AggPercentiles getPercentiles() {
+    return percentiles;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_PERCENTILES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPercentiles(AggPercentiles percentiles) {
+    this.percentiles = percentiles;
+  }
+
+
+  public Aggregation percentileRanks(AggPercentileRanks percentileRanks) {
+    this.percentileRanks = percentileRanks;
+    return this;
+  }
+
+  /**
+   * Get percentileRanks
+   * @return percentileRanks
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PERCENTILE_RANKS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public AggPercentileRanks getPercentileRanks() {
+    return percentileRanks;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_PERCENTILE_RANKS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPercentileRanks(AggPercentileRanks percentileRanks) {
+    this.percentileRanks = percentileRanks;
+  }
+
+
+  public Aggregation medianAbsoluteDeviation(AggMedianAbsoluteDeviation medianAbsoluteDeviation) {
+    this.medianAbsoluteDeviation = medianAbsoluteDeviation;
+    return this;
+  }
+
+  /**
+   * Get medianAbsoluteDeviation
+   * @return medianAbsoluteDeviation
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MEDIAN_ABSOLUTE_DEVIATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public AggMedianAbsoluteDeviation getMedianAbsoluteDeviation() {
+    return medianAbsoluteDeviation;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_MEDIAN_ABSOLUTE_DEVIATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMedianAbsoluteDeviation(AggMedianAbsoluteDeviation medianAbsoluteDeviation) {
+    this.medianAbsoluteDeviation = medianAbsoluteDeviation;
+  }
+
+
+  public Aggregation min(AggMetric min) {
+    this.min = min;
+    return this;
+  }
+
+  /**
+   * Get min
+   * @return min
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MIN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public AggMetric getMin() {
+    return min;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_MIN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMin(AggMetric min) {
+    this.min = min;
+  }
+
+
+  public Aggregation max(AggMetric max) {
+    this.max = max;
+    return this;
+  }
+
+  /**
+   * Get max
+   * @return max
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MAX)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public AggMetric getMax() {
+    return max;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_MAX)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMax(AggMetric max) {
+    this.max = max;
+  }
+
+
+  public Aggregation sum(AggMetric sum) {
+    this.sum = sum;
+    return this;
+  }
+
+  /**
+   * Get sum
+   * @return sum
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public AggMetric getSum() {
+    return sum;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSum(AggMetric sum) {
+    this.sum = sum;
+  }
+
+
+  public Aggregation avg(AggMetric avg) {
+    this.avg = avg;
+    return this;
+  }
+
+  /**
+   * Get avg
+   * @return avg
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_AVG)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public AggMetric getAvg() {
+    return avg;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_AVG)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAvg(AggMetric avg) {
+    this.avg = avg;
+  }
+
   /**
    * Return true if this aggregation object is equal to o.
    */
@@ -211,12 +477,21 @@ public class Aggregation {
         Objects.equals(this.sort, aggregation.sort) &&
         Objects.equals(this.composite, aggregation.composite) &&
         Objects.equals(this.histogram, aggregation.histogram) &&
-        Objects.equals(this.dateHistogram, aggregation.dateHistogram);
+        Objects.equals(this.dateHistogram, aggregation.dateHistogram) &&
+        Objects.equals(this.range, aggregation.range) &&
+        Objects.equals(this.dateRange, aggregation.dateRange) &&
+        Objects.equals(this.percentiles, aggregation.percentiles) &&
+        Objects.equals(this.percentileRanks, aggregation.percentileRanks) &&
+        Objects.equals(this.medianAbsoluteDeviation, aggregation.medianAbsoluteDeviation) &&
+        Objects.equals(this.min, aggregation.min) &&
+        Objects.equals(this.max, aggregation.max) &&
+        Objects.equals(this.sum, aggregation.sum) &&
+        Objects.equals(this.avg, aggregation.avg);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(terms, sort, composite, histogram, dateHistogram);
+    return Objects.hash(terms, sort, composite, histogram, dateHistogram, range, dateRange, percentiles, percentileRanks, medianAbsoluteDeviation, min, max, sum, avg);
   }
 
   @Override
@@ -228,6 +503,15 @@ public class Aggregation {
     sb.append("    composite: ").append(toIndentedString(composite)).append("\n");
     sb.append("    histogram: ").append(toIndentedString(histogram)).append("\n");
     sb.append("    dateHistogram: ").append(toIndentedString(dateHistogram)).append("\n");
+    sb.append("    range: ").append(toIndentedString(range)).append("\n");
+    sb.append("    dateRange: ").append(toIndentedString(dateRange)).append("\n");
+    sb.append("    percentiles: ").append(toIndentedString(percentiles)).append("\n");
+    sb.append("    percentileRanks: ").append(toIndentedString(percentileRanks)).append("\n");
+    sb.append("    medianAbsoluteDeviation: ").append(toIndentedString(medianAbsoluteDeviation)).append("\n");
+    sb.append("    min: ").append(toIndentedString(min)).append("\n");
+    sb.append("    max: ").append(toIndentedString(max)).append("\n");
+    sb.append("    sum: ").append(toIndentedString(sum)).append("\n");
+    sb.append("    avg: ").append(toIndentedString(avg)).append("\n");
     sb.append("}");
     return sb.toString();
   }

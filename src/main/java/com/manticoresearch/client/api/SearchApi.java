@@ -20,7 +20,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-15T06:59:37.812808099Z[Etc/UTC]", comments = "Generator version: 7.17.0")public class SearchApi {
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-15T06:32:20.081730672Z[Etc/UTC]", comments = "Generator version: 7.17.0")public class SearchApi {
   private ApiClient apiClient;
 
   public SearchApi() {
@@ -91,10 +91,11 @@ import java.util.Map;
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
+    String[] localVarAuthNames = new String[] {"basicAuth", "bearerAuth"};
     GenericType<List<Object>> localVarReturnType = new GenericType<List<Object>>() {};
     return apiClient.invokeAPI("SearchApi.autocomplete", "/autocomplete", "POST", new ArrayList<>(), autocompleteRequest,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               null, localVarReturnType, false);
+                               localVarAuthNames, localVarReturnType, false);
   }
   /**
    * Perform reverse search on a percolate table
@@ -147,21 +148,22 @@ import java.util.Map;
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
+    String[] localVarAuthNames = new String[] {"basicAuth", "bearerAuth"};
     GenericType<SearchResponse> localVarReturnType = new GenericType<SearchResponse>() {};
     return apiClient.invokeAPI("SearchApi.percolate", localVarPath, "POST", new ArrayList<>(), percolateRequest,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               null, localVarReturnType, false);
+                               localVarAuthNames, localVarReturnType, false);
   }
   /**
    * Performs a search on a table
-   *  The method expects an object with the following mandatory properties: * the name of the table to search * the match query object For details, see the documentation on [**SearchRequest**](SearchRequest.md) The method returns an object with the following properties: - took: the time taken to execute the search query. - timed_out: a boolean indicating whether the query timed out. - hits: an object with the following properties:    - total: the total number of hits found.    - hits: an array of hit objects, where each hit object represents a matched document. Each hit object has the following properties:      - _id: the ID of the matched document.      - _score: the score of the matched document.      - _source: the source data of the matched document.  In addition, if profiling is enabled, the response will include an additional array with profiling information attached. Also, if pagination is enabled, the response will include an additional &#39;scroll&#39; property with a scroll token to use for pagination Here is an example search response:    &#x60;&#x60;&#x60;   {     &#39;took&#39;:10,     &#39;timed_out&#39;:false,     &#39;hits&#39;:     {       &#39;total&#39;:2,       &#39;hits&#39;:       [         {&#39;_id&#39;:&#39;1&#39;,&#39;_score&#39;:1,&#39;_source&#39;:{&#39;gid&#39;:11}},         {&#39;_id&#39;:&#39;2&#39;,&#39;_score&#39;:1,&#39;_source&#39;:{&#39;gid&#39;:12}}       ]     }   }   &#x60;&#x60;&#x60;  For more information about the match query syntax and additional parameters that can be added to request and response, please see the documentation [here](https://manual.manticoresearch.com/Searching/Full_text_matching/Basic_usage#HTTP-JSON). 
+   *  The method expects an object with the following mandatory properties: * the name of the table to search * the match query object For details, see the documentation on [**SearchRequest**](SearchRequest.md) The method returns an object with the following properties: - took: the time taken to execute the search query. - timed_out: a boolean indicating whether the query timed out. - hits: an object with the following properties:    - total: the total number of hits found.    - hits: an array of hit objects, where each hit object represents a matched document. Each hit object has the following properties:      - _id: the ID of the matched document.      - _score: the score of the matched document.      - _source: the source data of the matched document.  In addition, if profiling is enabled, the response will include an additional array with profiling information attached. Also, if pagination is enabled, the response will include an additional &#39;scroll&#39; property with a scroll token to use for pagination Here is an example search response:    &#x60;&#x60;&#x60;   {     &#39;took&#39;:10,     &#39;timed_out&#39;:false,     &#39;hits&#39;:     {       &#39;total&#39;:2,       &#39;hits&#39;:       [         {&#39;_id&#39;:&#39;1&#39;,&#39;_score&#39;:1,&#39;_source&#39;:{&#39;gid&#39;:11}},         {&#39;_id&#39;:&#39;2&#39;,&#39;_score&#39;:1,&#39;_source&#39;:{&#39;gid&#39;:12}}       ]     }   }   &#x60;&#x60;&#x60;  For conversational search, include a &#x60;chat&#x60; object instead of &#x60;table&#x60; and &#x60;query&#x60;. The response then includes the optional conversational fields on &#x60;searchResponse&#x60; (&#x60;conversation_uuid&#x60;, &#x60;user_query&#x60;, &#x60;search_query&#x60;, &#x60;response&#x60;, &#x60;sources&#x60;). For more information about the match query syntax and additional parameters that can be added to request and response, please see the documentation [here](https://manual.manticoresearch.com/Searching/Full_text_matching/Basic_usage#HTTP-JSON). 
    * @param searchRequest  (required)
    * @return SearchResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Ok. Returns &#x60;searchResponse&#x60;. For conversational search requests that include a &#x60;chat&#x60; object, the optional conversational fields are also set.  </td><td>  -  </td></tr>
        <tr><td> 0 </td><td> error </td><td>  -  </td></tr>
      </table>
    * 
@@ -173,14 +175,14 @@ import java.util.Map;
 
   /**
    * Performs a search on a table
-   *  The method expects an object with the following mandatory properties: * the name of the table to search * the match query object For details, see the documentation on [**SearchRequest**](SearchRequest.md) The method returns an object with the following properties: - took: the time taken to execute the search query. - timed_out: a boolean indicating whether the query timed out. - hits: an object with the following properties:    - total: the total number of hits found.    - hits: an array of hit objects, where each hit object represents a matched document. Each hit object has the following properties:      - _id: the ID of the matched document.      - _score: the score of the matched document.      - _source: the source data of the matched document.  In addition, if profiling is enabled, the response will include an additional array with profiling information attached. Also, if pagination is enabled, the response will include an additional &#39;scroll&#39; property with a scroll token to use for pagination Here is an example search response:    &#x60;&#x60;&#x60;   {     &#39;took&#39;:10,     &#39;timed_out&#39;:false,     &#39;hits&#39;:     {       &#39;total&#39;:2,       &#39;hits&#39;:       [         {&#39;_id&#39;:&#39;1&#39;,&#39;_score&#39;:1,&#39;_source&#39;:{&#39;gid&#39;:11}},         {&#39;_id&#39;:&#39;2&#39;,&#39;_score&#39;:1,&#39;_source&#39;:{&#39;gid&#39;:12}}       ]     }   }   &#x60;&#x60;&#x60;  For more information about the match query syntax and additional parameters that can be added to request and response, please see the documentation [here](https://manual.manticoresearch.com/Searching/Full_text_matching/Basic_usage#HTTP-JSON). 
+   *  The method expects an object with the following mandatory properties: * the name of the table to search * the match query object For details, see the documentation on [**SearchRequest**](SearchRequest.md) The method returns an object with the following properties: - took: the time taken to execute the search query. - timed_out: a boolean indicating whether the query timed out. - hits: an object with the following properties:    - total: the total number of hits found.    - hits: an array of hit objects, where each hit object represents a matched document. Each hit object has the following properties:      - _id: the ID of the matched document.      - _score: the score of the matched document.      - _source: the source data of the matched document.  In addition, if profiling is enabled, the response will include an additional array with profiling information attached. Also, if pagination is enabled, the response will include an additional &#39;scroll&#39; property with a scroll token to use for pagination Here is an example search response:    &#x60;&#x60;&#x60;   {     &#39;took&#39;:10,     &#39;timed_out&#39;:false,     &#39;hits&#39;:     {       &#39;total&#39;:2,       &#39;hits&#39;:       [         {&#39;_id&#39;:&#39;1&#39;,&#39;_score&#39;:1,&#39;_source&#39;:{&#39;gid&#39;:11}},         {&#39;_id&#39;:&#39;2&#39;,&#39;_score&#39;:1,&#39;_source&#39;:{&#39;gid&#39;:12}}       ]     }   }   &#x60;&#x60;&#x60;  For conversational search, include a &#x60;chat&#x60; object instead of &#x60;table&#x60; and &#x60;query&#x60;. The response then includes the optional conversational fields on &#x60;searchResponse&#x60; (&#x60;conversation_uuid&#x60;, &#x60;user_query&#x60;, &#x60;search_query&#x60;, &#x60;response&#x60;, &#x60;sources&#x60;). For more information about the match query syntax and additional parameters that can be added to request and response, please see the documentation [here](https://manual.manticoresearch.com/Searching/Full_text_matching/Basic_usage#HTTP-JSON). 
    * @param searchRequest  (required)
    * @return ApiResponse&lt;SearchResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+       <tr><td> 200 </td><td> Ok. Returns &#x60;searchResponse&#x60;. For conversational search requests that include a &#x60;chat&#x60; object, the optional conversational fields are also set.  </td><td>  -  </td></tr>
        <tr><td> 0 </td><td> error </td><td>  -  </td></tr>
      </table>
    * 
@@ -194,9 +196,10 @@ import java.util.Map;
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
+    String[] localVarAuthNames = new String[] {"basicAuth", "bearerAuth"};
     GenericType<SearchResponse> localVarReturnType = new GenericType<SearchResponse>() {};
     return apiClient.invokeAPI("SearchApi.search", "/search", "POST", new ArrayList<>(), searchRequest,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               null, localVarReturnType, false);
+                               localVarAuthNames, localVarReturnType, false);
   }
 }

@@ -43,35 +43,19 @@ public class RangeTest {
     }
 
     /**
-     * Test the property 'lt'
+     * Test the property 'from'
      */
     @Test
-    public void ltTest() {
-        // TODO: test lt
+    public void fromTest() {
+        // TODO: test from
     }
 
     /**
-     * Test the property 'lte'
+     * Test the property 'to'
      */
     @Test
-    public void lteTest() {
-        // TODO: test lte
-    }
-
-    /**
-     * Test the property 'gt'
-     */
-    @Test
-    public void gtTest() {
-        // TODO: test gt
-    }
-
-    /**
-     * Test the property 'gte'
-     */
-    @Test
-    public void gteTest() {
-        // TODO: test gte
+    public void toTest() {
+        // TODO: test to
     }
 
 }

@@ -83,7 +83,7 @@ import com.manticoresearch.client.auth.ApiKeyAuth;
 /**
  * <p>ApiClient class.</p>
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-15T06:59:37.812808099Z[Etc/UTC]", comments = "Generator version: 7.17.0")public class ApiClient extends JavaTimeFormatter {
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-15T06:32:20.081730672Z[Etc/UTC]", comments = "Generator version: 7.17.0")public class ApiClient extends JavaTimeFormatter {
   private static final Pattern JSON_MIME_PATTERN = Pattern.compile("(?i)^(application/json|[^;/ \t]+/[^;/ \t]+[+]json)[ \t]*(;.*)?$");
 
   protected Map<String, String> defaultHeaderMap = new HashMap<>();
@@ -137,11 +137,27 @@ import com.manticoresearch.client.auth.ApiKeyAuth;
     this.dateFormat = new RFC3339DateFormat();
 
     // Set default User-Agent.
-    setUserAgent("OpenAPI-Generator/10.0.1/java");
+    setUserAgent("OpenAPI-Generator/10.1.0/java");
 
     // Setup authentications (key: authentication name, value: authentication).
     authentications = new HashMap<>();
     Authentication auth = null;
+    if (authMap != null) {
+      auth = authMap.get("basicAuth");
+    }
+    if (auth instanceof HttpBasicAuth) {
+      authentications.put("basicAuth", auth);
+    } else {
+      authentications.put("basicAuth", new HttpBasicAuth());
+    }
+    if (authMap != null) {
+      auth = authMap.get("bearerAuth");
+    }
+    if (auth instanceof HttpBearerAuth) {
+      authentications.put("bearerAuth", auth);
+    } else {
+      authentications.put("bearerAuth", new HttpBearerAuth("bearer"));
+    }
     // Prevent the authentications from being modified.
     authentications = Collections.unmodifiableMap(authentications);
 

@@ -21,14 +21,17 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.manticoresearch.client.model.AggBucketsResult;
 import com.manticoresearch.client.model.SearchResponseHits;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.manticoresearch.client.JSON;
 
 
 /**
- * Response object containing the results of a search request
+ * Response object containing search results. For conversational search requests that include a &#x60;chat&#x60; object, the optional chat fields below are also populated. For conversational search response fields see [Conversational search](https://manual.manticoresearch.com/Searching/Conversational_search#Response) 
  */
 @JsonPropertyOrder({
   SearchResponse.JSON_PROPERTY_TOOK,
@@ -37,10 +40,15 @@ import com.manticoresearch.client.JSON;
   SearchResponse.JSON_PROPERTY_HITS,
   SearchResponse.JSON_PROPERTY_PROFILE,
   SearchResponse.JSON_PROPERTY_SCROLL,
-  SearchResponse.JSON_PROPERTY_WARNING
+  SearchResponse.JSON_PROPERTY_WARNING,
+  SearchResponse.JSON_PROPERTY_CONVERSATION_UUID,
+  SearchResponse.JSON_PROPERTY_USER_QUERY,
+  SearchResponse.JSON_PROPERTY_SEARCH_QUERY,
+  SearchResponse.JSON_PROPERTY_RESPONSE,
+  SearchResponse.JSON_PROPERTY_SOURCES
 })
 @JsonTypeName("searchResponse")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-15T06:59:37.812808099Z[Etc/UTC]", comments = "Generator version: 7.17.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-15T06:32:20.081730672Z[Etc/UTC]", comments = "Generator version: 7.17.0")
 public class SearchResponse {
   public static final String JSON_PROPERTY_TOOK = "took";
   private Integer took;
@@ -49,7 +57,7 @@ public class SearchResponse {
   private Boolean timedOut;
 
   public static final String JSON_PROPERTY_AGGREGATIONS = "aggregations";
-  private Object aggregations;
+  private Map<String, AggBucketsResult> aggregations = new HashMap<>();
 
   public static final String JSON_PROPERTY_HITS = "hits";
   private SearchResponseHits hits;
@@ -62,6 +70,21 @@ public class SearchResponse {
 
   public static final String JSON_PROPERTY_WARNING = "warning";
   private Object warning;
+
+  public static final String JSON_PROPERTY_CONVERSATION_UUID = "conversation_uuid";
+  private String conversationUuid;
+
+  public static final String JSON_PROPERTY_USER_QUERY = "user_query";
+  private String userQuery;
+
+  public static final String JSON_PROPERTY_SEARCH_QUERY = "search_query";
+  private String searchQuery;
+
+  public static final String JSON_PROPERTY_RESPONSE = "response";
+  private String response;
+
+  public static final String JSON_PROPERTY_SOURCES = "sources";
+  private String sources;
 
   public SearchResponse() { 
   }
@@ -116,27 +139,35 @@ public class SearchResponse {
   }
 
 
-  public SearchResponse aggregations(Object aggregations) {
+  public SearchResponse aggregations(Map<String, AggBucketsResult> aggregations) {
     this.aggregations = aggregations;
     return this;
   }
 
+  public SearchResponse putAggregationsItem(String key, AggBucketsResult aggregationsItem) {
+    if (this.aggregations == null) {
+      this.aggregations = new HashMap<>();
+    }
+    this.aggregations.put(key, aggregationsItem);
+    return this;
+  }
+
   /**
-   * Aggregated search results grouped by the specified criteria
+   * Aggregated search results grouped by the specified criteria. Each named aggregation typically contains a &#x60;buckets&#x60; array (or keyed map) of bucket objects with &#x60;key&#x60;, &#x60;doc_count&#x60;, and optional &#x60;status&#x60;. 
    * @return aggregations
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AGGREGATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Object getAggregations() {
+  public Map<String, AggBucketsResult> getAggregations() {
     return aggregations;
   }
 
 
   @JsonProperty(JSON_PROPERTY_AGGREGATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAggregations(Object aggregations) {
+  public void setAggregations(Map<String, AggBucketsResult> aggregations) {
     this.aggregations = aggregations;
   }
 
@@ -240,6 +271,131 @@ public class SearchResponse {
     this.warning = warning;
   }
 
+
+  public SearchResponse conversationUuid(String conversationUuid) {
+    this.conversationUuid = conversationUuid;
+    return this;
+  }
+
+  /**
+   * Existing or generated conversation id (conversational search)
+   * @return conversationUuid
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CONVERSATION_UUID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getConversationUuid() {
+    return conversationUuid;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_CONVERSATION_UUID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setConversationUuid(String conversationUuid) {
+    this.conversationUuid = conversationUuid;
+  }
+
+
+  public SearchResponse userQuery(String userQuery) {
+    this.userQuery = userQuery;
+    return this;
+  }
+
+  /**
+   * Original user query (conversational search)
+   * @return userQuery
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_USER_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getUserQuery() {
+    return userQuery;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_USER_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setUserQuery(String userQuery) {
+    this.userQuery = userQuery;
+  }
+
+
+  public SearchResponse searchQuery(String searchQuery) {
+    this.searchQuery = searchQuery;
+    return this;
+  }
+
+  /**
+   * Standalone search query used for KNN retrieval (conversational search)
+   * @return searchQuery
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SEARCH_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getSearchQuery() {
+    return searchQuery;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SEARCH_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSearchQuery(String searchQuery) {
+    this.searchQuery = searchQuery;
+  }
+
+
+  public SearchResponse response(String response) {
+    this.response = response;
+    return this;
+  }
+
+  /**
+   * LLM answer as generated (conversational search)
+   * @return response
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RESPONSE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getResponse() {
+    return response;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_RESPONSE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setResponse(String response) {
+    this.response = response;
+  }
+
+
+  public SearchResponse sources(String sources) {
+    this.sources = sources;
+    return this;
+  }
+
+  /**
+   * JSON string containing retrieved source rows used as LLM context (conversational search). 
+   * @return sources
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SOURCES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getSources() {
+    return sources;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SOURCES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSources(String sources) {
+    this.sources = sources;
+  }
+
   /**
    * Return true if this searchResponse object is equal to o.
    */
@@ -258,12 +414,17 @@ public class SearchResponse {
         Objects.equals(this.hits, searchResponse.hits) &&
         Objects.equals(this.profile, searchResponse.profile) &&
         Objects.equals(this.scroll, searchResponse.scroll) &&
-        Objects.equals(this.warning, searchResponse.warning);
+        Objects.equals(this.warning, searchResponse.warning) &&
+        Objects.equals(this.conversationUuid, searchResponse.conversationUuid) &&
+        Objects.equals(this.userQuery, searchResponse.userQuery) &&
+        Objects.equals(this.searchQuery, searchResponse.searchQuery) &&
+        Objects.equals(this.response, searchResponse.response) &&
+        Objects.equals(this.sources, searchResponse.sources);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(took, timedOut, aggregations, hits, profile, scroll, warning);
+    return Objects.hash(took, timedOut, aggregations, hits, profile, scroll, warning, conversationUuid, userQuery, searchQuery, response, sources);
   }
 
   @Override
@@ -277,6 +438,11 @@ public class SearchResponse {
     sb.append("    profile: ").append(toIndentedString(profile)).append("\n");
     sb.append("    scroll: ").append(toIndentedString(scroll)).append("\n");
     sb.append("    warning: ").append(toIndentedString(warning)).append("\n");
+    sb.append("    conversationUuid: ").append(toIndentedString(conversationUuid)).append("\n");
+    sb.append("    userQuery: ").append(toIndentedString(userQuery)).append("\n");
+    sb.append("    searchQuery: ").append(toIndentedString(searchQuery)).append("\n");
+    sb.append("    response: ").append(toIndentedString(response)).append("\n");
+    sb.append("    sources: ").append(toIndentedString(sources)).append("\n");
     sb.append("}");
     return sb.toString();
   }

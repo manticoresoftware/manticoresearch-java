@@ -19,9 +19,13 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.manticoresearch.client.model.Aggregation;
+import com.manticoresearch.client.model.Chat;
+import com.manticoresearch.client.model.FacetFilterMode;
 import com.manticoresearch.client.model.Highlight;
+import com.manticoresearch.client.model.Hybrid;
 import com.manticoresearch.client.model.Join;
 import com.manticoresearch.client.model.Knn;
+import com.manticoresearch.client.model.ScriptField;
 import com.manticoresearch.client.model.SearchQuery;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -57,6 +61,14 @@ public class SearchRequestTest {
     @Test
     public void tableTest() {
         // TODO: test table
+    }
+
+    /**
+     * Test the property 'chat'
+     */
+    @Test
+    public void chatTest() {
+        // TODO: test chat
     }
 
     /**
@@ -100,6 +112,22 @@ public class SearchRequestTest {
     }
 
     /**
+     * Test the property 'hybrid'
+     */
+    @Test
+    public void hybridTest() {
+        // TODO: test hybrid
+    }
+
+    /**
+     * Test the property 'facetFilterMode'
+     */
+    @Test
+    public void facetFilterModeTest() {
+        // TODO: test facetFilterMode
+    }
+
+    /**
      * Test the property 'aggs'
      */
     @Test
@@ -113,6 +141,14 @@ public class SearchRequestTest {
     @Test
     public void expressionsTest() {
         // TODO: test expressions
+    }
+
+    /**
+     * Test the property 'scriptFields'
+     */
+    @Test
+    public void scriptFieldsTest() {
+        // TODO: test scriptFields
     }
 
     /**

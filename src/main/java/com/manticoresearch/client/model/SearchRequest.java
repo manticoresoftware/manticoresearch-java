@@ -22,9 +22,13 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.manticoresearch.client.model.Aggregation;
+import com.manticoresearch.client.model.Chat;
+import com.manticoresearch.client.model.FacetFilterMode;
 import com.manticoresearch.client.model.Highlight;
+import com.manticoresearch.client.model.Hybrid;
 import com.manticoresearch.client.model.Join;
 import com.manticoresearch.client.model.Knn;
+import com.manticoresearch.client.model.ScriptField;
 import com.manticoresearch.client.model.SearchQuery;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -40,17 +44,21 @@ import com.manticoresearch.client.JSON;
 
 
 /**
- * Request object for search operation
+ * Request object for search operation. Either &#x60;table&#x60; (regular search) or &#x60;chat&#x60; (conversational search) must be provided. 
  */
 @JsonPropertyOrder({
   SearchRequest.JSON_PROPERTY_TABLE,
+  SearchRequest.JSON_PROPERTY_CHAT,
   SearchRequest.JSON_PROPERTY_QUERY,
   SearchRequest.JSON_PROPERTY_JOIN,
   SearchRequest.JSON_PROPERTY_HIGHLIGHT,
   SearchRequest.JSON_PROPERTY_LIMIT,
   SearchRequest.JSON_PROPERTY_KNN,
+  SearchRequest.JSON_PROPERTY_HYBRID,
+  SearchRequest.JSON_PROPERTY_FACET_FILTER_MODE,
   SearchRequest.JSON_PROPERTY_AGGS,
   SearchRequest.JSON_PROPERTY_EXPRESSIONS,
+  SearchRequest.JSON_PROPERTY_SCRIPT_FIELDS,
   SearchRequest.JSON_PROPERTY_MAX_MATCHES,
   SearchRequest.JSON_PROPERTY_OFFSET,
   SearchRequest.JSON_PROPERTY_OPTIONS,
@@ -60,10 +68,13 @@ import com.manticoresearch.client.JSON;
   SearchRequest.JSON_PROPERTY_TRACK_SCORES
 })
 @JsonTypeName("searchRequest")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-15T06:59:37.812808099Z[Etc/UTC]", comments = "Generator version: 7.17.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-15T06:32:20.081730672Z[Etc/UTC]", comments = "Generator version: 7.17.0")
 public class SearchRequest {
   public static final String JSON_PROPERTY_TABLE = "table";
   private String table;
+
+  public static final String JSON_PROPERTY_CHAT = "chat";
+  private Chat chat;
 
   public static final String JSON_PROPERTY_QUERY = "query";
   private SearchQuery query;
@@ -80,11 +91,20 @@ public class SearchRequest {
   public static final String JSON_PROPERTY_KNN = "knn";
   private Knn knn;
 
+  public static final String JSON_PROPERTY_HYBRID = "hybrid";
+  private Hybrid hybrid;
+
+  public static final String JSON_PROPERTY_FACET_FILTER_MODE = "facet_filter_mode";
+  private FacetFilterMode facetFilterMode;
+
   public static final String JSON_PROPERTY_AGGS = "aggs";
   private Map<String, Aggregation> aggs = new HashMap<>();
 
   public static final String JSON_PROPERTY_EXPRESSIONS = "expressions";
   private Map<String, String> expressions = new HashMap<>();
+
+  public static final String JSON_PROPERTY_SCRIPT_FIELDS = "script_fields";
+  private Map<String, ScriptField> scriptFields = new HashMap<>();
 
   public static final String JSON_PROPERTY_MAX_MATCHES = "max_matches";
   private Integer maxMatches;
@@ -119,9 +139,9 @@ public class SearchRequest {
    * The table to perform the search on
    * @return table
    */
-  @jakarta.annotation.Nonnull
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TABLE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getTable() {
     return table;
@@ -129,9 +149,34 @@ public class SearchRequest {
 
 
   @JsonProperty(JSON_PROPERTY_TABLE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTable(String table) {
     this.table = table;
+  }
+
+
+  public SearchRequest chat(Chat chat) {
+    this.chat = chat;
+    return this;
+  }
+
+  /**
+   * Get chat
+   * @return chat
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CHAT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Chat getChat() {
+    return chat;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_CHAT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setChat(Chat chat) {
+    this.chat = chat;
   }
 
 
@@ -249,7 +294,7 @@ public class SearchRequest {
   }
 
   /**
-   * Get knn
+   * K-nearest neighbor search settings. Pass a single &#x60;knn&#x60; object or an array of objects for multi-vector search. 
    * @return knn
    */
   @jakarta.annotation.Nullable
@@ -265,6 +310,56 @@ public class SearchRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setKnn(Knn knn) {
     this.knn = knn;
+  }
+
+
+  public SearchRequest hybrid(Hybrid hybrid) {
+    this.hybrid = hybrid;
+    return this;
+  }
+
+  /**
+   * Get hybrid
+   * @return hybrid
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_HYBRID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Hybrid getHybrid() {
+    return hybrid;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_HYBRID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setHybrid(Hybrid hybrid) {
+    this.hybrid = hybrid;
+  }
+
+
+  public SearchRequest facetFilterMode(FacetFilterMode facetFilterMode) {
+    this.facetFilterMode = facetFilterMode;
+    return this;
+  }
+
+  /**
+   * Get facetFilterMode
+   * @return facetFilterMode
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FACET_FILTER_MODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public FacetFilterMode getFacetFilterMode() {
+    return facetFilterMode;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_FACET_FILTER_MODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setFacetFilterMode(FacetFilterMode facetFilterMode) {
+    this.facetFilterMode = facetFilterMode;
   }
 
 
@@ -315,7 +410,7 @@ public class SearchRequest {
   }
 
   /**
-   * Expressions to calculate additional values for the result
+   * Expressions to calculate additional values for the result. Simpler alternative to &#x60;script_fields&#x60;; expression names must be lowercase. 
    * @return expressions
    */
   @jakarta.annotation.Nullable
@@ -331,6 +426,39 @@ public class SearchRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpressions(Map<String, String> expressions) {
     this.expressions = expressions;
+  }
+
+
+  public SearchRequest scriptFields(Map<String, ScriptField> scriptFields) {
+    this.scriptFields = scriptFields;
+    return this;
+  }
+
+  public SearchRequest putScriptFieldsItem(String key, ScriptField scriptFieldsItem) {
+    if (this.scriptFields == null) {
+      this.scriptFields = new HashMap<>();
+    }
+    this.scriptFields.put(key, scriptFieldsItem);
+    return this;
+  }
+
+  /**
+   * Named expressions computed at search time. Each value defines an inline script whose result is stored under the field name. For more information see [Expressions](https://manual.manticoresearch.com/Searching/Expressions#script_fields) 
+   * @return scriptFields
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SCRIPT_FIELDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Map<String, ScriptField> getScriptFields() {
+    return scriptFields;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SCRIPT_FIELDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setScriptFields(Map<String, ScriptField> scriptFields) {
+    this.scriptFields = scriptFields;
   }
 
 
@@ -535,13 +663,17 @@ public class SearchRequest {
     }
     SearchRequest searchRequest = (SearchRequest) o;
     return Objects.equals(this.table, searchRequest.table) &&
+        Objects.equals(this.chat, searchRequest.chat) &&
         Objects.equals(this.query, searchRequest.query) &&
         Objects.equals(this.join, searchRequest.join) &&
         Objects.equals(this.highlight, searchRequest.highlight) &&
         Objects.equals(this.limit, searchRequest.limit) &&
         Objects.equals(this.knn, searchRequest.knn) &&
+        Objects.equals(this.hybrid, searchRequest.hybrid) &&
+        Objects.equals(this.facetFilterMode, searchRequest.facetFilterMode) &&
         Objects.equals(this.aggs, searchRequest.aggs) &&
         Objects.equals(this.expressions, searchRequest.expressions) &&
+        Objects.equals(this.scriptFields, searchRequest.scriptFields) &&
         Objects.equals(this.maxMatches, searchRequest.maxMatches) &&
         Objects.equals(this.offset, searchRequest.offset) &&
         Objects.equals(this.options, searchRequest.options) &&
@@ -557,7 +689,7 @@ public class SearchRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(table, query, join, highlight, limit, knn, aggs, expressions, maxMatches, offset, options, profile, hashCodeNullable(sort), hashCodeNullable(source), trackScores);
+    return Objects.hash(table, chat, query, join, highlight, limit, knn, hybrid, facetFilterMode, aggs, expressions, scriptFields, maxMatches, offset, options, profile, hashCodeNullable(sort), hashCodeNullable(source), trackScores);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -572,13 +704,17 @@ public class SearchRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class SearchRequest {\n");
     sb.append("    table: ").append(toIndentedString(table)).append("\n");
+    sb.append("    chat: ").append(toIndentedString(chat)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
     sb.append("    join: ").append(toIndentedString(join)).append("\n");
     sb.append("    highlight: ").append(toIndentedString(highlight)).append("\n");
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
     sb.append("    knn: ").append(toIndentedString(knn)).append("\n");
+    sb.append("    hybrid: ").append(toIndentedString(hybrid)).append("\n");
+    sb.append("    facetFilterMode: ").append(toIndentedString(facetFilterMode)).append("\n");
     sb.append("    aggs: ").append(toIndentedString(aggs)).append("\n");
     sb.append("    expressions: ").append(toIndentedString(expressions)).append("\n");
+    sb.append("    scriptFields: ").append(toIndentedString(scriptFields)).append("\n");
     sb.append("    maxMatches: ").append(toIndentedString(maxMatches)).append("\n");
     sb.append("    offset: ").append(toIndentedString(offset)).append("\n");
     sb.append("    options: ").append(toIndentedString(options)).append("\n");

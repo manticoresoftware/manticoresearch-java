@@ -31,157 +31,85 @@ import com.manticoresearch.client.JSON;
 
 
 /**
- * Filter helper object defining the &#39;range&#39; condition
+ * An aggregation range. 
  */
 @JsonPropertyOrder({
-  Range.JSON_PROPERTY_LT,
-  Range.JSON_PROPERTY_LTE,
-  Range.JSON_PROPERTY_GT,
-  Range.JSON_PROPERTY_GTE
+  Range.JSON_PROPERTY_FROM,
+  Range.JSON_PROPERTY_TO
 })
 @JsonTypeName("range")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-15T06:59:37.812808099Z[Etc/UTC]", comments = "Generator version: 7.17.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-15T06:32:20.081730672Z[Etc/UTC]", comments = "Generator version: 7.17.0")
 public class Range {
-  public static final String JSON_PROPERTY_LT = "lt";
-  private JsonNullable<Object> lt = JsonNullable.<Object>undefined();
+  public static final String JSON_PROPERTY_FROM = "from";
+  private JsonNullable<Object> from = JsonNullable.<Object>undefined();
 
-  public static final String JSON_PROPERTY_LTE = "lte";
-  private JsonNullable<Object> lte = JsonNullable.<Object>undefined();
-
-  public static final String JSON_PROPERTY_GT = "gt";
-  private JsonNullable<Object> gt = JsonNullable.<Object>undefined();
-
-  public static final String JSON_PROPERTY_GTE = "gte";
-  private JsonNullable<Object> gte = JsonNullable.<Object>undefined();
+  public static final String JSON_PROPERTY_TO = "to";
+  private JsonNullable<Object> to = JsonNullable.<Object>undefined();
 
   public Range() { 
   }
 
-  public Range lt(Object lt) {
-    this.lt = JsonNullable.<Object>of(lt);
+  public Range from(Object from) {
+    this.from = JsonNullable.<Object>of(from);
     return this;
   }
 
   /**
-   * Get lt
-   * @return lt
+   * Get from
+   * @return from
    */
   @jakarta.annotation.Nullable
   @JsonIgnore
 
-  public Object getLt() {
-        return lt.orElse(null);
+  public Object getFrom() {
+        return from.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_LT)
+  @JsonProperty(JSON_PROPERTY_FROM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<Object> getLt_JsonNullable() {
-    return lt;
+  public JsonNullable<Object> getFrom_JsonNullable() {
+    return from;
   }
   
-  @JsonProperty(JSON_PROPERTY_LT)
-  public void setLt_JsonNullable(JsonNullable<Object> lt) {
-    this.lt = lt;
+  @JsonProperty(JSON_PROPERTY_FROM)
+  public void setFrom_JsonNullable(JsonNullable<Object> from) {
+    this.from = from;
   }
 
-  public void setLt(Object lt) {
-    this.lt = JsonNullable.<Object>of(lt);
+  public void setFrom(Object from) {
+    this.from = JsonNullable.<Object>of(from);
   }
 
 
-  public Range lte(Object lte) {
-    this.lte = JsonNullable.<Object>of(lte);
+  public Range to(Object to) {
+    this.to = JsonNullable.<Object>of(to);
     return this;
   }
 
   /**
-   * Get lte
-   * @return lte
+   * Get to
+   * @return to
    */
   @jakarta.annotation.Nullable
   @JsonIgnore
 
-  public Object getLte() {
-        return lte.orElse(null);
+  public Object getTo() {
+        return to.orElse(null);
   }
 
-  @JsonProperty(JSON_PROPERTY_LTE)
+  @JsonProperty(JSON_PROPERTY_TO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<Object> getLte_JsonNullable() {
-    return lte;
+  public JsonNullable<Object> getTo_JsonNullable() {
+    return to;
   }
   
-  @JsonProperty(JSON_PROPERTY_LTE)
-  public void setLte_JsonNullable(JsonNullable<Object> lte) {
-    this.lte = lte;
+  @JsonProperty(JSON_PROPERTY_TO)
+  public void setTo_JsonNullable(JsonNullable<Object> to) {
+    this.to = to;
   }
 
-  public void setLte(Object lte) {
-    this.lte = JsonNullable.<Object>of(lte);
-  }
-
-
-  public Range gt(Object gt) {
-    this.gt = JsonNullable.<Object>of(gt);
-    return this;
-  }
-
-  /**
-   * Get gt
-   * @return gt
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
-  public Object getGt() {
-        return gt.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_GT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<Object> getGt_JsonNullable() {
-    return gt;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_GT)
-  public void setGt_JsonNullable(JsonNullable<Object> gt) {
-    this.gt = gt;
-  }
-
-  public void setGt(Object gt) {
-    this.gt = JsonNullable.<Object>of(gt);
-  }
-
-
-  public Range gte(Object gte) {
-    this.gte = JsonNullable.<Object>of(gte);
-    return this;
-  }
-
-  /**
-   * Get gte
-   * @return gte
-   */
-  @jakarta.annotation.Nullable
-  @JsonIgnore
-
-  public Object getGte() {
-        return gte.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_GTE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<Object> getGte_JsonNullable() {
-    return gte;
-  }
-  
-  @JsonProperty(JSON_PROPERTY_GTE)
-  public void setGte_JsonNullable(JsonNullable<Object> gte) {
-    this.gte = gte;
-  }
-
-  public void setGte(Object gte) {
-    this.gte = JsonNullable.<Object>of(gte);
+  public void setTo(Object to) {
+    this.to = JsonNullable.<Object>of(to);
   }
 
   /**
@@ -196,10 +124,8 @@ public class Range {
       return false;
     }
     Range range = (Range) o;
-    return equalsNullable(this.lt, range.lt) &&
-        equalsNullable(this.lte, range.lte) &&
-        equalsNullable(this.gt, range.gt) &&
-        equalsNullable(this.gte, range.gte);
+    return equalsNullable(this.from, range.from) &&
+        equalsNullable(this.to, range.to);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -208,7 +134,7 @@ public class Range {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(lt), hashCodeNullable(lte), hashCodeNullable(gt), hashCodeNullable(gte));
+    return Objects.hash(hashCodeNullable(from), hashCodeNullable(to));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -222,10 +148,8 @@ public class Range {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Range {\n");
-    sb.append("    lt: ").append(toIndentedString(lt)).append("\n");
-    sb.append("    lte: ").append(toIndentedString(lte)).append("\n");
-    sb.append("    gt: ").append(toIndentedString(gt)).append("\n");
-    sb.append("    gte: ").append(toIndentedString(gte)).append("\n");
+    sb.append("    from: ").append(toIndentedString(from)).append("\n");
+    sb.append("    to: ").append(toIndentedString(to)).append("\n");
     sb.append("}");
     return sb.toString();
   }

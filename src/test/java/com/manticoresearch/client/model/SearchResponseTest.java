@@ -18,8 +18,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.manticoresearch.client.model.AggBucketsResult;
 import com.manticoresearch.client.model.SearchResponseHits;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
@@ -93,6 +96,46 @@ public class SearchResponseTest {
     @Test
     public void warningTest() {
         // TODO: test warning
+    }
+
+    /**
+     * Test the property 'conversationUuid'
+     */
+    @Test
+    public void conversationUuidTest() {
+        // TODO: test conversationUuid
+    }
+
+    /**
+     * Test the property 'userQuery'
+     */
+    @Test
+    public void userQueryTest() {
+        // TODO: test userQuery
+    }
+
+    /**
+     * Test the property 'searchQuery'
+     */
+    @Test
+    public void searchQueryTest() {
+        // TODO: test searchQuery
+    }
+
+    /**
+     * Test the property 'response'
+     */
+    @Test
+    public void responseTest() {
+        // TODO: test response
+    }
+
+    /**
+     * Test the property 'sources'
+     */
+    @Test
+    public void sourcesTest() {
+        // TODO: test sources
     }
 
 }

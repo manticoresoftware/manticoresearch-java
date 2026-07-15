@@ -40,6 +40,7 @@ import java.math.BigDecimal;
  */
 public class SearchApiTest {
 
+
     private static final String BASE_PATH = "http://localhost:9408";
     private IndexApi indexApi;
     private SearchApi searchApi;

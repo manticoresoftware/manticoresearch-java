@@ -24,7 +24,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-15T06:59:37.812808099Z[Etc/UTC]", comments = "Generator version: 7.17.0")public class IndexApi {
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-15T06:32:20.081730672Z[Etc/UTC]", comments = "Generator version: 7.17.0")public class IndexApi {
   private ApiClient apiClient;
 
   public IndexApi() {
@@ -95,10 +95,11 @@ import java.util.Map;
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/x-ndjson");
+    String[] localVarAuthNames = new String[] {"basicAuth", "bearerAuth"};
     GenericType<BulkResponse> localVarReturnType = new GenericType<BulkResponse>() {};
     return apiClient.invokeAPI("IndexApi.bulk", "/bulk", "POST", new ArrayList<>(), body,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               null, localVarReturnType, false);
+                               localVarAuthNames, localVarReturnType, false);
   }
   /**
    * Delete a document in a table
@@ -142,10 +143,11 @@ import java.util.Map;
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
+    String[] localVarAuthNames = new String[] {"basicAuth", "bearerAuth"};
     GenericType<DeleteResponse> localVarReturnType = new GenericType<DeleteResponse>() {};
     return apiClient.invokeAPI("IndexApi.delete", "/delete", "POST", new ArrayList<>(), deleteDocumentRequest,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               null, localVarReturnType, false);
+                               localVarAuthNames, localVarReturnType, false);
   }
   /**
    * Create a new document in a table
@@ -189,10 +191,11 @@ import java.util.Map;
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
+    String[] localVarAuthNames = new String[] {"basicAuth", "bearerAuth"};
     GenericType<SuccessResponse> localVarReturnType = new GenericType<SuccessResponse>() {};
     return apiClient.invokeAPI("IndexApi.insert", "/insert", "POST", new ArrayList<>(), insertDocumentRequest,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               null, localVarReturnType, false);
+                               localVarAuthNames, localVarReturnType, false);
   }
   /**
    * Partially replaces a document in a table
@@ -251,10 +254,11 @@ import java.util.Map;
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
+    String[] localVarAuthNames = new String[] {"basicAuth", "bearerAuth"};
     GenericType<UpdateResponse> localVarReturnType = new GenericType<UpdateResponse>() {};
     return apiClient.invokeAPI("IndexApi.partialReplace", localVarPath, "POST", new ArrayList<>(), replaceDocumentRequest,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               null, localVarReturnType, false);
+                               localVarAuthNames, localVarReturnType, false);
   }
   /**
    * Replace new document in a table
@@ -298,10 +302,11 @@ import java.util.Map;
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
+    String[] localVarAuthNames = new String[] {"basicAuth", "bearerAuth"};
     GenericType<SuccessResponse> localVarReturnType = new GenericType<SuccessResponse>() {};
     return apiClient.invokeAPI("IndexApi.replace", "/replace", "POST", new ArrayList<>(), insertDocumentRequest,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               null, localVarReturnType, false);
+                               localVarAuthNames, localVarReturnType, false);
   }
   /**
    * Update a document in a table
@@ -345,9 +350,10 @@ import java.util.Map;
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
+    String[] localVarAuthNames = new String[] {"basicAuth", "bearerAuth"};
     GenericType<UpdateResponse> localVarReturnType = new GenericType<UpdateResponse>() {};
     return apiClient.invokeAPI("IndexApi.update", "/update", "POST", new ArrayList<>(), updateDocumentRequest,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               null, localVarReturnType, false);
+                               localVarAuthNames, localVarReturnType, false);
   }
 }

@@ -1,12 +1,12 @@
 # Manticore Java client
 
-❗ WARNING: this is a development version of the client. The latest release's readme is https://github.com/manticoresoftware/manticoresearch-java/tree/10.0.0
+❗ WARNING: this is a development version of the client. The latest release's readme is https://github.com/manticoresoftware/manticoresearch-java/tree/10.1.0
 
 Manticore Search Client
 
-- API version: 10.0.1
+- API version: 10.1.0
 
-- Build date: 2026-04-15T06:37:43.975133211Z[Etc/UTC]
+- Build date: 2026-07-15T06:32:20.081730672Z[Etc/UTC]
 
 ## Requirements
 
@@ -21,8 +21,10 @@ Building the API client library requires:
 | **manticoresearch-java**       | **Manticore Search**                |  **Compatibility**       |
 | ------------------------------ | ----------------------------------- |  ------------------------|
 | `dev`                          | `dev` (latest development version)  |  ✅ Fully Compatible     |
-| 10.0.0 or newer                | 17.5.1 or newer                     |  ✅ Fully Compatible     |
-| 10.0.0 or newer                | 9.2.14 to 17.5.1                    |  ⚠️ Partially Compatible |
+| 10.1.0 or newer                | 28.4.4 or newer                     |  ✅ Fully Compatible     |
+| 10.0.0 to 10.1.0               | 28.4.4 or newer                     |  ⚠️ Partially Compatible |
+| 10.0.0 to 10.1.0               | 17.5.1 to 28.4.4                    |  ✅ Fully Compatible     |
+| 10.0.0 to 10.1.0               | 9.2.14 to 17.5.1                    |  ⚠️ Partially Compatible |
 | 8.0.0 to 10.0.0                | 17.5.1 or newer                     |  ⚠️ Partially Compatible |
 | 8.0.0 to 10.0.0                | 9.2.14 to 17.5.1                    |  ✅ Fully Compatible     |
 | 6.0.0 to 8.0.0                 | 9.2.14 or newer                     |  ⚠️ Partially Compatible |
@@ -59,7 +61,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.manticoresearch</groupId>
   <artifactId>manticoresearch-dev</artifactId>
-  <version>10.0.1</version>
+  <version>10.1.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -75,7 +77,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.manticoresearch:manticoresearch:10.0.1"
+     implementation "com.manticoresearch:manticoresearch:10.1.0"
   }
 ```
 
@@ -89,7 +91,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-- `target/manticoresearch-10.0.1.jar`
+- `target/manticoresearch-10.1.0.jar`
 - `target/lib/*.jar`
 
 ## Getting Started
@@ -109,6 +111,15 @@ public class ApiExample {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         defaultClient.setBasePath("http://127.0.0.1:9308");
         
+        // Configure HTTP basic authorization: basicAuth
+        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+        basicAuth.setUsername("YOUR USERNAME");
+        basicAuth.setPassword("YOUR PASSWORD");
+
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
+
         IndexApi apiInstance = new IndexApi(defaultClient);
         String body = "body_example"; // String | 
 
@@ -164,23 +175,35 @@ Class | Method | HTTP request | Description
 *SearchApi* | [**percolate**](docs/SearchApi.md#percolate) | **POST** /pq/{table}/search | Perform reverse search on a percolate table
 *SearchApi* | [**search**](docs/SearchApi.md#search) | **POST** /search | Performs a search on a table
 *UtilsApi* | [**sql**](docs/UtilsApi.md#sql) | **POST** /sql | Perform SQL requests
+*UtilsApi* | [**token**](docs/UtilsApi.md#token) | **POST** /token | Create or rotate a bearer token
 
 
 ## Documentation for Models
 
+ - [AggBucket](docs/AggBucket.md)
+ - [AggBucketsResult](docs/AggBucketsResult.md)
  - [AggComposite](docs/AggComposite.md)
  - [AggCompositeSource](docs/AggCompositeSource.md)
  - [AggCompositeTerm](docs/AggCompositeTerm.md)
  - [AggDateHistogram](docs/AggDateHistogram.md)
  - [AggHistogram](docs/AggHistogram.md)
+ - [AggMedianAbsoluteDeviation](docs/AggMedianAbsoluteDeviation.md)
+ - [AggMetric](docs/AggMetric.md)
+ - [AggPercentileRanks](docs/AggPercentileRanks.md)
+ - [AggPercentiles](docs/AggPercentiles.md)
+ - [AggRange](docs/AggRange.md)
+ - [AggTDigest](docs/AggTDigest.md)
  - [AggTerms](docs/AggTerms.md)
  - [Aggregation](docs/Aggregation.md)
  - [AutocompleteRequest](docs/AutocompleteRequest.md)
  - [BoolFilter](docs/BoolFilter.md)
  - [BulkResponse](docs/BulkResponse.md)
+ - [Chat](docs/Chat.md)
  - [DeleteDocumentRequest](docs/DeleteDocumentRequest.md)
  - [DeleteResponse](docs/DeleteResponse.md)
  - [ErrorResponse](docs/ErrorResponse.md)
+ - [FacetBucketStatus](docs/FacetBucketStatus.md)
+ - [FacetFilterMode](docs/FacetFilterMode.md)
  - [FulltextFilter](docs/FulltextFilter.md)
  - [GeoDistance](docs/GeoDistance.md)
  - [GeoDistanceLocationAnchor](docs/GeoDistanceLocationAnchor.md)
@@ -188,6 +211,7 @@ Class | Method | HTTP request | Description
  - [HighlightFieldOption](docs/HighlightFieldOption.md)
  - [HighlightFields](docs/HighlightFields.md)
  - [HitsHits](docs/HitsHits.md)
+ - [Hybrid](docs/Hybrid.md)
  - [InsertDocumentRequest](docs/InsertDocumentRequest.md)
  - [Join](docs/Join.md)
  - [JoinCond](docs/JoinCond.md)
@@ -199,12 +223,13 @@ Class | Method | HTTP request | Description
  - [PercolateRequest](docs/PercolateRequest.md)
  - [PercolateRequestQuery](docs/PercolateRequestQuery.md)
  - [QueryFilter](docs/QueryFilter.md)
- - [QueryFilterAlias1](docs/QueryFilterAlias1.md)
- - [QueryFilterAlias2](docs/QueryFilterAlias2.md)
  - [Range](docs/Range.md)
+ - [RangeFilter](docs/RangeFilter.md)
  - [ReplaceDocumentRequest](docs/ReplaceDocumentRequest.md)
  - [ResponseError](docs/ResponseError.md)
  - [ResponseErrorDetails](docs/ResponseErrorDetails.md)
+ - [ScriptField](docs/ScriptField.md)
+ - [ScriptFieldScript](docs/ScriptFieldScript.md)
  - [SearchQuery](docs/SearchQuery.md)
  - [SearchRequest](docs/SearchRequest.md)
  - [SearchResponse](docs/SearchResponse.md)
@@ -219,8 +244,17 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Authorization
 
-All endpoints do not require authorization.
 Authentication schemes defined for the API:
+### basicAuth
+
+
+- **Type**: HTTP basic authentication
+
+### bearerAuth
+
+
+- **Type**: HTTP basic authentication
+
 
 ## Recommendation
 

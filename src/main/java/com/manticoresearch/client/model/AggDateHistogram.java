@@ -36,7 +36,7 @@ import com.manticoresearch.client.JSON;
   AggDateHistogram.JSON_PROPERTY_KEYED
 })
 @JsonTypeName("aggDateHistogram")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-15T06:59:37.812808099Z[Etc/UTC]", comments = "Generator version: 7.17.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-15T06:32:20.081730672Z[Etc/UTC]", comments = "Generator version: 7.17.0")
 public class AggDateHistogram {
   public static final String JSON_PROPERTY_FIELD = "field";
   private String field;
@@ -87,9 +87,9 @@ public class AggDateHistogram {
    * Interval of the histogram values
    * @return calendarInterval
    */
-  @jakarta.annotation.Nullable
+  @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_CALENDAR_INTERVAL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getCalendarInterval() {
     return calendarInterval;
@@ -97,7 +97,7 @@ public class AggDateHistogram {
 
 
   @JsonProperty(JSON_PROPERTY_CALENDAR_INTERVAL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setCalendarInterval(Integer calendarInterval) {
     this.calendarInterval = calendarInterval;
   }

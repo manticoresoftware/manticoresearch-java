@@ -17,7 +17,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-15T06:59:37.812808099Z[Etc/UTC]", comments = "Generator version: 7.17.0")public class UtilsApi {
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-15T06:32:20.081730672Z[Etc/UTC]", comments = "Generator version: 7.17.0")public class UtilsApi {
   private ApiClient apiClient;
 
   public UtilsApi() {
@@ -95,9 +95,60 @@ import java.util.Map;
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json");
     String localVarContentType = apiClient.selectHeaderContentType("text/plain");
+    String[] localVarAuthNames = new String[] {"basicAuth", "bearerAuth"};
     GenericType<SqlResponse> localVarReturnType = new GenericType<SqlResponse>() {};
     return apiClient.invokeAPI("UtilsApi.sql", "/sql", "POST", localVarQueryParams, body,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               null, localVarReturnType, false);
+                               localVarAuthNames, localVarReturnType, false);
+  }
+  /**
+   * Create or rotate a bearer token
+   * Create or rotate a bearer token for the authenticated HTTP user. Requires HTTP Basic authentication with a Manticore user name and password. The endpoint returns the raw token. Example:    &#x60;&#x60;&#x60;   curl -u admin:password -X POST http://127.0.0.1:9308/token -d \&quot;{}\&quot;   &#x60;&#x60;&#x60; 
+   * @param body  (required)
+   * @return String
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> Bearer token created or rotated successfully </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Missing or invalid credentials </td><td>  -  </td></tr>
+       <tr><td> 0 </td><td> error </td><td>  -  </td></tr>
+     </table>
+   * 
+   * @see <a href="https://manual.manticoresearch.com/Security/Authentication_and_authorization">Create or rotate a bearer token Documentation</a>
+   */
+  public String token(Object body) throws ApiException {
+    return tokenWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Create or rotate a bearer token
+   * Create or rotate a bearer token for the authenticated HTTP user. Requires HTTP Basic authentication with a Manticore user name and password. The endpoint returns the raw token. Example:    &#x60;&#x60;&#x60;   curl -u admin:password -X POST http://127.0.0.1:9308/token -d \&quot;{}\&quot;   &#x60;&#x60;&#x60; 
+   * @param body  (required)
+   * @return ApiResponse&lt;String&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> Bearer token created or rotated successfully </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Missing or invalid credentials </td><td>  -  </td></tr>
+       <tr><td> 0 </td><td> error </td><td>  -  </td></tr>
+     </table>
+   * 
+   * @see <a href="https://manual.manticoresearch.com/Security/Authentication_and_authorization">Create or rotate a bearer token Documentation</a>
+   */
+  public ApiResponse<String> tokenWithHttpInfo(Object body) throws ApiException {
+    // Check required parameters
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling token");
+    }
+
+    String localVarAccept = apiClient.selectHeaderAccept("application/json", "text/plain");
+    String localVarContentType = apiClient.selectHeaderContentType("application/json");
+    String[] localVarAuthNames = new String[] {"basicAuth"};
+    GenericType<String> localVarReturnType = new GenericType<String>() {};
+    return apiClient.invokeAPI("UtilsApi.token", "/token", "POST", new ArrayList<>(), body,
+                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, false);
   }
 }

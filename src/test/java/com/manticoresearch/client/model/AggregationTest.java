@@ -21,6 +21,11 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.manticoresearch.client.model.AggComposite;
 import com.manticoresearch.client.model.AggDateHistogram;
 import com.manticoresearch.client.model.AggHistogram;
+import com.manticoresearch.client.model.AggMedianAbsoluteDeviation;
+import com.manticoresearch.client.model.AggMetric;
+import com.manticoresearch.client.model.AggPercentileRanks;
+import com.manticoresearch.client.model.AggPercentiles;
+import com.manticoresearch.client.model.AggRange;
 import com.manticoresearch.client.model.AggTerms;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -82,6 +87,78 @@ public class AggregationTest {
     @Test
     public void dateHistogramTest() {
         // TODO: test dateHistogram
+    }
+
+    /**
+     * Test the property 'range'
+     */
+    @Test
+    public void rangeTest() {
+        // TODO: test range
+    }
+
+    /**
+     * Test the property 'dateRange'
+     */
+    @Test
+    public void dateRangeTest() {
+        // TODO: test dateRange
+    }
+
+    /**
+     * Test the property 'percentiles'
+     */
+    @Test
+    public void percentilesTest() {
+        // TODO: test percentiles
+    }
+
+    /**
+     * Test the property 'percentileRanks'
+     */
+    @Test
+    public void percentileRanksTest() {
+        // TODO: test percentileRanks
+    }
+
+    /**
+     * Test the property 'medianAbsoluteDeviation'
+     */
+    @Test
+    public void medianAbsoluteDeviationTest() {
+        // TODO: test medianAbsoluteDeviation
+    }
+
+    /**
+     * Test the property 'min'
+     */
+    @Test
+    public void minTest() {
+        // TODO: test min
+    }
+
+    /**
+     * Test the property 'max'
+     */
+    @Test
+    public void maxTest() {
+        // TODO: test max
+    }
+
+    /**
+     * Test the property 'sum'
+     */
+    @Test
+    public void sumTest() {
+        // TODO: test sum
+    }
+
+    /**
+     * Test the property 'avg'
+     */
+    @Test
+    public void avgTest() {
+        // TODO: test avg
     }
 
 }

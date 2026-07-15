@@ -2,7 +2,7 @@ lazy val root = (project in file(".")).
   settings(
     organization := "com.manticoresearch",
     name := "manticoresearch",
-    version := "10.0.1",
+    version := "10.1.0",
     scalaVersion := "2.11.4",
     scalacOptions ++= Seq("-feature"),
     Compile / javacOptions ++= Seq("-Xlint:deprecation"),
