@@ -38,7 +38,7 @@ import com.manticoresearch.client.JSON;
   Chat.JSON_PROPERTY_FIELDS
 })
 @JsonTypeName("chat")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-15T06:32:20.081730672Z[Etc/UTC]", comments = "Generator version: 7.17.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-15T16:42:02.673411249Z[Etc/UTC]", comments = "Generator version: 7.17.0")
 public class Chat {
   public static final String JSON_PROPERTY_QUERY = "query";
   private String query;

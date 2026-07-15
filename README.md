@@ -1,12 +1,12 @@
 # Manticore Java client
 
-❗ WARNING: this is a development version of the client. The latest release's readme is https://github.com/manticoresoftware/manticoresearch-java/tree/10.1.0
+❗ WARNING: this is a development version of the client. The latest release's readme is https://github.com/manticoresoftware/manticoresearch-java/tree/10.1.1
 
 Manticore Search Client
 
-- API version: 10.1.0
+- API version: 10.1.1
 
-- Build date: 2026-07-15T06:32:20.081730672Z[Etc/UTC]
+- Build date: 2026-07-15T16:42:02.673411249Z[Etc/UTC]
 
 ## Requirements
 
@@ -21,8 +21,8 @@ Building the API client library requires:
 | **manticoresearch-java**       | **Manticore Search**                |  **Compatibility**       |
 | ------------------------------ | ----------------------------------- |  ------------------------|
 | `dev`                          | `dev` (latest development version)  |  ✅ Fully Compatible     |
-| 10.1.0 or newer                | 28.4.4 or newer                     |  ✅ Fully Compatible     |
-| 10.0.0 to 10.1.0               | 28.4.4 or newer                     |  ⚠️ Partially Compatible |
+| 10.1.1 or newer                | 28.4.4 or newer                     |  ✅ Fully Compatible     |
+| 10.0.0 to 10.1.1               | 28.4.4 or newer                     |  ⚠️ Partially Compatible |
 | 10.0.0 to 10.1.0               | 17.5.1 to 28.4.4                    |  ✅ Fully Compatible     |
 | 10.0.0 to 10.1.0               | 9.2.14 to 17.5.1                    |  ⚠️ Partially Compatible |
 | 8.0.0 to 10.0.0                | 17.5.1 or newer                     |  ⚠️ Partially Compatible |
@@ -61,7 +61,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.manticoresearch</groupId>
   <artifactId>manticoresearch-dev</artifactId>
-  <version>10.1.0</version>
+  <version>10.1.1</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -77,7 +77,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.manticoresearch:manticoresearch:10.1.0"
+     implementation "com.manticoresearch:manticoresearch:10.1.1"
   }
 ```
 
@@ -91,7 +91,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-- `target/manticoresearch-10.1.0.jar`
+- `target/manticoresearch-10.1.1.jar`
 - `target/lib/*.jar`
 
 ## Getting Started

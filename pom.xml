@@ -4,7 +4,7 @@
     <groupId>com.manticoresearch</groupId>
     <artifactId>manticoresearch-dev</artifactId>
     <name>manticoresearch-dev</name>
-    <version>10.1.0</version>
+    <version>10.1.1</version>
     <url>https://github.com/manticoresoftware/manticoresearch-java</url>
     <description>Client for Manticore Search</description>
     <scm>
@@ -12,6 +12,7 @@
         <developerConnection>scm:git:git@github.com:openapitools/openapi-generator.git</developerConnection>
         <url>https://github.com/openapitools/openapi-generator</url>
     </scm>
+
 
     <licenses>
         <license>
