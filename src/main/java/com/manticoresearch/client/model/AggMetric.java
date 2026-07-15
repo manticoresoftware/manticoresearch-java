@@ -33,7 +33,7 @@ import com.manticoresearch.client.JSON;
   AggMetric.JSON_PROPERTY_FIELD
 })
 @JsonTypeName("aggMetric")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-15T16:42:02.673411249Z[Etc/UTC]", comments = "Generator version: 7.17.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-15T17:05:43.549629793Z[Etc/UTC]", comments = "Generator version: 7.17.0")
 public class AggMetric {
   public static final String JSON_PROPERTY_FIELD = "field";
   private String field;

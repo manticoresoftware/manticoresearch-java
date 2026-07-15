@@ -61,7 +61,7 @@ import com.manticoresearch.client.JSON;
   Highlight.JSON_PROPERTY_USE_BOUNDARIES
 })
 @JsonTypeName("highlight")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-15T16:42:02.673411249Z[Etc/UTC]", comments = "Generator version: 7.17.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-15T17:05:43.549629793Z[Etc/UTC]", comments = "Generator version: 7.17.0")
 public class Highlight {
   public static final String JSON_PROPERTY_FRAGMENT_SIZE = "fragment_size";
   private Integer fragmentSize;
