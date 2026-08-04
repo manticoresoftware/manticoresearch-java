@@ -7,6 +7,8 @@ Method | HTTP request | Description
 [**bulk**](IndexApi.md#bulk) | **POST** /json/bulk | Bulk index operations
 [**delete**](IndexApi.md#delete) | **POST** /json/delete | Delete a document in a table
 [**insert**](IndexApi.md#insert) | **POST** /json/insert | Create a new document in a table
+[**partialReplace**](IndexApi.md#partialReplace) | **POST** /{table}/_update/{id} | Partially replaces a document in a table
+[**partialReplaceUuid**](IndexApi.md#partialReplaceUuid) | **POST** /{table}/_update/{id} | Partially replaces a document in a table by UUID
 [**replace**](IndexApi.md#replace) | **POST** /json/replace | Replace new document in a table
 [**update**](IndexApi.md#update) | **POST** /json/update | Update a document in a table
 
@@ -279,6 +281,112 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **0** | error |  -  |
+
+
+## partialReplace
+
+> UpdateResponse partialReplace(table, id, replaceDocumentRequest)
+
+Partially replaces a document in a table
+
+Partially replaces a document with given numeric id in a table. Responds with an object of the following format:
+
+```
+{'table':'products','updated':1}
+```
+
+### Example
+
+```java
+// Import classes:
+import com.manticoresearch.client.ApiClient;
+import com.manticoresearch.client.ApiException;
+import com.manticoresearch.client.Configuration;
+import com.manticoresearch.client.model.*;
+import com.manticoresearch.client.api.IndexApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://127.0.0.1:9308");
+    IndexApi apiInstance = new IndexApi(defaultClient);
+    String table = "movies";
+    Long id = 1L;
+    ReplaceDocumentRequest replaceDocumentRequest = new ReplaceDocumentRequest();
+    replaceDocumentRequest.putDocItem("title", "updated");
+    try {
+      UpdateResponse result = apiInstance.partialReplace(table, id, replaceDocumentRequest);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling IndexApi#partialReplace");
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **table** | **String**| Name of the table |
+ **id** | **Long**| Numeric id of the document to replace |
+ **replaceDocumentRequest** | [**ReplaceDocumentRequest**](ReplaceDocumentRequest.md)|  |
+
+### Return type
+
+[**UpdateResponse**](UpdateResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+## partialReplaceUuid
+
+> UpdateResponse partialReplaceUuid(table, uuid, replaceDocumentRequest)
+
+Partially replaces a document in a table by UUID string id
+
+Same endpoint as `partialReplace`, but the path `{id}` is a UUID string (for tables created with `id uuid`). Prefer this helper instead of passing a UUID into the numeric `partialReplace` API.
+
+### Example
+
+```java
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+defaultClient.setBasePath("http://127.0.0.1:9308");
+IndexApi apiInstance = new IndexApi(defaultClient);
+String table = "movies_uuid";
+String uuid = "550e8400-e29b-41d4-a716-446655440000";
+ReplaceDocumentRequest replaceDocumentRequest = new ReplaceDocumentRequest();
+replaceDocumentRequest.putDocItem("title", "updated");
+UpdateResponse result = apiInstance.partialReplaceUuid(table, uuid, replaceDocumentRequest);
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **table** | **String**| Name of the table |
+ **uuid** | **String**| UUID of the document to replace |
+ **replaceDocumentRequest** | [**ReplaceDocumentRequest**](ReplaceDocumentRequest.md)|  |
+
+### Return type
+
+[**UpdateResponse**](UpdateResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 
 ## replace

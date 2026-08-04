@@ -46,12 +46,13 @@ import com.manticoresearch.client.JSON;
   Knn.JSON_PROPERTY_FILTER
 })
 @JsonTypeName("knn")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-15T16:42:02.673411249Z[Etc/UTC]", comments = "Generator version: 7.17.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-03T16:36:20.194473559Z[Etc/UTC]", comments = "Generator version: 7.17.0")
 public class Knn {
   public static final String JSON_PROPERTY_FIELD = "field";
   private String field;
 
   public static final String JSON_PROPERTY_K = "k";
+  @Deprecated
   private Integer k;
 
   public static final String JSON_PROPERTY_QUERY = "query";
@@ -62,6 +63,10 @@ public class Knn {
 
   public static final String JSON_PROPERTY_DOC_ID = "doc_id";
   private Long docId;
+
+  /** UUID companion for the numeric document identifier. */
+  @com.fasterxml.jackson.annotation.JsonIgnore
+  private String uuid;
 
   public static final String JSON_PROPERTY_EF = "ef";
   private Integer ef;
@@ -103,26 +108,30 @@ public class Knn {
   }
 
 
+  @Deprecated
   public Knn k(Integer k) {
     this.k = k;
     return this;
   }
 
   /**
-   * The number of nearest neighbors to return
+   * Deprecated. Use the top-level &#x60;limit&#x60; parameter instead.
    * @return k
+   * @deprecated
    */
-  @jakarta.annotation.Nonnull
+  @Deprecated
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_K)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getK() {
     return k;
   }
 
 
+  @Deprecated
   @JsonProperty(JSON_PROPERTY_K)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setK(Integer k) {
     this.k = k;
   }
@@ -192,7 +201,7 @@ public class Knn {
   }
 
   /**
-   * The docuemnt ID used as input for the KNN search
+   * The document ID used as input for the KNN search
    * @return docId
    */
   @jakarta.annotation.Nullable
@@ -208,6 +217,40 @@ public class Knn {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDocId(Long docId) {
     this.docId = docId;
+  }
+
+  public Knn uuid(String uuid) {
+    this.uuid = uuid;
+    return this;
+  }
+
+  /**
+   * UUID companion for the numeric document identifier.
+   * @return uuid
+   */
+  @jakarta.annotation.Nullable
+  @com.fasterxml.jackson.annotation.JsonIgnore
+  public String getUuid() {
+    return uuid;
+  }
+
+  @com.fasterxml.jackson.annotation.JsonIgnore
+  public void setUuid(String uuid) {
+    this.uuid = uuid;
+  }
+
+  /** Deserialize the single wire identifier as either numeric id or UUID. */
+  @com.fasterxml.jackson.annotation.JsonSetter("doc_id")
+  public void setWireDocId(Object value) {
+    this.docId = value instanceof Number ? ((Number) value).longValue() : null;
+    this.uuid = value instanceof String ? (String) value : null;
+  }
+
+  /** Serialize the numeric id or UUID companion as one wire field. */
+  @com.fasterxml.jackson.annotation.JsonProperty("doc_id")
+  @com.fasterxml.jackson.annotation.JsonInclude(value = com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL)
+  public Object getWireDocId() {
+    return uuid != null ? uuid : docId;
   }
 
 
@@ -327,6 +370,7 @@ public class Knn {
         Objects.equals(this.query, knn.query) &&
         Objects.equals(this.queryVector, knn.queryVector) &&
         Objects.equals(this.docId, knn.docId) &&
+        Objects.equals(this.uuid, knn.uuid) &&
         Objects.equals(this.ef, knn.ef) &&
         Objects.equals(this.rescore, knn.rescore) &&
         Objects.equals(this.oversampling, knn.oversampling) &&
@@ -347,6 +391,7 @@ public class Knn {
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
     sb.append("    queryVector: ").append(toIndentedString(queryVector)).append("\n");
     sb.append("    docId: ").append(toIndentedString(docId)).append("\n");
+    sb.append("    uuid: ").append(toIndentedString(uuid)).append("\n");
     sb.append("    ef: ").append(toIndentedString(ef)).append("\n");
     sb.append("    rescore: ").append(toIndentedString(rescore)).append("\n");
     sb.append("    oversampling: ").append(toIndentedString(oversampling)).append("\n");

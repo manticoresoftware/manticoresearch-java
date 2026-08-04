@@ -141,11 +141,38 @@ public class IndexApiTest {
         indexSqlresult = indexApi.insert(indexNewdoc);
         System.out.println(indexSqlresult);              
         
+        // Auto-generated id (omit id); doc must be non-empty for Manticore validation
         indexNewdoc = new InsertDocumentRequest();
-        indexDoc = new HashMap<String,Object>();
-        indexNewdoc.table("products").setDoc(indexDoc); 
-        indexSqlresult = indexApi.insert(indexNewdoc);
-        System.out.println(indexSqlresult);
+        indexDoc = new HashMap<String,Object>(){{
+            put("title","auto-id");
+        }};
+        indexNewdoc.table("products").setDoc(indexDoc);
+        SuccessResponse autoIdResult = indexApi.insert(indexNewdoc);
+        System.out.println(autoIdResult);
+        Assertions.assertNotNull(autoIdResult.getId());
+        Assertions.assertNull(autoIdResult.getUuid());
 
+    }
+
+    @Test
+    public void uuidDocumentIdTest() throws ApiException {
+        final String uuid = "550e8400-e29b-41d4-a716-446655440000";
+        utilsApi.sql("DROP TABLE IF EXISTS movies_uuid", true);
+        utilsApi.sql("CREATE TABLE movies_uuid (id uuid, title text)", true);
+
+        InsertDocumentRequest document = new InsertDocumentRequest()
+            .table("movies_uuid")
+            .uuid(uuid)
+            .doc(new HashMap<String, Object>() {{
+                put("title", "uuid doc");
+            }});
+        SuccessResponse inserted = indexApi.insert(document);
+        Assertions.assertNull(inserted.getId());
+        Assertions.assertEquals(uuid, inserted.getUuid());
+
+        SearchResponse response = searchApi.search(new SearchRequest().table("movies_uuid"));
+        Assertions.assertEquals(1, response.getHits().getHits().size());
+        Assertions.assertNull(response.getHits().getHits().get(0).getId());
+        Assertions.assertEquals(uuid, response.getHits().getHits().get(0).getUuid());
     }
 }

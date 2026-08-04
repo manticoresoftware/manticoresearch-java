@@ -24,7 +24,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-15T16:42:02.673411249Z[Etc/UTC]", comments = "Generator version: 7.17.0")public class IndexApi {
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-03T16:36:20.194473559Z[Etc/UTC]", comments = "Generator version: 7.17.0")public class IndexApi {
   private ApiClient apiClient;
 
   public IndexApi() {
@@ -257,6 +257,42 @@ import java.util.Map;
     String[] localVarAuthNames = new String[] {"basicAuth", "bearerAuth"};
     GenericType<UpdateResponse> localVarReturnType = new GenericType<UpdateResponse>() {};
     return apiClient.invokeAPI("IndexApi.partialReplace", localVarPath, "POST", new ArrayList<>(), replaceDocumentRequest,
+                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, false);
+  }
+
+  /**
+   * Partially replaces a document addressed by a UUID string.
+   * @param table Name of the table (required)
+   * @param uuid UUID of the document to replace (required)
+   * @param replaceDocumentRequest replacement document (required)
+   * @return UpdateResponse
+   * @throws ApiException if the API call fails
+   */
+  public UpdateResponse partialReplaceUuid(String table, String uuid, ReplaceDocumentRequest replaceDocumentRequest) throws ApiException {
+    return partialReplaceUuidWithHttpInfo(table, uuid, replaceDocumentRequest).getData();
+  }
+
+  /** Performs a UUID-addressed partial replace with HTTP metadata. */
+  public ApiResponse<UpdateResponse> partialReplaceUuidWithHttpInfo(String table, String uuid, ReplaceDocumentRequest replaceDocumentRequest) throws ApiException {
+    if (table == null) {
+      throw new ApiException(400, "Missing the required parameter 'table' when calling partialReplaceUuid");
+    }
+    if (uuid == null) {
+      throw new ApiException(400, "Missing the required parameter 'uuid' when calling partialReplaceUuid");
+    }
+    if (replaceDocumentRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'replaceDocumentRequest' when calling partialReplaceUuid");
+    }
+
+    String localVarPath = "/{table}/_update/{id}"
+            .replaceAll("\\{table}", apiClient.escapeString(table))
+            .replaceAll("\\{id}", apiClient.escapeString(uuid));
+    String localVarAccept = apiClient.selectHeaderAccept("application/json");
+    String localVarContentType = apiClient.selectHeaderContentType("application/json");
+    String[] localVarAuthNames = new String[] {"basicAuth", "bearerAuth"};
+    GenericType<UpdateResponse> localVarReturnType = new GenericType<UpdateResponse>() {};
+    return apiClient.invokeAPI("IndexApi.partialReplaceUuid", localVarPath, "POST", new ArrayList<>(), replaceDocumentRequest,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }

@@ -36,7 +36,7 @@ import com.manticoresearch.client.JSON;
   UpdateResponse.JSON_PROPERTY_RESULT
 })
 @JsonTypeName("updateResponse")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-15T16:42:02.673411249Z[Etc/UTC]", comments = "Generator version: 7.17.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-03T16:36:20.194473559Z[Etc/UTC]", comments = "Generator version: 7.17.0")
 public class UpdateResponse {
   public static final String JSON_PROPERTY_TABLE = "table";
   private String table;
@@ -46,6 +46,10 @@ public class UpdateResponse {
 
   public static final String JSON_PROPERTY_ID = "id";
   private Long id;
+
+  /** UUID companion for the numeric document identifier. */
+  @com.fasterxml.jackson.annotation.JsonIgnore
+  private String uuid;
 
   public static final String JSON_PROPERTY_RESULT = "result";
   private String result;
@@ -113,18 +117,49 @@ public class UpdateResponse {
    * @return id
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
+  @com.fasterxml.jackson.annotation.JsonIgnore
   public Long getId() {
     return id;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @com.fasterxml.jackson.annotation.JsonIgnore
   public void setId(Long id) {
     this.id = id;
+  }
+
+  public UpdateResponse uuid(String uuid) {
+    this.uuid = uuid;
+    return this;
+  }
+
+  /**
+   * UUID companion for the numeric document identifier.
+   * @return uuid
+   */
+  @jakarta.annotation.Nullable
+  @com.fasterxml.jackson.annotation.JsonIgnore
+  public String getUuid() {
+    return uuid;
+  }
+
+  @com.fasterxml.jackson.annotation.JsonIgnore
+  public void setUuid(String uuid) {
+    this.uuid = uuid;
+  }
+
+  /** Deserialize the single wire identifier as either numeric id or UUID. */
+  @com.fasterxml.jackson.annotation.JsonSetter("id")
+  public void setWireId(Object value) {
+    this.id = value instanceof Number ? ((Number) value).longValue() : null;
+    this.uuid = value instanceof String ? (String) value : null;
+  }
+
+  /** Serialize the numeric id or UUID companion as one wire field. */
+  @com.fasterxml.jackson.annotation.JsonProperty("id")
+  @com.fasterxml.jackson.annotation.JsonInclude(value = com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL)
+  public Object getWireId() {
+    return uuid != null ? uuid : id;
   }
 
 
@@ -182,6 +217,7 @@ public class UpdateResponse {
     sb.append("    table: ").append(toIndentedString(table)).append("\n");
     sb.append("    updated: ").append(toIndentedString(updated)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    uuid: ").append(toIndentedString(uuid)).append("\n");
     sb.append("    result: ").append(toIndentedString(result)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -41,10 +41,14 @@ import com.manticoresearch.client.JSON;
   HitsHits.JSON_PROPERTY_FIELDS
 })
 @JsonTypeName("hitsHits")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-15T16:42:02.673411249Z[Etc/UTC]", comments = "Generator version: 7.17.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-03T16:36:20.194473559Z[Etc/UTC]", comments = "Generator version: 7.17.0")
 public class HitsHits {
   public static final String JSON_PROPERTY_ID = "_id";
   private Long id;
+
+  /** UUID companion for the numeric document identifier. */
+  @com.fasterxml.jackson.annotation.JsonIgnore
+  private String uuid;
 
   public static final String JSON_PROPERTY_SCORE = "_score";
   private Integer score;
@@ -80,18 +84,49 @@ public class HitsHits {
    * @return id
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
+  @com.fasterxml.jackson.annotation.JsonIgnore
   public Long getId() {
     return id;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @com.fasterxml.jackson.annotation.JsonIgnore
   public void setId(Long id) {
     this.id = id;
+  }
+
+  public HitsHits uuid(String uuid) {
+    this.uuid = uuid;
+    return this;
+  }
+
+  /**
+   * UUID companion for the numeric document identifier.
+   * @return uuid
+   */
+  @jakarta.annotation.Nullable
+  @com.fasterxml.jackson.annotation.JsonIgnore
+  public String getUuid() {
+    return uuid;
+  }
+
+  @com.fasterxml.jackson.annotation.JsonIgnore
+  public void setUuid(String uuid) {
+    this.uuid = uuid;
+  }
+
+  /** Deserialize the single wire identifier as either numeric id or UUID. */
+  @com.fasterxml.jackson.annotation.JsonSetter("_id")
+  public void setWireId(Object value) {
+    this.id = value instanceof Number ? ((Number) value).longValue() : null;
+    this.uuid = value instanceof String ? (String) value : null;
+  }
+
+  /** Serialize the numeric id or UUID companion as one wire field. */
+  @com.fasterxml.jackson.annotation.JsonProperty("_id")
+  @com.fasterxml.jackson.annotation.JsonInclude(value = com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL)
+  public Object getWireId() {
+    return uuid != null ? uuid : id;
   }
 
 
@@ -293,7 +328,7 @@ public class HitsHits {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, score, source, knnDist, highlight, table, type, fields);
+    return Objects.hash(id, uuid, score, source, knnDist, highlight, table, type, fields);
   }
 
   @Override
@@ -301,6 +336,7 @@ public class HitsHits {
     StringBuilder sb = new StringBuilder();
     sb.append("class HitsHits {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    uuid: ").append(toIndentedString(uuid)).append("\n");
     sb.append("    score: ").append(toIndentedString(score)).append("\n");
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    knnDist: ").append(toIndentedString(knnDist)).append("\n");

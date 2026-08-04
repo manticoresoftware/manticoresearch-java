@@ -37,7 +37,7 @@ import com.manticoresearch.client.JSON;
   DeleteResponse.JSON_PROPERTY_RESULT
 })
 @JsonTypeName("deleteResponse")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-15T16:42:02.673411249Z[Etc/UTC]", comments = "Generator version: 7.17.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-03T16:36:20.194473559Z[Etc/UTC]", comments = "Generator version: 7.17.0")
 public class DeleteResponse {
   public static final String JSON_PROPERTY_TABLE = "table";
   private String table;
@@ -47,6 +47,10 @@ public class DeleteResponse {
 
   public static final String JSON_PROPERTY_ID = "id";
   private Long id;
+
+  /** UUID companion for the numeric document identifier. */
+  @com.fasterxml.jackson.annotation.JsonIgnore
+  private String uuid;
 
   public static final String JSON_PROPERTY_FOUND = "found";
   private Boolean found;
@@ -113,22 +117,53 @@ public class DeleteResponse {
   }
 
   /**
-   * The ID of the deleted document. If multiple documents are deleted, the ID of the first deleted document is returned
+   * The ID of the deleted document. If multiple documents are deleted, the ID of the first deleted document is returned 
    * @return id
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
+  @com.fasterxml.jackson.annotation.JsonIgnore
   public Long getId() {
     return id;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @com.fasterxml.jackson.annotation.JsonIgnore
   public void setId(Long id) {
     this.id = id;
+  }
+
+  public DeleteResponse uuid(String uuid) {
+    this.uuid = uuid;
+    return this;
+  }
+
+  /**
+   * UUID companion for the numeric document identifier.
+   * @return uuid
+   */
+  @jakarta.annotation.Nullable
+  @com.fasterxml.jackson.annotation.JsonIgnore
+  public String getUuid() {
+    return uuid;
+  }
+
+  @com.fasterxml.jackson.annotation.JsonIgnore
+  public void setUuid(String uuid) {
+    this.uuid = uuid;
+  }
+
+  /** Deserialize the single wire identifier as either numeric id or UUID. */
+  @com.fasterxml.jackson.annotation.JsonSetter("id")
+  public void setWireId(Object value) {
+    this.id = value instanceof Number ? ((Number) value).longValue() : null;
+    this.uuid = value instanceof String ? (String) value : null;
+  }
+
+  /** Serialize the numeric id or UUID companion as one wire field. */
+  @com.fasterxml.jackson.annotation.JsonProperty("id")
+  @com.fasterxml.jackson.annotation.JsonInclude(value = com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL)
+  public Object getWireId() {
+    return uuid != null ? uuid : id;
   }
 
 
@@ -212,6 +247,7 @@ public class DeleteResponse {
     sb.append("    table: ").append(toIndentedString(table)).append("\n");
     sb.append("    deleted: ").append(toIndentedString(deleted)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    uuid: ").append(toIndentedString(uuid)).append("\n");
     sb.append("    found: ").append(toIndentedString(found)).append("\n");
     sb.append("    result: ").append(toIndentedString(result)).append("\n");
     sb.append("}");
