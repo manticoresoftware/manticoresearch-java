@@ -53,7 +53,7 @@ import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import com.manticoresearch.client.JSON;
 
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-03T16:36:20.194473559Z[Etc/UTC]", comments = "Generator version: 7.17.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-05T14:22:59.689871728Z[Etc/UTC]", comments = "Generator version: 7.17.0")
 @JsonDeserialize(using = ResponseError.ResponseErrorDeserializer.class)
 @JsonSerialize(using = ResponseError.ResponseErrorSerializer.class)
 public class ResponseError extends AbstractOpenApiSchema {
