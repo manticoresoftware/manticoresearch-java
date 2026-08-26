@@ -48,7 +48,7 @@ import com.manticoresearch.client.JSON;
   SearchResponse.JSON_PROPERTY_SOURCES
 })
 @JsonTypeName("searchResponse")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-03T16:36:20.194473559Z[Etc/UTC]", comments = "Generator version: 7.17.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T06:17:44.794020417Z[Etc/UTC]", comments = "Generator version: 7.17.0")
 public class SearchResponse {
   public static final String JSON_PROPERTY_TOOK = "took";
   private Integer took;
@@ -153,7 +153,7 @@ public class SearchResponse {
   }
 
   /**
-   * Aggregated search results grouped by the specified criteria. Each named aggregation typically contains a &#x60;buckets&#x60; array (or keyed map) of bucket objects with &#x60;key&#x60;, &#x60;doc_count&#x60;, and optional &#x60;status&#x60;. 
+   * Aggregated search results, keyed by aggregation name. A bucket aggregation contributes a &#x60;buckets&#x60; array (or keyed map) of bucket objects; a metric aggregation contributes a &#x60;value&#x60; or &#x60;values&#x60; instead. See &#x60;aggBucketsResult&#x60;. 
    * @return aggregations
    */
   @jakarta.annotation.Nullable

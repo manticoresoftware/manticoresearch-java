@@ -48,7 +48,7 @@ import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import com.manticoresearch.client.JSON;
 
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-03T16:36:20.194473559Z[Etc/UTC]", comments = "Generator version: 7.17.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T06:17:44.794020417Z[Etc/UTC]", comments = "Generator version: 7.17.0")
 @JsonDeserialize(using = HighlightFields.HighlightFieldsDeserializer.class)
 @JsonSerialize(using = HighlightFields.HighlightFieldsSerializer.class)
 public class HighlightFields extends AbstractOpenApiSchema {

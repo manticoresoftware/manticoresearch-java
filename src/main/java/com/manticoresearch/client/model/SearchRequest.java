@@ -68,7 +68,7 @@ import com.manticoresearch.client.JSON;
   SearchRequest.JSON_PROPERTY_TRACK_SCORES
 })
 @JsonTypeName("searchRequest")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-03T16:36:20.194473559Z[Etc/UTC]", comments = "Generator version: 7.17.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T06:17:44.794020417Z[Etc/UTC]", comments = "Generator version: 7.17.0")
 public class SearchRequest {
   public static final String JSON_PROPERTY_TABLE = "table";
   private String table;
@@ -382,7 +382,7 @@ public class SearchRequest {
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AGGS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.NON_EMPTY)
 
   public Map<String, Aggregation> getAggs() {
     return aggs;
@@ -390,7 +390,7 @@ public class SearchRequest {
 
 
   @JsonProperty(JSON_PROPERTY_AGGS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.NON_EMPTY)
   public void setAggs(Map<String, Aggregation> aggs) {
     this.aggs = aggs;
   }

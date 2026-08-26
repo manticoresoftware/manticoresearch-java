@@ -58,4 +58,28 @@ public class AggBucketsResultTest {
         // TODO: test afterKey
     }
 
+    /**
+     * Test the property 'value'
+     */
+    @Test
+    public void valueTest() {
+        // TODO: test value
+    }
+
+    /**
+     * Test the property 'valueAsString'
+     */
+    @Test
+    public void valueAsStringTest() {
+        // TODO: test valueAsString
+    }
+
+    /**
+     * Test the property 'values'
+     */
+    @Test
+    public void valuesTest() {
+        // TODO: test values
+    }
+
 }

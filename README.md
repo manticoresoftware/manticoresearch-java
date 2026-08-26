@@ -1,12 +1,12 @@
 # Manticore Java client
 
-❗ WARNING: this is a development version of the client. The latest release's readme is https://github.com/manticoresoftware/manticoresearch-java/tree/10.2.0
+❗ WARNING: this is a development version of the client. The latest release's readme is https://github.com/manticoresoftware/manticoresearch-java/tree/10.3.0
 
 Manticore Search Client
 
-- API version: 10.2.0
+- API version: 10.3.0
 
-- Build date: 2026-08-03T16:36:20.194473559Z[Etc/UTC]
+- Build date: 2026-08-26T06:17:44.794020417Z[Etc/UTC]
 
 ## Requirements
 
@@ -61,7 +61,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.manticoresearch</groupId>
   <artifactId>manticoresearch-dev</artifactId>
-  <version>10.2.0</version>
+  <version>10.3.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -77,7 +77,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.manticoresearch:manticoresearch:10.2.0"
+     implementation "com.manticoresearch:manticoresearch:10.3.0"
   }
 ```
 
@@ -91,7 +91,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-- `target/manticoresearch-10.2.0.jar`
+- `target/manticoresearch-10.3.0.jar`
 - `target/lib/*.jar`
 
 ## Getting Started

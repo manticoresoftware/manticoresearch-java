@@ -28,14 +28,14 @@ import java.util.Set;
 import jakarta.ws.rs.core.GenericType;
 import jakarta.ws.rs.ext.ContextResolver;
 
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-03T16:36:20.194473559Z[Etc/UTC]", comments = "Generator version: 7.17.0")public class JSON implements ContextResolver<ObjectMapper> {
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T06:17:44.794020417Z[Etc/UTC]", comments = "Generator version: 7.17.0")public class JSON implements ContextResolver<ObjectMapper> {
   private ObjectMapper mapper;
 
   public JSON() {
     mapper = JsonMapper.builder()
             .serializationInclusion(JsonInclude.Include.NON_NULL)
             .configure(MapperFeature.ALLOW_COERCION_OF_SCALARS, false)
-            .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true)
+            .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
             .configure(DeserializationFeature.FAIL_ON_INVALID_SUBTYPE, true)
             .disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
             .enable(SerializationFeature.WRITE_ENUMS_USING_TO_STRING)

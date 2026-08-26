@@ -31,20 +31,32 @@ import com.manticoresearch.client.JSON;
 
 
 /**
- * Aggregation group returned under &#x60;aggregations&#x60;
+ * One aggregation result. It is either BUCKET-shaped or METRIC-shaped, never both: which one depends on the aggregation that was requested. 
  */
 @JsonPropertyOrder({
   AggBucketsResult.JSON_PROPERTY_BUCKETS,
-  AggBucketsResult.JSON_PROPERTY_AFTER_KEY
+  AggBucketsResult.JSON_PROPERTY_AFTER_KEY,
+  AggBucketsResult.JSON_PROPERTY_VALUE,
+  AggBucketsResult.JSON_PROPERTY_VALUE_AS_STRING,
+  AggBucketsResult.JSON_PROPERTY_VALUES
 })
 @JsonTypeName("aggBucketsResult")
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-03T16:36:20.194473559Z[Etc/UTC]", comments = "Generator version: 7.17.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-26T06:17:44.794020417Z[Etc/UTC]", comments = "Generator version: 7.17.0")
 public class AggBucketsResult {
   public static final String JSON_PROPERTY_BUCKETS = "buckets";
   private JsonNullable<Object> buckets = JsonNullable.<Object>undefined();
 
   public static final String JSON_PROPERTY_AFTER_KEY = "after_key";
   private Object afterKey;
+
+  public static final String JSON_PROPERTY_VALUE = "value";
+  private JsonNullable<Object> value = JsonNullable.<Object>undefined();
+
+  public static final String JSON_PROPERTY_VALUE_AS_STRING = "value_as_string";
+  private String valueAsString;
+
+  public static final String JSON_PROPERTY_VALUES = "values";
+  private JsonNullable<Object> values = JsonNullable.<Object>undefined();
 
   public AggBucketsResult() { 
   }
@@ -105,6 +117,95 @@ public class AggBucketsResult {
     this.afterKey = afterKey;
   }
 
+
+  public AggBucketsResult value(Object value) {
+    this.value = JsonNullable.<Object>of(value);
+    return this;
+  }
+
+  /**
+   * Get value
+   * @return value
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public Object getValue() {
+        return value.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_VALUE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Object> getValue_JsonNullable() {
+    return value;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_VALUE)
+  public void setValue_JsonNullable(JsonNullable<Object> value) {
+    this.value = value;
+  }
+
+  public void setValue(Object value) {
+    this.value = JsonNullable.<Object>of(value);
+  }
+
+
+  public AggBucketsResult valueAsString(String valueAsString) {
+    this.valueAsString = valueAsString;
+    return this;
+  }
+
+  /**
+   * String rendering of &#x60;value&#x60;, returned alongside it by &#x60;median_absolute_deviation&#x60;. 
+   * @return valueAsString
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VALUE_AS_STRING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getValueAsString() {
+    return valueAsString;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_VALUE_AS_STRING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setValueAsString(String valueAsString) {
+    this.valueAsString = valueAsString;
+  }
+
+
+  public AggBucketsResult values(Object values) {
+    this.values = JsonNullable.<Object>of(values);
+    return this;
+  }
+
+  /**
+   * Get values
+   * @return values
+   */
+  @jakarta.annotation.Nullable
+  @JsonIgnore
+
+  public Object getValues() {
+        return values.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_VALUES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Object> getValues_JsonNullable() {
+    return values;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_VALUES)
+  public void setValues_JsonNullable(JsonNullable<Object> values) {
+    this.values = values;
+  }
+
+  public void setValues(Object values) {
+    this.values = JsonNullable.<Object>of(values);
+  }
+
   /**
    * Return true if this aggBucketsResult object is equal to o.
    */
@@ -118,7 +219,10 @@ public class AggBucketsResult {
     }
     AggBucketsResult aggBucketsResult = (AggBucketsResult) o;
     return equalsNullable(this.buckets, aggBucketsResult.buckets) &&
-        Objects.equals(this.afterKey, aggBucketsResult.afterKey);
+        Objects.equals(this.afterKey, aggBucketsResult.afterKey) &&
+        equalsNullable(this.value, aggBucketsResult.value) &&
+        Objects.equals(this.valueAsString, aggBucketsResult.valueAsString) &&
+        equalsNullable(this.values, aggBucketsResult.values);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -127,7 +231,7 @@ public class AggBucketsResult {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(buckets), afterKey);
+    return Objects.hash(hashCodeNullable(buckets), afterKey, hashCodeNullable(value), valueAsString, hashCodeNullable(values));
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -143,6 +247,9 @@ public class AggBucketsResult {
     sb.append("class AggBucketsResult {\n");
     sb.append("    buckets: ").append(toIndentedString(buckets)).append("\n");
     sb.append("    afterKey: ").append(toIndentedString(afterKey)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("    valueAsString: ").append(toIndentedString(valueAsString)).append("\n");
+    sb.append("    values: ").append(toIndentedString(values)).append("\n");
     sb.append("}");
     return sb.toString();
   }
